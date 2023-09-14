@@ -1,0 +1,1639 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="./main.js" type="module"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <!-- Style Swipper -->
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 34px;
+      }
+      .swiper-slide {
+        width: 317px;
+        height: 401px;
+        border-radius: 20px;
+        padding-left: 22px;
+        padding-right: 22px;
+        padding-top: 22px;
+        padding-bottom: 45px;
+        background-color: #fff;
+        margin-left: 30px;
+        margin-right: 30;
+      }
+      .swiper-slide-active {
+        width: 317px;
+      }
+      .swiper-slide .img-profile {
+        width: 77px;
+        height: 70px;
+        object-fit: cover;
+        border-radius: 10px;
+        float: left;
+      }
+      .swiper-slide .identitas {
+        text-align: left;
+        margin-left: 0;
+      }
+      .swiper-slide-active p {
+        display: block;
+      }
+      @media only screen and (max-width: 760px) {
+        .swiper {
+          width: 80%;
+          gap: 0px;
+        }
+        .swiper-wrapper {
+          width: 80%;
+          margin-bottom: 20px;
+          gap: 0;
+        }
+        .swiper-slide {
+          width: 100%;
+          margin-left: 0;
+          margin-right: 0;
+        }
+        .swiper-slide-active {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#f6fcff] text-[#404040] font-[Poppins]">
+    <!-- Navabar -->
+    <div class="w-full z-50" id="navbar">
+      <nav class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5">
+        <a href="/" class="w-[154px] h-[31px]">
+          <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
+        </a>
+        <button
+          data-collapse-toggle="navbar-cta"
+          type="button"
+          class="navbar-toggle z-10 inline-flex p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 right-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-cta"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-[37px] h-[37px]" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+        <ul class="hidden md:flex gap-[40px]">
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex gap-[5px] border-none">
+                Kelas
+                <svg xmlns="../images/arrow.svg" class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a href="kelas.html" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Regular</a>
+                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Kelas</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex gap-[5px] border-none">
+                Mentor
+                <svg xmlns="../images/arrow.svg" class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Mentor</a>
+                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Mentor</a>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex gap-[5px] border-none items-center">
+                Company
+                <svg xmlns="../images/arrow.svg" class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Start-up</a>
+                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Corporate</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="hidden w-full lg:flex gap-2 md:w-auto h-fit">
+          <button class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md" type="button">Login</button>
+          <button class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md" type="button">Register</button>
+        </div>
+      </nav>
+    </div>
+    <!-- End Navbar -->
+    <!-- Hero -->
+    <div class="absolute top-[660px] w-full h-[328.26px] z-10">
+      <div class="wave"></div>
+    </div>
+    <div class="lg:hidden block absolute top-0 w-full h-[730px] overflow-hidden">
+      <div class="lg:hidden block absolute left-0 w-[200%] md:w-full h-[740px] hero-gradasi z-[9]"></div>
+    </div>
+    <div class="container mx-auto m-0">
+      <section id="Hero" class="relative w-full bg-center xl:min-w-[1306px] h-[730px] bg-[url('./images/bg-hero1.png')] bg-no-repeat bg-cover">
+        <div class="flex md:flex-row w-[90%] md:w-full mx-auto h-fit lg:w-[1016px]">
+          <div class="w-fit h-[680px] pt-[134px]">
+            <div class="absolute flex flex-col w-[90%] md:w-[80%] z-30">
+              <h1 class="font-[700] w-full md:w-[372px] leading-[120%] text-[36px] md:text-[40px] mx-auto md:mx-0 text-left">Pelatihan dan Penyaluran kerja.</h1>
+              <div class="flex-col w-full md:w-[418px] h-[233px] mt-[37px] md:mt-[65px]">
+                <div class="w-fit h-fit float-left mr-[14.27px]">
+                  <div
+                    class="dot flex w-[37.73px] h-[36.09px] bg-[#187CFF] border-[4.10138px] border-[#e7f7ff] rounded-[82.0276px] mb-[6px] shadow-dot text-white text-center py-[8.20276px 16.4055px] justify-center items-center gap-[8.2px]"
+                  >
+                    1
+                  </div>
+                  <div class="relative flex w-[37.73px] h-[80.38px] md:h-[50.38px] text-center my-[8.20276px 16.4055px] justify-center items-center">
+                    <div class="arrow w-[59px] absolute top-[38px] md:top-[20px] md:w-[40px] h-0">
+                      <div class="absolute right-0 -top-[4.25px] h-[8px] w-[8px] border-[2px] rotate-45 border-l-0 border-b-0 border-r-[#187CFF] border-t-[#187CFF]"></div>
+                    </div>
+                  </div>
+                  <div
+                    class="dot flex w-[37.73px] h-[36.09px] bg-[#187CFF] border-[4.10138px] border-[#e7f7ff] rounded-[82.0276px] mb-[6px] shadow-dot text-white text-center py-[8.20276px 16.4055px] justify-center items-center gap-[8.2px]"
+                  >
+                    2
+                  </div>
+                  <div class="relative flex w-[37.73px] h-[80.38px] md:h-[50.38px] text-center my-[8.20276px 16.4055px] justify-center items-center">
+                    <div class="arrow w-[59px] absolute top-[38px] md:top-[20px] md:w-[40px] h-0">
+                      <div class="absolute right-0 -top-[4.25px] h-[8px] w-[8px] border-[2px] rotate-45 border-l-0 border-b-0 border-r-[#187CFF] border-t-[#187CFF]"></div>
+                    </div>
+                  </div>
+                  <div class="dot flex w-[37.73px] h-[36.09px] bg-[#187CFF] border-[4.10138px] border-[#e7f7ff] rounded-[82.0276px] shadow-dot text-white text-center py-[8.20276px 16.4055px] justify-center items-center gap-[8.2px]">3</div>
+                  <div class="flex w-[37.73px] h-[39px] md:h-0 text-center py-[8.20276px 16.4055px] justify-center items-center"></div>
+                </div>
+                <div class="w-full md:w-[418px] h-fit tracking-[0.01em]">
+                  <h4 class="leading-[24px] text-[20px] md:text-[16px] font-semibold my-[10px] md:my-0">Coba Daftar Gratis</h4>
+                  <p class="text-[#4E5053] text-[16px] md:text-[14px] font-normal leading-[21px] mb-[19px] md:mb-[31px]">Mari bergabung dengan komunitas biro jodoh kami, dijamin dapat pasangan High Definition</p>
+                  <h4 class="leading-[24px] text-[20px] md:text-[16px] font-semibold my-[10px] md:my-0">Belajar Intensif</h4>
+                  <p class="text-[#4E5053] text-[16px] md:text-[14px] font-normal leading-[21px] mb-[19px] md:mb-[30px]">Belajar urus diri sendiri, jangan jadi beban keluarga terus</p>
+                  <h4 class="leading-[24px] text-[20px] md:text-[16px] font-semibold mb-[10px] md:mb-0">Disalurkan kerja</h4>
+                  <p class="text-[#4E5053] text-[16px] md:text-[14px] font-normal leading-[21px]">Dapatkan gaji 10juta lebih</p>
+                </div>
+              </div>
+              <div class="flex flex-col md:flex-row mt-[100px] md:mt-[71px] gap-[20px] mx-[5%] md:mx-0 md:gap-3 z-20">
+                <button class="relative z-20 md:ml-0 pl-[47px] pr-[46px] py-[11px] w-full md:w-fit rounded-[5px] font-medium text-[22px] md:text-[14px] bg-[#187cff] text-[#f6fcff] mr-[22px]">
+                  Daftar Gratis
+                  <div class="absolute -top-[10px] -right-[15px] w-[48px] h-[25px] bg-[#ff0000] text-white py-[5px] px-[11px] text-[12px] rounded-[999999px]">Free</div>
+                </button>
+                <button class="pl-[35px] pr-[34px] py-[11px] rounded-[5px] font-medium text-[22px] md:text-[14px] bg-[#ffd200] z-20">Konsultasi Dulu</button>
+              </div>
+              <div class="mt-[29px] text-[14px] md:text-[16px] text-center md:text-left font-normal z-10">
+                <h4 class=""><span class="font-[800]">2,324</span> Students & <span class="font-[800]">182</span> Mentors has joined!</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative w-full h-[730px] hidden lg:block z-20">
+            <img loading="lazy" class="absolute top-[134px] left-[513.78px] z-10 frame-shade" src="./images/hero/frame.png" alt="" srcset="" />
+            <div class="absolute top-[289.55px] p-[10px] left-[481px] w-[52.43px] h-[52.43px] frame-box-shade bg-[#ffffff] rounded-[15px] z-20">
+              <img loading="lazy" class="icon-shade" src="./images/logo/sosial/slack.png" alt="" srcset="" />
+            </div>
+            <div class="absolute top-[345.47px] p-[10px] left-[533.43px] w-[52.43px] h-[52.43px] bg-[#ffffff] frame-box-shade rounded-[15px] z-20">
+              <img loading="lazy" class="icon-shade" src="./images/logo/sosial/whatsapp.png" alt="" srcset="" />
+            </div>
+            <div class="arrow2 left-[558.77px] top-[398px]">
+              <div class="relative w-[128px] h-[51.5px] bg-transparent">
+                <div class="absolute right-0 bottom-0 h-[10px] w-[10px] border-[4px] rotate-45 border-l-transparent border-b-transparent border-r-[#404040] border-t-[#404040]"></div>
+              </div>
+            </div>
+            <div class="arrow2 top-[152px] left-[658px] rotate-180"></div>
+            <div class="absolute top-[139px] left-[865px]">
+              <div class="relative w-fit h-fit py-[18px] pl-[11px] pr-[3px] border-[0.666468px] border-[#fff] rounded-xl bg-opacity-75 bg-[#fff]">
+                <p class="w-[116px] text-[18px] leading-[21px] font-[600]" id="text"></p>
+                <div class="absolute -bottom-[19.6px] right-[18px] w-0 h-0 border-t-[20px] border-t-[#fff] border-opacity-75 border-r-[20px] border-r-transparent"></div>
+              </div>
+            </div>
+            <!-- <div class="absolute top-[129px] p-[10px] left-[860px]"><img loading="lazy" src="./images/hero/chat-bubble.png" alt="" srcset=""></div> -->
+            <div class="absolute top-[421px] p-[10px] left-[690px] w-[52.43px] h-[52.43px] bg-[#ffffff] frame-box-shade rounded-[15px] z-20">
+              <img loading="lazy" class="icon-shade" src="./images/logo/sosial/zoom.png" alt="" srcset="" />
+            </div>
+            <div class="absolute top-[478.67px] p-[12px] pr-0 left-[751.17px] w-[52.43px] h-[52.43px] bg-[#ffffff] frame-box-shade rounded-[15px] z-20">
+              <img loading="lazy" class="icon-shade" src="./images/logo/sosial/play-book.svg" alt="" srcset="" />
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute top-0 left-0 w-[200%] md:w-full h-[740px] hero-gradasi z-[9] hidden md:block"></div>
+        <div class="hero-gradasi2 absolute top-0 right-0 w-[5%] lg:w-[216px] h-[856px]"></div>
+
+        <div class="absolute w-full h-fit top-[667px] md:top-[637px] bg-transparent z-20">
+          <!-- <div class="absolute top-[40px] w-full h-[328.26px] z-[9] ">
+                  <div class="wave"></div>
+              </div> -->
+
+          <div class="absolute w-[80%] left-1/2 -translate-x-1/2 lg:w-[1017px] h-fit lg:h-[137px] mt-[162px] lg:pl-[49px] lg:pr-[51.12px] pl-[17px] pr-[22px] py-[21px] bg-white border border-white rounded-[10px] shadow-filter z-10">
+            <h4 class="lg:block font-semibold text-[18px] md:text-[16px] leading-[24px] tracking-[0.01em] flex items-center justify-between">
+              Cari menggunakan filter
+              <button data-collapse-toggle="filter-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden" aria-controls="filter-cta" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </h4>
+            <div id="filter-cta" class="hidden lg:flex md:flex-row p-0 mt-[17px] gap-[13px] w-full h-fit">
+              <div
+                x-data="{
+                              open: false,
+                              toggle() {
+                                  if (this.open) {
+                                      return this.close()
+                                  }
+                  
+                                  this.$refs.button.focus()
+                  
+                                  this.open = true
+                              },
+                              close(focusAfter) {
+                                  if (! this.open) return
+                  
+                                  this.open = false
+                  
+                                  focusAfter && focusAfter.focus()
+                              }
+                          }"
+                x-on:keydown.escape.prevent.stop="close($refs.button)"
+                x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                x-id="['dropdown-button']"
+                class="relative w-full md:w-fit h-fit mb-[17px] md:mb-0 py-[11px] pl-[16px] font-[700] text-[#6C6E71] color-[#6c6e71] bg-white border border-[#a7a6ba] rounded-[20px] text-[12px]"
+              >
+                <!-- Button -->
+                <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex items-center gap-[23px]">
+                  Kategori
+                  <!-- Heroicon: chevron-down -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 md:relative md:right-auto h-5 w-5 justify-between mr-[10.41px]" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                <!-- Panel -->
+                <div
+                  x-ref="panel"
+                  x-show="open"
+                  x-transition.origin.top.left
+                  x-on:click.outside="close($refs.button)"
+                  :id="$id('dropdown-button')"
+                  style="display: none"
+                  class="w-full absolute left-0 mt-2 md:w-40 rounded-md text-[12px] bg-white shadow-filter z-10"
+                >
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Reguler </a>
+
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Kelass </a>
+                </div>
+              </div>
+
+              <div
+                x-data="{
+                          open: false,
+                          toggle() {
+                              if (this.open) {
+                                  return this.close()
+                              }
+              
+                              this.$refs.button.focus()
+              
+                              this.open = true
+                          },
+                          close(focusAfter) {
+                              if (! this.open) return
+              
+                              this.open = false
+              
+                              focusAfter && focusAfter.focus()
+                          }
+                      }"
+                x-on:keydown.escape.prevent.stop="close($refs.button)"
+                x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                x-id="['dropdown-button']"
+                class="relative w-full md:w-fit h-fit mb-[17px] md:mb-0 py-[11px] pl-[16px] color-[#6c6e71] text-[12px] bg-white border border-[#a7a6ba] rounded-[20px] font-[700] text-[#6C6E71]"
+              >
+                <!-- Button -->
+                <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex items-center gap-[3px]">
+                  Materi&nbsp;kelas
+                  <!-- Heroicon: chevron-down -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 md:relative md:right-auto h-5 w-5 justify-between mr-[10.41px]" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                <!-- Panel -->
+                <div
+                  x-ref="panel"
+                  x-show="open"
+                  x-transition.origin.top.left
+                  x-on:click.outside="close($refs.button)"
+                  :id="$id('dropdown-button')"
+                  style="display: none"
+                  class="absolute left-0 mt-2 w-full md:w-40 rounded-md bg-white shadow-filter z-10 text-[12px]"
+                >
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Reguler </a>
+
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Kelass </a>
+                </div>
+              </div>
+
+              <div
+                x-data="{
+                              open: false,
+                              toggle() {
+                                  if (this.open) {
+                                      return this.close()
+                                  }
+                  
+                                  this.$refs.button.focus()
+                  
+                                  this.open = true
+                              },
+                              close(focusAfter) {
+                                  if (! this.open) return
+                  
+                                  this.open = false
+                  
+                                  focusAfter && focusAfter.focus()
+                              }
+                          }"
+                x-on:keydown.escape.prevent.stop="close($refs.button)"
+                x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                x-id="['dropdown-button']"
+                class="relative w-full md:w-fit h-fit mb-[17px] md:mb-0 py-[11px] pl-[16px] color-[#6c6e71] bg-white border border-[#a7a6ba] rounded-[20px] text-[12px] font-[700] text-[#6C6E71]"
+              >
+                <!-- Button -->
+                <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex items-center gap-[27.94px]">
+                  Harga
+                  <!-- Heroicon: chevron-down -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 md:relative md:right-auto h-5 w-5 justify-between mr-[10.41px]" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                <!-- Panel -->
+                <div
+                  x-ref="panel"
+                  x-show="open"
+                  x-transition.origin.top.left
+                  x-on:click.outside="close($refs.button)"
+                  :id="$id('dropdown-button')"
+                  style="display: none"
+                  class="absolute left-0 mt-2 w-full md:w-40 rounded-md bg-white shadow-filter z-10"
+                >
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Reguler </a>
+
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Kelass </a>
+                </div>
+              </div>
+
+              <div
+                x-data="{
+                          open: false,
+                          toggle() {
+                              if (this.open) {
+                                  return this.close()
+                              }
+              
+                              this.$refs.button.focus()
+              
+                              this.open = true
+                          },
+                          close(focusAfter) {
+                              if (! this.open) return
+              
+                              this.open = false
+              
+                              focusAfter && focusAfter.focus()
+                          }
+                      }"
+                x-on:keydown.escape.prevent.stop="close($refs.button)"
+                x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                x-id="['dropdown-button']"
+                class="relative w-full md:w-fit h-fit mb-[17px] md:mb-0 py-[11px] pl-[16px] color-[#6c6e71] bg-white border text-[12px] border-[#a7a6ba] rounded-[20px] font-[700] text-[#6C6E71]"
+              >
+                <!-- Button -->
+                <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex items-center gap-[11.83px]">
+                  Pembayaran
+                  <!-- Heroicon: chevron-down -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 md:relative md:right-auto h-5 w-5 justify-between mr-[10.41px]" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                <!-- Panel -->
+                <div
+                  x-ref="panel"
+                  x-show="open"
+                  x-transition.origin.top.left
+                  x-on:click.outside="close($refs.button)"
+                  :id="$id('dropdown-button')"
+                  style="display: none"
+                  class="absolute left-0 mt-2 w-full md:w-40 rounded-md bg-white shadow-filter z-10 text-[12px]"
+                >
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Reguler </a>
+
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Kelass </a>
+                </div>
+              </div>
+
+              <div
+                x-data="{
+                          open: false,
+                          toggle() {
+                              if (this.open) {
+                                  return this.close()
+                              }
+              
+                              this.$refs.button.focus()
+              
+                              this.open = true
+                          },
+                          close(focusAfter) {
+                              if (! this.open) return
+              
+                              this.open = false
+              
+                              focusAfter && focusAfter.focus()
+                          }
+                      }"
+                x-on:keydown.escape.prevent.stop="close($refs.button)"
+                x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+                x-id="['dropdown-button']"
+                class="relative w-full md:w-fit h-fit mb-[17px] md:mb-0 py-[11px] pl-[16px] color-[#6c6e71] text-[12px] bg-white border border-[#a7a6ba] rounded-[20px] font-[700] text-[#6C6E71]"
+              >
+                <!-- Button -->
+                <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex items-center gap-[34.77px]">
+                  Lokasi
+                  <!-- Heroicon: chevron-down -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute right-0 md:relative md:right-auto h-5 w-5 justify-between mr-[10.41px]" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+
+                <!-- Panel -->
+                <div
+                  x-ref="panel"
+                  x-show="open"
+                  x-transition.origin.top.left
+                  x-on:click.outside="close($refs.button)"
+                  :id="$id('dropdown-button')"
+                  style="display: none"
+                  class="absolute left-0 mt-2 w-full md:w-40 rounded-md bg-white shadow-filter text-[12px]"
+                >
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Reguler </a>
+
+                  <a href="#" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500"> Kelass </a>
+                </div>
+              </div>
+              <p class="text-center text-[12px] mb-[17px] sm:mb-0 py-[11px] pl-[16px] px-[12px] font-[700] text-[#6C6E71]">More</p>
+              <button class="text-[12px] mb-[17px] w-full md:w-[164.11px] h-fit sm:mb-0 py-[11px] md:pr-[64px] font-[700] flex color-[#6c6e71] mr-[13px] bg-[#ffd200] rounded-[20px]">
+                <div class="mx-auto flex flow-row gap-1"><img loading="lazy" class="md:ml-[54.06px]" src="./images/svg/search.svg" />Cari</div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End Hero -->
+    <!-- PARTNER -->
+    <div class="container mx-auto">
+      <section class="w-[90%] mx-auto lg:w-[1016px] h-fit md:h-[70px] mt-[230px] pt-5 mb-[74px] lg:mb-[74px]">
+        <div class="z-10 flex flex-col lg:flex-row">
+          <div>
+            <h4 class="w-full lg:w-[170px] h-[70px] text-center text-[24px] font-medium leading-[28.56px] mr-[37px] md:mr-[74px]"><span class="text-[36px] font-[600] text-[#187cff]">Our 100+ </span>Hiring Partner</h4>
+          </div>
+          <div class="slider w-full overflow-hidden">
+            <div class="slide-track flex gap-[20px] md:gap-[61.05px] items-center h-full">
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/1.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/2.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/3.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/4.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/5.png" />
+              </div>
+            </div>
+
+            <div class="slide-track flex gap-[20px] md:gap-[61.05px] ml-[110px] md:ml-[65.05px] items-center">
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/1.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/2.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/3.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/4.png" />
+              </div>
+              <div class="slide">
+                <img loading="lazy" src="./images/partner/5.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of Partner -->
+    <!-- ISA -->
+    <div class="container mx-auto">
+      <section class="w-[80%] h-fit mx-auto lg:w-[1016px] lg:h-[468px] mb-[78px] lg:mb-[130px]">
+        <div class="hidden lg:block absolute left-0 w-[60%] h-fit lg:h-[387px] bg-[#187cff] rounded-[33px] lg:rounded-none lg:rounded-tr-[100px] p-[10%] lg:pb-0 lg:pr-0 lg:pt-[48.7px] lg:pl-[213px]"></div>
+        <div class="flex flex-col gap-3 lg:flex-row lg:gap-[41px] w-full lg:w-[1030px] h-fit lg:h-[387px] bg-[#187cff] rounded-[20px] lg:rounded-none lg:rounded-tr-[100px] py-[35px] px-[25px] lg:pb-0 lg:pr-0 lg:pt-[48.7px] lg:px-auto">
+          <div class="mx-auto lg:mx-0 lg:w-[329px] lg:h-[419px]">
+            <img loading="lazy" class="ISA-img" src="./images/ISA.png" alt="" srcset="" />
+          </div>
+          <div class="mt-0 z-10">
+            <h1 class="font-[700] text-[40px] lg:text-[48px] text-center lg:text-left text-[#ffffff]">Belum Punya Uang?</h1>
+            <h2 class="w-full lg:w-[536px] font-[600] text-[20px] text-center lg:text-left lg:text-[30px] text-[#ffffff]">tenang dengan Metode ISA kamu bisa belajar tanpa modal (Rp. 0,-)</h2>
+            <p class="w-full lg:w-[589px] font-[400] text-[16px] text-center lg:text-left lg:text-[20px] mt-[18px] text-[#ffffff]">
+              Dengan program Income Sharing Agreement, kamu bisa fokus belajar dulu, bayarnya nanti setelah mendapatkan kerja / penghasilan.
+            </p>
+            <div class="lg:absolute w-full lg:w-fit h-fit lg:h-[151px] mt-[23.3px] flex flex-col lg:flex-row gap-[13px]">
+              <div class="w-full lg:w-fit py-[11.7px] pr-[10px] rounded-[10px] bg-[#ffffff] ISA-card">
+                <h4 class="pl-[18px] font-[700] text-[20px] mb-[5px]">Keunggulan Program ISA</h4>
+                <ul class="star pl-[35px] pr-[8px] text-[18px] font-[400] text-[#737373] flex flex-col gap-[12px] lg:gap-0">
+                  <li>Fokus belajar pada pengembangan</li>
+                  <li>Sistem pembayaran flexsible</li>
+                  <li>dapat semua benefit dari Eduwork</li>
+                </ul>
+              </div>
+              <div class="w-full lg:w-fit rounded-[10px] py-[11.7px] pr-[10px] bg-[#ffffff] ISA-card">
+                <h4 class="pl-[18px] font-[700] text-[20px] mb-[5px]">Syarat Program ISA</h4>
+                <ul class="star pl-[35px] pr-[28px] text-[18px] font-[400] text-[#737373] flex flex-col gap-[12px] lg:gap-0">
+                  <li>Usia 17-29 Tahun</li>
+                  <li>Siap disalurkan bekerja</li>
+                  <li>Ada komitmen jaminan</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of ISA -->
+    <!-- Info -->
+    <div class="container mx-auto">
+      <section class="lg:relative w-[80%] md:w-full mx-auto lg:w-[1016px] h-fit lg:flex lg:flex-row lg:gap-[60px] mb-[20px] md:mb-[50px]">
+        <h4 class="w-full flex items-center lg:w-[204px] text-[20px] font-[500] py-[20px] md:py-0 text-justify mb-0 md:mb-[60px] lg:mb-0 lg:text-left">
+          Platform Pelatihan & Penyaluran kerja. Kamu bisa belajar dari 0 sampai bisa dan dapat kerja, dijamin!
+        </h4>
+        <div class="relative mt-[44px] md:mt-0 flex flex-col md:flex-row gap-0">
+          <div class="w-full md:w-[774px] h-[744px] md:h-[277px] bg-[#4a99ff] rounded-t-[33px] md:rounded-l-[33px] md:rounded-r-none pb-[42px] pt-[33px] px-[32px]">
+            <div class="flex md:flex-col flex-row gap-[12px]">
+              <div class="text-center mx-auto md:mx-0 md:w-[46px] md:h-[45px] w-[60px] h-[60px] bg-white pt-[13px] pl-[13px] pb-[12px] pr-[12px] md:pt-[8px] md:pl-[11px] md:pr-[8px] md:pb-[10px] rounded-[8px]">
+                <img loading="lazy" class="w-full h-full" src="./images/svg/Read Online.svg" alt="" srcset="" />
+              </div>
+              <div>
+                <h4 class="md:text-[18px] text-[20px] font-[600] text-white w-full md:w-[124px] text-left">Dibimbing Sampai Bisa!</h4>
+              </div>
+            </div>
+            <p class="mt-[23px] md:mt-[6px] text-[14px] md:text-[12px] font-[400] text-white w-full md:w-[226px] text-left">
+              Walaupun kamu tidak memiliki latar belakang skill digital. Kamu masih bisa belajar karena materi di sesuaikan untuk pemula. Dan akan dibimbing oleh mentor/praktisi.
+            </p>
+          </div>
+
+          <div class="absolute w-full md:w-[278px] h-[278px] md:h-[277px] top-[250px] md:top-0 md:right-[220px] rounded-t-[33px] md:rounded-l-[33px] md:rounded-r-none bg-[#187cff] pb-[42px] pt-[33px] px-[32px]">
+            <div class="flex md:flex-col flex-row gap-[12px]">
+              <div class="text-center mx-auto md:mx-0 md:w-[46px] md:h-[45px] w-[60px] h-[60px] bg-white pt-[13px] pl-[13px] pb-[12px] pr-[12px] md:pt-[8px] md:pl-[11px] md:pr-[8px] md:pb-[10px] rounded-[8px]">
+                <img loading="lazy" class="w-full h-full" src="./images/svg/Scholarship.svg" alt="" srcset="" />
+              </div>
+              <div>
+                <h4 class="md:text-[18px] text-[20px] font-[600] text-white w-full md:w-[107px] text-left">Murah, Bisa dicicil!</h4>
+              </div>
+            </div>
+            <p class="mt-[23px] md:mt-[6px] text-[14px] md:text-[12px] font-[400] text-white w-full md:w-[206px] text-left">
+              Bisa mulai dari 1jt, pelunasan bisa dicicil sampai 6 bulan. Dengan gaji sampai dengan 10jt lebih, 1x gaji sudah balik modal untuk menutup total biaya!
+            </p>
+          </div>
+
+          <div class="absolute w-full md:w-[248px] h-fit md:h-[277px] bottom-0 md:right-0 rounded-t-[33px] md:rounded-l-[33px] md:rounded-r-none bg-[#005ad0] pb-[42px] pt-[33px] px-[32px]">
+            <div class="flex md:flex-col flex-row gap-[12px]">
+              <div class="text-center mx-auto md:mx-0 md:w-[46px] md:h-[45px] w-[60px] h-[60px] bg-white pt-[13px] pl-[13px] pb-[12px] pr-[12px] md:pt-[8px] md:pl-[11px] md:pr-[8px] md:pb-[10px] rounded-[8px]">
+                <img loading="lazy" class="w-full h-full" src="./images/svg/Identification Documents.svg" alt="" srcset="" />
+              </div>
+              <div>
+                <h4 class="md:text-[18px] text-[20px] font-[600] text-white w-full md:w-[139px] text-left">Disalurkan Kerja, Dijamin!</h4>
+              </div>
+            </div>
+            <p class="mt-[23px] md:mt-[6px] text-[14px] md:text-[12px] font-[400] text-white w-full md:w-[206px] text-left">
+              Selain kalian akan dibimbing sampai bisa. Kamu juga akan dicarikan kerja sampai dapat loh, Ayo tunggu apalagi mumpung program ini masih ada
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of Info -->
+    <!-- Benefit-->
+    <div class="container mx-auto overflow-hidden pb-[161px]">
+      <section class="relative w-full mx-auto lg:w-[1016px] h-fit md:h-[484.46px] pt-[108px] md:pt-[97px] mb-[144.7px] md:mb-0">
+        <h4 class="text-[20px] text-[#187cff] text-center md:text-left font-[500] mb-[15px]">Benefit</h4>
+        <div class="flex flex-col md:flex-row gap-[31px] md:gap-[20px]">
+          <div class="w-full md:w-[540px] h-fit md:h-[72px]">
+            <h4 class="text-[20px] md:text-[24px] font-[600] mb-[33px] w-[100%] md:w-[470px] text-center md:text-left">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
+            <div class="w-full h-fit flex flex-row justify-between">
+              <ul class="ok md:columns-2 w-full mx-[3.5%] md:mx-0 md:w-[550px] text-[16px] font-reguler font-[400] h-fit md:h-[353px]">
+                <li>10.000++ hiring partner</li>
+                <li>Expert tutor</li>
+                <li>Portfolio real project</li>
+                <li>Live mentoring</li>
+                <li>Live class zoom</li>
+                <li>Pendampingan diawal kerja</li>
+                <li>Cicilan setelah bekerja</li>
+                <li>Tutorial video</li>
+                <li>Profesional Networking</li>
+                <li>Grup diskusi WhatsApp</li>
+                <li>Praktek real project</li>
+                <li>Video materi</li>
+                <li>Belajar sampai bisa</li>
+                <li>Dapat dicicil 6-12 kali</li>
+                <li>Disalurkan kerja</li>
+                <li>Sertifikat</li>
+              </ul>
+            </div>
+          </div>
+          <div class="flex mx-[5%] md:mx-0">
+            <div class="mx-auto">
+              <div class="relative w-[369px] h-[262px]">
+                <img loading="lazy" class="rounded-[20px] w-[330px] h-[360px] md:w-[369px] md:h-[362px]" src="./images/benefit.png" alt="" srcset="" />
+                <div class="img-benefit-shade w-[300px] h-[371px] absolute left-[170px] top-[32px] -z-10"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of Benefit -->
+    <!-- komunitas -->
+    <div class="container mx-auto overflow-x-hidden">
+      <section class="w-[80%] md:w-full mx-auto lg:w-[1016px] h-fit mb-[50px]">
+        <h4 class="hidden md:block text-center font-[500] text-[20px] md:text-[24px] text-[#187cff]">Metode Belajar</h4>
+        <div class="md:relative w-full md:h-fit">
+          <div class="md:block hidden">
+            <img loading="lazy" class="absolute w-fit lg:w-[1020.33px] h-fit" src="./images/komunitas-bg.png" />
+            <img loading="lazy" class="w-full lg:w-[1014px] h-fit mt-[33.24px] mb-[73.36px]" src="./images/indo-map.png" alt="" />
+          </div>
+          <div class="block md:hidden">
+            <div class="relative w-fit h-fit mt-[50px] mb-[456px]">
+              <img loading="lazy" class="mb-[100.86px]" src="./images/img/1.png" alt="" srcset="" />
+              <img loading="lazy" class="float-right" src="./images/img/2.png" alt="" srcset="" />
+              <div class="absolute -top-[18px] p-[10px] -right-[6.97px] w-[52.43px] h-[52.43px] frame-box-shade bg-[#ffffff] bg-opacity-80 blur-[9.52097px] rounded-[15px] z-20">
+                <img loading="lazy" class="icon-shade" src="./images/logo/sosial/slack.png" alt="" srcset="" />
+              </div>
+              <div class="absolute top-[190px] -left-[10px] p-[12px] pr-0 w-[52.43px] h-[52.43px] bg-[#ffffff] frame-box-shade rounded-[15px] z-20">
+                <img loading="lazy" class="icon-shade" src="./images/logo/sosial/play-book.svg" alt="" srcset="" />
+              </div>
+              <img loading="lazy" class="absolute top-[190px] right-[40px] icon-shade" src="./images/img/task.png" alt="" srcset="" />
+              <div class="absolute top-[390px] p-[10px] left-[20px] w-[52.43px] h-[52.43px] bg-[#ffffff] frame-box-shade rounded-[15px] z-20">
+                <img loading="lazy" class="icon-shade" src="./images/logo/sosial/zoom.png" alt="" srcset="" />
+              </div>
+              <img loading="lazy" class="absolute top-[190px] -left-[50px] -z-10" src="./images/img/line.svg" alt="" />
+              <div class="absolute -bottom-[400px] p-[10px] -right-[6.79px] w-[52.43px] h-[52.43px] bg-[#ffffff] bg-opacity-80 frame-box-shade rounded-[15px] z-20">
+                <img loading="lazy" class="icon-shade" src="./images/logo/sosial/whatsapp.png" alt="" srcset="" />
+              </div>
+              <img loading="lazy" class="absolute top-1/2 translate-y-1/2 scale-[5] -z-20" src="./images/indo-map.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="w-full items-center md:flex grid grid-cols-3 md:flex-row gap-[60px] md:gap-[36.31px] justify-center">
+          <img loading="lazy" class="w-[64.21px] mx-auto lg:mx-0 h-fit icon-shade" src="./images/logo/sosial/zoom.svg" alt="" srcset="" />
+          <img loading="lazy" class="w-[64.21px] mx-auto lg:mx-0 h-fit icon-shade" src="./images/logo/sosial/slack.svg" alt="" srcset="" />
+          <img loading="lazy" class="w-[64.21px] mx-auto lg:mx-0 h-fit icon-shade" src="./images/logo/sosial/skype.svg" alt="" srcset="" />
+          <img loading="lazy" class="w-[64.21px] mx-auto lg:mx-0 h-fit icon-shade" src="./images/logo/sosial/gmeet.svg" alt="" srcset="" />
+          <img loading="lazy" class="w-[64.21px] mx-auto lg:mx-0 h-fit icon-shade" src="./images/logo/sosial/whatsapp.svg" alt="" srcset="" />
+          <img loading="lazy" class="w-[64.21px] mx-auto lg:mx-0 h-fit icon-shade" src="./images/logo/sosial/telegram.svg" alt="" srcset="" />
+        </div>
+        <h1 class="font-[700] mt-[45.41px] text-center text-[36px] mb-[13.76px]">Belajar Bersama Komunitas</h1>
+        <p class="font-[400] text-[16px] mx-auto text-center text-[#737373] w-full lg:w-[760px]">
+          Do amet mollit ea et duis magna cupidatat adipisicing commodo elit id. Exercitation dolore nisi culpa irure magna et aliqua exercitation sunt fugiat amet. Aute ipsum nisi et aliquip .
+        </p>
+      </section>
+      <!-- End of komunitas -->
+
+      <!-- Fasilitas -->
+      <section class="w-[80%] mx-auto lg:w-[1016px] h-fit mb-[111.94px]">
+        <h1 class="hidden lg:block font-[600] text-center text-[18px] lg:text-[30px] mb-[33px]">Dapatkan Fasilitas Dan Bonus Menarik</h1>
+        <div class="w-full h-fit flex flex-col md:grid md:grid-cols-2 lg:flex-row lg:grid-cols-4 gap-[24px]">
+          <div class="w-full h-fit lg:w-[236px] md:h-[167px] rounded-[10px] bg-[#ffffff] fasilitas-card-shade">
+            <div class="flex md:block">
+              <img loading="lazy" class="mx-auto md:mx-0 mt-[33px] md:mt-[9px] md:ml-[13px]" src="./images/icon/Chat.svg" alt="" srcset="" />
+            </div>
+            <h1 class="md:text-left text-center font-[600] text-[28px] md:text-[16px] mx-[20px]">Bebas Konsultasi</h1>
+            <p class="md:text-left text-center font-[400] text-[16px] md:text-[14px] mb-[33px] md:mb-[20px] mx-[53px] md:mx-[20px] md:mr-[13px]">Bebas konsultasi dengan mentor secara private 1 on 1</p>
+          </div>
+          <div class="w-full h-fit lg:w-[236px] md:h-[167px] rounded-[10px] bg-[#ffffff] fasilitas-card-shade">
+            <div class="flex md:block">
+              <img loading="lazy" class="mx-auto md:mx-0 mt-[33px] md:mt-[9px] mb-[15px] md:ml-[13px]" src="./images/icon/WhatsApp.svg" alt="" srcset="" />
+            </div>
+            <h1 class="md:text-left text-center font-[600] text-[28px] md:text-[16px] ml-[20px]">Group WhatsApp</h1>
+            <p class="md:text-left text-center font-[400] text-[16px] md:text-[14px] mb-[33px] md:mb-[20px] mx-[53px] md:mx-[20px] md:mr-[13px]">Networking dan diskusi dengan siswa lainnya</p>
+          </div>
+          <div class="w-full h-fit lg:w-[236px] md:h-[167px] rounded-[10px] bg-[#ffffff] fasilitas-card-shade">
+            <div class="flex md:block">
+              <img loading="lazy" class="mx-auto md:mx-0 mt-[33px] md:mt-[9px] mb-[15px] md:ml-[13px]" src="./images/icon/Video Call.svg" alt="" srcset="" />
+            </div>
+            <h1 class="md:text-left text-center font-[600] text-[28px] md:text-[16px] ml-[20px]">Video Materi</h1>
+            <p class="md:text-left text-center font-[400] text-[16px] md:text-[14px] mx-[53px] md:mx-[20px] mb-[33px] md:mb-[20px]">Pelajari materi dimana saja dan kapan saja</p>
+          </div>
+          <div class="w-full h-fit lg:w-[236px] md:h-[167px] rounded-[10px] bg-[#ffffff] fasilitas-card-shade">
+            <div class="flex md:block">
+              <img loading="lazy" class="mx-auto md:mx-0 mt-[33px] md:mt-[9px] mb-[15px] md:ml-[13px]" src="./images/icon/Flipboard.svg" alt="" srcset="" />
+            </div>
+            <h1 class="md:text-left text-center font-[600] text-[28px] md:text-[16px] ml-[20px]">Tugas Praktek</h1>
+            <p class="md:text-left text-center font-[400] text-[16px] md:text-[14px] mx-[53px] md:mx-[20px] mb-[33px] md:mb-[20px]">Pemberian tugas praktek di tiap materi</p>
+          </div>
+        </div>
+      </section>
+      <!-- End of Fasilitas -->
+    </div>
+    <!-- End of Komunitas -->
+    <!-- Thumbnails -->
+    <div class="container mx-auto">
+      <section class="w-[90%] mx-auto lg:w-[1016px] h-[262px] md:h-full mb-[80px]">
+        <iframe
+          class="w-full h-full md:h-[498px] rounded-[20px] bg-cover"
+          src="https://www.youtube.com/embed/co-phhoeRBY"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </section>
+    </div>
+    <!-- End of Thumbnails -->
+    <!-- Categories -->
+    <div class="container mx-auto px-auto">
+      <section class="w-[80%] mx-auto lg:w-[1016px] h-fit mb-[65px]">
+        <h4 class="text-center text-[#187cff] text-[17px] lg:text-[20px] font-medium">Categories</h4>
+        <h4 class="px-1 md:px-[20%] text-[20px] lg:text-[24px] font-semibold text-center lg:leading-[36px] mt-[14.7px] mb-[40.3px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
+        <div class="grid grid-rows-1 items-center md:justify-center md:grid-cols-2 lg:grid-cols-4 w-full h-fit gap-[30px] lg:gap-[20px]">
+          <div class="w-full lg:w-[238.36px] h-full bg-white rounded-[10px] px-[30px] pb-[33px] lg:pb-[29px] shadow-card">
+            <div class="flex flex-col md:flex-row md:gap-[19px]">
+              <div class="mx-auto md:mx-0 w-[56px] h-fit md:w-[48px] md:h-[45px] mt-[33px] md:mt-[17px] mb-[15px] md:mb-[26px] bg-[#187cff] py-[6.7px] px-[9px] bg-opacity-20 rounded-[5px]">
+                <img loading="lazy" class="w-full" src="./images/icon/Writer female.svg" alt="" />
+              </div>
+              <div class="md:flex items-center">
+                <p class="text-center md:text-left font-normal text-[14px] leading-[18px]">Penyaluran Kerja</p>
+              </div>
+            </div>
+            <h1 class="text-center md:text-left font-[600] text-[20px] leading-[30px] mb-[2px]">ISA</h1>
+            <p class="text-center md:text-left font-normal text-[14px] text-[#828282] leading-[15.6px] md:w-[165px]">Belajar dulu bayar setelah berpenghasilan</p>
+            <button class="w-full mt-[22px] py-[10px] bg-[#187cff] text-white text-[14px] md:text-[12px] btn-shade-kat rounded-[5px]">Lihat Kelas</button>
+          </div>
+
+          <div class="w-full lg:w-[238.36px] h-full bg-white rounded-[10px] px-[30px] pb-[33px] md:pb-[29px] shadow-card">
+            <div class="flex flex-col md:flex-row md:gap-[19px]">
+              <div class="mx-auto md:mx-0 w-[56px] h-fit md:w-[48px] md:h-[45px] mt-[33px] md:mt-[17px] mb-[15px] md:mb-[26px] bg-[#FFCE4F] py-[6.7px] px-[9px] bg-opacity-20 rounded-[5px]">
+                <img loading="lazy" class="w-full" src="./images/icon/Coin Wallet.svg" alt="" />
+              </div>
+              <div class="md:flex items-center">
+                <p class="text-center md:text-left font-normal text-[14px] leading-[18px]">Course</p>
+              </div>
+            </div>
+            <h1 class="text-center md:text-left font-[600] text-[20px] leading-[30px] mb-[2px]">Reguler</h1>
+            <p class="text-center md:text-left font-normal text-[14px] leading-[15.6px] text-[#828282] md:w-[116px]">Diskon 50% bisa dicicil 6 bulan</p>
+            <button class="w-full mt-[22px] py-[10px] bg-[#187cff] text-white text-[14px] md:text-[12px] btn-shade-kat rounded-[5px]">Lihat Kelas</button>
+          </div>
+
+          <div class="w-full lg:w-[238.36px] h-full bg-white rounded-[10px] px-[30px] pb-[33px] md:pb-[29px] shadow-card">
+            <div class="flex flex-col md:flex-row md:gap-[19px]">
+              <div class="mx-auto md:mx-0 w-[56px] h-fit md:w-[48px] md:h-[45px] mt-[33px] md:mt-[17px] mb-[15px] md:mb-[26px] bg-[#00C264] py-[6.7px] px-[9px] bg-opacity-20 rounded-[5px]">
+                <img loading="lazy" class="w-full" src="./images/icon/Google Forms New Logo.svg" alt="" />
+              </div>
+              <div class="md:flex items-center">
+                <p class="text-center md:text-left font-normal text-[14px] leading-[18px]">Minibootcamp</p>
+              </div>
+            </div>
+            <h1 class="text-center md:text-left font-[600] text-[20px] leading-[30px] mb-[2px]">&lt; Rp 500.000</h1>
+            <p class="text-center md:text-left font-normal text-[14px] leading-[15.6px] text-[#828282] md:w-[116px]">Belajar dasar selama 1 bulan</p>
+            <button class="w-full mt-[22px] py-[10px] bg-[#187cff] text-white text-[14px] md:text-[12px] btn-shade-kat rounded-[5px]">Lihat Kelas</button>
+          </div>
+
+          <div class="w-full lg:w-[238.36px] h-full bg-white rounded-[10px] px-[30px] pb-[33px] md:pb-[29px] shadow-card">
+            <div class="flex flex-col md:flex-row md:gap-[19px]">
+              <div class="mx-auto md:mx-0 w-[56px] h-fit md:w-[48px] md:h-[45px] mt-[33px] md:mt-[17px] mb-[15px] md:mb-[26px] bg-[#FF5C00] py-[6.7px] px-[9px] bg-opacity-20 rounded-[5px]">
+                <img loading="lazy" class="w-full" src="./images/icon/Bookmark.svg" alt="" />
+              </div>
+              <div class="md:flex items-center">
+                <p class="text-center md:text-left font-normal text-[14px] leading-[18px]">Webinar</p>
+              </div>
+            </div>
+            <h1 class="text-center md:text-left font-[600] text-[20px] leading-[30px] mb-[2px]">Gratis</h1>
+            <p class="text-center md:text-left font-normal text-[14px] leading-[15.6px] text-[#828282] md:w-[116px]">Belajar dasar selama 1 - 2 hari</p>
+            <button class="w-full mt-[22px] py-[10px] bg-[#187cff] text-white text-[14px] md:text-[12px] btn-shade-kat rounded-[5px]">Lihat Kelas</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of Categories -->
+    <!-- Program -->
+    <div class="relative">
+      <section class="w-[90%] md:w-full mx-auto xl:w-[1016px] h-fit md:h-fit mb-[97.54px]">
+        <h4 class="mx-auto text-[24px] mb-[34px] font-[600] text-center leading-[36px]">Dapatkan akses gratis ke kelas utama</h4>
+        <div class="w-full md:w-fit h-fit">
+          <div class="hidden md:block absolute left-0 -bottom-[55px] w-fit h-fit overflow-visible">
+            <div class="bg-sec-program"></div>
+            <img loading="lazy" class="img-bg-sec-program" src="./images/bg-program.png" alt="" srcset="" />
+          </div>
+
+          <div class="flex flex-col md:grid items-center md:grid-cols-2 lg:grid-cols-3 h-fit gap-[30px]">
+            <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-[8px] shadow-card2">
+              <div class="w-full md:w-[320px] h-[165px] absolute top-0 left-0 bg-cover bg-[url('./images/image-code.png')]">
+                <div class="absolute w-full md:w-[320px] top-0 left-0 bg-gradasi-black z-0"></div>
+              </div>
+              <div class="relative h-[165px] w-full text-white">
+                <h4 class="absolute pt-[88.18px] text-[20px] font-semibold z-10">Front-end Developer</h4>
+                <p class="absolute mt-[115.25px] z-10">For Beginer</p>
+              </div>
+              <div class="absolute top-[143.31px] w-[257px] h-[143.99px]">
+                <img loading="lazy" class="w-[91px] h-[91px] mt-[5px] mr-[15px] rounded-[50%] float-left" src="./images/Kak sekar.png" />
+                <h4 class="mt-[28px] text-[18px] font-semibold text-[#454545]">Gabriellia Sekar</h4>
+                <p class="mt-[2px] text-[12px] font-normal text-[#737373]">Front-end Developer</p>
+                <div class="flex flex-row gap-[4px] ml-[106px] w-fit h-[23.53px] text-[#ffd84f]">
+                  <img loading="lazy" class="w-[17px] h-[16px]" src="./images/svg/Star.svg" alt="" srcset="" /><span class="font-bold text-[12px] text-[#454545] mt-[5.56px]"> 4.5 </span>
+                  <span class="font-normal text-[10px] text-[#737373] mt-[5.56px]">(154)</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col mt-24 mx-auto w-full h-fit pt-[18.03px] pb-[14.28px] border-y border-x-0 border-[#cccccc]">
+                <div class="mx-auto">
+                  <div class="flex w-full flex-row text-[16px] text-[#737373] font-normal gap-[10px]">
+                    <img loading="lazy" class="w-[17px] h-fit bottom-0" src="./images/icon/Users.png" /><span class="text-[#187cff] font-semibold">85</span> Siswa
+                    <p>|</p>
+                    <img loading="lazy" class="w-[17px] h-fit" src="./images/icon/Class.png" />Sisa Kuota:
+                    <span class="text-[#187cff] font-semibold">15</span>
+                  </div>
+                  <div class="w-full h-[30.7px] flex flex-row gap-[1px] mt-[8.34px] mb-[14.28px]">
+                    <div class="w-[92px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] font-[400] text-[10px] text-right">ISA Program</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] font-[400] text-[10px] text-white p-[10px] text-center">&#10003; Reguler</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] p-[10px] rounded-r-[20px] font-[400] text-[10px] text-white">&#10003; Penyaluran</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-[15.79px] h-fit">
+                <button class="float-right px-[10px] py-[8.5px] bg-[#187cff] rounded-[8px] text-white text-[12px] font-medium">Daftar kelas</button>
+                <p class="text-[#6c6e71] text-[12px] font-normal">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-medium">Rp 250.000</h1>
+              </div>
+            </div>
+
+            <div class="relative w-full md:w-[320px] h-[454.02px] bg-white rounded-[8px] px-[25px] shadow-card2">
+              <div class="w-full md:w-[320px] h-[165px] absolute top-0 left-0 bg-cover bg-[url('./images/image-device.png')]">
+                <div class="absolute w-full md:w-[320px] top-0 left-0 bg-gradasi-black z-0"></div>
+              </div>
+              <div class="relative h-[165px] w-full text-white">
+                <h4 class="absolute pt-[88.18px] text-[20px] font-semibold z-10">Laravel Developer</h4>
+                <p class="absolute mt-[115.25px] z-10">For Beginer</p>
+              </div>
+              <div class="absolute top-[143.31px] w-[257px] h-[143.99px]">
+                <img loading="lazy" class="w-[91px] h-[91px] mt-[5px] mr-[15px] rounded-[50%] float-left" src="./images/Kak sekar.png" />
+                <h4 class="mt-[28px] text-[18px] font-semibold text-[#454545]">Gabriellia Sekar</h4>
+                <p class="mt-[2px] text-[12px] font-normal text-[#737373]">Laravel Developer</p>
+                <div class="flex flex-row gap-[4px] ml-[106px] w-fit h-[23.53px] text-[#ffd84f]">
+                  <img loading="lazy" class="w-[17px] h-[16px]" src="./images/svg/Star.svg" alt="" srcset="" /><span class="font-bold text-[12px] text-[#454545] mt-[5.56px]"> 4.5 </span>
+                  <span class="font-normal text-[10px] text-[#737373] mt-[5.56px]">(154)</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col mt-24 mx-auto w-full h-fit pt-[18.03px] pb-[14.28px] border-y border-x-0 border-[#cccccc]">
+                <div class="mx-auto">
+                  <div class="flex w-full flex-row text-[16px] text-[#737373] font-normal gap-[10px]">
+                    <img loading="lazy" class="w-[17px] h-fit bottom-0" src="./images/icon/Users.png" /><span class="text-[#187cff] font-semibold">85</span> Siswa
+                    <p>|</p>
+                    <img loading="lazy" class="w-[17px] h-fit" src="./images/icon/Class.png" />Sisa Kuota:
+                    <span class="text-[#187cff] font-semibold">15</span>
+                  </div>
+                  <div class="w-full h-[30.7px] flex flex-row gap-[1px] mt-[8.34px] mb-[14.28px]">
+                    <div class="w-[92px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] font-[400] text-[10px] text-right">ISA Program</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] font-[400] text-[10px] text-white p-[10px] text-center">&#10003; Reguler</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] p-[10px] rounded-r-[20px] font-[400] text-[10px] text-white">&#10003; Penyaluran</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-[15.79px] h-fit">
+                <button class="float-right px-[10px] py-[8.5px] bg-[#187cff] rounded-[8px] text-white text-[12px] font-medium">Daftar kelas</button>
+                <p class="text-[#6c6e71] text-[12px] font-normal">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-medium">Rp 250.000</h1>
+              </div>
+            </div>
+
+            <div class="relative w-full md:w-[320px] h-[454.02px] bg-white rounded-[8px] px-[25px] shadow-card2">
+              <div class="w-full md:w-[320px] h-[165px] absolute top-0 left-0 bg-cover px-[19px] bg-[url('./images/image-digital.png')]">
+                <div class="absolute w-full md:w-[320px] top-0 left-0 bg-gradasi-black z-0"></div>
+              </div>
+              <div class="relative h-[165px] w-full bg-px-[19px] text-white">
+                <h4 class="absolute pt-[88.18px] text-[20px] font-semibold z-10">Digital Marketing</h4>
+                <p class="absolute mt-[115.25px] z-10">For Beginer</p>
+              </div>
+              <div class="absolute top-[143.31px] w-[257px] h-[143.99px]">
+                <img loading="lazy" class="w-[91px] h-[91px] mt-[5px] mr-[15px] rounded-[50%] float-left" src="./images/Kak sekar.png" />
+                <h4 class="mt-[28px] text-[18px] font-semibold text-[#454545]">Gabriellia Sekar</h4>
+                <p class="mt-[2px] text-[12px] font-normal text-[#737373]">Digital Marketing</p>
+                <div class="flex flex-row gap-[4px] ml-[106px] w-fit h-[23.53px] text-[#ffd84f]">
+                  <img loading="lazy" class="w-[17px] h-[16px]" src="./images/svg/Star.svg" alt="" srcset="" /><span class="font-bold text-[12px] text-[#454545] mt-[5.56px]"> 4.5 </span>
+                  <span class="font-normal text-[10px] text-[#737373] mt-[5.56px]">(154)</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col mt-24 mx-auto w-full h-fit pt-[18.03px] pb-[14.28px] border-y border-x-0 border-[#cccccc]">
+                <div class="mx-auto">
+                  <div class="flex w-full flex-row text-[16px] text-[#737373] font-normal gap-[10px]">
+                    <img loading="lazy" class="w-[17px] h-fit bottom-0" src="./images/icon/Users.png" /><span class="text-[#187cff] font-semibold">85</span> Siswa
+                    <p>|</p>
+                    <img loading="lazy" class="w-[17px] h-fit" src="./images/icon/Class.png" />Sisa Kuota:
+                    <span class="text-[#187cff] font-semibold">15</span>
+                  </div>
+                  <div class="w-full h-[30.7px] flex flex-row gap-[1px] mt-[8.34px] mb-[14.28px]">
+                    <div class="w-[92px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] font-[400] text-[10px] text-right">ISA Program</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] font-[400] text-[10px] text-white p-[10px] text-center">&#10003; Reguler</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] p-[10px] rounded-r-[20px] font-[400] text-[10px] text-white">&#10003; Penyaluran</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-[15.79px] h-fit">
+                <button class="float-right px-[10px] py-[8.5px] bg-[#187cff] rounded-[8px] text-white text-[12px] font-medium">Daftar kelas</button>
+                <p class="text-[#6c6e71] text-[12px] font-normal">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-medium">Rp 250.000</h1>
+              </div>
+            </div>
+
+            <div class="relative w-full md:w-[320px] h-[454.02px] bg-white rounded-[8px] px-[25px] shadow-card2">
+              <div class="w-full md:w-[320px] h-[165px] absolute top-0 left-0 bg-cover bg-[url('./images/image-code.png')]">
+                <div class="absolute w-full md:w-[320px] top-0 left-0 bg-gradasi-black z-0"></div>
+              </div>
+              <div class="relative h-[165px] w-full px-[19px] text-white">
+                <h4 class="absolute pt-[88.18px] text-[20px] font-semibold z-10">Front-end Developer</h4>
+                <p class="absolute mt-[115.25px] z-10">For Beginer</p>
+              </div>
+              <div class="absolute top-[143.31px] w-[257px] h-[143.99px]">
+                <img loading="lazy" class="w-[91px] h-[91px] mt-[5px] mr-[15px] rounded-[50%] float-left" src="./images/Kak sekar.png" />
+                <h4 class="mt-[28px] text-[18px] font-semibold text-[#454545]">Gabriellia Sekar</h4>
+                <p class="mt-[2px] text-[12px] font-normal text-[#737373]">Front-end Developer</p>
+                <div class="flex flex-row gap-[4px] ml-[106px] w-fit h-[23.53px] text-[#ffd84f]">
+                  <img loading="lazy" class="w-[17px] h-[16px]" src="./images/svg/Star.svg" alt="" srcset="" /><span class="font-bold text-[12px] text-[#454545] mt-[5.56px]"> 4.5 </span>
+                  <span class="font-normal text-[10px] text-[#737373] mt-[5.56px]">(154)</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col mt-24 mx-auto w-full h-fit pt-[18.03px] pb-[14.28px] border-y border-x-0 border-[#cccccc]">
+                <div class="mx-auto">
+                  <div class="flex w-full flex-row text-[16px] text-[#737373] font-normal gap-[10px]">
+                    <img loading="lazy" class="w-[17px] h-fit bottom-0" src="./images/icon/Users.png" /><span class="text-[#187cff] font-semibold">85</span> Siswa
+                    <p>|</p>
+                    <img loading="lazy" class="w-[17px] h-fit" src="./images/icon/Class.png" />Sisa Kuota:
+                    <span class="text-[#187cff] font-semibold">15</span>
+                  </div>
+                  <div class="w-full h-[30.7px] flex flex-row gap-[1px] mt-[8.34px] mb-[14.28px]">
+                    <div class="w-[92px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] font-[400] text-[10px] text-right">ISA Program</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] font-[400] text-[10px] text-white p-[10px] text-center">&#10003; Reguler</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] p-[10px] rounded-r-[20px] font-[400] text-[10px] text-white">&#10003; Penyaluran</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-[15.79px] h-fit">
+                <button class="float-right px-[10px] py-[8.5px] bg-[#187cff] rounded-[8px] text-white text-[12px] font-medium">Daftar kelas</button>
+                <p class="text-[#6c6e71] text-[12px] font-normal">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-medium">Rp 250.000</h1>
+              </div>
+            </div>
+
+            <div class="relative w-full md:w-[320px] h-[454.02px] bg-white rounded-[8px] px-[25px] shadow-card2">
+              <div class="w-full md:w-[320px] h-[165px] absolute top-0 left-0 bg-cover bg-[url('./images/image-device.png')]">
+                <div class="absolute w-full md:w-[320px] top-0 left-0 bg-gradasi-black z-0"></div>
+              </div>
+              <div class="relative h-[165px] w-full text-white">
+                <h4 class="absolute pt-[88.18px] text-[20px] font-semibold z-10">Laravel Developer</h4>
+                <p class="absolute mt-[115.25px] z-10">For Beginer</p>
+              </div>
+              <div class="absolute top-[143.31px] w-[257px] h-[143.99px]">
+                <img loading="lazy" class="w-[91px] h-[91px] mt-[5px] mr-[15px] rounded-[50%] float-left" src="./images/Kak sekar.png" />
+                <h4 class="mt-[28px] text-[18px] font-semibold text-[#454545]">Gabriellia Sekar</h4>
+                <p class="mt-[2px] text-[12px] font-normal text-[#737373]">Laravel Developer</p>
+                <div class="flex flex-row gap-[4px] ml-[106px] w-fit h-[23.53px] text-[#ffd84f]">
+                  <img loading="lazy" class="w-[17px] h-[16px]" src="./images/svg/Star.svg" alt="" srcset="" /><span class="font-bold text-[12px] text-[#454545] mt-[5.56px]"> 4.5 </span>
+                  <span class="font-normal text-[10px] text-[#737373] mt-[5.56px]">(154)</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col mt-24 mx-auto w-full h-fit pt-[18.03px] pb-[14.28px] border-y border-x-0 border-[#cccccc]">
+                <div class="mx-auto">
+                  <div class="flex w-full flex-row text-[16px] text-[#737373] font-normal gap-[10px]">
+                    <img loading="lazy" class="w-[17px] h-fit bottom-0" src="./images/icon/Users.png" /><span class="text-[#187cff] font-semibold">85</span> Siswa
+                    <p>|</p>
+                    <img loading="lazy" class="w-[17px] h-fit" src="./images/icon/Class.png" />Sisa Kuota:
+                    <span class="text-[#187cff] font-semibold">15</span>
+                  </div>
+                  <div class="w-full h-[30.7px] flex flex-row gap-[1px] mt-[8.34px] mb-[14.28px]">
+                    <div class="w-[92px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] font-[400] text-[10px] text-right">ISA Program</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] font-[400] text-[10px] text-white p-[10px] text-center">&#10003; Reguler</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] p-[10px] rounded-r-[20px] font-[400] text-[10px] text-white">&#10003; Penyaluran</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-[15.79px] h-fit">
+                <button class="float-right px-[10px] py-[8.5px] bg-[#187cff] rounded-[8px] text-white text-[12px] font-medium">Daftar kelas</button>
+                <p class="text-[#6c6e71] text-[12px] font-normal">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-medium">Rp 250.000</h1>
+              </div>
+            </div>
+
+            <div class="relative w-full md:w-[320px] h-[454.02px] bg-white rounded-[8px] px-[25px] shadow-card2">
+              <div class="w-full md:w-[320px] h-[165px] absolute top-0 left-0 bg-cover px-[19px] bg-[url('./images/image-digital.png')]">
+                <div class="absolute w-full md:w-[320px] top-0 left-0 bg-gradasi-black z-0"></div>
+              </div>
+              <div class="relative h-[165px] w-full bg-px-[19px] text-white">
+                <h4 class="absolute pt-[88.18px] text-[20px] font-semibold z-10">Digital Marketing</h4>
+                <p class="absolute mt-[115.25px] z-10">For Beginer</p>
+              </div>
+              <div class="absolute top-[143.31px] w-[257px] h-[143.99px]">
+                <img loading="lazy" class="w-[91px] h-[91px] mt-[5px] mr-[15px] rounded-[50%] float-left" src="./images/Kak sekar.png" />
+                <h4 class="mt-[28px] text-[18px] font-semibold text-[#454545]">Gabriellia Sekar</h4>
+                <p class="mt-[2px] text-[12px] font-normal text-[#737373]">Digital Marketing</p>
+                <div class="flex flex-row gap-[4px] ml-[106px] w-fit h-[23.53px] text-[#ffd84f]">
+                  <img loading="lazy" class="w-[17px] h-[16px]" src="./images/svg/Star.svg" alt="" srcset="" /><span class="font-bold text-[12px] text-[#454545] mt-[5.56px]"> 4.5 </span>
+                  <span class="font-normal text-[10px] text-[#737373] mt-[5.56px]">(154)</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col mt-24 mx-auto w-full h-fit pt-[18.03px] pb-[14.28px] border-y border-x-0 border-[#cccccc]">
+                <div class="mx-auto">
+                  <div class="flex w-full flex-row text-[16px] text-[#737373] font-normal gap-[10px]">
+                    <img loading="lazy" class="w-[17px] h-fit bottom-0" src="./images/icon/Users.png" /><span class="text-[#187cff] font-semibold">85</span> Siswa
+                    <p>|</p>
+                    <img loading="lazy" class="w-[17px] h-fit" src="./images/icon/Class.png" />Sisa Kuota:
+                    <span class="text-[#187cff] font-semibold">15</span>
+                  </div>
+                  <div class="w-full h-[30.7px] flex flex-row gap-[1px] mt-[8.34px] mb-[14.28px]">
+                    <div class="w-[92px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] font-[400] text-[10px] text-right">ISA Program</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] font-[400] text-[10px] text-white p-[10px] text-center">&#10003; Reguler</div>
+                    <div class="w-[92px] h-fit bg-[#187cff] p-[10px] rounded-r-[20px] font-[400] text-[10px] text-white">&#10003; Penyaluran</div>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-[15.79px] h-fit">
+                <button class="float-right px-[10px] py-[8.5px] bg-[#187cff] rounded-[8px] text-white text-[12px] font-medium">Daftar kelas</button>
+                <p class="text-[#6c6e71] text-[12px] font-normal">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-medium">Rp 250.000</h1>
+              </div>
+            </div>
+          </div>
+
+          <button class="w-[80%] md:w-fit absolute left-1/2 -translate-x-1/2 mt-[69.05px] md:mt-[40.05px] rounded-[8px] font-[500] md:font-semibold text-[22px] md:text-[14px] bg-[#ffe13e] px-[32.61px] py-[20px] md:py-[9.78px]">
+            Lihat lainnya
+          </button>
+        </div>
+      </section>
+    </div>
+    <!-- End of Program -->
+    <!-- Biaya -->
+    <div class="container mx-auto">
+      <section class="w-[90%] mx-auto lg:w-[1016px] h-fit mb-[76px] md:mb-[133.3px]">
+        <div class="flex flex-col lg:flex-row gap-[35px]">
+          <div class="w-fit h-fit md:pt-[202px] mx-auto md:mx-0 text-center lg:text-left">
+            <h4 class="font-[500] text-[24px] text-[#187cff]">Pembayaran</h4>
+            <h4 class="w-full lg:w-[204px] text-center lg:text-left mt-[24px] md:mt-0 text-[25px] md:text-[20px] font-[700]">Pilih Dan Tentukan Program Yang Menentukan Masa Depanmu!</h4>
+            <p class="font-[400] text-[18px] md:text-[20px] text-[#737373] mt-[24px] md:mt-[6px]">Daftar Program Reguler Bulan ini Dan Dapatkan Potongan Harga Langsung!!!</p>
+            <div class="md:flex hidden">
+              <button class="float-right mx-auto lg:mx-0 px-[30px] pt-[11px] pb-[12px] rounded-[10px] mt-[22px] bg-[#00c264] text-[#ffffff] text-[18px] font-[500] flex flex-row gap-[5px]">
+                <img loading="lazy" class="w-[16px] h-[16px] mt-[5px]" src="./images/svg/WhatsApp.svg" />
+                Konsul Dulu
+              </button>
+            </div>
+          </div>
+          <div class="flex flex-col md:flex-row gap-[35px] md:gap-[22px] mt-[16px] mx-[5%] md:mx-0">
+            <div class="relative w-full md:w-[333px] h-[790px] md:h-[758px] rounded-[30px] bg-[#ffffff] pt-[61px] biaya-shade">
+              <div class="hidden md:block w-[92px] h-[78px] bg-[#ffce4f] rounded-[10px] absolute -top-[16px] left-1/2 -translate-x-1/2 biaya-shade py-[13px] px-[20px]">
+                <img loading="lazy" src="./images/svg/Class.svg" alt="" srcset="" />
+              </div>
+              <h4 class="text-center text-[30px] font-[700] uppercase">ISA</h4>
+              <p class="text-center text-[16px] font-medium mb-[11px] text-[#737373]">Modal Mulai</p>
+              <h4 class="relative text-center font-[600] text-[24px]">
+                <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/5 w-[214.39px] h-[4px] rounded-[15px] -rotate-[2.06deg] bg-[#ff0000]"></div>
+                Rp.8.000.000,-.
+              </h4>
+              <h3 class="text-center font-[600] text-[40px] text-[#187cff] mb-[10px]">Rp. 1Jt</h3>
+              <div class="absolute mx-[24px] md:mx-0 md:left-1/2 md:-translate-x-1/2">
+                <div class="w-full h-fit px-[19px] py-[13px] bg-[#ffce4f] text-center rounded-[10px] font-[600] text-[10px] mb-[11px]">Total 12jt, Cicilan 12 bulan dibayar setelah kerja</div>
+                <div class="w-full h-fit py-[15px] px-[20px] rounded-[15px] text-center md:text-left capitalize text-white text-[12px] font-[700] bg-[#187cff]">
+                  ISA ( Income Sharing Agreement ), untuk kamu yang belum berpenghasilan / punya dana, cicilan dibayar setelah kamu kami salurkan kerja, Penyaluran kerja dijamin!
+                </div>
+                <ul class="checkmark-1 mt-[10px] leading-[20px] mb-[0px] pl-[20px] text-[#404040] text-[400]">
+                  <li class="text-[14px]">Dapat Semua Fasilitas Program Reguler</li>
+                  <li class="text-[14px]">Bisa Mulai Dari Rp. 0,-</li>
+                </ul>
+                <div class="w-full md:w-[267px] h-[125px] border-y border-[#cecece] mb-[20px]">
+                  <ul class="list-disc list-outside text-[12px] text-[#737373] leading-[24px] pl-[42px] pt-[13px]">
+                    <li>Bayar Setelah Disalurkan Bekerja</li>
+                    <li>Total Biaya Jadi 12 Juta</li>
+                    <li>Total Cicilan Jadi 12x</li>
+                    <li>Ada Tahap Seleksi</li>
+                  </ul>
+                </div>
+                <div class="flex">
+                  <button class="mx-auto w-[160px] h-[50px] pt-[11px] pb-[12px] px-[51px] rounded-[10px] bg-[#187cff] text-[#ffffff]">Daftar</button>
+                </div>
+              </div>
+            </div>
+            <div class="relative w-full md:w-[333px] h-[758px] rounded-[30px] bg-[#ffffff] pt-[61px] biaya-shade">
+              <div class="hidden md:block w-[92px] h-[78px] bg-[#00c264] rounded-[10px] absolute -top-[16px] left-1/2 -translate-x-1/2 py-[13px] px-[20px]">
+                <img loading="lazy" src="./images/svg/Class.svg" alt="" srcset="" />
+              </div>
+              <h4 class="text-center text-[30px] font-[700] uppercase">Reguler</h4>
+              <p class="text-center text-[16px] font-medium text-[#737373] mb-[11px]">Modal Mulai</p>
+              <h4 class="relative text-center font-[600] text-[24px]">
+                <div class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/5 w-[214.39px] h-[4px] rounded-[15px] -rotate-[2.06deg] bg-[#ff0000]"></div>
+                Rp.6.000.000,-.
+              </h4>
+              <h3 class="text-center font-[600] text-[40px] text-[#187cff] mb-[10px]">Rp. 0,-</h3>
+              <div class="md:absolute mx-[24px] md:mx-0 md:left-1/2 md:-translate-x-1/2">
+                <div class="w-full md:w-[285px] h-fit px-[19px] py-[13px] bg-[#ffce4f] rounded-[10px] font-[500] text-[10px] text-center mb-[11px]">Total 6jt , Cicilan 1jt/ bulan x 6 bulan</div>
+                <div class="w-full md:w-full h-fit border-b border-[#cecece] mb-[20px]">
+                  <ul class="checkmark-1 text-[14px] w-full text-[#404040] font-[400] leading-[20px] mb-[38px] pl-4">
+                    <li>Mentoring 1 on 1</li>
+                    <li class="flex flex-row justify-between gap-6">
+                      <p class="md:w-[170px] items-start">Live Group Mentoring</p>
+                      <img loading="lazy" data-tooltip-target="tooltip-light" data-tooltip-style="light" class="items-end" src="./images/icon/info.svg" alt="" srcset="" />
+                      <div id="tooltip-light" role="tooltip" class="inline-block absolute invisible z-10 py-[4px] px-[25px] font-[500] bg-[#187cff] rounded-[10px] rounded-bl-none text-[14px] text-white opacity-0 tooltip">Seminggu 1x</div>
+                    </li>
+                    <li class="w-full flex flex-row justify-between gap-7">
+                      <p class="md:w-full">Bonus Video Materi</p>
+                      <img loading="lazy" data-tooltip-target="tooltip-2" data-tooltip-style="light" src="./images/icon/info.svg" alt="" srcset="" />
+                      <div id="tooltip-2" role="tooltip" class="inline-block absolute invisible z-10 py-[4px] px-[37px] font-[500] bg-[#ffce4f] rounded-[10px] rounded-bl-none text-[14px] text-white opacity-0 tooltip">45 Video</div>
+                    </li>
+                    <li>Pendampingan Kerja</li>
+                    <li>Cicilan Hingga 6x</li>
+                    <li>Sertifikat</li>
+                    <li>Tanpa Seleksi</li>
+                    <li class="flex flex-row justify-between">
+                      <p class="md:w-[170px]">Lebih Terjangkau dan Program ISA</p>
+                      <img loading="lazy" class="hidden" src="./images/icon/info.svg" alt="" srcset="" />
+                    </li>
+                    <li>Penyaluran Kerja</li>
+                  </ul>
+                </div>
+                <div class="flex">
+                  <button class="mx-auto w-[160px] h-[50px] pt-[11px] pb-[12px] px-[51px] rounded-[10px] bg-[#187cff] text-[#ffffff]">Daftar</button>
+                </div>
+              </div>
+            </div>
+            <div class="flex md:hidden h-fit">
+              <button class="mx-auto md:mx-0 px-[30px] pt-[11px] pb-[12px] rounded-[10px] mt-[56px] bg-[#00c264] text-[#ffffff] text-[18px] font-[500] flex flex-row gap-[5px]">
+                <img loading="lazy" class="w-[16px] h-[16px] mt-[5px]" src="./images/svg/WhatsApp.svg" />
+                Konsul Dulu
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End of Biaya -->
+    </div>
+    <!-- End Biaya -->
+    <!-- Testimoni -->
+    <div class="container mx-auto">
+      <section class="w-[90%] mx-[5%] md:ml-0 lg:ml-[10%] md:mr-0 xl:w-[1186px] overflow-hidden h-fit mb-[80px]">
+        <div class="hidden xl:block absolute right-0 w-[60%] h-[454px] bg-[#187cff]"></div>
+        <div class="relative flex flex-col md:flex-row w-full justify-between xl:w-[1440px] h-fit bg-[#187CFF] rounded-[33px] md:rounded-none md:rounded-tl-[104px]">
+          <div class="flex flex-col md:pt-[163px] pb-[45px] pt-[46px] md:pb-[129px] md:pl-[70px] lg:pl-[129px] md:pr-[30px] text-white">
+            <h4 class="text-center md:text-left text-[24px] font-[500]">Testimonials</h4>
+            <h2 class="text-center md:text-left text-[34px] md:text-[30px] font-[600] w-[249px] mx-auto md:w-[249px] leading-[40px] mb-[15px]">People Say About Courses</h2>
+            <div class="mx-auto md:mx-0">
+              <div class="hidden md:flex md:flex-row">
+                <div class="swiper-Button-prev">
+                  <img loading="lazy" class="mx-auto md:mx-0" src="./images/svg/X-Arrow.svg" alt="" srcset="" />
+                </div>
+                <div class="swiper-Button-next">
+                  <img loading="lazy" class="rotate-180 mx-auto md:mx-0" src="./images/svg/X-Arrow.svg" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img loading="lazy" class="w-[71px] h-[71px]" src="./images/svg/Quote Left.svg" alt="" />
+                <p class="mt-[32px] mb-[49px] font-[500] text-[16px] md:text-[18px] font-['Raleway'] w-full text-[#000000]">
+                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                </p>
+                <div class="border border-x-0 pt-[16px] border-b-0 text-center border-t-[#b7b7b7] w-full h-fit">
+                  <img loading="lazy" class="img-profile mr-[10.33px] w-full h-[186px] object-cover rounded-[10px]" src="./images/profile-salma.svg" alt="" />
+                  <div class="identitas font-[400] text-[12px] font-['Raleway'] text-[#737373]">
+                    <h1 class="w-full font-[600] text-[16px] font-['Raleway'] text-[#000000]">Salma Valeria Latif</h1>
+                    <p>Programmer Astra</p>
+                    <div class="flex flex-row">
+                      <div class="identitas mx-auto">
+                        <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
+                        <span>4.5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <img loading="lazy" class="w-[71px] h-[71px]" src="./images/svg/Quote Left.svg" alt="" />
+                <p class="mt-[32px] mb-[49px] font-[500] text-[16px] md:text-[18px] font-['Raleway'] w-full text-[#000000]">
+                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                </p>
+                <div class="border border-x-0 pt-[16px] border-b-0 text-center border-t-[#b7b7b7] w-full h-fit">
+                  <img loading="lazy" class="img-profile mr-[10.33px] w-full h-[186px] object-cover rounded-[10px]" src="./images/profile-ahmad.png" alt="" />
+                  <div class="identitas font-[400] text-[12px] font-['Raleway'] text-[#737373]">
+                    <h1 class="w-full font-[600] text-[16px] font-['Raleway'] text-[#000000]">Ahmad khoerudin</h1>
+                    <p>Programmer Gojek</p>
+                    <div class="flex flex-row">
+                      <div class="identitas mx-auto">
+                        <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
+                        <span>4.5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <img loading="lazy" class="w-[71px] h-[71px]" src="./images/svg/Quote Left.svg" alt="" />
+                <p class="mt-[32px] mb-[49px] font-[500] text-[16px] md:text-[18px] font-['Raleway'] w-full text-[#000000]">
+                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                </p>
+                <div class="border border-x-0 pt-[16px] border-b-0 text-center border-t-[#b7b7b7] w-full h-fit">
+                  <img loading="lazy" class="img-profile mr-[10.33px] w-full h-[186px] object-cover rounded-[10px]" src="./images/profile-lian.png" alt="" />
+                  <div class="identitas font-[400] text-[12px] font-['Raleway'] text-[#737373]">
+                    <h1 class="w-full font-[600] text-[16px] font-['Raleway'] text-[#000000]">Lian Gallanger</h1>
+                    <p>Laravel Developer</p>
+                    <div class="flex flex-row">
+                      <div class="identitas mx-auto">
+                        <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
+                        <span>4.5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <img loading="lazy" class="w-[71px] h-[71px]" src="./images/svg/Quote Left.svg" alt="" />
+                <p class="mt-[32px] mb-[49px] font-[500] text-[16px] md:text-[18px] font-['Raleway'] w-full text-[#000000]">
+                  It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                </p>
+                <div class="border border-x-0 pt-[16px] border-b-0 text-center border-t-[#b7b7b7] w-full h-fit">
+                  <img loading="lazy" class="img-profile mr-[10.33px] w-full h-[186px] object-cover rounded-[10px]" src="./images/profile-nikita.png" alt="" />
+                  <div class="identitas font-[400] text-[12px] font-['Raleway'] text-[#737373]">
+                    <h1 class="w-full font-[600] text-[16px] font-['Raleway'] text-[#000000]">Nikita Romeb</h1>
+                    <p>Digital Marketing</p>
+                    <div class="flex flex-row">
+                      <div class="identitas mx-auto">
+                        <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
+                        <span>4.5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mx-auto md:mx-0">
+            <div class="md:hidden flex flex-row mt-[30px] mb-[61px]">
+              <div class="swiper-Button-prev">
+                <img loading="lazy" class="w-[45px] h-[45px] mx-auto md:mx-0" src="./images/svg/X-Arrow.svg" alt="" srcset="" />
+              </div>
+              <div class="swiper-Button-next">
+                <img loading="lazy" class="w-[45px] h-[45px] rotate-180 mx-auto md:mx-0" src="./images/svg/X-Arrow.svg" alt="" srcset="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- End of Testimoni -->
+    </div>
+    <!-- End of Testimoni -->
+    <!-- FAQ -->
+    <div class="container mx-auto">
+      <section class="relative w-[80%] mx-auto h-fit md:w-full lg:w-[1016px] lg:h-[581px] z-10">
+        <h4 class="text-center text-[24px] md:text-[24px] font-[700] text-[#0059A0] mb-[27px]">FAQ</h4>
+        <h2 class="font-[600] text-center lg:mx-[111px] text-[16px] lg:text-[30px] text-[#202020] mb-[56px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry</h2>
+        <div class="columns-1 md:columns-2 gap-[42px]">
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade rounded-[15px] mb-[27px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Enter.svg" alt="" />
+              <h2 class="mt-[25px]">Panduan Pendaftaran</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Cheque.svg" alt="" />
+              <h2 class="mt-[25px]">Apakah ada Persyaratan?</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Class.svg" alt="" />
+              <h2 class="mt-[25px]">Apa itu ISA</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Multiple Choice.svg" alt="" />
+              <h2 class="mt-[16px] md:mt-[25px] w-[154px] md:w-fit">Proses Seleksinya Pendaftaran</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Book.svg" alt="" />
+              <h2 class="mt-[16px] md:mt-[25px] w-[154px] md:w-fit">Bagaimana Proses Belajarnya</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Static View Level2.svg" alt="" />
+              <h2 class="mt-[25px]">Bagaimana Penyalurannya</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade mb-[27px] rounded-[15px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Briefcase.svg" alt="" />
+              <h2 class="mt-[25px]">Bagaimana Setelah Bekerja</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+          <div class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden acc-shade rounded-[15px] cursor-pointer">
+            <div class="label w-[100%] text-[14px] lg:w-[499px] h-fit lg:h-[82px] font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[20px] font-[600] pl-[14px] flex flex-row gap-[22px]">
+              <img loading="lazy" class="w-[36px] h-[36px] md:w-[46px] md:h-[46px] mb-[18px] mt-[18px] p-[6px] md:p-[8px] bg-[#187cff] rounded-[50%]" src="./images/svg/Tags.svg" alt="" />
+              <h2 class="mt-[25px]">Berapa Total Langganan</h2>
+            </div>
+            <div class="content">
+              <p class="my-[10px] mx-[15px]">Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of FAQ -->
+    <!-- Footer section -->
+    <section class="relative w-full h-[1270px] md:h-[1070px] pb-[20px] md:pb-0">
+      <div class="container mx-auto">
+        <div class="absolute w-[80%] mx-auto left-1/2 -translate-x-1/2 h-fit lg:w-fit lg:h-[575px] md:pt-[86px] top-[267px]">
+          <div class="flex flex-col gap-[23px] md:flex-row text-[#ffffff]">
+            <div class="md:w-[237.51px]">
+              <img loading="lazy" class="w-[250px] h-[48.53px] lg:w-fit md:h-fit mx-auto md:mx-0" src="./images/logo/favicon-white.svg" alt="" srcset="" />
+              <p class="text-[16px] md:text-[14px] mt-[37.56px] mb-[18px] text-center md:text-left">When an unknown printer took a galley of type and make a type specimen book.</p>
+              <div class="flex flex-row mb-[60.08px]">
+                <div class="inline-flex gap-[22px] mx-auto md:mx-0">
+                  <img loading="lazy" src="./images/svg/white-instagram.svg" alt="" srcset="" />
+                  <img loading="lazy" src="./images/svg/white-twitter.svg" alt="" srcset="" />
+                  <img loading="lazy" src="./images/svg/white-youtube.svg" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
+
+            <div class="columns-2 flex flex-row md:ml-[80.49px] justify-between">
+              <div class="flex flex-col gap-[41px] w-[159.78px] h-[375px]">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Explore Us</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Kelas</li></a>
+                    <a href=""><li class="mb-[12px]">Our Mentors</li></a>
+                    <a href=""><li class="mb-[12px]">For Corporate</li></a>
+                    <a href=""><li>Community</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Our Services</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Free Event</li></a>
+                    <a href=""><li class="mb-[12px]">Video Course</li></a>
+                    <a href=""><li class="mb-[12px]">Bootcamp</li></a>
+                    <a href=""><li>Private Mentoring</li></a>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col gap-[41px] w-fit md:w-[198px] h-[375px] text-left">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Category</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Mobile Developer</li></a>
+                    <a href=""><li class="mb-[12px]">Website Developer</li></a>
+                    <a href=""><li class="mb-[12px]">UI/UX Designer</li></a>
+                    <a href=""><li>Graphic Designer</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Office</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <li class="mb-[12px]">PT Eduwork.id</li>
+                    <li class="mb-[12px]">Jl. Ring Road Utara No 24</li>
+                    <li class="mb-[12px]">Yogyakarta. Indonesia</li>
+                    <a href=""><li>team@eduwork.id</li></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h1 class="font-[600] text-[18px] mt-[60px] md:mt-0 mb-[10px] text-center md:text-left">Promotions</h1>
+              <ul class="text-[14px] md:text-[12px]">
+                <a href=""><li class="mb-[12px] text-center md:text-left">Submit your email for new updates</li></a>
+                <li class="flex flex-row">
+                  <input class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[55px] border border-white text-[#404040]" type="email" name="" id="" />
+                  <button class="w-[50.09px] rounded-r-[5px] h-[55px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]">
+                    <img loading="lazy" class="w-[28px] h-[28px]" src="./images/svg/mail.svg" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:absolute bottom-0 text-center md:text-left">
+            <p class="text-[#ffffff] text-[14px] mt-[53px] md:mt-0 md:text-[12px]">© EduWork 2020 - 2021 . All rights reserved.</p>
+          </div>
+          <div class="md:absolute md:right-0 md:bottom-0 md:float-right flex md:flex-row md:justify-between md:gap-[50px]">
+            <div class="mx-auto md:mx-0">
+              <p class="text-[#ffffff] text-[14px] mt-[12px] md:mt-0 md:text-[12px]">Privacy and policy</p>
+            </div>
+            <div>
+              <p class="text-[#ffffff] md:flex hidden text-[12px]">Terms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wave-footer xl:min-w-[1340px]"></div>
+      <div class="absolute bottom-0 w-full xl:min-w-[1340px] h-full md:h-[981px] bg-footer -z-50"></div>
+    </section>
+    <!-- End of Footer section -->
+  </body>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "slide",
+      direction: "horizontal",
+      centerdSlides: true,
+      loop: true,
+      slideToClickedSlide: true,
+      autoplay: {
+        delay: 5000,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        520: {
+          slidesPerView: 1,
+        },
+        720: {
+          slidesPerView: "auto",
+        },
+      },
+      grabCursor: true,
+      slidesPerGroup: 1,
+      navigation: {
+        nextEl: ".swiper-Button-next",
+        prevEl: ".swiper-Button-prev",
+      },
+    });
+  </script>
+</html>

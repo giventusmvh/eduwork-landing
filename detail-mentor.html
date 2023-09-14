@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body class="bg-[#f6fcff] text-[#404040] font-poppins">
+    <!-- Navabar -->
+    <div class="w-full z-50 relative" id="navbar">
+      <nav
+        class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5"
+      >
+        <a href="/" class="w-[154px] h-[31px]">
+          <img
+            loading="lazy"
+            class=""
+            src="./images/logo/favicon.png"
+            alt="Eduwork Logo"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-cta"
+          type="button"
+          class="navbar-toggle z-10 inline-flex p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 right-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-cta"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-[37px] h-[37px]"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <ul class="hidden md:flex gap-[40px]">
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none"
+              >
+                Kelas
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href="kelas.html"
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Regular</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Kelas</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none"
+              >
+                Mentor
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Mentor</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Mentor</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none items-center"
+              >
+                Company
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Start-up</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Corporate</a
+                >
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="hidden w-full lg:flex gap-2 md:w-auto h-fit">
+          <button
+            class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md"
+            type="button"
+          >
+            Login
+          </button>
+          <button
+            class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md"
+            type="button"
+          >
+            Register
+          </button>
+        </div>
+      </nav>
+    </div>
+    <div class="absolute -z-10 top-[200px] w-full h-[328.26px]">
+      <div class="wave"></div>
+    </div>
+    <div class="absolute top-0 w-full -z-30">
+      <div
+        class="bg-gradient-to-r from-white via-white to-white/60 w-full h-full absolute"
+      ></div>
+      <img
+        class="w-full object-cover"
+        src="./images/profile-mentor/bg-hero-mentor.png"
+        alt=""
+      />
+    </div>
+    <!-- Content -->
+    <div class="z-50">
+      <nav
+        class="menuChange w-[90%] md:w-full lg:w-[1138px] mt-36 container mx-auto z-50"
+        id="navProf"
+      >
+        <ul
+          class="w-full flex text-[#888888] justify-between bg-white shadow-s2 py-6 px-10 rounded-[10px]"
+        >
+          <li class="tentang text-[16px]">
+            <a href="#tentang">Tentang</a>
+          </li>
+          <li class="skill text-[16px]"><a href="#skill">Skill</a></li>
+          <li class="portofolio text-[16px]">
+            <a href="#portofolio">Portofolio</a>
+          </li>
+          <li class="daftarmurid text-[16px]">
+            <a href="#daftarmurid">Daftar murid</a>
+          </li>
+          <li class="review text-[16px]"><a href="#review">Review</a></li>
+          <li class="perusahaan text-[16px]">
+            <a href="#perusahaan">Perusahaan</a>
+          </li>
+          <li class="kelas text-[16px]"><a href="#kelas">Kelas</a></li>
+          <li class="faq text-[16px]"><a href="#faq">FAQ</a></li>
+          <li class="rekomendasi text-[16px]">
+            <a href="#rekomendasi">Rekomendasi</a>
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="w-[90%] mt-[50px] lg:w-[1016px] container mx-auto flex gap-8 items-start"
+      >
+        <div class="w-1/3 flex flex-col" id="ppMentor">
+          <div
+            class="bg-white flex flex-col p-[20px] rounded-[20px] gap-3 shadow-s2"
+          >
+            <div class="w-full relative rounded-[15px] overflow-hidden">
+              <div
+                class="absolute bg-gradient-to-t from-black/50 to-black/0 w-full h-full"
+              ></div>
+              <img
+                loading="lazy"
+                src="./images/profile-mentor/pp-pelita.png"
+                alt=""
+                class="object-cover w-full"
+              />
+            </div>
+            <div class="flex flex-col items-center gap-1">
+              <h1 class="text-[18px] font-semibold">Pelita Nur Najmina</h1>
+              <p class="text-[#828282] text-[14px]">CTO Eduwork</p>
+            </div>
+            <div class="h-[1px] w-full bg-[#D9D9D9]"></div>
+            <div class="flex flex-col gap-[1px] text-[#828282] text-[14px]">
+              <div class="flex gap-2 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/Internship.png"
+                  alt=""
+                />
+                <p>8 Years Experience</p>
+              </div>
+              <div class="flex gap-2 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/Pennant.png"
+                  alt=""
+                />
+                <p>5 Award</p>
+              </div>
+              <div class="flex gap-2 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/Certificate.png"
+                  alt=""
+                />
+                <p>10 Certificate</p>
+              </div>
+            </div>
+            <div class="h-[1px] w-full bg-[#D9D9D9]"></div>
+            <div class="flex flex-col gap-[1px] text-[#828282] text-[14px]">
+              <p class="text-[#252525] font-medium">Total Income</p>
+              <div class="flex gap-2 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/CardWallet.png"
+                  alt=""
+                />
+                <p>Rp. 800.000,-</p>
+              </div>
+              <p class="text-[#252525] font-medium">Total Murid Tersalurkan</p>
+              <div class="flex gap-2 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/Users.png"
+                  alt=""
+                />
+                <p>100 Orang</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-white mt-[40px] items-start flex flex-col p-[20px] rounded-[20px] gap-3 shadow-s2"
+          >
+            <div
+              class="flex rounded-lg items-center justify-center p-3 bg-primary/10"
+            >
+              <img
+                src="./images/profile-mentor/ic-mentorship.png"
+                alt="mentorship"
+                loading="lazy"
+              />
+            </div>
+            <h1 class="font-medium text-[16px]">Mentorship Program</h1>
+            <div
+              class="bg-primary/10 rounded-lg w-full flex items-center justify-center p-3"
+            >
+              <span class="text-[20px] font-semibold">Rp. 1.000.0000</span
+              ><span class="text-[10px] font-semibold pt-1">/bulan</span>
+            </div>
+            <p class="text-[16px] text-[#828282] font-semibold mt-2">
+              4 Sport Left
+            </p>
+            <div class="h-[1px] w-full bg-[#D9D9D9]"></div>
+            <div class="flex flex-col gap-2 text-[#828282]">
+              <div class="flex gap-2 items-start">
+                <img
+                  src="./images/profile-mentor/ic-checkmark.png"
+                  alt=""
+                  class="pt-1"
+                />
+                <p class="text-[14px]">Include unlimited Q&A Via chat</p>
+              </div>
+              <div class="flex gap-2 items-start">
+                <img
+                  src="./images/profile-mentor/ic-checkmark.png"
+                  alt=""
+                  class="pt-1"
+                />
+                <p class="text-[14px]">Task & Excercise</p>
+              </div>
+              <div class="flex gap-2 items-start">
+                <img
+                  src="./images/profile-mentor/ic-checkmark.png"
+                  alt=""
+                  class="pt-1"
+                />
+                <p class="text-[14px]">Reguler calls, Per Agreement</p>
+              </div>
+              <div class="flex gap-2 items-start">
+                <img
+                  src="./images/profile-mentor/ic-checkmark.png"
+                  alt=""
+                  class="pt-1"
+                />
+                <p class="text-[14px]">Flat Fee, No Hidden Cost</p>
+              </div>
+              <div class="flex gap-2 items-start">
+                <img
+                  src="./images/profile-mentor/ic-checkmark.png"
+                  alt=""
+                  class="pt-1"
+                />
+                <p class="text-[14px]">7 Day Free Trial!! Cancel Anytime</p>
+              </div>
+            </div>
+            <button
+              class="py-2 mt-2 font-semibold text-[16px] text-white rounded-lg bg-primary w-full"
+            >
+              Apply Now
+            </button>
+          </div>
+        </div>
+        <div class="w-full">
+          <!-- Tentang -->
+          <section id="tentang" class="tentang flex flex-col gap-3">
+            <h1 class="text-primary text-[20px] font-semibold">Tentang</h1>
+            <p class="text-[16px]">
+              It is a long established fact that a reader will be distracted by
+              the readable content of a page when looking at its layout. The
+              point of using Lorem Ipsum is that it has a more-or-less normal
+              distribution of letters, as opposed to using 'Content here,
+              content here', making it look like readable English.
+            </p>
+          </section>
+          <!-- Skill -->
+          <section id="skill" class="skill mt-[50px] flex flex-col gap-6">
+            <h1 class="text-primary text-[20px] font-semibold">Skill</h1>
+            <div class="flex justify-between">
+              <div class="flex gap-3 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/laravel.png"
+                  alt=""
+                />
+                <p class="font-medium text-[16px]">Laravel</p>
+              </div>
+              <div class="flex gap-3 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/react.png"
+                  alt=""
+                />
+                <p class="font-medium text-[16px]">React Js</p>
+              </div>
+              <div class="flex gap-3 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/html.png"
+                  alt=""
+                />
+                <p class="font-medium text-[16px]">Html</p>
+              </div>
+              <div class="flex gap-3 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/css.png"
+                  alt=""
+                />
+                <p class="font-medium text-[16px]">Css</p>
+              </div>
+              <div class="flex gap-3 items-center">
+                <img
+                  loading="lazy"
+                  src="./images/profile-mentor/javascript.png"
+                  alt=""
+                />
+                <p class="font-medium text-[16px]">javascript</p>
+              </div>
+            </div>
+          </section>
+          <!-- Portofolio -->
+          <section
+            id="portofolio"
+            class="portofolio mt-[50px] flex flex-col gap-5"
+          >
+            <h1 class="text-primary text-[20px] font-semibold">Portofolio</h1>
+            <div class="flex justify-between">
+              <div
+                class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden"
+              >
+                <div class="relative">
+                  <div
+                    class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"
+                  ></div>
+                  <img
+                    loading="lazy"
+                    src="./images/profile-mentor/porto-1.png"
+                    alt=""
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div
+                  class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8"
+                >
+                  <h1 class="text-[16px] font-semibold text-primary">
+                    Dashboard Starbucks
+                  </h1>
+                  <p class="mt-[8px] text-[14px] font-medium">
+                    Pelita Nur Najmina
+                  </p>
+                  <p class="text-[12px]">Web & mobile app</p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden"
+              >
+                <div class="relative">
+                  <div
+                    class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"
+                  ></div>
+                  <img
+                    loading="lazy"
+                    src="./images/profile-mentor/porto-2.png"
+                    alt=""
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div
+                  class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8"
+                >
+                  <h1 class="text-[16px] font-semibold text-primary">
+                    Dashboard Shopping
+                  </h1>
+                  <p class="mt-[8px] text-[14px] font-medium">
+                    Pelita Nur Najmina
+                  </p>
+                  <p class="text-[12px]">Web & mobile app</p>
+                </div>
+              </div>
+              <div
+                class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden"
+              >
+                <div class="relative">
+                  <div
+                    class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"
+                  ></div>
+                  <img
+                    loading="lazy"
+                    src="./images/profile-mentor/porto-3.png"
+                    alt=""
+                    class="w-full object-cover"
+                  />
+                </div>
+                <div
+                  class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8"
+                >
+                  <h1 class="text-[16px] font-semibold text-primary">
+                    Website E - Wallet
+                  </h1>
+                  <p class="mt-[8px] text-[14px] font-medium">
+                    Pelita Nur Najmina
+                  </p>
+                  <p class="text-[12px]">Web & mobile app</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- daftarmurid -->
+          <section
+            id="daftarmurid"
+            class="daftarmurid mt-[50px] flex flex-col gap-6"
+          >
+            <h1 class="text-primary text-[20px] font-semibold">
+              Murid Yang Bergabung
+            </h1>
+            <div class="flex items-center justify-between">
+              <div class="flex gap-4 items-center">
+                <div class="bg-primary p-3 rounded-lg">
+                  <img
+                    src="./images/profile-mentor/ic-total-belajar.png"
+                    alt=""
+                  />
+                </div>
+                <div class="flex-col flex gap-[2px]">
+                  <h1 class="font-semibold text-[16px]">Total Belajar</h1>
+                  <p class="text-[12px] text-[#5E5E5E]">100 Siswa</p>
+                </div>
+              </div>
+              <div class="flex gap-4 items-center">
+                <div class="bg-primary p-3 rounded-lg">
+                  <img src="./images/profile-mentor/ic-trsalurkan.png" alt="" />
+                </div>
+                <div class="flex-col flex gap-[2px]">
+                  <h1 class="font-semibold text-[16px]">Total Tersalurkan</h1>
+                  <p class="text-[12px] text-[#5E5E5E]">80 Siswa Tersalurkan</p>
+                </div>
+              </div>
+              <div class="flex gap-4 items-center">
+                <div class="bg-primary p-3 rounded-lg">
+                  <img src="./images/profile-mentor/ic-penilaian.png" alt="" />
+                </div>
+                <div class="flex-col flex gap-[2px]">
+                  <h1 class="font-semibold text-[16px]">Penilaian</h1>
+                  <div class="flex gap-1 items-center">
+                    <img src="./images/svg/Star.svg" alt="" />
+                    <p class="text-[12px] text-[#5E5E5E] pt-1">4.5</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+              <div
+                class="flex p-6 gap-6 bg-white rounded-md items-center shadow-s2"
+              >
+                <img
+                  src="./images/profile-mentor/murid-1.png"
+                  class="rounded-md"
+                  alt=""
+                />
+                <div class="flex flex-col">
+                  <h1 class="text-[18px] font-semibold">Almira Zahra</h1>
+                  <p class="text-[12px] text-[#888888]">Freelance Software</p>
+                  <p class="text-[12px] text-[#888888]">Engineer</p>
+                </div>
+              </div>
+              <div
+                class="flex p-6 gap-4 bg-white rounded-md items-center shadow-s2"
+              >
+                <img
+                  src="./images/profile-mentor/murid-2.png"
+                  class="rounded-md"
+                  alt=""
+                />
+                <div class="flex flex-col">
+                  <h1 class="text-[18px] font-semibold">Bramastro A</h1>
+                  <p class="text-[12px] text-[#888888]">Freelance Frontend</p>
+                  <p class="text-[12px] text-[#888888]">Developer</p>
+                </div>
+              </div>
+              <div
+                class="flex p-6 gap-4 bg-white rounded-md items-center shadow-s2"
+              >
+                <img
+                  src="./images/profile-mentor/murid-3.png"
+                  class="rounded-md"
+                  alt=""
+                />
+                <div class="flex flex-col">
+                  <h1 class="text-[18px] font-semibold">Fikri Hidayat</h1>
+                  <p class="text-[12px] text-[#888888]">Freelance Backend</p>
+                  <p class="text-[12px] text-[#888888]">Developer</p>
+                </div>
+              </div>
+              <div
+                class="flex p-6 gap-4 bg-white rounded-md items-center shadow-s2"
+              >
+                <img
+                  src="./images/profile-mentor/murid-4.png"
+                  class="rounded-md"
+                  alt=""
+                />
+                <div class="flex flex-col">
+                  <h1 class="text-[18px] font-semibold">Syahnaz Putri</h1>
+                  <p class="text-[12px] text-[#888888]">Freelance Quality</p>
+                  <p class="text-[12px] text-[#888888]">Assurance Engineer</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Review -->
+          <section id="review" class="review mt-[50px] flex flex-col gap-10">
+            <h1 class="text-primary text-[20px] font-semibold">Review</h1>
+            <div class="flex flex-col gap-10">
+              <div class="flex gap-6">
+                <img
+                  src="./images/profile-mentor/testi-1.png"
+                  alt="Nikita Rombe"
+                  loading="lazy"
+                  class="rounded-lg"
+                />
+                <div class="flex flex-col justify-between">
+                  <div class="flex gap-2 flex-col">
+                    <img
+                      loading="lazy"
+                      class="w-[36px] h-[36px] mb-2"
+                      src="./images/svg/Quote Left.svg"
+                      alt=""
+                    />
+                    <p class="text-[16px]">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nam faucibus ut sit est in pharetra nunc vel cras.
+                      Pharetra, nibh in amet vestibulum pharetra.
+                    </p>
+                  </div>
+                  <div class="flex flex-col">
+                    <h1 class="text-[20px] font-semibold">Nikita Rombe</h1>
+                    <div class="flex items-center gap-4">
+                      <p class="text-[16px] text-[#737373]">
+                        Programmer PT. Amanah Abadi Sejahtera
+                      </p>
+                      <div class="flex flex-row items-center">
+                        <img
+                          loading="lazy"
+                          class="w-[14px] float-left h-[14px] mr-[7px]"
+                          src="./images/svg/Star.svg"
+                          alt=""
+                          srcset=""
+                        />
+                        <span>4.5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <img
+                  src="./images/profile-mentor/testi-2.png"
+                  alt="Nikita Rombe"
+                  loading="lazy"
+                  class="rounded-lg"
+                />
+                <div class="flex flex-col justify-between">
+                  <div class="flex gap-2 flex-col">
+                    <img
+                      loading="lazy"
+                      class="w-[36px] h-[36px] mb-2"
+                      src="./images/svg/Quote Left.svg"
+                      alt=""
+                    />
+                    <p class="text-[16px]">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nam faucibus ut sit est in pharetra nunc vel cras.
+                      Pharetra, nibh in amet vestibulum pharetra.
+                    </p>
+                  </div>
+                  <div class="flex flex-col">
+                    <h1 class="text-[20px] font-semibold">Fahmi Azwarin</h1>
+                    <div class="flex items-center gap-4">
+                      <p class="text-[16px] text-[#737373]">
+                        QA Engineer PT. Marriots Coffee Farm
+                      </p>
+                      <div class="flex flex-row items-center">
+                        <img
+                          loading="lazy"
+                          class="w-[14px] float-left h-[14px] mr-[7px]"
+                          src="./images/svg/Star.svg"
+                          alt=""
+                          srcset=""
+                        />
+                        <span>4.5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-6">
+                <img
+                  src="./images/profile-mentor/testi-3.png"
+                  alt="Nikita Rombe"
+                  loading="lazy"
+                  class="rounded-lg"
+                />
+                <div class="flex flex-col justify-between">
+                  <div class="flex gap-2 flex-col">
+                    <img
+                      loading="lazy"
+                      class="w-[36px] h-[36px] mb-2"
+                      src="./images/svg/Quote Left.svg"
+                      alt=""
+                    />
+                    <p class="text-[16px]">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Nam faucibus ut sit est in pharetra nunc vel cras.
+                      Pharetra, nibh in amet vestibulum pharetra.
+                    </p>
+                  </div>
+                  <div class="flex flex-col">
+                    <h1 class="text-[20px] font-semibold">Helen Silvia</h1>
+                    <div class="flex items-center gap-4">
+                      <p class="text-[16px] text-[#737373]">
+                        Frontend PT. Tokopedia Indonesia
+                      </p>
+                      <div class="flex flex-row items-center">
+                        <img
+                          loading="lazy"
+                          class="w-[14px] float-left h-[14px] mr-[7px]"
+                          src="./images/svg/Star.svg"
+                          alt=""
+                          srcset=""
+                        />
+                        <span>4.5</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- perusahaan -->
+          <section id="perusahaan" class="perusahaan mt-[50px] flex flex-col">
+            <h1 class="text-primary text-[20px] font-semibold">Perusahaan</h1>
+            <!-- Partner -->
+            <div
+              class="flex justify-between gap-4 items-center mb-8 overflow-auto mt-6"
+            >
+              <img loading="lazy" src="./images/partners/flip.png" alt="flip" />
+              <img
+                loading="lazy"
+                src="./images/partners/gojek.png"
+                alt="gojek"
+              />
+              <img
+                loading="lazy"
+                src="./images/partners/telkom.png"
+                alt="telkom"
+              />
+              <img
+                loading="lazy"
+                src="./images/partners/tokopedia.png"
+                alt="tokopedia"
+              />
+              <img
+                loading="lazy"
+                src="./images/partners/alodokter.png"
+                alt="alodokter"
+              />
+            </div>
+            <!-- Partner -->
+            <div class="flex justify-between gap-4 items-center overflow-auto">
+              <img
+                loading="lazy"
+                src="./images/partners/linkaja.png"
+                alt="linkaja"
+              />
+              <img
+                loading="lazy"
+                src="./images/partners/astra.png"
+                alt="Astra"
+              />
+              <img
+                loading="lazy"
+                src="./images/partners/bizzy.png"
+                alt="bizzy"
+              />
+              <img
+                loading="lazy"
+                src="./images/partners/akulaku.png"
+                alt="akulaku"
+              />
+              <img
+                loading="lazy"
+                src="./images/partners/bukalapak.png"
+                alt="bukalapak"
+              />
+            </div>
+          </section>
+          <!-- Kelas -->
+          <section id="kelas" class="kelas mt-[50px] flex flex-col gap-3">
+            <h1 class="text-primary text-[20px] font-semibold">Kelas</h1>
+            <div class="flex flex-col gap-5">
+              <div class="flex gap-6 bg-white p-6 shadow-s2 rounded-lg">
+                <img
+                  src="./images/profile-mentor/kelas-1.png"
+                  alt="kelas"
+                  loading="lazy"
+                  class="rounded-[10px]"
+                />
+                <div class="flex flex-col justify-between">
+                  <h1 class="text-[20px] font-semibold">React Js & Node Js</h1>
+                  <p class="text-[14px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    faucibus ut sit est in pharetra nunc vel cras. Pharetra,
+                    nibh in amet vestibulum pharetra..
+                  </p>
+                  <div class="h-[1px] w-full bg-[#D9D9D9]"></div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex gap-6">
+                      <div class="flex flex-row items-center">
+                        <img
+                          loading="lazy"
+                          class="w-[14px] float-left h-[14px] mr-[7px]"
+                          src="./images/svg/Star.svg"
+                          alt=""
+                          srcset=""
+                        />
+                        <span class="text-[14px] text-[#A9A9A9]">4.5</span>
+                      </div>
+                      <div class="flex flex-row items-center gap-2">
+                        <img
+                          src="./images/profile-mentor/ic-students.png"
+                          alt=""
+                        />
+                        <span class="text-[14px] text-[#A9A9A9]"
+                          >100 Orang</span
+                        >
+                      </div>
+                    </div>
+                    <button
+                      class="w-[201px] py-2 bg-primary rounded-md text-white"
+                    >
+                      Daftar Sekarang
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-6 bg-white p-6 shadow-s2 rounded-lg">
+                <img
+                  src="./images/profile-mentor/kelas-2.png"
+                  alt="kelas"
+                  loading="lazy"
+                  class="rounded-[10px]"
+                />
+                <div class="flex flex-col justify-between">
+                  <h1 class="text-[20px] font-semibold">QA Engineer</h1>
+                  <p class="text-[14px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    faucibus ut sit est in pharetra nunc vel cras. Pharetra,
+                    nibh in amet vestibulum pharetra..
+                  </p>
+                  <div class="h-[1px] w-full bg-[#D9D9D9]"></div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex gap-6">
+                      <div class="flex flex-row items-center">
+                        <img
+                          loading="lazy"
+                          class="w-[14px] float-left h-[14px] mr-[7px]"
+                          src="./images/svg/Star.svg"
+                          alt=""
+                          srcset=""
+                        />
+                        <span class="text-[14px] text-[#A9A9A9]">4.5</span>
+                      </div>
+                      <div class="flex flex-row items-center gap-2">
+                        <img
+                          src="./images/profile-mentor/ic-students.png"
+                          alt=""
+                        />
+                        <span class="text-[14px] text-[#A9A9A9]"
+                          >100 Orang</span
+                        >
+                      </div>
+                    </div>
+                    <button
+                      class="w-[201px] py-2 bg-primary rounded-md text-white"
+                    >
+                      Daftar Sekarang
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex gap-6 bg-white p-6 shadow-s2 rounded-lg">
+                <img
+                  src="./images/profile-mentor/kelas-3.png"
+                  alt="kelas"
+                  loading="lazy"
+                  class="rounded-[10px]"
+                />
+                <div class="flex flex-col justify-between">
+                  <h1 class="text-[20px] font-semibold">Golang Developer</h1>
+                  <p class="text-[14px]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    faucibus ut sit est in pharetra nunc vel cras. Pharetra,
+                    nibh in amet vestibulum pharetra..
+                  </p>
+                  <div class="h-[1px] w-full bg-[#D9D9D9]"></div>
+                  <div class="flex justify-between items-center">
+                    <div class="flex gap-6">
+                      <div class="flex flex-row items-center">
+                        <img
+                          loading="lazy"
+                          class="w-[14px] float-left h-[14px] mr-[7px]"
+                          src="./images/svg/Star.svg"
+                          alt=""
+                          srcset=""
+                        />
+                        <span class="text-[14px] text-[#A9A9A9]">4.5</span>
+                      </div>
+                      <div class="flex flex-row items-center gap-2">
+                        <img
+                          src="./images/profile-mentor/ic-students.png"
+                          alt=""
+                        />
+                        <span class="text-[14px] text-[#A9A9A9]"
+                          >100 Orang</span
+                        >
+                      </div>
+                    </div>
+                    <button
+                      class="w-[201px] py-2 bg-primary rounded-md text-white"
+                    >
+                      Daftar Sekarang
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- FAQ -->
+          <section id="faq" class="faq mt-[50px] flex flex-col gap-3">
+            <h1 class="text-primary text-[20px] font-semibold">FAQ</h1>
+            <h1 class="text-[24px] font-semibold mb-[30px]">
+              Informasi yang sering ditanyakan
+            </h1>
+            <div class="columns-1 md:columns-2 gap-[42px]">
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+              <div
+                class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+              >
+                <div
+                  class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+                >
+                  <div class="flex items-center gap-2">
+                    <img
+                      loading="lazy"
+                      class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                      src="./images/info-icon.png"
+                      alt=""
+                    />
+                    <h2>Panduan Pendaftaran</h2>
+                  </div>
+                </div>
+                <div class="content">
+                  <p class="">
+                    Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                    amet consec tetur.Lorem ipsum
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Rekomendasi -->
+          <section
+            id="rekomendasi"
+            class="rekomendasi mt-[50px] flex flex-col gap-3"
+          >
+            <h1 class="text-primary text-[20px] font-semibold">Rekomendasi</h1>
+            <h1 class="text-[24px] font-semibold mb-4">Expert Mentor</h1>
+            <div class="flex flex-col md:flex-row w-full gap-[10px]">
+              <div
+                class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+              >
+                <img
+                  loading="lazy"
+                  src="./images/mentors/tomy.png"
+                  alt="tomy"
+                  class="rounded-[5px] mb-4 object-cover h-[149px]"
+                />
+                <div class="mb-3">
+                  <h1 class="font-semibold text-[14px]">Tommy Priambodo</h1>
+                  <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+                </div>
+                <a href="#" class="flex items-center gap-2 text-primary">
+                  <img
+                    loading="lazy"
+                    src="./images/LinkedIn.png"
+                    alt="LinkedIn"
+                  />
+                  <p class="text-[12px]">About Tommy</p>
+                </a>
+              </div>
+              <div
+                class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+              >
+                <img
+                  loading="lazy"
+                  src="./images/mentors/pelita.png"
+                  alt="tomy"
+                  class="rounded-[5px] mb-4 object-cover object-top h-[149px]"
+                />
+                <div class="mb-3">
+                  <h1 class="font-semibold text-[14px]">Pelita Nur Najmina</h1>
+                  <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+                </div>
+                <a href="#" class="flex items-center gap-2 text-primary">
+                  <img
+                    loading="lazy"
+                    src="./images/LinkedIn.png"
+                    alt="LinkedIn"
+                  />
+                  <p class="text-[12px]">About Pelita</p>
+                </a>
+              </div>
+              <div
+                class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+              >
+                <img
+                  loading="lazy"
+                  src="./images/mentors/dimas.png"
+                  alt="tomy"
+                  class="rounded-[5px] mb-4 object-cover h-[149px]"
+                />
+                <div class="mb-3">
+                  <h1 class="font-semibold text-[14px]">Dimas H V</h1>
+                  <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+                </div>
+                <a href="#" class="flex items-center gap-2 text-primary">
+                  <img
+                    loading="lazy"
+                    src="./images/LinkedIn.png"
+                    alt="LinkedIn"
+                  />
+                  <p class="text-[12px]">About Dimas</p>
+                </a>
+              </div>
+              <div
+                class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+              >
+                <img
+                  loading="lazy"
+                  src="./images/mentors/salim.png"
+                  alt="tomy"
+                  class="rounded-[5px] mb-4 object-cover h-[149px]"
+                />
+                <div class="mb-3">
+                  <h1 class="font-semibold text-[14px]">Salim Arizi</h1>
+                  <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+                </div>
+                <a href="#" class="flex items-center gap-2 text-primary">
+                  <img
+                    loading="lazy"
+                    src="./images/LinkedIn.png"
+                    alt="LinkedIn"
+                  />
+                  <p class="text-[12px]">About Salim</p>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <!-- Footer section -->
+    <section
+      class="relative w-full h-[1270px] md:h-[1070px] pb-[20px] md:pb-0 -z-30"
+    >
+      <div class="container mx-auto">
+        <div
+          class="absolute w-[80%] mx-auto left-1/2 -translate-x-1/2 h-fit lg:w-fit lg:h-[575px] md:pt-[86px] top-[267px]"
+        >
+          <div class="flex flex-col gap-[23px] md:flex-row text-[#ffffff]">
+            <div class="md:w-[237.51px]">
+              <img
+                loading="lazy"
+                class="w-[250px] h-[48.53px] lg:w-fit md:h-fit mx-auto md:mx-0"
+                src="./images/logo/favicon-white.svg"
+                alt=""
+                srcset=""
+              />
+              <p
+                class="text-[16px] md:text-[14px] mt-[37.56px] mb-[18px] text-center md:text-left"
+              >
+                When an unknown printer took a galley of type and make a type
+                specimen book.
+              </p>
+              <div class="flex flex-row mb-[60.08px]">
+                <div class="inline-flex gap-[22px] mx-auto md:mx-0">
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-instagram.svg"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-twitter.svg"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-youtube.svg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="columns-2 flex flex-row md:ml-[80.49px] justify-between"
+            >
+              <div class="flex flex-col gap-[41px] w-[159.78px] h-[375px]">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Explore Us</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Kelas</li></a>
+                    <a href=""><li class="mb-[12px]">Our Mentors</li></a>
+                    <a href=""><li class="mb-[12px]">For Corporate</li></a>
+                    <a href=""><li>Community</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Our Services</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Free Event</li></a>
+                    <a href=""><li class="mb-[12px]">Video Course</li></a>
+                    <a href=""><li class="mb-[12px]">Bootcamp</li></a>
+                    <a href=""><li>Private Mentoring</li></a>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-[41px] w-fit md:w-[198px] h-[375px] text-left"
+              >
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Category</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Mobile Developer</li></a>
+                    <a href=""><li class="mb-[12px]">Website Developer</li></a>
+                    <a href=""><li class="mb-[12px]">UI/UX Designer</li></a>
+                    <a href=""><li>Graphic Designer</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Office</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <li class="mb-[12px]">PT Eduwork.id</li>
+                    <li class="mb-[12px]">Jl. Ring Road Utara No 24</li>
+                    <li class="mb-[12px]">Yogyakarta. Indonesia</li>
+                    <a href=""><li>team@eduwork.id</li></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h1
+                class="font-[600] text-[18px] mt-[60px] md:mt-0 mb-[10px] text-center md:text-left"
+              >
+                Promotions
+              </h1>
+              <ul class="text-[14px] md:text-[12px]">
+                <a href=""
+                  ><li class="mb-[12px] text-center md:text-left">
+                    Submit your email for new updates
+                  </li></a
+                >
+                <li class="flex flex-row">
+                  <input
+                    class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[55px] border border-white text-[#404040]"
+                    type="email"
+                    name=""
+                    id=""
+                  />
+                  <button
+                    class="w-[50.09px] rounded-r-[5px] h-[55px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]"
+                  >
+                    <img
+                      loading="lazy"
+                      class="w-[28px] h-[28px]"
+                      src="./images/svg/mail.svg"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:absolute bottom-0 text-center md:text-left">
+            <p
+              class="text-[#ffffff] text-[14px] mt-[53px] md:mt-0 md:text-[12px]"
+            >
+              © EduWork 2020 - 2021 . All rights reserved.
+            </p>
+          </div>
+          <div
+            class="md:absolute md:right-0 md:bottom-0 md:float-right flex md:flex-row md:justify-between md:gap-[50px]"
+          >
+            <div class="mx-auto md:mx-0">
+              <p
+                class="text-[#ffffff] text-[14px] mt-[12px] md:mt-0 md:text-[12px]"
+              >
+                Privacy and policy
+              </p>
+            </div>
+            <div>
+              <p class="text-[#ffffff] md:flex hidden text-[12px]">Terms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wave-footer xl:min-w-[1340px]"></div>
+      <div
+        class="absolute bottom-0 w-full xl:min-w-[1340px] h-full md:h-[981px] bg-footer -z-50"
+      ></div>
+    </section>
+  </body>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="./main.js" type="module"></script>
+  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+  <script>
+    // Event Scroll
+    var prevScrollpos = window.pageYOffset;
+    const sections = document.querySelectorAll("section");
+    const navLi = document.querySelectorAll(".menuChange ul li");
+
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      var current = "";
+
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (pageYOffset >= sectionTop - 150) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLi.forEach((li) => {
+        li.classList.remove("activeMenu");
+        if (li.classList.contains(current)) {
+          li.classList.add("activeMenu");
+        }
+      });
+
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+        document.getElementById("navProf").style.top = "100px";
+        document.getElementById("ppMentor").style.top = "200px";
+      } else {
+        document.getElementById("navbar").style.top = "-80px";
+        document.getElementById("navProf").style.top = "20px";
+        document.getElementById("ppMentor").style.top = "120px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY >= 100) {
+        document.getElementById("navbar").style.backgroundColor = "#ffffff";
+        document.getElementById("navbar").style.boxShadow =
+          "0 0 10px rgba(0,0,0,0.1)";
+      } else {
+        document.getElementById("navbar").style.backgroundColor = "transparent";
+        document.getElementById("navbar").style.boxShadow = "none";
+      }
+    });
+    let ok = document.querySelectorAll(".acc");
+
+    ok.forEach((e) => {
+      e.addEventListener("click", () => {
+        removeClass();
+        e.classList.toggle("active");
+      });
+    });
+
+    function removeClass() {
+      ok.forEach((e) => {
+        e.classList.remove("active");
+      });
+    }
+  </script>
+</html>

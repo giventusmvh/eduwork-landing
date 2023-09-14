@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body class="bg-[#f6fcff] text-[#404040] font-poppins">
+    <!-- Navabar -->
+    <div class="w-full z-50" id="navbar">
+      <nav
+        class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5"
+      >
+        <a href="/" class="w-[154px] h-[31px]">
+          <img
+            loading="lazy"
+            class=""
+            src="./images/logo/favicon.png"
+            alt="Eduwork Logo"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-cta"
+          type="button"
+          class="navbar-toggle z-10 inline-flex p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 right-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-cta"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-[37px] h-[37px]"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <ul class="hidden md:flex gap-[40px]">
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none"
+              >
+                Kelas
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href="kelas.html"
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Regular</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Kelas</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none"
+              >
+                Mentor
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Mentor</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Mentor</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none items-center"
+              >
+                Company
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Start-up</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Corporate</a
+                >
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="hidden w-full lg:flex gap-2 md:w-auto h-fit">
+          <button
+            class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md"
+            type="button"
+          >
+            Login
+          </button>
+          <button
+            class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md"
+            type="button"
+          >
+            Register
+          </button>
+        </div>
+      </nav>
+    </div>
+    <!-- End Navbar -->
+    <!-- Hero -->
+    <div
+      class="relative w-full bg-[url('./images/hero/hero-list-kelas.png')] bg-cover bg-center"
+    >
+      <div
+        class="bg-gradient-to-r from-white via-white/80 to-white/30 w-full h-full absolute"
+      ></div>
+      <div
+        class="relative w-[90%] lg:w-[1016px] container mx-auto pt-32 md:pt-40 pb-24 md:pb-32 flex flex-col gap-[30px]"
+      >
+        <h1 class="text-[32px] md:text-[45px] font-bold w-full md:w-1/2">
+          Temukan Pelatihan Menarik Sesuain Keinginanmu
+        </h1>
+        <p class="w-full md:w-2/4 text-lg">
+          Temukan program menarik serta sesuain keinginganmu disini lebih mudah
+          dan menjadi expert dibidangnya.
+        </p>
+      </div>
+    </div>
+    <!-- Hero -->
+    <!-- Kelas -->
+    <div
+      class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[75px] flex-col md:flex-row"
+    >
+      <div class="hidden w-1/4 sticky top-6 gap-8 md:flex flex-col z-30">
+        <div class="flex flex-col gap-1 text-[14px]">
+          <h1 class="mb-3 text-[16px] font-medium text-black">Type Class</h1>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="all_type" />
+            <label for="all_type">All Type</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="private" />
+            <label for="private">Private Mentoring</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="Bootcamp" />
+            <label for="Bootcamp">Bootcamp</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="Webinar" />
+            <label for="Webinar">Webinar</label>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1 text-[14px]">
+          <h1 class="mb-3 text-[16px] font-medium text-black">Category</h1>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="uiux" />
+            <label for="uiux">UI/Ux Design</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="web_dev" />
+            <label for="web_dev">Web Developer</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="mob_dev" />
+            <label for="mob_dev">Mobile Developer</label>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1 text-[14px]">
+          <h1 class="mb-3 text-[16px] font-medium text-black">Locations</h1>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="all_location" />
+            <label for="all_location">All Locations</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="Yogyakarta" />
+            <label for="Yogyakarta">Yogyakarta</label>
+          </div>
+          <div class="flex items-center gap-3">
+            <input type="checkbox" id="Jakarta" />
+            <label for="Jakarta">Jakarta</label>
+          </div>
+        </div>
+      </div>
+      <!-- List Kelas -->
+      <div class="w-full flex flex-col items-center z-30">
+        <div
+          class="flex flex-col md:grid items-center md:grid-cols-2 lg:grid-cols-3 gap-[20px] z-30"
+        >
+          <div
+            class="group relative overflow-hidden w-full md:w-[260px] pb-4 bg-white rounded-[8px] shadow-card2"
+          >
+            <div
+              class="relative overflow-hidden w-full md:w-[260px] h-[180px] md:h-[128.84px] px-[25px] md:px-[10px] bg-cover"
+            >
+              <img
+                loading="lazy"
+                src="./images/image-code.png"
+                class="absolute left-0 w-full md:w-[260px] h-full object-cover group-hover:scale-125 transition duration-700"
+                alt=""
+              />
+              <div
+                class="absolute w-full md:w-[260px] h-full left-0 bg-black/60 z-0"
+              ></div>
+              <div class="absolute top-[5.5em] md:top-14 w-full text-white">
+                <h4 class="text-[20px] md:text-[16px] font-semibold z-10">
+                  Front-end Developer
+                </h4>
+                <p class="z-10 text-[16px] md:text-[12px]">For Beginer</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-[15px] px-[25px] md:px-[10px] mt-1 -mb-4 md:-mb-2"
+            >
+              <img
+                loading="lazy"
+                class="w-[90px] md:w-[72.84px] object-cover rounded-[50%] transform -translate-y-6"
+                src="./images/Kak sekar.png"
+              />
+              <div class="flex flex-col gap-[4px]">
+                <h4
+                  class="md:text-[16px] text-[18px] font-semibold text-[#454545]"
+                >
+                  Gabriellia Sekar
+                </h4>
+                <p class="text-[12px] font-normal text-[#737373]">
+                  Front-end Developer
+                </p>
+                <div
+                  class="flex flex-row gap-[4px] items-center w-fit text-[#ffd84f]"
+                >
+                  <img
+                    loading="lazy"
+                    class="w-[13.27px] h-[12.49px]"
+                    src="./images/svg/Star.svg"
+                    alt=""
+                    srcset=""
+                  /><span
+                    class="font-bold text-[12px] text-[#454545] mt-[5.56px]"
+                  >
+                    4.5
+                  </span>
+                  <span
+                    class="font-normal text-[10px] text-[#737373] mt-[5.56px]"
+                    >(154)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-3"></div>
+            <div class="flex flex-col mx-auto w-full px-[10px]">
+              <div class="mx-auto">
+                <div
+                  class="flex w-full flex-row text-[16px] md:text-[12px] text-[#737373] items-center font-normal gap-[10px] justify-center"
+                >
+                  <span class="text-primary font-semibold">85</span> Siswa
+                  <p>|</p>
+                  Sisa Kuota:
+                  <span class="text-primary font-semibold">15</span>
+                </div>
+                <div
+                  class="w-full flex flex-row gap-[1px] mt-2 text-[12px] md:text-[8px] font-medium"
+                >
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] text-right"
+                  >
+                    ISA Program
+                  </div>
+                  <div
+                    class="w-[80px] md:w-[70px] h-fit bg-primary text-white p-[10px] text-center"
+                  >
+                    &#10003; Reguler
+                  </div>
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-primary p-[10px] rounded-r-[20px] text-white"
+                  >
+                    &#10003; Penyaluran
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-4"></div>
+            <div
+              class="px-[25px] md:px-[10px] flex justify-between items-center"
+            >
+              <div>
+                <p class="text-[#6c6e71] text-[10px]">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-semibold">
+                  Rp 250.000
+                </h1>
+              </div>
+              <button
+                class="w-[83px] py-[8.5px] bg-primary hover:opacity-80 transition duration-300 rounded-[8px] text-white text-[12px] md:text-[10px] font-medium"
+              >
+                Daftar
+              </button>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden w-full md:w-[260px] pb-4 bg-white rounded-[8px] shadow-card2"
+          >
+            <div
+              class="relative overflow-hidden w-full md:w-[260px] h-[180px] md:h-[128.84px] px-[25px] md:px-[10px] bg-cover"
+            >
+              <img
+                loading="lazy"
+                src="./images/image-code.png"
+                class="absolute left-0 w-full md:w-[260px] h-full object-cover group-hover:scale-125 transition duration-700"
+                alt=""
+              />
+              <div
+                class="absolute w-full md:w-[260px] h-full left-0 bg-black/60 z-0"
+              ></div>
+              <div class="absolute top-[5.5em] md:top-14 w-full text-white">
+                <h4 class="text-[20px] md:text-[16px] font-semibold z-10">
+                  Front-end Developer
+                </h4>
+                <p class="z-10 text-[16px] md:text-[12px]">For Beginer</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-[15px] px-[25px] md:px-[10px] mt-1 -mb-4 md:-mb-2"
+            >
+              <img
+                loading="lazy"
+                class="w-[90px] md:w-[72.84px] object-cover rounded-[50%] transform -translate-y-6"
+                src="./images/Kak sekar.png"
+              />
+              <div class="flex flex-col gap-[4px]">
+                <h4
+                  class="md:text-[16px] text-[18px] font-semibold text-[#454545]"
+                >
+                  Gabriellia Sekar
+                </h4>
+                <p class="text-[12px] font-normal text-[#737373]">
+                  Front-end Developer
+                </p>
+                <div
+                  class="flex flex-row gap-[4px] items-center w-fit text-[#ffd84f]"
+                >
+                  <img
+                    loading="lazy"
+                    class="w-[13.27px] h-[12.49px]"
+                    src="./images/svg/Star.svg"
+                    alt=""
+                    srcset=""
+                  /><span
+                    class="font-bold text-[12px] text-[#454545] mt-[5.56px]"
+                  >
+                    4.5
+                  </span>
+                  <span
+                    class="font-normal text-[10px] text-[#737373] mt-[5.56px]"
+                    >(154)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-3"></div>
+            <div class="flex flex-col mx-auto w-full px-[10px]">
+              <div class="mx-auto">
+                <div
+                  class="flex w-full flex-row text-[16px] md:text-[12px] text-[#737373] items-center font-normal gap-[10px] justify-center"
+                >
+                  <span class="text-primary font-semibold">85</span> Siswa
+                  <p>|</p>
+                  Sisa Kuota:
+                  <span class="text-primary font-semibold">15</span>
+                </div>
+                <div
+                  class="w-full flex flex-row gap-[1px] mt-2 text-[12px] md:text-[8px] font-medium"
+                >
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] text-right"
+                  >
+                    ISA Program
+                  </div>
+                  <div
+                    class="w-[80px] md:w-[70px] h-fit bg-primary text-white p-[10px] text-center"
+                  >
+                    &#10003; Reguler
+                  </div>
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-primary p-[10px] rounded-r-[20px] text-white"
+                  >
+                    &#10003; Penyaluran
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-4"></div>
+            <div
+              class="px-[25px] md:px-[10px] flex justify-between items-center"
+            >
+              <div>
+                <p class="text-[#6c6e71] text-[10px]">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-semibold">
+                  Rp 250.000
+                </h1>
+              </div>
+              <button
+                class="w-[83px] py-[8.5px] bg-primary hover:opacity-80 transition duration-300 rounded-[8px] text-white text-[12px] md:text-[10px] font-medium"
+              >
+                Daftar
+              </button>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden w-full md:w-[260px] pb-4 bg-white rounded-[8px] shadow-card2"
+          >
+            <div
+              class="relative overflow-hidden w-full md:w-[260px] h-[180px] md:h-[128.84px] px-[25px] md:px-[10px] bg-cover"
+            >
+              <img
+                loading="lazy"
+                src="./images/image-code.png"
+                class="absolute left-0 w-full md:w-[260px] h-full object-cover group-hover:scale-125 transition duration-700"
+                alt=""
+              />
+              <div
+                class="absolute w-full md:w-[260px] h-full left-0 bg-black/60 z-0"
+              ></div>
+              <div class="absolute top-[5.5em] md:top-14 w-full text-white">
+                <h4 class="text-[20px] md:text-[16px] font-semibold z-10">
+                  Front-end Developer
+                </h4>
+                <p class="z-10 text-[16px] md:text-[12px]">For Beginer</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-[15px] px-[25px] md:px-[10px] mt-1 -mb-4 md:-mb-2"
+            >
+              <img
+                loading="lazy"
+                class="w-[90px] md:w-[72.84px] object-cover rounded-[50%] transform -translate-y-6"
+                src="./images/Kak sekar.png"
+              />
+              <div class="flex flex-col gap-[4px]">
+                <h4
+                  class="md:text-[16px] text-[18px] font-semibold text-[#454545]"
+                >
+                  Gabriellia Sekar
+                </h4>
+                <p class="text-[12px] font-normal text-[#737373]">
+                  Front-end Developer
+                </p>
+                <div
+                  class="flex flex-row gap-[4px] items-center w-fit text-[#ffd84f]"
+                >
+                  <img
+                    loading="lazy"
+                    class="w-[13.27px] h-[12.49px]"
+                    src="./images/svg/Star.svg"
+                    alt=""
+                    srcset=""
+                  /><span
+                    class="font-bold text-[12px] text-[#454545] mt-[5.56px]"
+                  >
+                    4.5
+                  </span>
+                  <span
+                    class="font-normal text-[10px] text-[#737373] mt-[5.56px]"
+                    >(154)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-3"></div>
+            <div class="flex flex-col mx-auto w-full px-[10px]">
+              <div class="mx-auto">
+                <div
+                  class="flex w-full flex-row text-[16px] md:text-[12px] text-[#737373] items-center font-normal gap-[10px] justify-center"
+                >
+                  <span class="text-primary font-semibold">85</span> Siswa
+                  <p>|</p>
+                  Sisa Kuota:
+                  <span class="text-primary font-semibold">15</span>
+                </div>
+                <div
+                  class="w-full flex flex-row gap-[1px] mt-2 text-[12px] md:text-[8px] font-medium"
+                >
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] text-right"
+                  >
+                    ISA Program
+                  </div>
+                  <div
+                    class="w-[80px] md:w-[70px] h-fit bg-primary text-white p-[10px] text-center"
+                  >
+                    &#10003; Reguler
+                  </div>
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-primary p-[10px] rounded-r-[20px] text-white"
+                  >
+                    &#10003; Penyaluran
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-4"></div>
+            <div
+              class="px-[25px] md:px-[10px] flex justify-between items-center"
+            >
+              <div>
+                <p class="text-[#6c6e71] text-[10px]">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-semibold">
+                  Rp 250.000
+                </h1>
+              </div>
+              <button
+                class="w-[83px] py-[8.5px] bg-primary hover:opacity-80 transition duration-300 rounded-[8px] text-white text-[12px] md:text-[10px] font-medium"
+              >
+                Daftar
+              </button>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden w-full md:w-[260px] pb-4 bg-white rounded-[8px] shadow-card2"
+          >
+            <div
+              class="relative overflow-hidden w-full md:w-[260px] h-[180px] md:h-[128.84px] px-[25px] md:px-[10px] bg-cover"
+            >
+              <img
+                loading="lazy"
+                src="./images/image-code.png"
+                class="absolute left-0 w-full md:w-[260px] h-full object-cover group-hover:scale-125 transition duration-700"
+                alt=""
+              />
+              <div
+                class="absolute w-full md:w-[260px] h-full left-0 bg-black/60 z-0"
+              ></div>
+              <div class="absolute top-[5.5em] md:top-14 w-full text-white">
+                <h4 class="text-[20px] md:text-[16px] font-semibold z-10">
+                  Front-end Developer
+                </h4>
+                <p class="z-10 text-[16px] md:text-[12px]">For Beginer</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-[15px] px-[25px] md:px-[10px] mt-1 -mb-4 md:-mb-2"
+            >
+              <img
+                loading="lazy"
+                class="w-[90px] md:w-[72.84px] object-cover rounded-[50%] transform -translate-y-6"
+                src="./images/Kak sekar.png"
+              />
+              <div class="flex flex-col gap-[4px]">
+                <h4
+                  class="md:text-[16px] text-[18px] font-semibold text-[#454545]"
+                >
+                  Gabriellia Sekar
+                </h4>
+                <p class="text-[12px] font-normal text-[#737373]">
+                  Front-end Developer
+                </p>
+                <div
+                  class="flex flex-row gap-[4px] items-center w-fit text-[#ffd84f]"
+                >
+                  <img
+                    loading="lazy"
+                    class="w-[13.27px] h-[12.49px]"
+                    src="./images/svg/Star.svg"
+                    alt=""
+                    srcset=""
+                  /><span
+                    class="font-bold text-[12px] text-[#454545] mt-[5.56px]"
+                  >
+                    4.5
+                  </span>
+                  <span
+                    class="font-normal text-[10px] text-[#737373] mt-[5.56px]"
+                    >(154)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-3"></div>
+            <div class="flex flex-col mx-auto w-full px-[10px]">
+              <div class="mx-auto">
+                <div
+                  class="flex w-full flex-row text-[16px] md:text-[12px] text-[#737373] items-center font-normal gap-[10px] justify-center"
+                >
+                  <span class="text-primary font-semibold">85</span> Siswa
+                  <p>|</p>
+                  Sisa Kuota:
+                  <span class="text-primary font-semibold">15</span>
+                </div>
+                <div
+                  class="w-full flex flex-row gap-[1px] mt-2 text-[12px] md:text-[8px] font-medium"
+                >
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] text-right"
+                  >
+                    ISA Program
+                  </div>
+                  <div
+                    class="w-[80px] md:w-[70px] h-fit bg-primary text-white p-[10px] text-center"
+                  >
+                    &#10003; Reguler
+                  </div>
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-primary p-[10px] rounded-r-[20px] text-white"
+                  >
+                    &#10003; Penyaluran
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-4"></div>
+            <div
+              class="px-[25px] md:px-[10px] flex justify-between items-center"
+            >
+              <div>
+                <p class="text-[#6c6e71] text-[10px]">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-semibold">
+                  Rp 250.000
+                </h1>
+              </div>
+              <button
+                class="w-[83px] py-[8.5px] bg-primary hover:opacity-80 transition duration-300 rounded-[8px] text-white text-[12px] md:text-[10px] font-medium"
+              >
+                Daftar
+              </button>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden w-full md:w-[260px] pb-4 bg-white rounded-[8px] shadow-card2"
+          >
+            <div
+              class="relative overflow-hidden w-full md:w-[260px] h-[180px] md:h-[128.84px] px-[25px] md:px-[10px] bg-cover"
+            >
+              <img
+                loading="lazy"
+                src="./images/image-code.png"
+                class="absolute left-0 w-full md:w-[260px] h-full object-cover group-hover:scale-125 transition duration-700"
+                alt=""
+              />
+              <div
+                class="absolute w-full md:w-[260px] h-full left-0 bg-black/60 z-0"
+              ></div>
+              <div class="absolute top-[5.5em] md:top-14 w-full text-white">
+                <h4 class="text-[20px] md:text-[16px] font-semibold z-10">
+                  Front-end Developer
+                </h4>
+                <p class="z-10 text-[16px] md:text-[12px]">For Beginer</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-[15px] px-[25px] md:px-[10px] mt-1 -mb-4 md:-mb-2"
+            >
+              <img
+                loading="lazy"
+                class="w-[90px] md:w-[72.84px] object-cover rounded-[50%] transform -translate-y-6"
+                src="./images/Kak sekar.png"
+              />
+              <div class="flex flex-col gap-[4px]">
+                <h4
+                  class="md:text-[16px] text-[18px] font-semibold text-[#454545]"
+                >
+                  Gabriellia Sekar
+                </h4>
+                <p class="text-[12px] font-normal text-[#737373]">
+                  Front-end Developer
+                </p>
+                <div
+                  class="flex flex-row gap-[4px] items-center w-fit text-[#ffd84f]"
+                >
+                  <img
+                    loading="lazy"
+                    class="w-[13.27px] h-[12.49px]"
+                    src="./images/svg/Star.svg"
+                    alt=""
+                    srcset=""
+                  /><span
+                    class="font-bold text-[12px] text-[#454545] mt-[5.56px]"
+                  >
+                    4.5
+                  </span>
+                  <span
+                    class="font-normal text-[10px] text-[#737373] mt-[5.56px]"
+                    >(154)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-3"></div>
+            <div class="flex flex-col mx-auto w-full px-[10px]">
+              <div class="mx-auto">
+                <div
+                  class="flex w-full flex-row text-[16px] md:text-[12px] text-[#737373] items-center font-normal gap-[10px] justify-center"
+                >
+                  <span class="text-primary font-semibold">85</span> Siswa
+                  <p>|</p>
+                  Sisa Kuota:
+                  <span class="text-primary font-semibold">15</span>
+                </div>
+                <div
+                  class="w-full flex flex-row gap-[1px] mt-2 text-[12px] md:text-[8px] font-medium"
+                >
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] text-right"
+                  >
+                    ISA Program
+                  </div>
+                  <div
+                    class="w-[80px] md:w-[70px] h-fit bg-primary text-white p-[10px] text-center"
+                  >
+                    &#10003; Reguler
+                  </div>
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-primary p-[10px] rounded-r-[20px] text-white"
+                  >
+                    &#10003; Penyaluran
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-4"></div>
+            <div
+              class="px-[25px] md:px-[10px] flex justify-between items-center"
+            >
+              <div>
+                <p class="text-[#6c6e71] text-[10px]">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-semibold">
+                  Rp 250.000
+                </h1>
+              </div>
+              <button
+                class="w-[83px] py-[8.5px] bg-primary hover:opacity-80 transition duration-300 rounded-[8px] text-white text-[12px] md:text-[10px] font-medium"
+              >
+                Daftar
+              </button>
+            </div>
+          </div>
+          <div
+            class="group relative overflow-hidden w-full md:w-[260px] pb-4 bg-white rounded-[8px] shadow-card2"
+          >
+            <div
+              class="relative overflow-hidden w-full md:w-[260px] h-[180px] md:h-[128.84px] px-[25px] md:px-[10px] bg-cover"
+            >
+              <img
+                loading="lazy"
+                src="./images/image-code.png"
+                class="absolute left-0 w-full md:w-[260px] h-full object-cover group-hover:scale-125 transition duration-700"
+                alt=""
+              />
+              <div
+                class="absolute w-full md:w-[260px] h-full left-0 bg-black/60 z-0"
+              ></div>
+              <div class="absolute top-[5.5em] md:top-14 w-full text-white">
+                <h4 class="text-[20px] md:text-[16px] font-semibold z-10">
+                  Front-end Developer
+                </h4>
+                <p class="z-10 text-[16px] md:text-[12px]">For Beginer</p>
+              </div>
+            </div>
+            <div
+              class="flex gap-[15px] px-[25px] md:px-[10px] mt-1 -mb-4 md:-mb-2"
+            >
+              <img
+                loading="lazy"
+                class="w-[90px] md:w-[72.84px] object-cover rounded-[50%] transform -translate-y-6"
+                src="./images/Kak sekar.png"
+              />
+              <div class="flex flex-col gap-[4px]">
+                <h4
+                  class="md:text-[16px] text-[18px] font-semibold text-[#454545]"
+                >
+                  Gabriellia Sekar
+                </h4>
+                <p class="text-[12px] font-normal text-[#737373]">
+                  Front-end Developer
+                </p>
+                <div
+                  class="flex flex-row gap-[4px] items-center w-fit text-[#ffd84f]"
+                >
+                  <img
+                    loading="lazy"
+                    class="w-[13.27px] h-[12.49px]"
+                    src="./images/svg/Star.svg"
+                    alt=""
+                    srcset=""
+                  /><span
+                    class="font-bold text-[12px] text-[#454545] mt-[5.56px]"
+                  >
+                    4.5
+                  </span>
+                  <span
+                    class="font-normal text-[10px] text-[#737373] mt-[5.56px]"
+                    >(154)</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-3"></div>
+            <div class="flex flex-col mx-auto w-full px-[10px]">
+              <div class="mx-auto">
+                <div
+                  class="flex w-full flex-row text-[16px] md:text-[12px] text-[#737373] items-center font-normal gap-[10px] justify-center"
+                >
+                  <span class="text-primary font-semibold">85</span> Siswa
+                  <p>|</p>
+                  Sisa Kuota:
+                  <span class="text-primary font-semibold">15</span>
+                </div>
+                <div
+                  class="w-full flex flex-row gap-[1px] mt-2 text-[12px] md:text-[8px] font-medium"
+                >
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-[#ffd200] p-[10px] rounded-l-[20px] text-right"
+                  >
+                    ISA Program
+                  </div>
+                  <div
+                    class="w-[80px] md:w-[70px] h-fit bg-primary text-white p-[10px] text-center"
+                  >
+                    &#10003; Reguler
+                  </div>
+                  <div
+                    class="w-[110px] md:w-[82px] h-fit bg-primary p-[10px] rounded-r-[20px] text-white"
+                  >
+                    &#10003; Penyaluran
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h-[1px] mx-[25px] md:mx-[10px] bg-[#cccccc] my-4"></div>
+            <div
+              class="px-[25px] md:px-[10px] flex justify-between items-center"
+            >
+              <div>
+                <p class="text-[#6c6e71] text-[10px]">Start from</p>
+                <h1 class="text-[#454545] text-[18px] font-semibold">
+                  Rp 250.000
+                </h1>
+              </div>
+              <button
+                class="w-[83px] py-[8.5px] bg-primary hover:opacity-80 transition duration-300 rounded-[8px] text-white text-[12px] md:text-[10px] font-medium"
+              >
+                Daftar
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          class="w-[193px] py-[16px] mt-16 bg-primary hover:opacity-80 transition duration-300 rounded-[8px] text-white text-[8px] md:text-[12px] font-medium"
+        >
+          Load More
+        </button>
+      </div>
+      <!-- End List Kelas -->
+    </div>
+    <!-- End Kelas -->
+    <!-- Footer section -->
+    <section class="relative w-full h-[1270px] md:h-[1070px] pb-[20px] md:pb-0">
+      <div class="container mx-auto">
+        <div
+          class="absolute w-[80%] mx-auto left-1/2 -translate-x-1/2 h-fit lg:w-fit lg:h-[575px] md:pt-[86px] top-[267px]"
+        >
+          <div class="flex flex-col gap-[23px] md:flex-row text-[#ffffff]">
+            <div class="md:w-[237.51px]">
+              <img
+                loading="lazy"
+                class="w-[250px] h-[48.53px] lg:w-fit md:h-fit mx-auto md:mx-0"
+                src="./images/logo/favicon-white.svg"
+                alt=""
+                srcset=""
+              />
+              <p
+                class="text-[16px] md:text-[14px] mt-[37.56px] mb-[18px] text-center md:text-left"
+              >
+                When an unknown printer took a galley of type and make a type
+                specimen book.
+              </p>
+              <div class="flex flex-row mb-[60.08px]">
+                <div class="inline-flex gap-[22px] mx-auto md:mx-0">
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-instagram.svg"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-twitter.svg"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-youtube.svg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="columns-2 flex flex-row md:ml-[80.49px] justify-between"
+            >
+              <div class="flex flex-col gap-[41px] w-[159.78px] h-[375px]">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Explore Us</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Kelas</li></a>
+                    <a href=""><li class="mb-[12px]">Our Mentors</li></a>
+                    <a href=""><li class="mb-[12px]">For Corporate</li></a>
+                    <a href=""><li>Community</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Our Services</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Free Event</li></a>
+                    <a href=""><li class="mb-[12px]">Video Course</li></a>
+                    <a href=""><li class="mb-[12px]">Bootcamp</li></a>
+                    <a href=""><li>Private Mentoring</li></a>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-[41px] w-fit md:w-[198px] h-[375px] text-left"
+              >
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Category</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Mobile Developer</li></a>
+                    <a href=""><li class="mb-[12px]">Website Developer</li></a>
+                    <a href=""><li class="mb-[12px]">UI/UX Designer</li></a>
+                    <a href=""><li>Graphic Designer</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Office</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <li class="mb-[12px]">PT Eduwork.id</li>
+                    <li class="mb-[12px]">Jl. Ring Road Utara No 24</li>
+                    <li class="mb-[12px]">Yogyakarta. Indonesia</li>
+                    <a href=""><li>team@eduwork.id</li></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h1
+                class="font-[600] text-[18px] mt-[60px] md:mt-0 mb-[10px] text-center md:text-left"
+              >
+                Promotions
+              </h1>
+              <ul class="text-[14px] md:text-[12px]">
+                <a href=""
+                  ><li class="mb-[12px] text-center md:text-left">
+                    Submit your email for new updates
+                  </li></a
+                >
+                <li class="flex flex-row">
+                  <input
+                    class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[55px] border border-white text-[#404040]"
+                    type="email"
+                    name=""
+                    id=""
+                  />
+                  <button
+                    class="w-[50.09px] rounded-r-[5px] h-[55px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]"
+                  >
+                    <img
+                      loading="lazy"
+                      class="w-[28px] h-[28px]"
+                      src="./images/svg/mail.svg"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:absolute bottom-0 text-center md:text-left">
+            <p
+              class="text-[#ffffff] text-[14px] mt-[53px] md:mt-0 md:text-[12px]"
+            >
+              © EduWork 2020 - 2021 . All rights reserved.
+            </p>
+          </div>
+          <div
+            class="md:absolute md:right-0 md:bottom-0 md:float-right flex md:flex-row md:justify-between md:gap-[50px]"
+          >
+            <div class="mx-auto md:mx-0">
+              <p
+                class="text-[#ffffff] text-[14px] mt-[12px] md:mt-0 md:text-[12px]"
+              >
+                Privacy and policy
+              </p>
+            </div>
+            <div>
+              <p class="text-[#ffffff] md:flex hidden text-[12px]">Terms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wave-footer xl:min-w-[1340px]"></div>
+      <div
+        class="absolute bottom-0 w-full xl:min-w-[1340px] h-full md:h-[981px] bg-footer -z-50"
+      ></div>
+    </section>
+    <!-- End of Footer section -->
+  </body>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="./main.js" type="module"></script>
+  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+  <script>
+    // Event Scroll
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-80px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY >= 100) {
+        document.getElementById("navbar").style.backgroundColor = "#ffffff";
+        document.getElementById("navbar").style.boxShadow =
+          "0 0 10px rgba(0,0,0,0.1)";
+      } else {
+        document.getElementById("navbar").style.backgroundColor = "transparent";
+        document.getElementById("navbar").style.boxShadow = "none";
+      }
+    });
+  </script>
+</html>

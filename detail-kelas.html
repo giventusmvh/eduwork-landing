@@ -1,0 +1,1730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./main.css" />
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-pagination {
+        position: relative !important;
+        margin-top: 2em;
+      }
+      .swiper-pagination-bullet {
+        width: 13px;
+        height: 13px;
+      }
+    </style>
+  </head>
+  <body class="bg-[#f6fcff] text-[#404040] font-poppins">
+    <!-- Navabar -->
+    <div class="w-full z-50" id="navbar">
+      <nav
+        class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5"
+      >
+        <a href="/" class="w-[154px] h-[31px]">
+          <img
+            loading="lazy"
+            class=""
+            src="./images/logo/favicon.png"
+            alt="Eduwork Logo"
+          />
+        </a>
+        <button
+          data-collapse-toggle="navbar-cta"
+          type="button"
+          class="navbar-toggle z-10 inline-flex p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 right-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-cta"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-[37px] h-[37px]"
+            aria-hidden="true"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+        <ul class="hidden md:flex gap-[40px]">
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none"
+              >
+                Kelas
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href="kelas.html"
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Regular</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Kelas</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none"
+              >
+                Mentor
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Mentor</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Mentor</a
+                >
+              </div>
+            </div>
+          </li>
+          <li>
+            <div
+              x-data="{
+              open: false,
+              toggle() {
+                  if (this.open) {
+                      return this.close()
+                  }
+  
+                  this.$refs.button.focus()
+  
+                  this.open = true
+              },
+              close(focusAfter) {
+                  if (! this.open) return
+  
+                  this.open = false
+  
+                  focusAfter && focusAfter.focus()
+              }
+          }"
+              x-on:keydown.escape.prevent.stop="close($refs.button)"
+              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+              x-id="['dropdown-button']"
+              class="relative text-sm font-semibold"
+            >
+              <button
+                x-ref="button"
+                x-on:click="toggle()"
+                :aria-expanded="open"
+                :aria-controls="$id('dropdown-button')"
+                type="button"
+                class="flex gap-[5px] border-none items-center"
+              >
+                Company
+                <svg
+                  xmlns="../images/arrow.svg"
+                  class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </button>
+              <div
+                x-ref="panel"
+                x-show="open"
+                x-transition.origin.top.left
+                x-on:click.outside="close($refs.button)"
+                :id="$id('dropdown-button')"
+                style="display: none"
+                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
+              >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Start-up</a
+                >
+                <a
+                  href=""
+                  class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500"
+                  >Corporate</a
+                >
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="hidden w-full lg:flex gap-2 md:w-auto h-fit">
+          <button
+            class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md"
+            type="button"
+          >
+            Login
+          </button>
+          <button
+            class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md"
+            type="button"
+          >
+            Register
+          </button>
+        </div>
+      </nav>
+    </div>
+    <!-- End Navbar -->
+    <!-- Hero -->
+    <div class="relative w-full z-30">
+      <div
+        class="w-[90%] lg:w-[1016px] container mx-auto pt-32 md:pt-32 pb-8 md:pb-14"
+      >
+        <img
+          loading="lazy"
+          src="./images/bg-detail-kelas.png"
+          alt=""
+          class="absolute -inset-0 -z-10 left-0 md:w-[1250px] md:h-[650px] hidden lg:block"
+        />
+        <div class="flex md:flex-row gap-8 flex-col items-start w-full">
+          <div class="w-full md:w-1/2 flex flex-col gap-[28px] md:pt-20">
+            <h2 class="text-[24px] md:text-[30px] font-medium">
+              Pelatihan & Penyaluran kerja sebagai Programmer
+            </h2>
+            <h1 class="text-[32px] md:text-[55px] font-bold text-primary">
+              Laravel & Vue JS
+            </h1>
+            <button
+              class="flex bg-primary gap-[10px] justify-center w-ful md:w-[256px] py-[24px] px-[35px] rounded-[10px] text-[16px] font-medium text-white"
+            >
+              <img loading="lazy" src="./images/icon/Play.png" alt="play" />
+              Coba Trailer Gratis
+            </button>
+          </div>
+          <div class="w-full md:w-1/2 flex justify-end">
+            <img
+              loading="lazy"
+              src="./images/mentor-dimas-hanifa.png"
+              alt=""
+              class="drop-shadow-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EndHero -->
+    <img
+      loading="lazy"
+      src="./images/bg-detail-kelas-2.png"
+      alt="bg"
+      class="w-full absolute top-[1408px] -z-30"
+    />
+    <!-- Contenet -->
+    <div
+      class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[50px] flex-col md:flex-row z-30 gap-[50px]"
+    >
+      <div class="w-full md:w-1/2" id="menuCourse">
+        <nav
+          class="menuChange bg-white py-6 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4"
+        >
+          <div class="flex justify-between items-center">
+            <h1 class="font-semibold text-[20px] text-[#404040]">
+              Course Detail
+            </h1>
+            <button
+              data-collapse-toggle="filter-cta"
+              type="button"
+              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden"
+              aria-controls="filter-cta"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
+          <ul id="filter-cta" class="text-[#8C8C8C] flex flex-col gap-4">
+            <div class="h-[1px] bg-slate-300"></div>
+            <a href="#tentang" class="tentang text-[16px]"> Tentang Program </a>
+            <a href="#jadwal" class="jadwal text-[16px]"> Jadwal Kelas </a>
+            <a href="#metode" class="metode text-[16px]"> Metode Belajar </a>
+            <a href="#mentor" class="mentor text-[16px]"> Mentor </a>
+            <a href="#silabus" class="silabus text-[16px]"> Silabus </a>
+            <a href="#testimoni" class="testimoni text-[16px]"> Testimoni </a>
+            <a href="#biaya" class="biaya text-[16px]"> Biaya Kelas </a>
+            <a href="#fasilitas" class="fasilitas text-[16px]"> Fasilitas </a>
+            <a href="#portopolio" class="portopolio text-[16px]">
+              Portopolio Siswa
+            </a>
+            <a href="#profesi" class="profesi text-[16px]"> Profesi </a>
+            <a href="#trial" class="trial text-[16px]"> Kelas Trial </a>
+            <a href="#faq" class="faq text-[16px]"> FAQ </a>
+            <button class="bg-primary py-4 rounded-[8px] text-white">
+              Daftar sekarang
+            </button>
+          </ul>
+        </nav>
+      </div>
+      <div class="w-full md:w-[734px]">
+        <!-- Partner -->
+        <div class="flex justify-between gap-4 items-center mb-8 overflow-auto">
+          <img loading="lazy" src="./images/partners/flip.png" alt="flip" />
+          <img loading="lazy" src="./images/partners/gojek.png" alt="gojek" />
+          <img loading="lazy" src="./images/partners/telkom.png" alt="telkom" />
+          <img
+            loading="lazy"
+            src="./images/partners/tokopedia.png"
+            alt="tokopedia"
+          />
+          <img
+            loading="lazy"
+            src="./images/partners/alodokter.png"
+            alt="alodokter"
+          />
+        </div>
+        <!-- Partner -->
+        <div class="flex justify-between gap-4 items-center overflow-auto">
+          <img
+            loading="lazy"
+            src="./images/partners/linkaja.png"
+            alt="linkaja"
+          />
+          <img loading="lazy" src="./images/partners/astra.png" alt="Astra" />
+          <img loading="lazy" src="./images/partners/bizzy.png" alt="bizzy" />
+          <img
+            loading="lazy"
+            src="./images/partners/akulaku.png"
+            alt="akulaku"
+          />
+          <img
+            loading="lazy"
+            src="./images/partners/bukalapak.png"
+            alt="bukalapak"
+          />
+        </div>
+        <!-- Tentang Program -->
+        <section id="tentang" class="mt-[70px]">
+          <p class="text-[18px] font-semibold text-primary">Tentang Program</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Program Laravel & Vue JS
+          </h1>
+          <div class="flex gap-5">
+            <img
+              loading="lazy"
+              src="./images/PIC.png"
+              alt="PIC"
+              class="drop-shadow-lg hidden md:block"
+            />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div
+                class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]"
+              >
+                <div
+                  class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]"
+                >
+                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+                </div>
+                <div>
+                  <h1 class="text-[15px] font-semibold text-black mb-1">
+                    Kurikulum Terupdate
+                  </h1>
+                  <p class="text-[12px]">
+                    Kurikulum kami selalu diupdate sesuai denganperkembangan dan
+                    kebutuhan di industri terkini.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]"
+              >
+                <div
+                  class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]"
+                >
+                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+                </div>
+                <div>
+                  <h1 class="text-[15px] font-semibold text-black mb-1">
+                    Growth Mindset
+                  </h1>
+                  <p class="text-[12px]">
+                    Kurikulum kami selalu diupdate sesuai denganperkembangan dan
+                    kebutuhan di industri terkini.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]"
+              >
+                <div
+                  class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]"
+                >
+                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+                </div>
+                <div>
+                  <h1 class="text-[15px] font-semibold text-black mb-1">
+                    Growth Mindset
+                  </h1>
+                  <p class="text-[12px]">
+                    Kurikulum kami selalu diupdate sesuai denganperkembangan dan
+                    kebutuhan di industri terkini.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]"
+              >
+                <div
+                  class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]"
+                >
+                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+                </div>
+                <div>
+                  <h1 class="text-[15px] font-semibold text-black mb-1">
+                    Growth Mindset
+                  </h1>
+                  <p class="text-[12px]">
+                    Kurikulum kami selalu diupdate sesuai denganperkembangan dan
+                    kebutuhan di industri terkini.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Jadwal kelas -->
+        <section id="jadwal" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Jadwal Kelas</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Jadwal Kelas yang dapat kamu ikuti
+          </h1>
+          <div class="flex flex-col md:flex-row gap-[30px]">
+            <div class="rounded-[10px] overflow-hidden w-full drop-shadow-md">
+              <div class="bg-white px-[32px] py-[10px] flex items-center gap-2">
+                <img loading="lazy" src="./images/Checkmark.png" alt="" />
+                <h2 class="text-[18px] font-semibold">Training session</h2>
+              </div>
+              <div class="bg-[#F4F4F4] px-[32px] py-[10px]">
+                <p class="text-[18px]">Video practice</p>
+              </div>
+            </div>
+            <div class="rounded-[10px] overflow-hidden w-full drop-shadow-md">
+              <div class="bg-white px-[32px] py-[10px] flex items-center gap-2">
+                <img loading="lazy" src="./images/Checkmark.png" alt="" />
+                <h2 class="text-[18px] font-semibold">Live class</h2>
+              </div>
+              <div class="bg-[#F4F4F4] px-[32px] py-[10px]">
+                <p class="text-[18px]">senin - jumat, on demand</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Metode Belajar -->
+        <section id="metode" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Metode Belajar</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Metode belajar yang ada di Eduwork
+          </h1>
+          <div class="flex flex-col md:flex-row gap-[20px]">
+            <div
+              class="bg-white drop-shadow-lg px-[24px] py-[24px] rounded-[10px] flex flex-col items-start"
+            >
+              <img
+                loading="lazy"
+                src="./images/Video-Call.png"
+                alt="Video Learning"
+                class="mb-[10px]"
+              />
+              <h1 class="text-[18px] font-semibold">Video Learning</h1>
+              <p class="text-[14px] text-[#969696] font-medium mb-[10px]">
+                Online | Remote
+              </p>
+              <p class="text-[12px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh mi
+                sit ut sit.
+              </p>
+            </div>
+            <div
+              class="bg-white drop-shadow-lg px-[24px] py-[24px] rounded-[10px] flex flex-col items-start"
+            >
+              <img
+                loading="lazy"
+                src="./images/Konsultasi.png"
+                alt="Konsultasi"
+                class="mb-[10px]"
+              />
+              <h1 class="text-[18px] font-semibold">Bebas Konsultasi</h1>
+              <p class="text-[14px] text-[#969696] font-medium mb-[10px]">
+                Online | Remote
+              </p>
+              <p class="text-[12px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh mi
+                sit ut sit.
+              </p>
+            </div>
+            <div
+              class="bg-white drop-shadow-lg px-[24px] py-[24px] rounded-[10px] flex flex-col items-start"
+            >
+              <img
+                loading="lazy"
+                src="./images/tugas-praktek.png"
+                alt="Tugas Praktek"
+                class="mb-[10px]"
+              />
+              <h1 class="text-[18px] font-semibold">Tugas Praktek</h1>
+              <p class="text-[14px] text-[#969696] font-medium mb-[10px]">
+                Online | Remote
+              </p>
+              <p class="text-[12px]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nibh mi
+                sit ut sit.
+              </p>
+            </div>
+          </div>
+        </section>
+        <!-- Mentor -->
+        <section id="mentor" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Mentor</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">Expert Mentor</h1>
+          <div class="flex flex-col md:flex-row w-full gap-[10px]">
+            <div
+              class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+            >
+              <img
+                loading="lazy"
+                src="./images/mentors/tomy.png"
+                alt="tomy"
+                class="rounded-[5px] mb-4 object-cover h-[149px]"
+              />
+              <div class="mb-3">
+                <h1 class="font-semibold text-[14px]">Tommy Priambodo</h1>
+                <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+              </div>
+              <a href="#" class="flex items-center gap-2 text-primary">
+                <img
+                  loading="lazy"
+                  src="./images/LinkedIn.png"
+                  alt="LinkedIn"
+                />
+                <p class="text-[12px]">About Tommy</p>
+              </a>
+            </div>
+            <div
+              class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+            >
+              <img
+                loading="lazy"
+                src="./images/mentors/pelita.png"
+                alt="tomy"
+                class="rounded-[5px] mb-4 object-cover object-top h-[149px]"
+              />
+              <div class="mb-3">
+                <h1 class="font-semibold text-[14px]">Pelita Nur Najmina</h1>
+                <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+              </div>
+              <a href="#" class="flex items-center gap-2 text-primary">
+                <img
+                  loading="lazy"
+                  src="./images/LinkedIn.png"
+                  alt="LinkedIn"
+                />
+                <p class="text-[12px]">About Pelita</p>
+              </a>
+            </div>
+            <div
+              class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+            >
+              <img
+                loading="lazy"
+                src="./images/mentors/dimas.png"
+                alt="tomy"
+                class="rounded-[5px] mb-4 object-cover h-[149px]"
+              />
+              <div class="mb-3">
+                <h1 class="font-semibold text-[14px]">Dimas H V</h1>
+                <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+              </div>
+              <a href="#" class="flex items-center gap-2 text-primary">
+                <img
+                  loading="lazy"
+                  src="./images/LinkedIn.png"
+                  alt="LinkedIn"
+                />
+                <p class="text-[12px]">About Dimas</p>
+              </a>
+            </div>
+            <div
+              class="bg-white w-full shadow-md px-[18px] py-[20px] rounded-[10px] flex flex-col"
+            >
+              <img
+                loading="lazy"
+                src="./images/mentors/salim.png"
+                alt="tomy"
+                class="rounded-[5px] mb-4 object-cover h-[149px]"
+              />
+              <div class="mb-3">
+                <h1 class="font-semibold text-[14px]">Salim Arizi</h1>
+                <p class="text-[12px] text-[#6C6E71]">Lorem Ipsum numberic</p>
+              </div>
+              <a href="#" class="flex items-center gap-2 text-primary">
+                <img
+                  loading="lazy"
+                  src="./images/LinkedIn.png"
+                  alt="LinkedIn"
+                />
+                <p class="text-[12px]">About Salim</p>
+              </a>
+            </div>
+          </div>
+        </section>
+        <!-- Silabus -->
+        <section id="silabus" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Silabus</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Silabus belajar yang ada di Eduwork
+          </h1>
+          <div class="flex justify-between gap-4 items-center overflow-auto">
+            <button
+              class="bg-[#EBEBEB] py-3 px-3 w-[132px] font-medium text-[14px] rounded-[5px]"
+            >
+              Pembukaan
+            </button>
+            <button
+              class="bg-primary text-white whitespace-nowrap py-3 px-3 w-[132px] font-medium text-[14px] rounded-[5px]"
+            >
+              Dasar Materi
+            </button>
+            <button
+              class="bg-[#EBEBEB] py-3 px-3 w-[132px] whitespace-nowrap font-medium text-[14px] rounded-[5px]"
+            >
+              Materi Utama
+            </button>
+            <button
+              class="bg-[#EBEBEB] py-3 px-3 w-[132px] font-medium text-[14px] rounded-[5px]"
+            >
+              Penyaluran
+            </button>
+            <button
+              class="bg-[#EBEBEB] py-3 px-3 w-[132px] font-medium text-[14px] rounded-[5px]"
+            >
+              Kerja
+            </button>
+          </div>
+          <div class="flex flex-col md:flex-row gap-10 mt-10">
+            <div class="w-full md:w-1/2 flex flex-col gap-8">
+              <div class="flex flex-col">
+                <div class="flex items-center gap-4 mb-5">
+                  <img
+                    loading="lazy"
+                    src="./images/working-with-laptop.png"
+                    alt="coding"
+                  />
+                  <h1 class="text-[14px] font-semibold">
+                    Front End Development
+                  </h1>
+                </div>
+                <p class="text-[14px]">
+                  Programming fundamental, Data Structure & AlgoKamu akan
+                  belajar dasar pemrograman dengan menggunakan bahasa
+                  JavaScript,dimulai dari data types (numbers, strings, array,
+                  objects, dan Boolean) dan comparison operators.
+                </p>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-4 mb-5">
+                  <img
+                    loading="lazy"
+                    src="./images/working-with-imac.png"
+                    alt="coding"
+                  />
+                  <h1 class="text-[14px] font-semibold">
+                    Back End Development
+                  </h1>
+                </div>
+                <p class="text-[14px]">
+                  Programming fundamental, Data Structure & AlgoKamu akan
+                  belajar dasar pemrograman dengan menggunakan bahasa
+                  JavaScript,dimulai dari data types (numbers, strings, array,
+                  objects, dan Boolean) dan comparison operators.
+                </p>
+              </div>
+              <div class="flex flex-col">
+                <div class="flex items-center gap-4 mb-5">
+                  <img loading="lazy" src="./images/coding.png" alt="coding" />
+                  <h1 class="text-[14px] font-semibold">
+                    Programming fundamental, Data Structure & Algoritma
+                  </h1>
+                </div>
+                <p class="text-[14px]">
+                  Programming fundamental, Data Structure & AlgoKamu akan
+                  belajar dasar pemrograman dengan menggunakan bahasa
+                  JavaScript,dimulai dari data types (numbers, strings, array,
+                  objects, dan Boolean) dan comparison operators.
+                </p>
+              </div>
+            </div>
+            <div class="w-1/2 relative hidden md:block">
+              <div
+                class="w-[297px] h-[373px] bg-gradient-to-t from-primary/30 to-primary/0 rounded-[15px] absolute top-32 right-0"
+              ></div>
+              <img
+                loading="lazy"
+                src="./images/silabus-img.png"
+                alt=""
+                class="rounded-[15px] relative shadow-card2"
+              />
+            </div>
+          </div>
+        </section>
+        <!-- Testimoni -->
+        <section id="testimoni" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Testimoni</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Apa Kata Mereka Para Alumni dari Eduwork
+          </h1>
+          <div>
+            <div>
+              <div class="flex flex-col md:flex-row gap-[36px]">
+                <img
+                  loading="lazy"
+                  src="./images/testimoni/testimoni1.png"
+                  alt="nikita"
+                  class="rounded-[5px]"
+                />
+                <div>
+                  <img
+                    loading="lazy"
+                    class="w-[36px] h-[36px] mb-2"
+                    src="./images/svg/Quote Left.svg"
+                    alt=""
+                  />
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
+                    faucibus ut sit est in pharetra nunc vel cras. Pharetra,
+                    nibh in amet vestibulum pharetra. Congue dolor at eu odio
+                    elit vestibulum. In lacinia tincidunt commodo elementum,
+                    egestas tempus non consectetur vulputate.
+                  </p>
+                  <div class="mt-[16px] w-full h-fit">
+                    <div class="text-[12px] font-['Raleway'] text-[#737373]">
+                      <h1
+                        class="w-full font-semibold text-[16px] font-['Raleway'] text-[#000000]"
+                      >
+                        Nikita Rombe
+                      </h1>
+                      <div class="flex items-center gap-2">
+                        <p>Programmer PT. Amanah Abadi</p>
+                        <div class="flex flex-row items-center">
+                          <img
+                            loading="lazy"
+                            class="w-[14px] float-left h-[14px] mr-[7px]"
+                            src="./images/svg/Star.svg"
+                            alt=""
+                            srcset=""
+                          />
+                          <span>4.5</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Biaya -->
+        <section id="biaya" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Biaya</p>
+          <h1 class="text-[24px] font-semibold mb-[67px]">
+            Terdapat 2 pilihan Metode Pembayaran dan Persyaratan
+          </h1>
+          <div
+            class="w-full flex flex-col md:flex-row gap-[35px] md:gap-[22px] mt-[16px]"
+          >
+            <div
+              class="relative w-full md:w-[333px] h-[790px] md:h-[758px] rounded-[30px] bg-[#ffffff] pt-[61px] biaya-shade"
+            >
+              <div
+                class="hidden md:block w-[92px] h-[78px] bg-[#ffce4f] rounded-[10px] absolute -top-[16px] left-1/2 -translate-x-1/2 biaya-shade py-[13px] px-[20px]"
+              >
+                <img
+                  loading="lazy"
+                  src="./images/svg/Class.svg"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <h4 class="text-center text-[30px] font-[700] uppercase">ISA</h4>
+              <p
+                class="text-center text-[16px] font-medium mb-[11px] text-[#737373]"
+              >
+                Modal Mulai
+              </p>
+              <h4 class="relative text-center font-[600] text-[24px]">
+                <div
+                  class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/5 w-[214.39px] h-[4px] rounded-[15px] -rotate-[2.06deg] bg-[#ff0000]"
+                ></div>
+                Rp.8.000.000,-.
+              </h4>
+              <h3
+                class="text-center font-[600] text-[40px] text-[#187cff] mb-[10px]"
+              >
+                Rp. 1Jt
+              </h3>
+              <div
+                class="absolute mx-[24px] md:mx-0 md:left-1/2 md:-translate-x-1/2"
+              >
+                <div
+                  class="w-full h-fit px-[19px] py-[13px] bg-[#ffce4f] text-center rounded-[10px] font-[600] text-[10px] mb-[11px]"
+                >
+                  Total 12jt, Cicilan 12 bulan dibayar setelah kerja
+                </div>
+                <div
+                  class="w-full h-fit py-[15px] px-[20px] rounded-[15px] text-center md:text-left capitalize text-white text-[12px] font-[700] bg-[#187cff]"
+                >
+                  ISA ( Income Sharing Agreement ), untuk kamu yang belum
+                  berpenghasilan / punya dana, cicilan dibayar setelah kamu kami
+                  salurkan kerja, Penyaluran kerja dijamin!
+                </div>
+                <ul
+                  class="checkmark-1 mt-[10px] leading-[20px] mb-[0px] pl-[20px] text-[#404040] text-[400]"
+                >
+                  <li class="text-[14px]">
+                    Dapat Semua Fasilitas Program Reguler
+                  </li>
+                  <li class="text-[14px]">Bisa Mulai Dari Rp. 0,-</li>
+                </ul>
+                <div
+                  class="w-full md:w-[267px] h-[125px] border-y border-[#cecece] mb-[20px]"
+                >
+                  <ul
+                    class="list-disc list-outside text-[12px] text-[#737373] leading-[24px] pl-[42px] pt-[13px]"
+                  >
+                    <li>Bayar Setelah Disalurkan Bekerja</li>
+                    <li>Total Biaya Jadi 12 Juta</li>
+                    <li>Total Cicilan Jadi 12x</li>
+                    <li>Ada Tahap Seleksi</li>
+                  </ul>
+                </div>
+                <div class="flex">
+                  <button
+                    class="mx-auto w-[160px] h-[50px] pt-[11px] pb-[12px] px-[51px] rounded-[10px] bg-[#187cff] text-[#ffffff]"
+                  >
+                    Daftar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div
+              class="relative w-full md:w-[333px] h-[758px] rounded-[30px] bg-[#ffffff] pt-[61px] biaya-shade"
+            >
+              <div
+                class="hidden md:block w-[92px] h-[78px] bg-[#00c264] rounded-[10px] absolute -top-[16px] left-1/2 -translate-x-1/2 py-[13px] px-[20px]"
+              >
+                <img
+                  loading="lazy"
+                  src="./images/svg/Class.svg"
+                  alt=""
+                  srcset=""
+                />
+              </div>
+              <h4 class="text-center text-[30px] font-[700] uppercase">
+                Reguler
+              </h4>
+              <p
+                class="text-center text-[16px] font-medium text-[#737373] mb-[11px]"
+              >
+                Modal Mulai
+              </p>
+              <h4 class="relative text-center font-[600] text-[24px]">
+                <div
+                  class="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/5 w-[214.39px] h-[4px] rounded-[15px] -rotate-[2.06deg] bg-[#ff0000]"
+                ></div>
+                Rp.6.000.000,-.
+              </h4>
+              <h3
+                class="text-center font-[600] text-[40px] text-[#187cff] mb-[10px]"
+              >
+                Rp. 0,-
+              </h3>
+              <div
+                class="md:absolute mx-[24px] md:mx-0 md:left-1/2 md:-translate-x-1/2"
+              >
+                <div
+                  class="w-full md:w-[285px] h-fit px-[19px] py-[13px] bg-[#ffce4f] rounded-[10px] font-[500] text-[10px] text-center mb-[11px]"
+                >
+                  Total 6jt , Cicilan 1jt/ bulan x 6 bulan
+                </div>
+                <div
+                  class="w-full md:w-full h-fit border-b border-[#cecece] mb-[20px]"
+                >
+                  <ul
+                    class="checkmark-1 text-[14px] w-full text-[#404040] font-[400] leading-[20px] mb-[38px] pl-4"
+                  >
+                    <li>Mentoring 1 on 1</li>
+                    <li class="flex flex-row justify-between gap-6">
+                      <p class="md:w-[170px] items-start">
+                        Live Group Mentoring
+                      </p>
+                      <img
+                        loading="lazy"
+                        data-tooltip-target="tooltip-light"
+                        data-tooltip-style="light"
+                        class="items-end"
+                        src="./images/icon/info.svg"
+                        alt=""
+                        srcset=""
+                      />
+                      <div
+                        id="tooltip-light"
+                        role="tooltip"
+                        class="inline-block absolute invisible z-10 py-[4px] px-[25px] font-[500] bg-[#187cff] rounded-[10px] rounded-bl-none text-[14px] text-white opacity-0 tooltip"
+                      >
+                        Seminggu 1x
+                      </div>
+                    </li>
+                    <li class="w-full flex flex-row justify-between gap-7">
+                      <p class="md:w-full">Bonus Video Materi</p>
+                      <img
+                        loading="lazy"
+                        data-tooltip-target="tooltip-2"
+                        data-tooltip-style="light"
+                        src="./images/icon/info.svg"
+                        alt=""
+                        srcset=""
+                      />
+                      <div
+                        id="tooltip-2"
+                        role="tooltip"
+                        class="inline-block absolute invisible z-10 py-[4px] px-[37px] font-[500] bg-[#ffce4f] rounded-[10px] rounded-bl-none text-[14px] text-white opacity-0 tooltip"
+                      >
+                        45 Video
+                      </div>
+                    </li>
+                    <li>Pendampingan Kerja</li>
+                    <li>Cicilan Hingga 6x</li>
+                    <li>Sertifikat</li>
+                    <li>Tanpa Seleksi</li>
+                    <li class="flex flex-row justify-between">
+                      <p class="md:w-[170px]">
+                        Lebih Terjangkau dan Program ISA
+                      </p>
+                      <img
+                        loading="lazy"
+                        class="hidden"
+                        src="./images/icon/info.svg"
+                        alt=""
+                        srcset=""
+                      />
+                    </li>
+                    <li>Penyaluran Kerja</li>
+                  </ul>
+                </div>
+                <div class="flex">
+                  <button
+                    class="mx-auto w-[160px] h-[50px] pt-[11px] pb-[12px] px-[51px] rounded-[10px] bg-[#187cff] text-[#ffffff]"
+                  >
+                    Daftar
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="flex md:hidden h-fit">
+              <button
+                class="mx-auto md:mx-0 px-[30px] pt-[11px] pb-[12px] rounded-[10px] mt-[56px] bg-[#00c264] text-[#ffffff] text-[18px] font-[500] flex flex-row gap-[5px]"
+              >
+                <img
+                  loading="lazy"
+                  class="w-[16px] h-[16px] mt-[5px]"
+                  src="./images/svg/WhatsApp.svg"
+                />
+                Konsul Dulu
+              </button>
+            </div>
+          </div>
+        </section>
+        <!-- Fasilitas -->
+        <section id="fasilitas" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Fasilitas</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Macam-macam Fasilitas Yang Akan didapatkan
+          </h1>
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide flex flex-col items-start">
+                <div class="bg-primary px-3 py-3 rounded-md mb-6">
+                  <img
+                    loading="lazy"
+                    src="./images/icon/networking.png"
+                    alt=""
+                  />
+                </div>
+                <h1 class="font-semibold text-[18px]">Networking</h1>
+                <p class="text-[14px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+              <div class="swiper-slide flex flex-col items-start">
+                <div class="bg-primary px-3 py-3 rounded-md mb-6">
+                  <img
+                    loading="lazy"
+                    src="./images/icon/expertmentor.png"
+                    alt=""
+                  />
+                </div>
+                <h1 class="font-semibold text-[18px]">Expert Mentor</h1>
+                <p class="text-[14px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+              <div class="swiper-slide flex flex-col items-start">
+                <div class="bg-primary px-3 py-3 rounded-md mb-6">
+                  <img
+                    loading="lazy"
+                    src="./images/icon/materi-video.png"
+                    alt=""
+                  />
+                </div>
+                <h1 class="font-semibold text-[18px]">Video Materi</h1>
+                <p class="text-[14px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+              <div class="swiper-slide flex flex-col items-start">
+                <div class="bg-primary px-3 py-3 rounded-md mb-6">
+                  <img
+                    loading="lazy"
+                    src="./images/icon/icon-ramdom.png"
+                    alt=""
+                  />
+                </div>
+                <h1 class="font-semibold text-[18px]">Video Materi</h1>
+                <p class="text-[14px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </section>
+        <!-- Portopolio Siswa -->
+        <section id="portopolio" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Portopolio Siswa</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Macam-macam Portfolio Yang Akan didapatkan
+          </h1>
+          <div class="flex flex-col md:flex-row gap-3">
+            <div
+              class="flex flex-col bg-white px-4 py-4 shadow-s2 rounded-[10px]"
+            >
+              <img
+                loading="lazy"
+                src="./images/portopolio-siswa-1.png"
+                alt="portopolio"
+                class="h-[150px] object-cover rounded-[10px]"
+              />
+              <div class="my-3">
+                <h1 class="text-[16px] font-semibold">Website Designer</h1>
+                <h2 class="text-[14px] text-[#828282] font-medium mb-1">
+                  - Ahmad Fajari Husein
+                </h2>
+                <p class="text-[12px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  mauris pellentesque donec lorem blandit sodales.
+                </p>
+              </div>
+              <button
+                class="bg-primary text-[12px] py-2 text-white rounded-[5px]"
+              >
+                Lihat Selengkapnya
+              </button>
+            </div>
+            <div
+              class="flex flex-col bg-white px-4 py-4 shadow-s2 rounded-[10px]"
+            >
+              <img
+                loading="lazy"
+                src="./images/portopolio-siswa-2.png"
+                alt="portopolio"
+                class="h-[150px] object-cover rounded-[10px]"
+              />
+              <div class="my-3">
+                <h1 class="text-[16px] font-semibold">Website E Commerce</h1>
+                <h2 class="text-[14px] text-[#828282] font-medium mb-1">
+                  - Salsa Putri
+                </h2>
+                <p class="text-[12px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  mauris pellentesque donec lorem blandit sodales.
+                </p>
+              </div>
+              <button
+                class="bg-primary text-[12px] py-2 text-white rounded-[5px]"
+              >
+                Lihat Selengkapnya
+              </button>
+            </div>
+            <div
+              class="flex flex-col bg-white px-4 py-4 shadow-s2 rounded-[10px]"
+            >
+              <img
+                loading="lazy"
+                src="./images/portopolio-siswa-3.png"
+                alt="portopolio"
+                class="h-[150px] object-cover rounded-[10px]"
+              />
+              <div class="my-3">
+                <h1 class="text-[16px] font-semibold">Website E wallet</h1>
+                <h2 class="text-[14px] text-[#828282] font-medium mb-1">
+                  - Farhan Nugraha
+                </h2>
+                <p class="text-[12px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  mauris pellentesque donec lorem blandit sodales.
+                </p>
+              </div>
+              <button
+                class="bg-primary text-[12px] py-2 text-white rounded-[5px]"
+              >
+                Lihat Selengkapnya
+              </button>
+            </div>
+          </div>
+        </section>
+        <!-- Profesi -->
+        <section
+          id="profesi"
+          class="mt-[70px] w-full flex flex-col md:flex-row gap-[24px] items-center"
+        >
+          <div class="w-full md:w-2/3">
+            <p class="text-[18px] font-semibold text-primary">Profesi</p>
+            <h1 class="text-[24px] font-semibold mb-[30px]">
+              Profesi yang bisa ditempati setelah lulus
+            </h1>
+          </div>
+          <div class="w-full grid grid-cols-2 gap-[24px] text-white">
+            <button class="py-4 bg-primary rounded-[8px] text-[14px]">
+              Full Stack Developer
+            </button>
+            <button class="py-4 bg-primary rounded-[8px] text-[14px]">
+              Frontend Developer
+            </button>
+            <button class="py-4 bg-primary rounded-[8px] text-[14px]">
+              Software Engineer
+            </button>
+            <button class="py-4 bg-primary rounded-[8px] text-[14px]">
+              Backend Developer
+            </button>
+          </div>
+        </section>
+        <img
+          loading="lazy"
+          src="./images/bg-kelas-trial.png"
+          alt="bg"
+          class="absolute top-[6120px] right-0 -z-30 hidden md:block"
+        />
+        <!-- Kelas Trial -->
+        <section id="trial" class="mt-[70px] md:mt-[169px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Kelas Trial</p>
+          <h1 class="text-[24px] font-semibold mb-[30px] w-full md:w-1/2">
+            Konsultasikan karir kamudian agendakan kelas trial gratis bersama
+            kami
+          </h1>
+          <p class="text-[16px]">Hubungi tim admission kami</p>
+          <button
+            class="mt-2 px-6 py-3 w-[275px] justify-center rounded-[10px] bg-primary text-white text-[18px] font-medium flex gap-[5px]"
+          >
+            <img
+              loading="lazy"
+              class="w-[16px] h-[16px] mt-[5px]"
+              src="./images/svg/WhatsApp.svg"
+            />
+            Hubungi Admin
+          </button>
+        </section>
+        <!-- FAQ -->
+        <section id="faq" class="mt-[70px] md:mt-[150px] w-full">
+          <p class="text-[18px] font-semibold text-primary">FAQ</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">
+            Informasi yang sering ditanyakan
+          </h1>
+          <div class="columns-1 md:columns-2 gap-[42px]">
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+            <div
+              class="acc w-full lg:w-fit h-fit text-[#202020] overflow-hidden shadow-s2 rounded-[15px] mb-[27px] cursor-pointer"
+            >
+              <div
+                class="labels w-[100%] text-[14px] lg:w-[344px] py-4 justify-between px-4 font-['Montserrat'] relative bg-[#ffffff] text-[#202020] lg:text-[14px] font-[600] pl-[14px] flex flex-row items-center gap-[22px]"
+              >
+                <div class="flex items-center gap-2">
+                  <img
+                    loading="lazy"
+                    class="w-[25px] h-[25px] md:w-[30px] md:h-[30px]"
+                    src="./images/info-icon.png"
+                    alt=""
+                  />
+                  <h2>Panduan Pendaftaran</h2>
+                </div>
+              </div>
+              <div class="content">
+                <p class="">
+                  Lorem ipsum dolor sit amet consec tetur orem ipsum dolor sit
+                  amet consec tetur.Lorem ipsum
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <!-- Contenet -->
+
+    <!-- Footer section -->
+    <section
+      class="relative w-full h-[1270px] md:h-[1070px] pb-[20px] md:pb-0 -z-30"
+    >
+      <div class="container mx-auto">
+        <div
+          class="absolute w-[80%] mx-auto left-1/2 -translate-x-1/2 h-fit lg:w-fit lg:h-[575px] md:pt-[86px] top-[267px]"
+        >
+          <div class="flex flex-col gap-[23px] md:flex-row text-[#ffffff]">
+            <div class="md:w-[237.51px]">
+              <img
+                loading="lazy"
+                class="w-[250px] h-[48.53px] lg:w-fit md:h-fit mx-auto md:mx-0"
+                src="./images/logo/favicon-white.svg"
+                alt=""
+                srcset=""
+              />
+              <p
+                class="text-[16px] md:text-[14px] mt-[37.56px] mb-[18px] text-center md:text-left"
+              >
+                When an unknown printer took a galley of type and make a type
+                specimen book.
+              </p>
+              <div class="flex flex-row mb-[60.08px]">
+                <div class="inline-flex gap-[22px] mx-auto md:mx-0">
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-instagram.svg"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-twitter.svg"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    loading="lazy"
+                    src="./images/svg/white-youtube.svg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="columns-2 flex flex-row md:ml-[80.49px] justify-between"
+            >
+              <div class="flex flex-col gap-[41px] w-[159.78px] h-[375px]">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Explore Us</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Kelas</li></a>
+                    <a href=""><li class="mb-[12px]">Our Mentors</li></a>
+                    <a href=""><li class="mb-[12px]">For Corporate</li></a>
+                    <a href=""><li>Community</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Our Services</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Free Event</li></a>
+                    <a href=""><li class="mb-[12px]">Video Course</li></a>
+                    <a href=""><li class="mb-[12px]">Bootcamp</li></a>
+                    <a href=""><li>Private Mentoring</li></a>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="flex flex-col gap-[41px] w-fit md:w-[198px] h-[375px] text-left"
+              >
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Category</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Mobile Developer</li></a>
+                    <a href=""><li class="mb-[12px]">Website Developer</li></a>
+                    <a href=""><li class="mb-[12px]">UI/UX Designer</li></a>
+                    <a href=""><li>Graphic Designer</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Office</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <li class="mb-[12px]">PT Eduwork.id</li>
+                    <li class="mb-[12px]">Jl. Ring Road Utara No 24</li>
+                    <li class="mb-[12px]">Yogyakarta. Indonesia</li>
+                    <a href=""><li>team@eduwork.id</li></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h1
+                class="font-[600] text-[18px] mt-[60px] md:mt-0 mb-[10px] text-center md:text-left"
+              >
+                Promotions
+              </h1>
+              <ul class="text-[14px] md:text-[12px]">
+                <a href=""
+                  ><li class="mb-[12px] text-center md:text-left">
+                    Submit your email for new updates
+                  </li></a
+                >
+                <li class="flex flex-row">
+                  <input
+                    class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[55px] border border-white text-[#404040]"
+                    type="email"
+                    name=""
+                    id=""
+                  />
+                  <button
+                    class="w-[50.09px] rounded-r-[5px] h-[55px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]"
+                  >
+                    <img
+                      loading="lazy"
+                      class="w-[28px] h-[28px]"
+                      src="./images/svg/mail.svg"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:absolute bottom-0 text-center md:text-left">
+            <p
+              class="text-[#ffffff] text-[14px] mt-[53px] md:mt-0 md:text-[12px]"
+            >
+              © EduWork 2020 - 2021 . All rights reserved.
+            </p>
+          </div>
+          <div
+            class="md:absolute md:right-0 md:bottom-0 md:float-right flex md:flex-row md:justify-between md:gap-[50px]"
+          >
+            <div class="mx-auto md:mx-0">
+              <p
+                class="text-[#ffffff] text-[14px] mt-[12px] md:mt-0 md:text-[12px]"
+              >
+                Privacy and policy
+              </p>
+            </div>
+            <div>
+              <p class="text-[#ffffff] md:flex hidden text-[12px]">Terms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wave-footer xl:min-w-[1340px]"></div>
+      <div
+        class="absolute bottom-0 w-full xl:min-w-[1340px] h-full md:h-[981px] bg-footer -z-50"
+      ></div>
+    </section>
+    <!-- End of Footer section -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="./main.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script>
+      // Event Scroll
+      var prevScrollpos = window.pageYOffset;
+      const sections = document.querySelectorAll("section");
+      const navLi = document.querySelectorAll(".menuChange ul a");
+
+      window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+
+        var current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 60) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLi.forEach((li) => {
+          li.classList.remove("activeMenu");
+          if (li.classList.contains(current)) {
+            li.classList.add("activeMenu");
+          }
+        });
+
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("navbar").style.top = "0";
+          document.getElementById("menuCourse").style.top = "115px";
+        } else {
+          document.getElementById("navbar").style.top = "-80px";
+          document.getElementById("menuCourse").style.top = "50px";
+        }
+        prevScrollpos = currentScrollPos;
+      };
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY >= 100) {
+          document.getElementById("navbar").style.backgroundColor = "#ffffff";
+          document.getElementById("navbar").style.boxShadow =
+            "0 0 10px rgba(0,0,0,0.1)";
+        } else {
+          document.getElementById("navbar").style.backgroundColor =
+            "transparent";
+          document.getElementById("navbar").style.boxShadow = "none";
+        }
+      });
+
+      let ok = document.querySelectorAll(".acc");
+
+      ok.forEach((e) => {
+        e.addEventListener("click", () => {
+          removeClass();
+          e.classList.toggle("active");
+        });
+      });
+
+      function removeClass() {
+        ok.forEach((e) => {
+          e.classList.remove("active");
+        });
+      }
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "slide",
+        direction: "horizontal",
+        centerdSlides: true,
+        loop: true,
+        slideToClickedSlide: true,
+        autoplay: {
+          delay: 5000,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 2,
+          },
+          520: {
+            slidesPerView: 2,
+          },
+          720: {
+            slidesPerView: 4,
+          },
+        },
+        grabCursor: true,
+        slidesPerGroup: 1,
+        navigation: {
+          nextEl: ".swiper-Button-next",
+          prevEl: ".swiper-Button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+    </script>
+  </body>
+</html>
