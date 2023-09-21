@@ -78,11 +78,11 @@
   <body class="bg-[#f6fcff] text-[#404040] font-[Poppins]">
     <!-- Navabar -->
     <div class="w-full z-50" id="navbar">
-      <nav class="flex justify-between items-center w-full lg:w-[1016px] container mx-auto py-2 md:py-5">
+      <nav class="flex justify-between items-center w-full lg:w-[1016px] container mx-auto my-4 lg:py-0 py-2 md:py-5">
         <a href="/" class="w-[154px] h-[31px] ml-4 lg:ml-0">
           <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
         </a>
-        <button
+        <!-- <button
           data-collapse-toggle="navbar-cta"
           type="button"
           class="navbar-toggle z-10 inline-flex p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 right-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -93,7 +93,34 @@
           <svg class="w-[37px] h-[37px]" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
           </svg>
+        </button> -->
+
+        <button
+          id="dropdownDefaultButton"
+          data-dropdown-toggle="dropdown"
+          class="lg:hidden mr-3 text-slate-500 bg-white hover:bg-primary hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center"
+          type="button"
+        >
+          <i class="fa-solid fa-bars"></i>
         </button>
+        <!-- Dropdown menu -->
+        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white text-black">Home</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white text-black">Community</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white text-black">Learning</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover:bg-primary hover:text-white text-black">Opportunity</a>
+            </li>
+          </ul>
+        </div>
+
         <ul class="hidden md:flex gap-[40px]">
           <li>
             <div
@@ -327,8 +354,8 @@
                 </div>
               </div>
               <div class="flex flex-col md:flex-row mt-[100px] md:mt-[71px] gap-[20px] mx-[5%] md:mx-0 md:gap-3 z-20">
-                <button class="relative z-20 md:ml-0 pl-[47px] pr-[46px] py-[11px] w-full md:w-fit font-medium text-[22px] md:text-[14px] bg-[#187cff] text-[#f6fcff] mr-[22px] drop-shadow-2xl rounded-2xl">Buat Komunitas</button>
-                <button class="relative z-20 md:ml-0 pl-[47px] pr-[46px] py-[11px] w-full md:w-fit font-medium text-[22px] md:text-[14px] bg-white text-slate-900 mr-[22px] drop-shadow-2xl rounded-2xl">Join Komunitas</button>
+                <button class="relative z-20 md:ml-0 pl-[47px] pr-[46px] py-[11px] w-full md:w-fit font-medium text-[22px] md:text-[16px] bg-[#187cff] text-[#f6fcff] mr-[6px] drop-shadow-2xl rounded-2xl">Buat Komunitas</button>
+                <button class="relative z-20 md:ml-0 pl-[47px] pr-[46px] py-[11px] w-full md:w-fit font-medium text-[22px] md:text-[16px] bg-white text-slate-900 mr-[22px] drop-shadow-2xl rounded-2xl">Join Komunitas</button>
               </div>
             </div>
           </div>
@@ -466,10 +493,11 @@
               >
                 <!-- Button -->
                 <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex items-center md:min-w-[200px]">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-0 md:relative md:left-auto h-5 w-5 justify-between mr-[10.41px]" viewBox="0 0 20 20" fill="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="absolute left-[13px] md:relative md:left-auto h-5 w-5 justify-between mr-[10.41px]" viewBox="0 0 20 20" fill="currentColor">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                   </svg>
-                  &nbsp; Type
+                  <div class="lg:hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                  Type
 
                   <!-- Heroicon: chevron-down -->
                 </button>
@@ -1941,7 +1969,7 @@
       <section class="relative w-full h-[900px] mb-[80px] max-w-screen-[1340px]">
         <div class="lg:relative flex flex-col lg:left-[185px] lg:top-[200px] bg-primary w-[90%] mx-auto rounded-2xl justify-center items-center lg:justify-start lg:items-start lg:bg-transparent">
           <img src="images/testi.jpg" alt="" class="w-[210px] h-[300px] mt-5 mb-6 rounded-xl drop-shadow-xl lg:hidden" />
-          <h1 class="relative text-white z-49 text-2xl lg:text-3xl font-bold mb-[35px]">Alumni Success Story</h1>
+          <h1 class="relative text-white z-49 text-2xl lg:text-3xl font-bold mb-[35px] lg:z-49">Alumni Success Story</h1>
           <p class="text-white z-49 text-3xl lg:text-4xl font-semibold max-w-[440px] mb-[35px] text-center lg:text-start">Dapat kerja dengan gaji 2 digit dari koneksi dengan perusahaan asal korea</p>
           <p class="text-white z-49 text-md font-light max-w-[350px]">Fadil Mahmud</p>
           <p class="text-white z-49 text-md font-light max-w-[350px]">Product Designer | Samsung Group</p>
