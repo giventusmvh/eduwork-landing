@@ -8,9 +8,11 @@
     <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./main.css" />
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
     <script src="./main.js" type="module"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Style Swipper -->
     <style>
       .swiper {
@@ -76,8 +78,8 @@
   <body class="bg-[#f6fcff] text-[#404040] font-[Poppins]">
     <!-- Navabar -->
     <div class="w-full z-50" id="navbar">
-      <nav class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5">
-        <a href="/" class="w-[154px] h-[31px]">
+      <nav class="flex justify-between items-center w-full lg:w-[1016px] container mx-auto py-2 md:py-5">
+        <a href="/" class="w-[154px] h-[31px] ml-4 lg:ml-0">
           <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
         </a>
         <button
@@ -280,7 +282,7 @@
       <div class="wave"></div>
     </div>
     <div class="lg:hidden block absolute top-0 w-full h-[730px] overflow-hidden">
-      <div class="lg:hidden block absolute left-0 w-[200%] md:w-full h-[740px] hero-gradasi z-[9]"></div>
+      <div class="lg:hidden block absolute left-0 w-full md:w-full h-[740px] hero-gradasi z-[9]"></div>
     </div>
     <div class="container mx-auto m-0">
       <section id="Hero" class="relative w-full bg-center xl:min-w-[1306px] h-[730px]">
@@ -331,26 +333,60 @@
             </div>
           </div>
 
-          <div class="relative w-full h-[730px] hidden z-20 md:ml-[490px] md:flex md:flex-row md:mt-32">
-            <div class="md:mt-[26px]">
-              <img src="images/cardmember-1.svg" alt="" class="w-full" />
-              <img src="images/cardmember-2.svg" alt="" class="" />
-            </div>
-            <div class="md:mb-[26px]">
-              <img src="images/cardmember-3.svg" alt="" class="" />
-              <img src="images/cardmember-4.svg" alt="" class="" />
+          <div class="relative w-full h-[730px] hidden z-20 md:ml-[565px] md:flex md:flex-row md:mt-32">
+            <div class="flex flex-row gap-6">
+              <div class="flex flex-col gap-5 mt-[50px]">
+                <div class="flex h-[245px] bg-cover w-[215px] rounded-[20px] drop-shadow-xl" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 102, 255)), url('images/profile-nikita.png')">
+                  <!-- <div class="img"><img src="images/profile-nikita.png" alt="img" draggable="false" /></div> -->
+                  <div class="relative flex flex-col bottom-[15px] left-[20px] justify-end">
+                    <p class="text-white font-bold text-[20px] mb-2">Fadil</p>
+                    <p class="text-white w-[150px] font-[300] text-[12px] mb-2">Product Designer at Samsung Group</p>
+                    <p class="text-white font-[500] text-[10px]">Salary</p>
+                    <p class="text-white font-[700] text-[16px]">Rp.22.000.000</p>
+                  </div>
+                </div>
+                <div class="flex h-[245px] bg-cover w-[215px] rounded-[20px] drop-shadow-xl" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(255, 255, 255)), url('images/profile-nikita.png')">
+                  <!-- <div class="img"><img src="images/profile-nikita.png" alt="img" draggable="false" /></div> -->
+                  <div class="relative flex flex-col bottom-[15px] left-[20px] justify-end">
+                    <p class="text-black font-bold text-[20px] mb-2">Fadil</p>
+                    <p class="text-blue-500 w-[150px] font-[300] text-[12px] mb-2">Product Designer at Samsung Group</p>
+                    <p class="text-black font-[500] text-[10px]">Salary</p>
+                    <p class="text-black font-[700] text-[16px]">Rp.22.000.000</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col gap-5">
+                <div class="flex h-[245px] bg-cover w-[215px] rounded-[20px] drop-shadow-xl" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(255, 255, 255)), url('images/profile-nikita.png')">
+                  <!-- <div class="img"><img src="images/profile-nikita.png" alt="img" draggable="false" /></div> -->
+                  <div class="relative flex flex-col bottom-[15px] left-[20px] justify-end">
+                    <p class="text-black font-bold text-[20px] mb-2">Fadil</p>
+                    <p class="text-blue-500 w-[150px] font-[300] text-[12px] mb-2">Product Designer at Samsung Group</p>
+                    <p class="text-black font-[500] text-[10px]">Salary</p>
+                    <p class="text-black font-[700] text-[16px]">Rp.22.000.000</p>
+                  </div>
+                </div>
+                <div class="flex h-[245px] bg-cover w-[215px] rounded-[20px] drop-shadow-xl" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 102, 255)), url('images/profile-nikita.png')">
+                  <!-- <div class="img"><img src="images/profile-nikita.png" alt="img" draggable="false" /></div> -->
+                  <div class="relative flex flex-col bottom-[15px] left-[20px] justify-end">
+                    <p class="text-white font-bold text-[20px] mb-2">Fadil</p>
+                    <p class="text-white w-[150px] font-[300] text-[12px] mb-2">Product Designer at Samsung Group</p>
+                    <p class="text-white font-[500] text-[10px]">Salary</p>
+                    <p class="text-white font-[700] text-[16px]">Rp.22.000.000</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="absolute top-0 left-0 w-[200%] md:w-full h-[740px] hero-gradasi z-[9] hidden md:block"></div>
+        <div class="absolute top-0 left-0 w-full md:w-full h-[740px] hero-gradasi z-[9] hidden md:block"></div>
         <div class="hero-gradasi2 absolute top-0 right-0 w-[5%] lg:w-[216px] h-[856px]"></div>
 
         <div class="absolute w-full h-fit top-[667px] md:top-[637px] bg-transparent z-20">
           <!-- <div class="absolute top-[40px] w-full h-[328.26px] z-[9] ">
                   <div class="wave"></div>
               </div> -->
-          <div class="w-[90%] mx-auto lg:w-[1016px] h-fit md:h-[70px] mt-[130px] pt-5 mb-[74px] lg:mb-[74px] lg:mt-[70px] lg:pt-6 lg:pb-20 lg:px-6 lg:bg-white lg:rounded-[10px] lg:drop-shadow-xl">
+          <div class="w-[90%] mx-auto lg:w-[1016px] h-fit md:h-[70px] mt-[160px] pt-5 mb-[74px] lg:mb-[74px] lg:mt-[70px] lg:pt-6 lg:pb-20 lg:px-6 lg:bg-none lg:rounded-[10px] lg:drop-shadow-xl">
             <div class="z-10 flex flex-col lg:flex-row lg:items-center lg:justify-center lg:mb-7 lg:relative lg:top-0">
               <div>
                 <h4 class="w-full lg:w-[170px] h-[70px] text-center text-[24px] font-medium leading-[28.56px] mr-[37px] md:mr-[74px]"><span class="text-[36px] font-[600] text-[#187cff]">Our 100+ </span>Hiring Partner</h4>
@@ -395,14 +431,14 @@
             </div>
           </div>
           <div
-            class="absolute w-[67%] left-1/2 -translate-x-1/2 h-fit lg:py-[8px] lg:mt-[10px] lg:pl-[49px] lg:pr-[51.12px] pl-[17px] pr-[22px] py-[21px] bg-white border border-white rounded-[10px] drop-shadow-xl z-10 lg:flex lg:flex-row lg:justify-center lg:items-center"
+            class="absolute w-[85%] lg:w-[1016px] left-1/2 -translate-x-1/2 h-fit lg:py-[0px] lg:mt-[10px] lg:pl-[49px] lg:pr-[51.12px] pl-[17px] pr-[22px] py-[21px] bg-white border border-white rounded-[30px] lg:rounded-[24px] z-10 lg:flex lg:flex-row lg:justify-center lg:items-center"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.3); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.3); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.3)"
           >
             <form action="" class="lg:flex lg:flex-row lg:gap-5 mt-3 lg:mt-0 items-center justify-center">
               <div class="flex flex-row lg:justify-start">
-                <span class="lg:hidden">&nbsp;</span>
-                <img loading="lazy" class="lg:ml-[0px]" src="./images/svg/search.svg" />
-                <input class="text-[16px] p-3 rounded-3xl w-full border-white lg:min-w-[420px]" type="text" placeholder="Cari komunitas atau goal disini" />
+                <input class="mainInput text-[16px] p-3 rounded-3xl w-full border-white lg:min-w-[380px] border" type="text" placeholder="&#61442;  Cari komunitas atau goal disini" />
               </div>
+              <div class="hidden lg:block w-[1px] h-[40px] bg-slate-300 border-slate-400"></div>
               <div
                 x-data="{
                         open: false,
@@ -454,7 +490,7 @@
                 </div>
               </div>
 
-              <button class="bg-primary text-white p-3 rounded-3xl mt-3 md:mb-3 w-full md:min-w-[120px]">Cari</button>
+              <button class="bg-primary text-white p-5 rounded-[30px] lg:rounded-[24px] mt-3 md:mb-3 w-full md:min-w-[120px] lg:my-1 lg:relative lg:right-[-24px]">Cari</button>
             </form>
           </div>
         </div>
@@ -470,13 +506,16 @@
     <!-- Categories -->
     <div class="container mx-auto px-auto">
       <section class="w-[80%] mx-auto lg:w-[1016px] h-fit mb-[65px] mt-[300px] lg:mt-[110px]">
-        <h4 class="text-center text-black text-[17px] lg:text-[35px] font-extrabold mb-10">Bukan Sekedar Media Sosial</h4>
+        <h4 class="text-center text-black text-[30px] lg:text-[35px] font-extrabold mb-10">Bukan Sekedar Media Sosial</h4>
 
         <!-- <h4 class="px-1 md:px-[20%] text-[20px] lg:text-[24px] font-semibold text-center lg:leading-[36px] mt-[14.7px] mb-[40.3px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4> -->
 
         <div class="flex flex-col md:grid items-center md:grid-cols-2 lg:grid-cols-3 h-fit gap-[30px]">
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -487,18 +526,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas quia ullam!</p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -509,20 +551,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -533,20 +576,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -557,20 +601,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -581,20 +626,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -605,20 +651,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -629,20 +676,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -653,20 +701,21 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[454.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
-            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-md">
+          <div
+            class="relative w-[340px] md:w-[320px] lg:h-[354.02px] h-[374.02px] px-[25px] bg-white rounded-md"
+            style="box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -webkit-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5); -moz-box-shadow: -1px -1px 12px 4px rgba(147, 147, 147, 0.5)"
+          >
+            <div class="w-full md:w-[320px] h-[130px] absolute top-0 left-0 bg-cover bg-[url('./images/code.png')] rounded-t-md">
               <div class="absolute w-full md:w-[320px] top-0 left-0 z-0"></div>
             </div>
             <div class="relative h-[165px] w-full text-white">
@@ -677,14 +726,12 @@
               <img loading="lazy" class="w-[51px] h-[51px] mt-[5px] mr-[15px] rounded-md float-left bg-white drop-shadow-lg" src="./images/code2.png" />
             </div>
             <div>
-              <h1 class="text-lg font-semibold">Jago Coding</h1>
-              <p class="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti ex ducimus, odit eveniet ut veritatis voluptate neque, voluptatum debitis, impedit officiis mollitia quaerat voluptas fugiat quia ullam!
-              </p>
+              <h1 class="text-lg font-semibold">Basi Code</h1>
+              <p>The official server for midjourney, a text-to-text image AI where your imagination is the only limit</p>
             </div>
 
             <div class="mt-[15.79px] h-fit">
-              <button class="float-right px-[25px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
+              <button class="float-right px-[32px] py-[12px] bg-[#187cff] rounded-[8px] text-white text-[15px] font-medium">Ikuti</button>
               <p class="text-[#000000] text-[18px] font-medium">2000</p>
               <h1 class="text-[#454545] text-[14px] font-normal">Member</h1>
             </div>
@@ -753,7 +800,8 @@
     <!-- End of Categories -->
 
     <div class="container mx-auto">
-      <section id="Hero" class="relative w-full bg-center xl:min-w-[1306px] h-[730px] lg:bg-[url('./images/bg-hero1.png')] lg:bg-no-repeat lg:bg-cover mt-40">
+      <section id="Hero" class="relative w-full bg-center xl:min-w-[1306px] h-[730px] lg:bg-[url('./images/bg-hero1.png')] lg:bg-no-repeat lg:bg-cover mt-0 lg:mt-40">
+        <img src="images/cropped.png" alt="" class="wavess" />
         <div class="flex md:flex-row w-[90%] md:w-full mx-auto h-fit lg:w-[1016px]">
           <div class="w-fit h-[680px] pt-[134px]">
             <div class="absolute flex flex-col w-[90%] md:w-[80%] z-30">
@@ -792,8 +840,8 @@
                   <p class="text-[#4E5053] text-[16px] md:text-[14px] font-normal leading-[21px]">Dapatkan masukan untuk setiap hambatan karir, <span class="lg:ml-[52px]">bahkan setelah program selesai!</span></p>
                 </div>
               </div>
-              <div class="flex flex-col md:flex-row mt-[100px] md:mt-[71px] gap-[20px] mx-[5%] md:mx-0 md:gap-3 z-20">
-                <button class="relative z-20 md:ml-0 pl-[47px] pr-[46px] py-[11px] w-full md:w-fit rounded-[15px] font-medium text-[22px] md:text-[14px] bg-[#187cff] text-[#f6fcff] mr-[22px]">Klik untuk bergabung</button>
+              <div class="flex flex-col md:flex-row mt-[100px] md:mt-[21px] gap-[20px] mx-[5%] md:mx-0 md:gap-3 z-20">
+                <button class="relative z-20 md:ml-0 lg:pl-[47px] lg:pr-[46px] lg:py-[11px] w-full md:w-fit rounded-[15px] lg:text-base md:text-[14px] bg-[#187cff] text-[#f6fcff] mr-[22px] p-3 mt-7">Klik untuk bergabung</button>
               </div>
             </div>
           </div>
@@ -828,62 +876,101 @@
           </div>
         </div>
 
-        <div class="absolute top-0 left-0 w-[200%] md:w-full h-[740px] hero-gradasi z-[9] hidden md:block"></div>
+        <div class="absolute top-0 left-0 w-full md:w-full h-[740px] hero-gradasi z-[9] hidden md:block"></div>
         <div class="hero-gradasi2 absolute top-0 right-0 w-[5%] lg:w-[216px] h-[856px]"></div>
+        <img src="images/hero/cropped.png" alt="" class="wavess2" />
       </section>
     </div>
     <div class="mb-12"></div>
 
     <div class="container mx-auto px-auto">
-      <section class="w-[80%] mx-auto lg:w-[1016px] h-fit mb-[65px] mt-[300px] lg:mt-[110px]">
+      <section class="w-[80%] mx-auto lg:w-[1016px] h-fit mb-[65px] mt-[70px] lg:mt-[110px]">
         <h4 class="text-center text-black text-[17px] lg:text-[35px] font-extrabold mb-10">Ragam Komunitas Kami yang Mencerminkan Minat Kamu</h4>
 
         <div class="flex flex-col md:grid items-center md:grid-cols-2 lg:grid-cols-3 h-fit gap-[30px]">
-          <div class="relative w-full md:w-[320px] h-[355.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
+          <div class="relative w-[340px] md:w-[320px] h-[310px] px-[25px] bg-white rounded-md drop-shadow-2xl">
             <div class="flex flex-col justify-center items-center">
               <img src="images/uiux.png" alt="" class="w-[80px] h-[80px] mt-6" />
               <p class="font-semibold text-[20px]">UI/UX Designer</p>
-              <p class="font-light mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et sapiente perferendis minus rerum aut, dolor doloremque at eaque labore facilis consequuntur, quisquam impedit?</p>
+              <p class="font-light mt-6">Tempat bagi kamu yang ingin belajar dan berbagi pemikiran tentang desain intuitif dan estetika fungsional.</p>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[355.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
+          <div class="relative w-[340px] md:w-[320px] h-[310px] px-[25px] bg-white rounded-md drop-shadow-2xl">
             <div class="flex flex-col justify-center items-center">
               <img src="images/uiux.png" alt="" class="w-[80px] h-[80px] mt-6" />
               <p class="font-semibold text-[20px]">UI/UX Designer</p>
-              <p class="font-light mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et sapiente perferendis minus rerum aut, dolor doloremque at eaque labore facilis consequuntur, quisquam impedit?</p>
+              <p class="font-light mt-6">Tempat bagi kamu yang ingin belajar dan berbagi pemikiran tentang desain intuitif dan estetika fungsional.</p>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[355.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
+          <div class="relative w-[340px] md:w-[320px] h-[310px] px-[25px] bg-white rounded-md drop-shadow-2xl">
             <div class="flex flex-col justify-center items-center">
               <img src="images/uiux.png" alt="" class="w-[80px] h-[80px] mt-6" />
               <p class="font-semibold text-[20px]">UI/UX Designer</p>
-              <p class="font-light mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et sapiente perferendis minus rerum aut, dolor doloremque at eaque labore facilis consequuntur, quisquam impedit?</p>
+              <p class="font-light mt-6">Tempat bagi kamu yang ingin belajar dan berbagi pemikiran tentang desain intuitif dan estetika fungsional.</p>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[355.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
+          <div class="relative w-[340px] md:w-[320px] h-[310px] px-[25px] bg-white rounded-md drop-shadow-2xl">
             <div class="flex flex-col justify-center items-center">
               <img src="images/uiux.png" alt="" class="w-[80px] h-[80px] mt-6" />
               <p class="font-semibold text-[20px]">UI/UX Designer</p>
-              <p class="font-light mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et sapiente perferendis minus rerum aut, dolor doloremque at eaque labore facilis consequuntur, quisquam impedit?</p>
+              <p class="font-light mt-6">Tempat bagi kamu yang ingin belajar dan berbagi pemikiran tentang desain intuitif dan estetika fungsional.</p>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[355.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
+          <div class="relative w-[340px] md:w-[320px] h-[310px] px-[25px] bg-white rounded-md drop-shadow-2xl">
             <div class="flex flex-col justify-center items-center">
               <img src="images/uiux.png" alt="" class="w-[80px] h-[80px] mt-6" />
               <p class="font-semibold text-[20px]">UI/UX Designer</p>
-              <p class="font-light mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et sapiente perferendis minus rerum aut, dolor doloremque at eaque labore facilis consequuntur, quisquam impedit?</p>
+              <p class="font-light mt-6">Tempat bagi kamu yang ingin belajar dan berbagi pemikiran tentang desain intuitif dan estetika fungsional.</p>
             </div>
           </div>
-          <div class="relative w-full md:w-[320px] h-[355.02px] px-[25px] bg-white rounded-md drop-shadow-2xl">
+          <div class="relative w-[340px] md:w-[320px] h-[310px] px-[25px] bg-white rounded-md drop-shadow-2xl">
             <div class="flex flex-col justify-center items-center">
               <img src="images/uiux.png" alt="" class="w-[80px] h-[80px] mt-6" />
               <p class="font-semibold text-[20px]">UI/UX Designer</p>
-              <p class="font-light mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis et sapiente perferendis minus rerum aut, dolor doloremque at eaque labore facilis consequuntur, quisquam impedit?</p>
+              <p class="font-light mt-6">Tempat bagi kamu yang ingin belajar dan berbagi pemikiran tentang desain intuitif dan estetika fungsional.</p>
             </div>
           </div>
         </div>
       </section>
     </div>
+    <div class="hidden lg:block absolute left-0 w-[60%] h-fit lg:h-[387px] bg-[#187cff] rounded-[33px] lg:rounded-none lg:rounded-tr-[100px] p-[10%] lg:pb-0 lg:pr-0 lg:pt-[48.7px] lg:pl-[213px]"></div>
+    <!-- ISA -->
+    <div class="container mx-auto">
+      <section class="w-[345px] h-fit mx-auto lg:w-[1016px] lg:h-[468px] mb-[78px] lg:mb-[130px]">
+        <div class="hidden lg:block absolute left-0 w-[60%] h-fit lg:h-[387px] bg-[#187cff] rounded-[33px] lg:rounded-none lg:rounded-tr-[100px] p-[10%] lg:pb-0 lg:pr-0 lg:pt-[48.7px] lg:pl-[213px]"></div>
+        <div class="flex flex-col gap-3 lg:flex-row lg:gap-[41px] w-full lg:w-[1030px] h-fit lg:h-[387px] bg-[#187cff] rounded-[20px] lg:rounded-none lg:rounded-tr-[100px] py-[35px] px-[25px] lg:pb-0 lg:pr-0 lg:pt-[48.7px] lg:px-auto">
+          <div class="mx-auto lg:mx-0 lg:w-[470px] lg:h-[919px]">
+            <img loading="lazy" class="ISA-img lg:w-[470px] lg:h-[450px]" src="./images/dapat-apa.png" alt="" srcset="" />
+          </div>
+          <div class="mt-10 z-10">
+            <h1 class="font-[700] text-[30px] lg:text-[38px] text-center lg:text-left text-[#ffffff] lg:max-w-[400px]">Dapat Apa Saja di Platform Kami?</h1>
+
+            <p class="w-full lg:w-[589px] font-[400] text-[16px] text-center lg:text-left lg:text-[16px] mt-[18px] text-[#ffffff] lg:max-w-[400px]">
+              Kami akan bantu kamu untuk membangun komunitasmu, membuka kelas baru, dan mendapatkan penghasilan tambahan
+            </p>
+            <div class="lg:absolute w-full lg:w-fit h-fit lg:h-[151px] mt-[23.3px] flex flex-col lg:flex-row gap-[13px]">
+              <div class="w-full lg:w-fit py-[11.7px] pr-[10px] rounded-[10px] bg-[#ffffff] ISA-card">
+                <ul class="star pl-[35px] pr-[8px] text-[16px] font-[400] text-[#737373] flex flex-col gap-[12px] lg:gap-0 lg:mt-3">
+                  <li>Bangun Komunitas</li>
+                  <li>Gabung Bootcamp</li>
+                  <li>Ngerjain project magang</li>
+                  <li>Bangun karir mentorship</li>
+                </ul>
+              </div>
+              <div class="w-full lg:w-fit rounded-[10px] py-[11.7px] pr-[10px] bg-[#ffffff] ISA-card">
+                <ul class="star pl-[35px] pr-[28px] text-[16px] font-[400] text-[#737373] flex flex-col gap-[12px] lg:gap-0 lg:mt-3">
+                  <li>Zoom mentoring</li>
+                  <li>Video materi</li>
+                  <li>Group Whatsapp</li>
+                  <li>Tugas praktek</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End of ISA -->
 
     <div class="container mx-auto overflow-x-hidden">
       <section class="w-[80%] md:w-full mx-auto lg:w-[1016px] h-fit mb-[50px]">
@@ -983,41 +1070,41 @@
     <div class="container mx-auto px-auto">
       <section class="w-[80%] mx-auto lg:w-[1016px] h-[fit] lg:h-[1500px] mb-[65px] mt-[110px] lg:mt-[110px] lg:mb-0">
         <div class="flex flex-col lg:flex-row">
-          <p class="z-2 items-stretch lg:min-w-[450px] text-lg">
+          <p class="z-2 items-stretch lg:min-w-[420px] text-lg lg:text-start text-center">
             <span class="font-semibold text-2xl">Bootcamp Terintegrasi</span><br />
             Jadi produktif dengan ikuti Bootcamp sambil ber-media sosial. Bebas pilih paket sesuai kebutuhan dan pasti disalurkan kerja!
           </p>
-          <img src="images/bootcampterintegrasi.svg" alt="" class="relative z-1 lg:left-0 lg:bottom-20 lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/bootcampterintegrasi.svg" alt="" class="overflow-hidden relative z-1 lg:left-[-50px] lg:bottom-20 lg:min-w-max min-w-[365px] right-7 lg:right-20" />
         </div>
 
         <div class="flex flex-col lg:flex-row-reverse">
-          <p class="relative z-2 items-stretch lg:min-w-[450px] text-right text-lg lg:bottom-[100px]">
+          <p class="relative z-2 items-stretch lg:min-w-[450px] lg:text-right text-lg lg:bottom-[100px] text-center">
             <span class="font-semibold text-2xl">Ciptakan Komunitas</span><br />
             Dengan bangun komunitas karir, kamu bisa menghasilkan dari royalti; dilengkapi metode pembayaran yang fleksibel. 
           </p>
-          <img src="images/ciptakankomunitas.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[300px] lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/ciptakankomunitas.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[300px] lg:min-w-max min-w-[365px] lg:right-20 right-7" />
         </div>
 
         <div class="flex flex-col lg:flex-row">
-          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:bottom-[300px]">
+          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:bottom-[300px] lg:text-start text-center">
             <span class="font-semibold text-2xl">Gabung Community Editor</span><br />
             Bagi yang masih punya minim pengalaman, Eduwork menawarkan program kontribusi setara pengalaman magang di perusahaan!
           </p>
-          <img src="images/gabungcommunity.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[500px] lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/gabungcommunity.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[500px] lg:min-w-max min-w-[365px] lg:right-20 right-7" />
         </div>
 
         <div class="flex flex-col lg:flex-row-reverse">
-          <p class="relative z-2 items-stretch lg:min-w-[450px] text-right text-lg lg:bottom-[500px]">
+          <p class="relative z-2 items-stretch lg:min-w-[450px] lg:text-right text-lg lg:bottom-[500px] text-center">
             <span class="font-semibold text-2xl">Bangun Karir Mentorship</span><br />
             Bangun pesona eksposur, perkuat traffic komunitas, dan perluas pengaruh ekspertisi kamu melalui karir mentoring.
           </p>
-          <img src="images/bangunkarir.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[700px] lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/bangunkarir.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[700px] lg:min-w-max min-w-[365px] lg:right-20 right-7" />
         </div>
       </section>
     </div>
 
     <!-- Fasilitas -->
-    <div class="hidden lg:block z-1 mt-[120px] absolute lg:bg-primary lg:bg-no-repeat lg:bg-cover lg:w-[1524px] lg:h-[300px]"></div>
+    <div class="hidden lg:block z-1 mt-[120px] absolute lg:bg-primary lg:bg-no-repeat lg:bg-cover lg:w-full lg:h-[300px]"></div>
     <section class="z-3 mt-10 relative top-[110px] w-[80%] mx-auto lg:w-[1016px] h-fit mb-[211.94px]">
       <h1 class="hidden lg:block font-[600] text-center text-[18px] lg:text-[30px] mb-[33px] text-white">Fasilitas untuk Sempurnakan Pengembangan Karir</h1>
       <div class="w-full h-fit flex flex-col md:grid md:grid-cols-2 lg:flex-row lg:grid-cols-4 gap-[24px]">
@@ -1313,19 +1400,19 @@
     <!-- End of Program -->
 
     <div class="container mx-auto px-auto lg:bg-[url('./images/blurrybg.png')] lg:bg-no-repeat lg:bg-cover">
-      <section class="w-[80%] mx-auto lg:w-[1016px] h-fit mb-[65px] mt-[300px] lg:mt-[110px]">
+      <section class="w-[80%] mx-auto lg:w-[1016px] h-[850px] mb-[65px] mt-[300px] lg:mt-[110px]">
         <div class="flex flex-col justify-center items-center gap-5">
           <h1 class="font-bold text-4xl">Serba Bisa Karena Fitur Unggulan</h1>
           <p class="text-lg underline">Persingkat waktu belajar dengan eksplor fitur-fitur terbaik; hanya ada di sini,</p>
-          <form action="" class="lg:flex lg:flex-row lg:gap-5 mt-3 lg:mt-0 items-center justify-center bg-white drop-shadow-xl rounded-xl px-14 lg:px-6 lg:py-0">
+          <form action="" class="lg:flex lg:flex-row lg:gap-5 mt-3 lg:mt-0 items-center lg:h-[60px] justify-center bg-white drop-shadow-xl rounded-xl px-2 lg:px-6 lg:py-[0px]">
             <div class="flex flex-row lg:justify-start justify-center items-center lg:mt-0 mt-3 gap-4">
-              <input class="text-[16px] p-3 rounded-3xl w-full border-white min-w-[275px] lg:min-w-[420px]" type="text" placeholder="Buat Nama Komunitasmu" />
+              <input class="text-[16px] p-3 rounded-3xl w-full border-white min-w-[235px] lg:min-w-[420px]" type="text" placeholder="Buat Nama Komunitasmu" />
               <button class="bg-primary text-white px-4 py-2 rounded-full lg:mt-3 md:mb-3">></button>
             </div>
 
             <div class="hidden lg:block w-[1px] h-[40px] bg-slate-300 border-slate-400"></div>
-            <p class="flex flex-row justify-center items-center">or</p>
-            <button type="button" class="text-slate-700 bg-white font-medium rounded-lg text-sm text-center inline-flex items-center ml-20 lg:ml-2 lg:mr-2 mt-6 mb-6 drop-shadow-lg p-3">
+            <p class="hidden lg:flex lg:flex-row justify-center items-center">or</p>
+            <button type="button" class="text-slate-700 bg-white font-medium rounded-lg text-sm text-center inline-flex items-center ml-12 lg:ml-2 lg:mr-2 mt-6 mb-6 p-3">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
                 <path
                   d="M15.0007 8.15766C15.0007 7.58211 14.953 7.16211 14.8499 6.72656H8.14355V9.32431H12.08C12.0007 9.96989 11.5721 10.9421 10.6197 11.5954L10.6064 11.6824L12.7268 13.2922L12.8737 13.3066C14.2229 12.0854 15.0007 10.2888 15.0007 8.15766Z"
@@ -1347,52 +1434,53 @@
               &nbsp;&nbsp;Sign up with Google
             </button>
           </form>
-
-          <img src="images/laptop.svg" alt="" class="mt-9 lg:mb-11" />
+          <div class="max-w-[370px] overflow-hidden flex justify-center lg:max-w-full">
+            <img src="images/laptop.svg" alt="" class="mt-9 lg:mb-11 min-w-[500px] m-auto h-auto lg:w-full" />
+          </div>
         </div>
       </section>
     </div>
 
     <div class="container mx-auto px-auto">
-      <section class="w-[80%] mx-auto lg:w-[1016px] h-[fit] lg:h-[2000px] mb-[65px] mt-[110px] lg:mt-[110px] lg:mb-0">
+      <section class="w-[80%] mx-auto lg:w-[1016px] h-[fit] lg:h-[2000px] mb-[65px] mt-[60px] lg:mt-[110px] lg:mb-0">
         <div class="flex flex-col lg:flex-row">
-          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:top-[100px]">
+          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:top-[100px] lg:text-start text-center">
             <span class="font-semibold text-2xl">Publish Konten Sesukamu</span><br />
             Ramaikan komunitas dengan update keseruan kamu selama berproses; kamu juga bisa post konten blog pendek di sini!
           </p>
-          <img src="images/publishcontent.svg" alt="" class="relative z-1 lg:left-0 lg:bottom-20 lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/publishcontent.svg" alt="" class="relative z-1 lg:left-0 lg:bottom-20 lg:min-w-max min-w-[365px] lg:right-20 right-7" />
         </div>
 
         <div class="flex flex-col lg:flex-row-reverse">
-          <p class="relative z-2 items-stretch lg:min-w-[540px] text-right text-lg lg:bottom-[100px]">
+          <p class="relative z-2 items-stretch lg:min-w-[540px] lg:text-right text-lg lg:bottom-[100px] text-center">
             <span class="font-semibold text-2xl">Hadiri Ragam Event</span><br />
             Rutinitas komunitas termasuk webinar, Live mentoring, dan event lainnya. Aktifkan notifikasi supaya gak ketinggalan updates penting dari mentor!
           </p>
-          <img src="images/ragamevent.svg" alt="" class="relative z-1 lg:left-[60px] lg:bottom-[300px] lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/ragamevent.svg" alt="" class="relative z-1 lg:left-[60px] lg:bottom-[300px] lg:min-w-max min-w-[365px] lg:right-20 right-7" />
         </div>
 
         <div class="flex flex-col lg:flex-row">
-          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:bottom-[220px]">
+          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:bottom-[220px] lg:text-start text-center">
             <span class="font-semibold text-2xl">Tim Marketing & Engagement</span><br />
             Penawaran kolaborasi strategis untuk menjangkau audiens yang lebih luas, promosi kelas premium, live streams, dan event lainnya.
           </p>
-          <img src="images/timmarketing.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[500px] lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/timmarketing.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[500px] lg:min-w-max min-w-[365px] lg:right-20 right-7" />
         </div>
 
         <div class="flex flex-col lg:flex-row-reverse">
-          <p class="relative z-2 items-stretch lg:min-w-[450px] text-right text-lg lg:bottom-[500px]">
+          <p class="relative z-2 items-stretch lg:min-w-[450px] lg:text-right text-lg lg:bottom-[500px] text-center">
             <span class="font-semibold text-2xl">Akses ke Puluhan Kelas</span><br />
             Tersedia Kelas-kelas premium dengan durasi bite-sized yang memudahkan dipelajari tiap hari!
           </p>
-          <img src="images/akseskelas.svg" alt="" class="relative z-1 lg:right-[50px] lg:bottom-[700px] lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/akseskelas.svg" alt="" class="relative z-1 lg:right-[50px] lg:bottom-[700px] lg:min-w-max min-w-[365px] right-7" />
         </div>
 
         <div class="flex flex-col lg:flex-row">
-          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:bottom-[720px]">
+          <p class="relative z-2 items-stretch lg:min-w-[450px] text-lg lg:bottom-[720px] lg:text-start text-center">
             <span class="font-semibold text-2xl">Real Project & Case-Study</span><br />
             Sertifikat teori aja belum cukup untuk unjuk diri. Kamu bebas pilih project dan case-study tersedia; kerjakan kapan saja!
           </p>
-          <img src="images/realcase.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[940px] lg:min-w-max min-w-[600px] right-20" />
+          <img src="images/realcase.svg" alt="" class="relative z-1 lg:left-16 lg:bottom-[940px] lg:min-w-max min-w-[365px] lg:right-20 right-7" />
         </div>
       </section>
     </div>
@@ -1531,125 +1619,125 @@
       <section class="w-[80%] mx-auto lg:w-[1016px] h-[fit] lg:h-[2000px] mb-[65px] mt-[110px] lg:mt-[110px] lg:mb-0">
         <h1 class="text-3xl font-bold text-center mb-16">Harga Bootcamp</h1>
         <div class="relative lg:left-[50px] lg:right-0 drop-shadow-2xl right-[30px]">
-          <table class="table-fixed">
+          <table class="table-fixed relative right-[-15px] lg:right-[10px] lg:left-[60px]">
             <thead>
               <tr class="">
                 <th class="border-none"></th>
-                <th class="bg-blue-600 text-white lg:w-[120px] lg:text-2xl rounded-t-2xl">Free</th>
-                <th class="bg-blue-700 text-white lg:w-[220px] lg:text-2xl rounded-t-2xl">Bootcamp</th>
-                <th class="bg-blue-600 text-white lg:w-[250px] lg:text-2xl rounded-t-2xl">Private Only</th>
+                <th class="bg-blue-600 text-white lg:w-[120px] lg:text-2xl rounded-t-2xl text-sm">Free</th>
+                <th class="bg-blue-700 text-white lg:w-[220px] lg:text-2xl rounded-t-2xl text-sm">Bootcamp</th>
+                <th class="bg-blue-600 text-white lg:w-[250px] lg:text-2xl rounded-t-2xl text-sm">Private Only</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="border border-slate-200">
-                <td class="bg-white rounded-tl-2xl">Materi Pembelajaran</td>
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
+                <td class="bg-white rounded-tl-2xl border-none">Materi Pembelajaran</td>
                 <td class="bg-blue-100">Intro</td>
                 <td class="bg-white">Fundamental</td>
                 <td class="bg-blue-100">Lengkap</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Waktu Pembelajaran</td>
                 <td class="bg-blue-100">Bebas</td>
                 <td class="bg-white">1 Bulan</td>
                 <td class="bg-blue-100">Sampai Bisa (Estimasi 3 bulan)</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Video Materi</td>
                 <td class="bg-blue-100"><img src="images/Checkmark.png" alt="" class="" /></td>
                 <td class="bg-white"><img src="images/Checkmark.png" alt="" /></td>
                 <td class="bg-blue-100"><img src="images/Checkmark.png" alt="" /></td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Zoom Mentoring</td>
                 <td class="bg-blue-100">1x/ minggu</td>
                 <td class="bg-white">8-12x / bulan</td>
                 <td class="bg-blue-100">1on1 Unlimited</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Kuota Siswa</td>
                 <td class="bg-blue-100">Unlimited</td>
                 <td class="bg-white">Batch, Up to 100+</td>
                 <td class="bg-blue-100">Eksklusif Private</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Penyaluran Magang</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white"><img src="images/Checkmark.png" alt="" /></td>
                 <td class="bg-blue-100"><img src="images/Checkmark.png" alt="" /></td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Portofolio</td>
                 <td class="bg-blue-100">Tugas</td>
                 <td class="bg-white">Mini Project</td>
                 <td class="bg-blue-100">Special Project</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Komunikasi Private</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">Zoom Group</td>
                 <td class="bg-blue-100">Zoom Group + Private Zoom/Chat/Call</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Tugas</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">Yes, Tidak Dicek Mentor</td>
                 <td class="bg-blue-100">Yes, Dicek Mentor + Feedback & Mentoring</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Garansi Jaminan Sampai Bisa</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">Garansi Mengulang Sampai Bisa</td>
                 <td class="bg-blue-100"><img src="images/Checkmark.png" alt="" /></td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Sertifikat</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white"><img src="images/Checkmark.png" alt="" /></td>
                 <td class="bg-blue-100"><img src="images/Checkmark.png" alt="" /></td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Career Preparation</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">Additional</td>
                 <td class="bg-blue-100">Additional</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Jaminan Kerja</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">-</td>
                 <td class="bg-blue-100">-</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Pendampingan Kerja 1 Tahun</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">Optional</td>
                 <td class="bg-blue-100">-</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Seleksi</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">-</td>
                 <td class="bg-blue-100">-</td>
               </tr>
-              <tr class="bg-blue-600 text-white">
+              <tr class="bg-blue-600 text-white text-[12px] lg:text-base">
                 <td class="lg:text-xl font-semibold">Total Harga</td>
                 <td class="lg:text-xl font-semibold">Free</td>
                 <td class="lg:text-xl font-semibold">99-499rb</td>
                 <td class="lg:text-xl font-semibold">3jt</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Total Cicilan</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">1x</td>
                 <td class="bg-blue-100">3x</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Pembayaran</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">Diawal</td>
                 <td class="bg-blue-100">Cicilan di Awal</td>
               </tr>
-              <tr class="border border-slate-200">
+              <tr class="border border-slate-200 text-[12px] lg:text-base">
                 <td class="bg-white">Pembayaran Awal</td>
                 <td class="bg-blue-100">-</td>
                 <td class="bg-white">99-499rb</td>
@@ -1848,23 +1936,22 @@
     <!-- </div> -->
     <!-- End Biaya -->
     <!-- Testimoni -->
+    <div class="hidden lg:block z-1 mt-[24px] absolute lg:bg-primary lg:bg-no-repeat lg:bg-cover lg:w-full lg:h-[900px]"></div>
     <div class="container mx-auto">
       <section class="relative w-full h-[900px] mb-[80px] max-w-screen-[1340px]">
-        <div class="lg:relative flex flex-col lg:left-[240px] lg:top-[200px] bg-primary w-[90%] mx-auto rounded-2xl justify-center items-center lg:justify-start lg:items-start">
+        <div class="lg:relative flex flex-col lg:left-[185px] lg:top-[200px] bg-primary w-[90%] mx-auto rounded-2xl justify-center items-center lg:justify-start lg:items-start lg:bg-transparent">
           <img src="images/testi.jpg" alt="" class="w-[210px] h-[300px] mt-5 mb-6 rounded-xl drop-shadow-xl lg:hidden" />
-          <h1 class="relative text-white z-50 text-2xl lg:text-3xl font-bold mb-[35px]">Alumni Success Story</h1>
-          <p class="text-white z-50 text-3xl lg:text-4xl font-semibold max-w-[440px] mb-[35px] text-center lg:text-start">Dapat kerja dengan gaji 2 digit dari koneksi dengan perusahaan asal korea</p>
-          <p class="text-white z-50 text-md font-light max-w-[350px]">Fadil Mahmud</p>
-          <p class="text-white z-50 text-md font-light max-w-[350px]">Product Designer | Samsung Group</p>
-          <a href="" class="text-primary z-50 text-md font-normal mt-[35px] px-6 py-2 bg-white rounded-lg mb-[35px]">Simak Kisahnya</a>
+          <h1 class="relative text-white z-49 text-2xl lg:text-3xl font-bold mb-[35px]">Alumni Success Story</h1>
+          <p class="text-white z-49 text-3xl lg:text-4xl font-semibold max-w-[440px] mb-[35px] text-center lg:text-start">Dapat kerja dengan gaji 2 digit dari koneksi dengan perusahaan asal korea</p>
+          <p class="text-white z-49 text-md font-light max-w-[350px]">Fadil Mahmud</p>
+          <p class="text-white z-49 text-md font-light max-w-[350px]">Product Designer | Samsung Group</p>
+          <a href="" class="text-primary z-49 text-md font-normal mt-[35px] px-6 py-2 bg-white rounded-lg mb-[35px]">Simak Kisahnya</a>
         </div>
 
         <!-- <div class=""></div> -->
 
-        <div class="relative lg:left-[100px] z-0 h-[900px] lg:bg-[url('./images/testimonial.svg')] lg:bg-no-repeat lg:bg-cover lg:bottom-[400px]">
-          <div class="relative z-1 lg:bg-gradient-to-r lg:from-primary/100 lg:h-[900px] lg:bottom-[000px] lg:right-[100px]"></div>
-          <div class="relative z-2 lg:h-[900px] lg:bg-gradient-to-r lg:from-primary lg:bottom-[900px] lg:w-[500px] lg:right-[100px]"></div>
-          <div class="relative z-3 lg:h-[900px] lg:bg-gradient-to-r lg:from-primary lg:bottom-[1800px] lg:w-[500px] lg:right-[100px]"></div>
+        <div class="relative lg:left-[0px] z-0 h-[900px] lg:bg-[url('./images/testimonial.svg')] lg:bg-no-repeat lg:bg-cover lg:bottom-[400px] lg:right-0">
+          <div class="relative lg:w-full z-2 lg:bg-gradient-to-r lg:from-primary lg:from-50% lg:via-transparent lg:via-90% lg:to-primary lg:to-5% lg:h-[900px] lg:bottom-[000px]"></div>
 
           <!-- <div class="flex z-20 md:flex-row w-[90%] md:w-full mx-auto h-fit lg:w-[1016px]">
             
@@ -1990,7 +2077,40 @@
       </section>
     </div> -->
     <!-- End of Testimoni -->
+    <div class="container mx-auto">
+      <div class="slider2 relative lg:bottom-[220px] bottom-[100px]">
+        <div class="wrapper">
+          <i id="left" class="fa-solid fa-angle-left"></i>
+          <ul class="carousel">
+            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/profile-ahmad.png')">
+              <div class="img"></div>
 
+              <p class="text-lg font-bold text-start text-white ml-6">Ahmad</p>
+              <p class="text-sm font-light text-start text-white ml-6 mb-4">UI/UX Designer</p>
+              <p class="text-base text-start text-white ml-6 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, obcaecati?</p>
+              <p class="text-base text-start font-bold text-white ml-6">Simak Kisahnya</p>
+            </li>
+            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/profile-lian.png')">
+              <!-- <div class="img"><img src="images/profile-lian.png" alt="img" draggable="false" /></div> -->
+              <div class="img"></div>
+              <p class="text-lg font-bold text-start text-white ml-6">Ahmad</p>
+              <p class="text-sm font-light text-start text-white ml-6 mb-4">UI/UX Designer</p>
+              <p class="text-base text-start text-white ml-6 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, obcaecati?</p>
+              <p class="text-base text-start font-bold text-white ml-6">Simak Kisahnya</p>
+            </li>
+            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/profile-nikita.png')">
+              <div class="img"></div>
+              <!-- <div class="img"><img src="images/profile-nikita.png" alt="img" draggable="false" /></div> -->
+              <p class="text-lg font-bold text-start text-white ml-6">Ahmad</p>
+              <p class="text-sm font-light text-start text-white ml-6 mb-4">UI/UX Designer</p>
+              <p class="text-base text-start text-white ml-6 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, obcaecati?</p>
+              <p class="text-base text-start font-bold text-white ml-6">Simak Kisahnya</p>
+            </li>
+          </ul>
+          <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+    </div>
     <!-- End of Testimoni -->
     <!-- FAQ -->
     <div class="container mx-auto">

@@ -313,6 +313,11 @@ html {
   background: linear-gradient(96.17deg, #f6fcff 10.09%, rgba(246, 252, 255, 0.825694) 21.39%, rgba(246, 252, 255, 0.537489) 47.55%, rgba(246, 252, 255, 0) 66.91%);
   transform: matrix(1, 0, 0, -1, 0, 0);
 }
+
+.hero-gradasi3 {
+  background: linear-gradient(96.17deg, #187cff 10.09%, rgba(246, 252, 255, 0.825694) 21.39%, rgba(246, 252, 255, 0.537489) 47.55%, rgba(246, 252, 255, 0) 66.91%);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
 .arrow2 {
   position: absolute;
   width: 127.98px;
@@ -393,4 +398,189 @@ td img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+.wavess {
+  position: absolute;
+
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+
+.wavess2 {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: -30px;
+  width: 100%;
+  left: 0;
+}
+.slider2 {
+  display: flex;
+  padding: 0 35px;
+  align-items: center;
+  justify-content: center;
+  min-height: 0px;
+  /* background: linear-gradient(to left top, #031A9A, #8B53FF); */
+}
+
+.wrapper {
+  max-width: 950px;
+  width: 100%;
+  position: relative;
+}
+.wrapper i {
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.85);
+}
+.wrapper i:first-child {
+  left: -52px;
+}
+.wrapper i:last-child {
+  right: -52px;
+}
+.wrapper .carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% / 3) - 12px);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 16px;
+  /* border-radius: 8px; */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carousel.no-transition {
+  scroll-behavior: auto;
+}
+.carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+.carousel.dragging .card {
+  cursor: grab;
+  user-select: none;
+}
+.carousel :where(.card, .img) {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+.carousel .card {
+  scroll-snap-align: start;
+  height: 342px;
+
+  list-style: none;
+  /* background: url(images/profile-ahmad.png); */
+  cursor: pointer;
+  padding-bottom: 15px;
+  flex-direction: column;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.carousel .card .img {
+  background: none;
+  height: 148px;
+  width: 148px;
+  /* border-radius: 50%; */
+}
+.card .img img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+}
+.carousel .card h2 {
+  font-weight: 500;
+  font-size: 1.56rem;
+  margin: 30px 0 5px;
+  color: white;
+}
+.carousel .card span {
+  color: white;
+  font-size: 1.31rem;
+}
+@media screen and (max-width: 900px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100% / 2) - 50px);
+  }
+}
+@media screen and (max-width: 600px) {
+  .wrapper .carousel {
+    grid-auto-columns: calc((100%));
+  }
+  .wrapper {
+    max-width: 250px;
+    width: 100%;
+    position: relative;
+  }
+
+  .wrapper i:first-child {
+    left: -32px;
+  }
+  .wrapper i:last-child {
+    right: -32px;
+  }
+}
+
+.mainInput {
+  height: 40px;
+  padding: 0px;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.mainInput::-webkit-input-placeholder {
+  font-family: Poppins, FontAwesome;
+  font-weight: normal;
+  font-size: 16px;
+  overflow: visible;
+  vertical-align: top;
+  display: inline-block !important;
+  padding-left: 5px;
+  padding-top: 2px;
+  color: var(--neutral-70, #757575);
+}
+
+.mainInput::-moz-placeholder {
+  font-family: Poppins, FontAwesome;
+  font-weight: normal;
+  overflow: visible;
+  font-size: 16px;
+  vertical-align: top;
+  display: inline-block !important;
+  padding-left: 5px;
+  padding-top: 2px;
+  color: var(--neutral-70, #757575);
+}
+
+.mainInput:-ms-input-placeholder {
+  font-family: Poppins, FontAwesome;
+  font-weight: normal;
+  font-size: 16px;
+  overflow: visible;
+  vertical-align: top;
+  display: inline-block !important;
+  padding-left: 5px;
+  padding-top: 2px;
+  color: var(--neutral-70, #757575);
 }
