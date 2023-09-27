@@ -18,6 +18,30 @@ module.exports = {
         primary: "#187CFF",
         secondary: "#FFD200",
       },
+      animation: {
+        marquee1: "marquee1 10s linear infinite",
+        marquee2: "marquee2 10s linear infinite",
+        marquee3: "marquee3 10s linear infinite",
+        marquee4: "marquee4 10s linear infinite",
+      },
+      keyframes: {
+        marquee1: {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(-100%)" },
+        },
+        marquee2: {
+          "0%": { transform: "translateY(100%)" },
+          "100%": { transform: "translateY(0%)" },
+        },
+        marquee3: {
+          "0%": { transform: "translateY(0%)" },
+          "100%": { transform: "translateY(100%)" },
+        },
+        marquee4: {
+          "0%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0%)" },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],
