@@ -23,6 +23,8 @@ module.exports = {
         marquee2: "marquee2 10s linear infinite",
         marquee3: "marquee3 10s linear infinite",
         marquee4: "marquee4 10s linear infinite",
+        marquee5: "marquee5 10s linear infinite",
+        marquee6: "marquee6 10s linear infinite",
       },
       keyframes: {
         marquee1: {
@@ -40,6 +42,14 @@ module.exports = {
         marquee4: {
           "0%": { transform: "translateY(-100%)" },
           "100%": { transform: "translateY(0%)" },
+        },
+        marquee5: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        marquee6: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
         },
       },
     },
