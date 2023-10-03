@@ -12,7 +12,7 @@
   </head>
   <body class="bg-[#f6fcff] text-[#404040] font-poppins">
     <!-- Navabar -->
-    <div class="w-full z-50" id="navbar">
+    <div class="w-full z-[99]" id="navbar">
       <nav class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5">
         <a href="/" class="w-[154px] h-[31px]">
           <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
@@ -28,85 +28,61 @@
         </button>
 
         <!-- Dropdown menu -->
-        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="multiLevelDropdownButton">
+        <div id="dropdown" class="z-99 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+          <ul class="py-2 text-sm text-gray-700" aria-labelledby="multiLevelDropdownButton">
             <li>
-              <button
-                id="doubleDropdownButton"
-                data-dropdown-toggle="doubleDropdown"
-                data-dropdown-placement="right-start"
-                type="button"
-                class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Kelas
-              </button>
-              <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+              <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100">Kelas</button>
+              <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overview</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Overview</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My downloads</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">My downloads</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Billing</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Billing</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rewards</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Rewards</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li>
-              <button
-                id="doubleDropdownButton"
-                data-dropdown-toggle="doubleDropdown"
-                data-dropdown-placement="right-start"
-                type="button"
-                class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Mentor
-              </button>
-              <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+              <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100">Mentor</button>
+              <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overview</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Overview</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My downloads</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">My downloads</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Billing</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Billing</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rewards</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Rewards</a>
                   </li>
                 </ul>
               </div>
             </li>
             <li>
-              <button
-                id="doubleDropdownButton"
-                data-dropdown-toggle="doubleDropdown"
-                data-dropdown-placement="right-start"
-                type="button"
-                class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-              >
-                Company
-              </button>
-              <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="doubleDropdownButton">
+              <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100">Company</button>
+              <div id="doubleDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Overview</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Overview</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My downloads</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">My downloads</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Billing</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Billing</a>
                   </li>
                   <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rewards</a>
+                    <a href="#" class="block px-4 py-2 hover:bg-gray-100">Rewards</a>
                   </li>
                 </ul>
               </div>
@@ -274,24 +250,28 @@
 
     <div class="relative w-full bg-[url('./images/bg-umkm.png')] bg-cover bg-center">
       <div class="bg-gradient-to-r from-white via-white/80 to-white/30 w-full h-full absolute"></div>
-
-      <div class="relative w-[90%] lg:w-[1016px] container mx-auto pt-32 md:pt-40 pb-24 md:pb-32 flex flex-col gap-[30px] z-10">
-        <h1 class="text-[32px] md:text-[45px] font-bold w-full md:w-1/2">Pilih Kontrak Kerja Sesuai Pilihanmu</h1>
-        <p class="w-full md:w-2/4 text-lg">Jalin kerja sama dengan perusahaan partner Eduwork melalui program project-based yang bisa kamu tentukan sendiri durasi kerjanya!</p>
-        <div class="flex justify-center items-center lg:justify-start lg:items-start">
-          <a href="" class="p-3 bg-none bg-primary text-white w-[258px] rounded-[16px] text-center">Pelajari Lebih Lanjut</a>
+      <div class="container mx-auto m-0">
+        <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1016px]">
+          <div class="relative w-[90%] lg:w-[1016px] container mx-auto pt-32 md:pt-40 pb-24 md:pb-32 flex flex-col gap-[30px] z-10">
+            <h1 class="text-[32px] md:text-[45px] font-bold w-full md:w-[500px]">Pilih Kontrak Kerja Sesuai Pilihanmu</h1>
+            <p class="w-full md:w-[500px] text-lg">Jalin kerja sama dengan perusahaan partner Eduwork melalui program project-based yang bisa kamu tentukan sendiri durasi kerjanya!</p>
+            <div class="flex justify-center items-center lg:justify-start lg:items-start">
+              <a href="" class="p-3 bg-none bg-primary text-white w-[258px] rounded-[16px] text-center">Pelajari Lebih Lanjut</a>
+            </div>
+          </div>
+          <div class="absolute lg:relative pt-[510px] ml-4 md:pt-40 pb-24 md:pb-32 z-50">
+            <div id="player" class="z-50 lg:max-w-[500px] lg:max-h-[500px] max-w-[95%] max-h-[250px] rounded-[30px]"></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="lg:absolute relative z-[20] lg:top-[120px] lg:right-[120px] right-[-10px] bottom-[10px]">
-      <div id="player" class="lg:max-w-[500px] lg:max-h-[500px] max-w-[95%] max-h-[250px] rounded-[30px]"></div>
-    </div>
+    <!-- <div class="lg:absolute relative z-[20] lg:top-[120px] lg:right-[180px] right-[-10px] bottom-[10px]"></div> -->
     <!-- Hero -->
 
     <div class="absolute top-[1245px] lg:top-[860px] w-full h-[328.26px] lg:z-[10] z-[10]">
       <div class="wave"></div>
     </div>
-    <div class="relative w-full z-10 mt-[50px] lg:mt-0">
+    <div class="relative w-full z-10 mt-[230px] lg:mt-0">
       <div class="flex flex-col container mx-auto w-[90%] lg:w-[1016px] justify-center items-center text-center gap-[30px]">
         <p class="text-primary lg:text-[30px] text-[25px] font-[600]">Jalani Hari Produktif bersama Program-Project Terbaru</p>
         <p class="text-slate-500 lg:text-[16px] font-[400] lg:w-[650px]">Setelah jadi alumni, kamu bisa terus beraktivitas bersama rekan Eduwork lainnya melalui program-program terpilih, khusus untuk pengembangan karir.</p>
@@ -310,113 +290,239 @@
     </div>
 
     <!-- Kelas -->
-    <div class="fixed bottom-2 right-2 z-50 lg:hidden">
-      <button
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        type="button"
-        data-drawer-target="drawer-example"
-        data-drawer-show="drawer-example"
-        aria-controls="drawer-example"
-      >
-        Filter
-      </button>
 
-      <div id="drawer-example" class="fixed top-0 left-0 z-40 h-screen p-4 overflow-y-auto transition-transform -translate-x-full bg-white w-80 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-label">
-        <div class="w-full sticky top-6 gap-8 md:flex flex-col z-30">
-          <div class="flex flex-col gap-1 text-[14px]">
-            <h1 class="mb-3 text-[16px] font-medium text-black">Pencarian</h1>
-            <div class="flex items-center gap-3">
-              <input type="text" id="search" class="border border-slate-300 rounded-[16px] w-[95%]" placeholder="Search" />
-            </div>
+    <div id="dropdownSearch" class="z-50 hidden bg-white rounded-lg shadow w-60 dark:bg-gray-700">
+      <div class="p-3">
+        <label for="input-group-search" class="sr-only">Search</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
           </div>
-          <div class="flex flex-col gap-1 text-[14px]">
-            <h1 class="mb-3 text-[16px] font-medium text-black">Type Project</h1>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="all_type" />
-              <label for="all_type">All Type</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="paid" />
-              <label for="paid">Paid</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="unpaid" />
-              <label for="unpaid">Unpaid</label>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1 text-[14px]">
-            <h1 class="mb-3 text-[16px] font-medium text-black">Category</h1>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="webdev" />
-              <label for="webdev">Web Developer</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="data_science" />
-              <label for="data_science">Data Science</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="keuangan" />
-              <label for="keuangan">Keuangan</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="mob_dev" />
-              <label for="mob_dev">Mobile Developer</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="designer" />
-              <label for="designer">Designer</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="digital_marketing" />
-              <label for="digital_marketing">Digital Marketing</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="quality_assurance" />
-              <label for="quality_assurance">Quality Assurance</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="cat_other" />
-              <label for="cat_other">Other</label>
-            </div>
-          </div>
-          <div class="flex flex-col gap-1 text-[14px]">
-            <h1 class="mb-3 text-[16px] font-medium text-black">Project Duration</h1>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="all_duration" />
-              <label for="all_duration">All Durations</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="d1" />
-              <label for="d1">1-2 Minggu</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="d2" />
-              <label for="d2">3-4 Minggu</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="d3" />
-              <label for="d3">1-3 Bulan</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="d4" />
-              <label for="d4">3-6 Bulan</label>
-            </div>
-            <div class="flex items-center gap-3">
-              <input type="checkbox" id="d5" />
-              <label for="d5">>6 Bulan</label>
-            </div>
-          </div>
-          <div class="flex items-center gap-3 text-center">
-            <a href="" class="p-3 bg-primary rounded-[16px] text-white w-[95%]">Cari Project</a>
-          </div>
+          <input
+            type="text"
+            id="input-group-search"
+            class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Pencarian"
+          />
         </div>
       </div>
+      <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSearchButton">
+        <p class="text-black text-[16px] ml-2 mt-2">Type Project</p>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-11"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-11" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">All Type</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              checked
+              id="checkbox-item-12"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-12" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Paid</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-13"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-13" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Unpaid</label>
+          </div>
+        </li>
+        <p class="text-black text-[16px] ml-2 mt-2">Category</p>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-14"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-14" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Web Developer</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-15"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-15" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Data Science</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-16"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-16" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Keuangan</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Mobile Developer</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Designer</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Digital Marketing</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Quality Assurance</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Other</label>
+          </div>
+        </li>
+        <p class="text-black text-[16px] ml-2 mt-2">Project Duration</p>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">All Durations</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1-2 Minggu</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">3-4 Minggu</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1-3 Bulan</label>
+          </div>
+        </li>
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">3-6 Bulan</label>
+          </div>
+        </li>
+
+        <li>
+          <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+            <input
+              id="checkbox-item-17"
+              type="checkbox"
+              value=""
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+            />
+            <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">>6 Bulan</label>
+          </div>
+        </li>
+      </ul>
+      <a href="#" class="flex items-center p-3 text-sm font-medium text-white border-t border-gray-200 rounded-b-lg bg-blue-500 hover:underline"> Cari Projek </a>
     </div>
     <div class="relative z-10 flex flex-col container mx-auto w-[90%] lg:w-[1016px] justify-center items-center text-center gap-[30px] lg:top-[140px] top-[90px]">
       <p class="text-primary lg:text-[30px] text-[25px] font-[600]">Cari Project yang Kamu Butuhkan</p>
       <p class="text-slate-500 lg:text-[16px] font-[400] lg:w-[650px]">Tantang dirimu untuk unjuk diri & bekerja sama dengan perusahaan-perusahaan ternama!</p>
     </div>
-    <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[75px] flex-col md:flex-row lg:mt-[95px] mt-[40px]">
+    <div class="sticky top-[55px] z-50 flex justify-center items-center lg:hidden overflow-hidden mt-[125px] mb-0">
+      <button
+        id="dropdownSearchButton"
+        data-dropdown-toggle="dropdownSearch"
+        data-dropdown-placement="bottom"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        type="button"
+      >
+        Filter search
+        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+        </svg>
+      </button>
+    </div>
+    <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[75px] flex-col md:flex-row lg:mt-[95px] mt-0">
       <div class="hidden w-1/4 sticky top-6 gap-8 md:flex flex-col z-30">
         <div class="flex flex-col gap-1 text-[14px]">
           <h1 class="mb-3 text-[16px] font-medium text-black">Pencarian</h1>

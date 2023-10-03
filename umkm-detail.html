@@ -8,6 +8,7 @@
     <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <style>
       .swiper {
         width: 100%;
@@ -25,7 +26,7 @@
   </head>
   <body class="bg-[#f6fcff] text-[#404040] font-poppins">
     <!-- Navabar -->
-    <div class="w-full z-50" id="navbar">
+    <div class="w-full z-[99]" id="navbar">
       <nav class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5">
         <a href="/" class="w-[154px] h-[31px]">
           <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
@@ -190,32 +191,35 @@
     </div>
     <!-- End Navbar -->
     <!-- Hero -->
-    <div class="relative w-full z-30">
-      <div class="w-[90%] lg:w-[1016px] container mx-auto pt-32 md:pt-32 pb-8 md:pb-14">
-        <img loading="lazy" src="./images/bg-detail-kelas.png" alt="" class="absolute -inset-0 -z-10 left-0 md:w-[1250px] md:h-[650px] hidden lg:block" />
-        <div class="flex md:flex-row gap-8 flex-col items-start w-full">
-          <div class="w-full md:w-1/2 flex flex-col gap-[28px] md:pt-20">
-            <h2 class="text-[24px] md:text-[30px] font-medium">Pelatihan & Penyaluran kerja sebagai Programmer</h2>
-            <h1 class="text-[32px] md:text-[55px] font-bold text-primary">Laravel & Vue JS</h1>
-            <button class="flex bg-primary gap-[10px] justify-center w-ful md:w-[256px] py-[24px] px-[35px] rounded-[10px] text-[16px] font-medium text-white">
-              <img loading="lazy" src="./images/icon/Play.png" alt="play" />
-              Coba Trailer Gratis
-            </button>
+    <div class="relative w-full bg-[url('./images/gjk-bg.png')] bg-cover bg-center lg:rounded-bl-[280px] h-[570px] lg:mb-0 mb-[200px]">
+      <div class="bg-gradient-to-l from-white via-white/60 to-white/80 w-full h-full absolute"></div>
+      <div class="container mx-auto mt-[-40px]">
+        <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1016px]">
+          <div class="relative w-[90%] lg:w-[1016px] container mx-auto pt-32 md:pt-40 pb-24 md:pb-32 flex flex-col gap-[30px] z-10">
+            <div class="flex items-center gap-2">
+              <div class="w-[48px] h-[48px] bg-cover bg-no-repeat bg-slate-200 rounded-full" style="background-image: url('images/gjkicon.png')"></div>
+              <p class="text-[20px] font-[500]">Gojek</p>
+            </div>
+            <h1 class="text-[32px] md:text-[45px] font-bold w-full md:w-[500px]">Gojek Project: Aplikasi dan Landing Page Website Gopay</h1>
+
+            <div class="flex justify-center items-center lg:justify-start lg:items-start">
+              <a href="" class="p-3 bg-none bg-primary text-white w-[258px] rounded-[16px] text-center">Daftar Sekarang</a>
+            </div>
           </div>
-          <div class="w-full md:w-1/2 flex justify-end">
-            <img loading="lazy" src="./images/mentor-dimas-hanifa.png" alt="" class="drop-shadow-xl" />
+          <div class="absolute lg:relative pt-[510px] mr-4 md:pt-40 pb-24 md:pb-32 z-50">
+            <div id="player" class="z-50 lg:max-w-[500px] lg:max-h-[500px] max-w-[95%] max-h-[250px] rounded-[30px]"></div>
           </div>
         </div>
       </div>
     </div>
     <!-- EndHero -->
-    <img loading="lazy" src="./images/bg-detail-kelas-2.png" alt="bg" class="w-full absolute top-[1408px] -z-30" />
+    <!-- <img loading="lazy" src="./images/bg-detail-kelas-2.png" alt="bg" class="w-full absolute top-[1408px] -z-30" /> -->
     <!-- Contenet -->
     <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[50px] flex-col md:flex-row z-30 gap-[50px]">
       <div class="w-full md:w-1/2" id="menuCourse">
         <nav class="menuChange bg-white py-6 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
           <div class="flex justify-between items-center">
-            <h1 class="font-semibold text-[20px] text-[#404040]">Course Detail</h1>
+            <h1 class="font-semibold text-[20px] text-[#404040]">Project Detail</h1>
             <button data-collapse-toggle="filter-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden" aria-controls="filter-cta" aria-expanded="false">
               <span class="sr-only">Open main menu</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -225,106 +229,240 @@
           </div>
           <ul id="filter-cta" class="text-[#8C8C8C] flex flex-col gap-4">
             <div class="h-[1px] bg-slate-300"></div>
-            <a href="#tentang" class="tentang text-[16px]"> Tentang Program </a>
-            <a href="#jadwal" class="jadwal text-[16px]"> Jadwal Kelas </a>
-            <a href="#metode" class="metode text-[16px]"> Metode Belajar </a>
-            <a href="#mentor" class="mentor text-[16px]"> Mentor </a>
-            <a href="#silabus" class="silabus text-[16px]"> Silabus </a>
+            <a href="#tentang" class="tentang text-[16px]"> Tentang Projek </a>
+            <a href="#posisi" class="posisi text-[16px]"> Posisi Tersedia </a>
+            <a href="#skill" class="skill text-[16px]"> Skill Dibutuhkan </a>
+            <a href="#detail" class="detail text-[16px]"> Detail Project </a>
+
+            <a href="#portofolio" class="portofolio text-[16px]"> Portofolio </a>
             <a href="#testimoni" class="testimoni text-[16px]"> Testimoni </a>
-            <a href="#biaya" class="biaya text-[16px]"> Biaya Kelas </a>
-            <a href="#fasilitas" class="fasilitas text-[16px]"> Fasilitas </a>
-            <a href="#portopolio" class="portopolio text-[16px]"> Portopolio Siswa </a>
-            <a href="#profesi" class="profesi text-[16px]"> Profesi </a>
-            <a href="#trial" class="trial text-[16px]"> Kelas Trial </a>
             <a href="#faq" class="faq text-[16px]"> FAQ </a>
+
             <button class="bg-primary py-4 rounded-[8px] text-white">Daftar sekarang</button>
           </ul>
         </nav>
       </div>
       <div class="w-full md:w-[734px]">
-        <!-- Partner -->
-        <div class="flex justify-between gap-4 items-center mb-8 overflow-auto">
-          <img loading="lazy" src="./images/partners/flip.png" alt="flip" />
-          <img loading="lazy" src="./images/partners/gojek.png" alt="gojek" />
-          <img loading="lazy" src="./images/partners/telkom.png" alt="telkom" />
-          <img loading="lazy" src="./images/partners/tokopedia.png" alt="tokopedia" />
-          <img loading="lazy" src="./images/partners/alodokter.png" alt="alodokter" />
-        </div>
-        <!-- Partner -->
-        <div class="flex justify-between gap-4 items-center overflow-auto">
-          <img loading="lazy" src="./images/partners/linkaja.png" alt="linkaja" />
-          <img loading="lazy" src="./images/partners/astra.png" alt="Astra" />
-          <img loading="lazy" src="./images/partners/bizzy.png" alt="bizzy" />
-          <img loading="lazy" src="./images/partners/akulaku.png" alt="akulaku" />
-          <img loading="lazy" src="./images/partners/bukalapak.png" alt="bukalapak" />
-        </div>
         <!-- Tentang Program -->
-        <section id="tentang" class="mt-[70px]">
-          <p class="text-[18px] font-semibold text-primary">Tentang Program</p>
-          <h1 class="text-[24px] font-semibold mb-[30px]">Program Laravel & Vue JS</h1>
-          <div class="flex gap-5">
-            <img loading="lazy" src="./images/PIC.png" alt="PIC" class="drop-shadow-lg hidden md:block" />
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]">
-                <div class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]">
-                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+        <section id="tentang" class="mt-[10px]">
+          <p class="text-[18px] text-justify font-semibold text-primary mb-[10px]">Tentang Projek</p>
+          <p class="mb-[10px] text-justify">
+            Proyek ambisius Gojek berpusat pada pengembangan aplikasi seluler mutakhir dan Landing Page situs web untuk GoPay sebagai solusi pembayaran digital inovatif yang memberdayakan jutaan pengguna di seluruh Asia Tenggara.
+          </p>
+          <p class="text-justify mb-20px">
+            Di luar tantangan teknis dan kreatif, proyek ini menawarkan peluang untuk berkontribusi pada salah satu ekosistem keuangan terbesar. Bergabunglah bersama Gojek, dan bersama-sama, kita akan membentuk masa depan teknologi
+            finansial di Indonesia hingga mendunia.
+          </p>
+          <div class="flex gap-3">
+            <div class="p-4 bg-[#EBEEFE] rounded-full text-primary">Unpaid</div>
+            <div class="p-4 bg-[#EBEEFE] rounded-full text-primary">4-5 Minggu</div>
+          </div>
+        </section>
+        <!-- Jadwal kelas -->
+        <section id="posisi" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary mb-[17px]">Posisi dan Kemampuan yang Dibutuhkan</p>
+          <div class="flex flex-col gap-5">
+            <div class="flex lg:flex-row flex-col gap-5">
+              <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+                <div class="max-h-[25px]">
+                  <img src="images/bedev.png" alt="" class="rounded-full" />
                 </div>
                 <div>
-                  <h1 class="text-[15px] font-semibold text-black mb-1">Kurikulum Terupdate</h1>
-                  <p class="text-[12px]">Kurikulum kami selalu diupdate sesuai denganperkembangan dan kebutuhan di industri terkini.</p>
+                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
+                  <div class="flex flex-col gap-2">
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, CSS</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Web Development</div>
+                  </div>
+                  <div class="w-full mt-[14px] mb-[14px] h-[1px] bg-gray-300"></div>
+                  <div class="flex flex-row justify-between">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">2 Kuota</div>
+                    <div class="bg-primary text-white rounded-[12px] font-[500] text-[13px] py-[10px] px-[15px]"><a href="">Daftar</a></div>
+                  </div>
                 </div>
               </div>
-              <div class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]">
-                <div class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]">
-                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+              <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+                <div class="max-h-[25px]">
+                  <img src="images/bedev.png" alt="" class="rounded-full" />
                 </div>
                 <div>
-                  <h1 class="text-[15px] font-semibold text-black mb-1">Growth Mindset</h1>
-                  <p class="text-[12px]">Kurikulum kami selalu diupdate sesuai denganperkembangan dan kebutuhan di industri terkini.</p>
+                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
+                  <div class="flex flex-col gap-2">
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, CSS</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Web Development</div>
+                  </div>
+                  <div class="w-full mt-[14px] mb-[14px] h-[1px] bg-gray-300"></div>
+                  <div class="flex flex-row justify-between">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">2 Kuota</div>
+                    <div class="bg-primary text-white rounded-[12px] font-[500] text-[13px] py-[10px] px-[15px]"><a href="">Daftar</a></div>
+                  </div>
                 </div>
               </div>
-              <div class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]">
-                <div class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]">
-                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+            </div>
+            <div class="flex lg:flex-row flex-col gap-5">
+              <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+                <div class="max-h-[25px]">
+                  <img src="images/bedev.png" alt="" class="rounded-full" />
                 </div>
                 <div>
-                  <h1 class="text-[15px] font-semibold text-black mb-1">Growth Mindset</h1>
-                  <p class="text-[12px]">Kurikulum kami selalu diupdate sesuai denganperkembangan dan kebutuhan di industri terkini.</p>
+                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
+                  <div class="flex flex-col gap-2">
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, CSS</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Web Development</div>
+                  </div>
+                  <div class="w-full mt-[14px] mb-[14px] h-[1px] bg-gray-300"></div>
+                  <div class="flex flex-row justify-between">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">2 Kuota</div>
+                    <div class="bg-primary text-white rounded-[12px] font-[500] text-[13px] py-[10px] px-[15px]"><a href="">Daftar</a></div>
+                  </div>
                 </div>
               </div>
-              <div class="bg-white shadow-lg px-[21px] py-[21px] gap-4 flex flex-row md:flex-col items-start rounded-[10px]">
-                <div class="bg-primary px-[12px] py-[12px] rounded-[5px] mb-[30px]">
-                  <img loading="lazy" src="./images/Bookmark.png" alt="book" />
+              <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+                <div class="max-h-[25px]">
+                  <img src="images/bedev.png" alt="" class="rounded-full" />
                 </div>
                 <div>
-                  <h1 class="text-[15px] font-semibold text-black mb-1">Growth Mindset</h1>
-                  <p class="text-[12px]">Kurikulum kami selalu diupdate sesuai denganperkembangan dan kebutuhan di industri terkini.</p>
+                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
+                  <div class="flex flex-col gap-2">
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, CSS</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Web Development</div>
+                  </div>
+                  <div class="w-full mt-[14px] mb-[14px] h-[1px] bg-gray-300"></div>
+                  <div class="flex flex-row justify-between">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">2 Kuota</div>
+                    <div class="bg-primary text-white rounded-[12px] font-[500] text-[13px] py-[10px] px-[15px]"><a href="">Daftar</a></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <!-- Jadwal kelas -->
-        <section id="jadwal" class="mt-[70px] w-full">
-          <p class="text-[18px] font-semibold text-primary">Jadwal Kelas</p>
-          <h1 class="text-[24px] font-semibold mb-[30px]">Jadwal Kelas yang dapat kamu ikuti</h1>
-          <div class="flex flex-col md:flex-row gap-[30px]">
-            <div class="rounded-[10px] overflow-hidden w-full drop-shadow-md">
-              <div class="bg-white px-[32px] py-[10px] flex items-center gap-2">
-                <img loading="lazy" src="./images/Checkmark.png" alt="" />
-                <h2 class="text-[18px] font-semibold">Training session</h2>
+
+        <!-- Skill -->
+        <section id="skill" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary mb-[17px]">Skill yang Dibutuhkan</p>
+          <div class="flex gap-5">
+            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">Python</div>
+            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">React JS</div>
+            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">SQL</div>
+          </div>
+        </section>
+
+        <!-- Detail Project -->
+        <section id="detail" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary mb-[17px]">Detail Project</p>
+          <!-- <div class="flex gap-5">
+            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">Python</div>
+            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">React JS</div>
+            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">SQL</div>
+          </div> -->
+        </section>
+
+        <!-- Portofolio -->
+        <section id="portofolio" class="portofolio mt-[50px] flex flex-col gap-5">
+          <h1 class="text-primary text-[20px] font-semibold">Portofolio</h1>
+          <div class="flex justify-between lg:flex-row flex-col gap-2 lg:gap-0">
+            <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
+              <div class="relative">
+                <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
+                <img loading="lazy" src="./images/profile-mentor/porto-1.png" alt="" class="w-full object-cover" />
               </div>
-              <div class="bg-[#F4F4F4] px-[32px] py-[10px]">
-                <p class="text-[18px]">Video practice</p>
+              <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
+                <h1 class="text-[16px] font-semibold text-primary">Dashboard Starbucks</h1>
+                <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
+                <p class="text-[12px]">Web & mobile app</p>
               </div>
             </div>
-            <div class="rounded-[10px] overflow-hidden w-full drop-shadow-md">
-              <div class="bg-white px-[32px] py-[10px] flex items-center gap-2">
-                <img loading="lazy" src="./images/Checkmark.png" alt="" />
-                <h2 class="text-[18px] font-semibold">Live class</h2>
+            <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
+              <div class="relative">
+                <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
+                <img loading="lazy" src="./images/profile-mentor/porto-2.png" alt="" class="w-full object-cover" />
               </div>
-              <div class="bg-[#F4F4F4] px-[32px] py-[10px]">
-                <p class="text-[18px]">senin - jumat, on demand</p>
+              <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
+                <h1 class="text-[16px] font-semibold text-primary">Dashboard Shopping</h1>
+                <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
+                <p class="text-[12px]">Web & mobile app</p>
+              </div>
+            </div>
+            <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
+              <div class="relative">
+                <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
+                <img loading="lazy" src="./images/profile-mentor/porto-3.png" alt="" class="w-full object-cover" />
+              </div>
+              <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
+                <h1 class="text-[16px] font-semibold text-primary">Website E - Wallet</h1>
+                <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
+                <p class="text-[12px]">Web & mobile app</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between lg:flex-row flex-col gap-2 lg:gap-0">
+            <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
+              <div class="relative">
+                <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
+                <img loading="lazy" src="./images/profile-mentor/porto-1.png" alt="" class="w-full object-cover" />
+              </div>
+              <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
+                <h1 class="text-[16px] font-semibold text-primary">Dashboard Starbucks</h1>
+                <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
+                <p class="text-[12px]">Web & mobile app</p>
+              </div>
+            </div>
+            <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
+              <div class="relative">
+                <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
+                <img loading="lazy" src="./images/profile-mentor/porto-2.png" alt="" class="w-full object-cover" />
+              </div>
+              <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
+                <h1 class="text-[16px] font-semibold text-primary">Dashboard Shopping</h1>
+                <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
+                <p class="text-[12px]">Web & mobile app</p>
+              </div>
+            </div>
+            <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
+              <div class="relative">
+                <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
+                <img loading="lazy" src="./images/profile-mentor/porto-3.png" alt="" class="w-full object-cover" />
+              </div>
+              <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
+                <h1 class="text-[16px] font-semibold text-primary">Website E - Wallet</h1>
+                <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
+                <p class="text-[12px]">Web & mobile app</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimoni -->
+        <section id="testimoni" class="mt-[70px] w-full">
+          <p class="text-[18px] font-semibold text-primary">Testimoni</p>
+          <h1 class="text-[24px] font-semibold mb-[30px]">Apa Kata Mereka Para Alumni dari Eduwork</h1>
+          <div>
+            <div>
+              <div class="flex flex-col md:flex-row gap-[36px]">
+                <img loading="lazy" src="./images/testimoni/testimoni1.png" alt="nikita" class="rounded-[5px]" />
+                <div>
+                  <img loading="lazy" class="w-[36px] h-[36px] mb-2" src="./images/svg/Quote Left.svg" alt="" />
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus ut sit est in pharetra nunc vel cras. Pharetra, nibh in amet vestibulum pharetra. Congue dolor at eu odio elit vestibulum. In lacinia tincidunt
+                    commodo elementum, egestas tempus non consectetur vulputate.
+                  </p>
+                  <div class="mt-[16px] w-full h-fit">
+                    <div class="text-[12px] font-['Raleway'] text-[#737373]">
+                      <h1 class="w-full font-semibold text-[16px] font-['Raleway'] text-[#000000]">Nikita Rombe</h1>
+                      <div class="flex items-center gap-2">
+                        <p>Programmer PT. Amanah Abadi</p>
+                        <div class="flex flex-row items-center">
+                          <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
+                          <span>4.5</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -452,37 +590,7 @@
             </div>
           </div>
         </section>
-        <!-- Testimoni -->
-        <section id="testimoni" class="mt-[70px] w-full">
-          <p class="text-[18px] font-semibold text-primary">Testimoni</p>
-          <h1 class="text-[24px] font-semibold mb-[30px]">Apa Kata Mereka Para Alumni dari Eduwork</h1>
-          <div>
-            <div>
-              <div class="flex flex-col md:flex-row gap-[36px]">
-                <img loading="lazy" src="./images/testimoni/testimoni1.png" alt="nikita" class="rounded-[5px]" />
-                <div>
-                  <img loading="lazy" class="w-[36px] h-[36px] mb-2" src="./images/svg/Quote Left.svg" alt="" />
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus ut sit est in pharetra nunc vel cras. Pharetra, nibh in amet vestibulum pharetra. Congue dolor at eu odio elit vestibulum. In lacinia tincidunt
-                    commodo elementum, egestas tempus non consectetur vulputate.
-                  </p>
-                  <div class="mt-[16px] w-full h-fit">
-                    <div class="text-[12px] font-['Raleway'] text-[#737373]">
-                      <h1 class="w-full font-semibold text-[16px] font-['Raleway'] text-[#000000]">Nikita Rombe</h1>
-                      <div class="flex items-center gap-2">
-                        <p>Programmer PT. Amanah Abadi</p>
-                        <div class="flex flex-row items-center">
-                          <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
-                          <span>4.5</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
         <!-- Biaya -->
         <section id="biaya" class="mt-[70px] w-full">
           <p class="text-[18px] font-semibold text-primary">Biaya</p>
@@ -862,6 +970,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="./main.js"></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
       // Event Scroll
       var prevScrollpos = window.pageYOffset;
@@ -956,6 +1065,20 @@
           el: ".swiper-pagination",
         },
       });
+
+      var player;
+
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          videoId: "kgMkDnQmV_Q", // Replace with the actual YouTube video ID
+          playerVars: {
+            autoplay: 0, // Set to 1 for autoplay
+            controls: 1, // Set to 0 to hide controls
+            showinfo: 1, // Set to 1 to show video title and uploader info
+            rel: 0, // Set to 0 to disable related videos after playback
+          },
+        });
+      }
     </script>
   </body>
 </html>

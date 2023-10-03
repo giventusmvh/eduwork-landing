@@ -17,6 +17,7 @@ export default defineConfig({
         detail_kelas: resolve(__dirname, "detail-kelas.html"),
         list_mentor: resolve(__dirname, "list-mentor.html"),
         detail_mentor: resolve(__dirname, "detail-mentor.html"),
+        umkm_detail: resolve(__dirname, "umkm-detail.html"),
       },
     },
   },
