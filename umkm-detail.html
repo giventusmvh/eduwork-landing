@@ -27,165 +27,112 @@
   <body class="bg-[#f6fcff] text-[#404040] font-poppins">
     <!-- Navabar -->
     <div class="w-full z-[99]" id="navbar">
-      <nav class="flex justify-between items-center w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-5">
-        <a href="/" class="w-[154px] h-[31px]">
-          <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
-        </a>
-        <button
-          data-collapse-toggle="navbar-cta"
-          type="button"
-          class="navbar-toggle z-10 inline-flex p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 right-0 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-cta"
-          aria-expanded="false"
-        >
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-[37px] h-[37px]" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-          </svg>
-        </button>
-        <ul class="hidden md:flex gap-[40px]">
-          <li>
-            <div
-              x-data="{
-              open: false,
-              toggle() {
-                  if (this.open) {
-                      return this.close()
-                  }
-  
-                  this.$refs.button.focus()
-  
-                  this.open = true
-              },
-              close(focusAfter) {
-                  if (! this.open) return
-  
-                  this.open = false
-  
-                  focusAfter && focusAfter.focus()
-              }
-          }"
-              x-on:keydown.escape.prevent.stop="close($refs.button)"
-              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-              x-id="['dropdown-button']"
-              class="relative text-sm font-semibold"
-            >
-              <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex gap-[5px] border-none">
-                Kelas
-                <svg xmlns="../images/arrow.svg" class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+      <nav class="z-50" style="top: 0px; background-color: transparent; box-shadow: none">
+        <div class="w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-4">
+          <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <a href="/" class="w-[154px] h-[31px]">
+              <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
+            </a>
+            <div class="flex gap-3 md:order-2">
+              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
+              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Register</button>
+              <button
+                data-collapse-toggle="navbar-sticky"
+                type="button"
+                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-sticky"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
                 </svg>
               </button>
-              <div
-                x-ref="panel"
-                x-show="open"
-                x-transition.origin.top.left
-                x-on:click.outside="close($refs.button)"
-                :id="$id('dropdown-button')"
-                style="display: none"
-                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
-              >
-                <a href="kelas.html" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Regular</a>
-                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Kelas</a>
-              </div>
             </div>
-          </li>
-          <li>
-            <div
-              x-data="{
-              open: false,
-              toggle() {
-                  if (this.open) {
-                      return this.close()
-                  }
-  
-                  this.$refs.button.focus()
-  
-                  this.open = true
-              },
-              close(focusAfter) {
-                  if (! this.open) return
-  
-                  this.open = false
-  
-                  focusAfter && focusAfter.focus()
-              }
-          }"
-              x-on:keydown.escape.prevent.stop="close($refs.button)"
-              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-              x-id="['dropdown-button']"
-              class="relative text-sm font-semibold"
-            >
-              <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex gap-[5px] border-none">
-                Mentor
-                <svg xmlns="../images/arrow.svg" class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </button>
-              <div
-                x-ref="panel"
-                x-show="open"
-                x-transition.origin.top.left
-                x-on:click.outside="close($refs.button)"
-                :id="$id('dropdown-button')"
-                style="display: none"
-                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
-              >
-                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Mentor</a>
-                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Mentor</a>
-              </div>
+            <div class="items-center justify-between w-full md:flex md:w-auto md:order-1 hidden" id="navbar-sticky">
+              <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row gap-[10px] md:gap-[40px] md:mt-0 md:text-sm md:font-semibold md:border-0 md:bg-transparent">
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownNavbar"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Kelas
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownNavbar"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 130.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Regular</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelas</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownMentor"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Mentor
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownMentor"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 180.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownCompany"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Company
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownCompany"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 !mb-5 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 230.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                  </ul>
+                </div>
+                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
+                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
+                  Register
+                </button>
+              </ul>
             </div>
-          </li>
-          <li>
-            <div
-              x-data="{
-              open: false,
-              toggle() {
-                  if (this.open) {
-                      return this.close()
-                  }
-  
-                  this.$refs.button.focus()
-  
-                  this.open = true
-              },
-              close(focusAfter) {
-                  if (! this.open) return
-  
-                  this.open = false
-  
-                  focusAfter && focusAfter.focus()
-              }
-          }"
-              x-on:keydown.escape.prevent.stop="close($refs.button)"
-              x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-              x-id="['dropdown-button']"
-              class="relative text-sm font-semibold"
-            >
-              <button x-ref="button" x-on:click="toggle()" :aria-expanded="open" :aria-controls="$id('dropdown-button')" type="button" class="flex gap-[5px] border-none items-center">
-                Company
-                <svg xmlns="../images/arrow.svg" class="absolute right-0 md:relative md:right-auto md:h-5 md:w-5 h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              </button>
-              <div
-                x-ref="panel"
-                x-show="open"
-                x-transition.origin.top.left
-                x-on:click.outside="close($refs.button)"
-                :id="$id('dropdown-button')"
-                style="display: none"
-                class="relative md:absolute left-0 mt-[25px] w-full md:w-40 rounded-md bg-white shadow-filter"
-              >
-                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Start-up</a>
-                <a href="" class="flex gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-[22px] md:text-sm hover:bg-gray-50 disabled:text-gray-500">Corporate</a>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <div class="hidden w-full lg:flex gap-2 md:w-auto h-fit">
-          <button class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md" type="button">Login</button>
-          <button class="text-white font-[500] bg-primary text-[14px] py-[9.5px] px-[20px] rounded-md" type="button">Register</button>
+          </div>
         </div>
       </nav>
     </div>
@@ -206,8 +153,8 @@
               <a href="" class="p-3 bg-none bg-primary text-white w-[258px] rounded-[16px] text-center">Daftar Sekarang</a>
             </div>
           </div>
-          <div class="absolute lg:relative pt-[510px] mr-4 md:pt-40 pb-24 md:pb-32 z-50">
-            <div id="player" class="z-50 lg:max-w-[500px] lg:max-h-[500px] max-w-[95%] max-h-[250px] rounded-[30px]"></div>
+          <div class="absolute lg:relative pt-[510px] ml-[10px] md:pt-40 pb-24 md:pb-32 z-50">
+            <div id="player" class="z-50 lg:max-w-[500px] lg:max-h-[500px] max-w-[95%] max-h-[250px] rounded-[12px]"></div>
           </div>
         </div>
       </div>
@@ -215,8 +162,8 @@
     <!-- EndHero -->
     <!-- <img loading="lazy" src="./images/bg-detail-kelas-2.png" alt="bg" class="w-full absolute top-[1408px] -z-30" /> -->
     <!-- Contenet -->
-    <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[50px] flex-col md:flex-row z-30 gap-[50px]">
-      <div class="w-full md:w-1/2" id="menuCourse">
+    <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[50px] flex-col md:flex-row z-[30] gap-[50px]">
+      <div class="w-full md:w-1/2 z-[70]" id="menuCourse">
         <nav class="menuChange bg-white py-6 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
           <div class="flex justify-between items-center">
             <h1 class="font-semibold text-[20px] text-[#404040]">Project Detail</h1>
@@ -249,25 +196,45 @@
           <p class="mb-[10px] text-justify">
             Proyek ambisius Gojek berpusat pada pengembangan aplikasi seluler mutakhir dan Landing Page situs web untuk GoPay sebagai solusi pembayaran digital inovatif yang memberdayakan jutaan pengguna di seluruh Asia Tenggara.
           </p>
-          <p class="text-justify mb-20px">
+          <p class="text-justify mb-[20px]">
             Di luar tantangan teknis dan kreatif, proyek ini menawarkan peluang untuk berkontribusi pada salah satu ekosistem keuangan terbesar. Bergabunglah bersama Gojek, dan bersama-sama, kita akan membentuk masa depan teknologi
             finansial di Indonesia hingga mendunia.
           </p>
           <div class="flex gap-3">
-            <div class="p-4 bg-[#EBEEFE] rounded-full text-primary">Unpaid</div>
-            <div class="p-4 bg-[#EBEEFE] rounded-full text-primary">4-5 Minggu</div>
+            <div class="p-4 bg-[#EBEEFE] rounded-full text-primary flex flex-row gap-2">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 20" fill="none">
+                  <path
+                    d="M3.28 1.84938C3.13783 1.73898 2.94978 1.67888 2.75548 1.68174C2.56118 1.68459 2.37579 1.75019 2.23838 1.8647C2.10097 1.97921 2.02225 2.1337 2.01883 2.29561C2.0154 2.45753 2.08752 2.61424 2.22 2.73272L3.958 4.18272C3.41662 4.24177 2.91948 4.46285 2.55924 4.80475C2.199 5.14666 2.00024 5.58606 2 6.04105V12.2911C2 12.7883 2.23705 13.2652 2.65901 13.6169C3.08097 13.9685 3.65326 14.1661 4.25 14.1661H15.94L17.434 15.4119C17.3727 15.4145 17.3114 15.4159 17.25 15.4161H4.401C4.66431 15.7963 5.04315 16.112 5.4994 16.3314C5.95565 16.5509 6.47321 16.6663 7 16.6661H17.25C17.76 16.6661 18.25 16.5994 18.71 16.4752L20.72 18.1502C20.7892 18.2099 20.872 18.2575 20.9635 18.2902C21.055 18.3229 21.1535 18.3401 21.2531 18.3408C21.3526 18.3415 21.4514 18.3256 21.5435 18.2942C21.6357 18.2627 21.7194 18.2163 21.7898 18.1575C21.8602 18.0988 21.9158 18.029 21.9535 17.9522C21.9912 17.8754 22.0101 17.7931 22.0092 17.7101C22.0083 17.6271 21.9875 17.5451 21.9482 17.4689C21.9088 17.3926 21.8517 17.3237 21.78 17.2661L3.28 1.84938ZM14.44 12.9161H6.5V12.2911C6.5 11.7938 6.26295 11.3169 5.84099 10.9652C5.41903 10.6136 4.84674 10.4161 4.25 10.4161H3.5V7.91605H4.25C4.79617 7.91606 5.32369 7.75051 5.73418 7.45029C6.14468 7.15007 6.41012 6.73567 6.481 6.28438L8.117 7.64772C7.67448 8.12892 7.45687 8.72773 7.50468 9.33267C7.55248 9.93762 7.86245 10.5075 8.37687 10.9362C8.8913 11.3648 9.57512 11.6231 10.3011 11.663C11.027 11.7028 11.7456 11.5215 12.323 11.1527L14.44 12.9161ZM9.197 8.54688L11.243 10.2519C10.9574 10.3876 10.6261 10.4413 10.3003 10.4048C9.9744 10.3683 9.67196 10.2436 9.43947 10.0498C9.20697 9.85608 9.05731 9.60405 9.0135 9.3325C8.96969 9.06094 9.03416 8.78492 9.197 8.54688ZM3.5 6.04105C3.5 5.87529 3.57902 5.71632 3.71967 5.59911C3.86032 5.4819 4.05109 5.41605 4.25 5.41605H5V6.04105C5 6.20681 4.92098 6.36578 4.78033 6.48299C4.63968 6.6002 4.44891 6.66605 4.25 6.66605H3.5V6.04105ZM4.25 12.9161C4.05109 12.9161 3.86032 12.8502 3.71967 12.733C3.57902 12.6158 3.5 12.4568 3.5 12.2911V11.6661H4.25C4.44891 11.6661 4.63968 11.7319 4.78033 11.8491C4.92098 11.9663 5 12.1253 5 12.2911V12.9161H4.25ZM16.75 10.4161C16.445 10.4158 16.1432 10.4674 15.863 10.5677L17.18 11.6661H17.499V11.9327L18.817 13.0302C18.9374 12.7967 18.9993 12.5452 18.999 12.2911V6.04105C18.999 5.54391 18.7621 5.06713 18.3403 4.71552C17.9186 4.36391 17.3466 4.16627 16.75 4.16605H8.18L9.68 5.41605H14.5V6.04105C14.5 6.28728 14.5582 6.5311 14.6713 6.75858C14.7843 6.98607 14.9501 7.19277 15.159 7.36688C15.581 7.71851 16.1533 7.91605 16.75 7.91605H17.5V10.4161H16.75ZM17.5 6.04105V6.66605H16.75C16.5511 6.66605 16.3603 6.6002 16.2197 6.48299C16.079 6.36578 16 6.20681 16 6.04105V5.41605H16.75C16.9489 5.41605 17.1397 5.4819 17.2803 5.59911C17.421 5.71632 17.5 5.87529 17.5 6.04105ZM20.062 14.0669L21.147 14.9711C21.685 14.3294 22 13.5494 22 12.7077V8.33272C22.0002 7.89375 21.8616 7.46248 21.5983 7.08228C21.335 6.70209 20.9562 6.38637 20.5 6.16688V12.7077C20.5007 13.1851 20.3496 13.6541 20.062 14.0669Z"
+                    fill="#187CFF"
+                  />
+                </svg>
+              </div>
+              Unpaid
+            </div>
+            <div class="p-4 bg-[#EBEEFE] rounded-full text-primary flex flex-row gap-2">
+              <div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M2.91406 9.99935C2.91406 6.08733 6.08538 2.91602 9.9974 2.91602C13.9094 2.91602 17.0807 6.08733 17.0807 9.99935C17.0807 13.9113 13.9094 17.0827 9.9974 17.0827C6.08538 17.0827 2.91406 13.9113 2.91406 9.99935ZM9.9974 1.66602C5.39502 1.66602 1.66406 5.39697 1.66406 9.99935C1.66406 14.6017 5.39502 18.3327 9.9974 18.3327C14.5997 18.3327 18.3307 14.6017 18.3307 9.99935C18.3307 5.39697 14.5997 1.66602 9.9974 1.66602ZM9.99165 5.53957C9.95031 5.23462 9.68865 4.99935 9.3724 4.99935C9.0274 4.99935 8.7474 5.27935 8.7474 5.62435V10.6243L8.75315 10.7091C8.79448 11.0141 9.05615 11.2493 9.3724 11.2493H12.7057L12.7905 11.2436C13.0955 11.2023 13.3307 10.9406 13.3307 10.6243C13.3307 10.2793 13.0507 9.99935 12.7057 9.99935H9.9974V5.62435L9.99165 5.53957Z"
+                    fill="#187CFF"
+                  />
+                </svg>
+              </div>
+              4-5 Minggu
+            </div>
           </div>
         </section>
         <!-- Jadwal kelas -->
         <section id="posisi" class="mt-[70px] w-full">
           <p class="text-[18px] font-semibold text-primary mb-[17px]">Posisi dan Kemampuan yang Dibutuhkan</p>
-          <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-5 justify-center items-center">
             <div class="flex lg:flex-row flex-col gap-5">
               <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
                 <div class="max-h-[25px]">
                   <img src="images/bedev.png" alt="" class="rounded-full" />
                 </div>
-                <div>
+                <div class="w-[225px]">
                   <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
                   <div class="flex flex-col gap-2">
                     <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
@@ -283,14 +250,14 @@
               </div>
               <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
                 <div class="max-h-[25px]">
-                  <img src="images/bedev.png" alt="" class="rounded-full" />
+                  <img src="images/mobiledev.png" alt="" class="rounded-full" />
                 </div>
-                <div>
-                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
+                <div class="w-[225px]">
+                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Mobile App Developer</p>
                   <div class="flex flex-col gap-2">
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, CSS</div>
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Web Development</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, Phyton</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Android, iPhone, ReactJS</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Mobile App Development</div>
                   </div>
                   <div class="w-full mt-[14px] mb-[14px] h-[1px] bg-gray-300"></div>
                   <div class="flex flex-row justify-between">
@@ -303,14 +270,14 @@
             <div class="flex lg:flex-row flex-col gap-5">
               <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
                 <div class="max-h-[25px]">
-                  <img src="images/bedev.png" alt="" class="rounded-full" />
+                  <img src="images/desg.png" alt="" class="rounded-full" />
                 </div>
-                <div>
-                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
+                <div class="w-[225px]">
+                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Product Designer</p>
                   <div class="flex flex-col gap-2">
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, CSS</div>
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Web Development</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Prototyping</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> User Interview</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Usability Testing</div>
                   </div>
                   <div class="w-full mt-[14px] mb-[14px] h-[1px] bg-gray-300"></div>
                   <div class="flex flex-row justify-between">
@@ -321,14 +288,14 @@
               </div>
               <div class="bg-white h-max w-[364px] flex flex-row pb-5 rounded-[20px]" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
                 <div class="max-h-[25px]">
-                  <img src="images/bedev.png" alt="" class="rounded-full" />
+                  <img src="images/dataanal.png" alt="" class="rounded-full" />
                 </div>
-                <div>
-                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Back-End Developer</p>
+                <div class="w-[225px]">
+                  <p class="mt-[20px] mb-[12px] font-[600] text-[20px]">Data Analyst</p>
                   <div class="flex flex-col gap-2">
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> JavaScript</div>
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> PHP, HTML, CSS</div>
-                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Web Development</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Phyton, SQL, R</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Visualisasi Data</div>
+                    <div class="flex flex-row gap-2 items-center text-slate-400 text-[14px]"><i class="fa-solid fa-circle-check" style="color: #005eff"></i> Data Warehousing</div>
                   </div>
                   <div class="w-full mt-[14px] mb-[14px] h-[1px] bg-gray-300"></div>
                   <div class="flex flex-row justify-between">
@@ -345,20 +312,349 @@
         <section id="skill" class="mt-[70px] w-full">
           <p class="text-[18px] font-semibold text-primary mb-[17px]">Skill yang Dibutuhkan</p>
           <div class="flex gap-5">
-            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">Python</div>
-            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">React JS</div>
-            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">SQL</div>
+            <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[13px] p-[10px] flex flex-row justify-center items-center gap-2">
+              <img src="images/icon/python.png" alt="" class="max-w-[24px] rounded-full" />
+              Python
+            </div>
+            <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[13px] p-[10px] flex flex-row justify-center items-center gap-2">
+              <img src="images/icon/laravel.jpeg" alt="" class="max-w-[24px] rounded-full" />
+              Laravel
+            </div>
+            <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[13px] p-[10px] flex flex-row justify-center items-center gap-2">
+              <img src="images/icon/sql.jpeg" alt="" class="max-w-[24px] rounded-full" />
+              SQL
+            </div>
           </div>
         </section>
 
         <!-- Detail Project -->
         <section id="detail" class="mt-[70px] w-full">
           <p class="text-[18px] font-semibold text-primary mb-[17px]">Detail Project</p>
-          <!-- <div class="flex gap-5">
-            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">Python</div>
-            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">React JS</div>
-            <div class="bg-[#EBEEFE] text-primary rounded-[12px] font-[500] text-[13px] p-[10px]">SQL</div>
-          </div> -->
+
+          <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-[#ffffff]" data-inactive-classes="bg-white" class="flex flex-col gap-3">
+            <h2 id="accordion-flush-heading-1">
+              <button
+                type="button"
+                class="flex items-center justify-between w-full py-3 px-4 bg-white rounded-[16px] font-medium text-left"
+                data-accordion-target="#accordion-flush-body-1"
+                aria-expanded="true"
+                aria-controls="accordion-flush-body-1"
+                style="box-shadow: 2px 2px 24px 0px rgba(24, 124, 255, 0.08)"
+              >
+                <div class="flex gap-[12px]">
+                  <div class="flex h-[27px]">
+                    <img src="images/file.png" alt="" />
+                  </div>
+
+                  <div class="flex flex-col gap-[7px]">
+                    <span class="text-primary">Minggu 1</span>
+                    <span class="text-[12px] text-gray-600">4 Tugas</span>
+                  </div>
+                </div>
+
+                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                </svg>
+              </button>
+            </h2>
+            <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+              <div class="flex flex-col gap-[10px] ml-[50px]">
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Data Analyst</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara dengan pemangku kepentingan, menganalisis dokumen bisnis, dan mempelajari data yang ada.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Product Designer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara, survei, dan analisis data.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Back End Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Mengembangkan kode website menggunakan bahasa pemrograman, framework, dan library yang sesuai.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Mobile App Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Membuat dan menggunakan source code untuk sistem GoPay.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 id="accordion-flush-heading-2">
+              <button
+                type="button"
+                class="flex items-center justify-between w-full py-3 px-4 bg-white rounded-[16px] font-medium text-left"
+                data-accordion-target="#accordion-flush-body-2"
+                aria-expanded="false"
+                aria-controls="accordion-flush-body-2"
+                style="box-shadow: 2px 2px 24px 0px rgba(24, 124, 255, 0.08)"
+              >
+                <div class="flex gap-[12px]">
+                  <div class="flex h-[27px]">
+                    <img src="images/file.png" alt="" />
+                  </div>
+
+                  <div class="flex flex-col gap-[7px]">
+                    <span class="text-primary">Minggu 2</span>
+                    <span class="text-[12px] text-gray-600">4 Tugas</span>
+                  </div>
+                </div>
+                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                </svg>
+              </button>
+            </h2>
+            <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+              <div class="flex flex-col gap-[10px] ml-[50px]">
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Data Analyst</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara dengan pemangku kepentingan, menganalisis dokumen bisnis, dan mempelajari data yang ada.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Product Designer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara, survei, dan analisis data.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Back End Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Mengembangkan kode website menggunakan bahasa pemrograman, framework, dan library yang sesuai.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Mobile App Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Membuat dan menggunakan source code untuk sistem GoPay.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 id="accordion-flush-heading-3">
+              <button
+                type="button"
+                class="flex items-center justify-between w-full py-3 px-4 bg-white rounded-[16px] font-medium text-left"
+                data-accordion-target="#accordion-flush-body-3"
+                aria-expanded="false"
+                aria-controls="accordion-flush-body-3"
+                style="box-shadow: 2px 2px 24px 0px rgba(24, 124, 255, 0.08)"
+              >
+                <div class="flex gap-[12px]">
+                  <div class="flex h-[27px]">
+                    <img src="images/file.png" alt="" />
+                  </div>
+
+                  <div class="flex flex-col gap-[7px]">
+                    <span class="text-primary">Minggu 3</span>
+                    <span class="text-[12px] text-gray-600">4 Tugas</span>
+                  </div>
+                </div>
+                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                </svg>
+              </button>
+            </h2>
+            <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+              <div class="flex flex-col gap-[10px] ml-[50px]">
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Data Analyst</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara dengan pemangku kepentingan, menganalisis dokumen bisnis, dan mempelajari data yang ada.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Product Designer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara, survei, dan analisis data.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Back End Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Mengembangkan kode website menggunakan bahasa pemrograman, framework, dan library yang sesuai.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Mobile App Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Membuat dan menggunakan source code untuk sistem GoPay.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h2 id="accordion-flush-heading-4">
+              <button
+                type="button"
+                class="flex items-center justify-between w-full py-3 px-4 bg-white rounded-[16px] font-medium text-left"
+                data-accordion-target="#accordion-flush-body-4"
+                aria-expanded="true"
+                aria-controls="accordion-flush-body-4"
+                style="box-shadow: 2px 2px 24px 0px rgba(24, 124, 255, 0.08)"
+              >
+                <div class="flex gap-[12px]">
+                  <div class="flex h-[27px]">
+                    <img src="images/file.png" alt="" />
+                  </div>
+
+                  <div class="flex flex-col gap-[7px]">
+                    <span class="text-primary">Minggu 4</span>
+                    <span class="text-[12px] text-gray-600">8 Tugas</span>
+                  </div>
+                </div>
+
+                <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                </svg>
+              </button>
+            </h2>
+            <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
+              <div class="flex flex-col gap-[10px] ml-[50px]">
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Data Analyst</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara dengan pemangku kepentingan, menganalisis dokumen bisnis, dan mempelajari data yang ada.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Product Designer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Melakukan wawancara, survei, dan analisis data.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Back End Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Mengembangkan kode website menggunakan bahasa pemrograman, framework, dan library yang sesuai.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="py-5 bg-white rounded-[16px]" style="box-shadow: 0px 2px 24px 0px rgba(34, 34, 47, 0.08)">
+                  <div class="flex flex-col px-[15px] gap-[5px]">
+                    <div class="w-max"><p class="px-3 py-1 text-[14px] bg-gray-200 text-black rounded-full">Tugas</p></div>
+                    <div class="font-[500]">Mobile App Developer</div>
+                    <div class="ml-[-15px]">
+                      <ul class="fa-ul">
+                        <li>
+                          <span class="fa-li"><i class="fa-solid fa-circle text-[5px]" style="color: #5d6065"></i></span>Membuat dan menggunakan source code untuk sistem GoPay.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- Portofolio -->
@@ -403,10 +699,10 @@
             <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
               <div class="relative">
                 <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
-                <img loading="lazy" src="./images/profile-mentor/porto-1.png" alt="" class="w-full object-cover" />
+                <img loading="lazy" src="./images/profile-mentor/porto-4.png" alt="" class="w-full object-cover" />
               </div>
               <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
-                <h1 class="text-[16px] font-semibold text-primary">Dashboard Starbucks</h1>
+                <h1 class="text-[16px] font-semibold text-primary">Crypto Application</h1>
                 <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
                 <p class="text-[12px]">Web & mobile app</p>
               </div>
@@ -414,10 +710,10 @@
             <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
               <div class="relative">
                 <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
-                <img loading="lazy" src="./images/profile-mentor/porto-2.png" alt="" class="w-full object-cover" />
+                <img loading="lazy" src="./images/profile-mentor/porto-5.png" alt="" class="w-full object-cover" />
               </div>
               <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
-                <h1 class="text-[16px] font-semibold text-primary">Dashboard Shopping</h1>
+                <h1 class="text-[16px] font-semibold text-primary">Labora Website</h1>
                 <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
                 <p class="text-[12px]">Web & mobile app</p>
               </div>
@@ -425,10 +721,10 @@
             <div class="flex flex-col shadow-2xl rounded-[10px] overflow-hidden">
               <div class="relative">
                 <div class="absolute bg-gradient-to-t from-black/10 to-black/0 w-full h-full"></div>
-                <img loading="lazy" src="./images/profile-mentor/porto-3.png" alt="" class="w-full object-cover" />
+                <img loading="lazy" src="./images/profile-mentor/porto-6.png" alt="" class="w-full object-cover" />
               </div>
               <div class="bg-white relative p-[22px] flex flex-col rounded-[10px] -mt-8">
-                <h1 class="text-[16px] font-semibold text-primary">Website E - Wallet</h1>
+                <h1 class="text-[16px] font-semibold text-primary">FInancial Website</h1>
                 <p class="mt-[8px] text-[14px] font-medium">Pelita Nur Najmina</p>
                 <p class="text-[12px]">Web & mobile app</p>
               </div>
@@ -441,14 +737,13 @@
           <p class="text-[18px] font-semibold text-primary">Testimoni</p>
           <h1 class="text-[24px] font-semibold mb-[30px]">Apa Kata Mereka Para Alumni dari Eduwork</h1>
           <div>
-            <div>
+            <div class="flex flex-col gap-[15px]">
               <div class="flex flex-col md:flex-row gap-[36px]">
                 <img loading="lazy" src="./images/testimoni/testimoni1.png" alt="nikita" class="rounded-[5px]" />
                 <div>
                   <img loading="lazy" class="w-[36px] h-[36px] mb-2" src="./images/svg/Quote Left.svg" alt="" />
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam faucibus ut sit est in pharetra nunc vel cras. Pharetra, nibh in amet vestibulum pharetra. Congue dolor at eu odio elit vestibulum. In lacinia tincidunt
-                    commodo elementum, egestas tempus non consectetur vulputate.
+                    Eduwork mengubah hobi saya dalam pemrograman menjadi pekerjaan impian. Materi kursusnya terstruktur dengan baik dan memberi saya fondasi yang kuat. Sekarang saya adalah seorang pengembang perangkat lunak yang sukses.
                   </p>
                   <div class="mt-[16px] w-full h-fit">
                     <div class="text-[12px] font-['Raleway'] text-[#737373]">
@@ -464,12 +759,80 @@
                   </div>
                 </div>
               </div>
+              <div class="flex flex-col md:flex-row gap-[36px]">
+                <img loading="lazy" src="./images/testimoni/testi2.png" alt="nikita" class="rounded-[5px] min-w-[256px] min-h-[284px]" />
+                <div>
+                  <img loading="lazy" class="w-[36px] h-[36px] mb-2" src="./images/svg/Quote Left.svg" alt="" />
+                  <p>
+                    Kesempatan untuk terlibat dalam proyek-proyek nyata selama bootcamp ini memberi saya pemahaman yang lebih baik tentang bagaimana QA berperan dalam siklus pengembangan perangkat lunak. Saya merasa sangat siap untuk
+                    pekerjaan di dunia nyata.
+                  </p>
+                  <div class="mt-[16px] w-full h-fit">
+                    <div class="text-[12px] font-['Raleway'] text-[#737373]">
+                      <h1 class="w-full font-semibold text-[16px] font-['Raleway'] text-[#000000]">Fahmi Azwarin</h1>
+                      <div class="flex items-center gap-2">
+                        <p>QA Engineer PT. Marriots Coffee Farm</p>
+                        <div class="flex flex-row items-center">
+                          <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
+                          <span>4.5</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col md:flex-row gap-[36px]">
+                <img loading="lazy" src="./images/testimoni/testi3.jpg" alt="nikita" class="rounded-[5px] min-w-[256px] min-h-[284px]" />
+                <div>
+                  <img loading="lazy" class="w-[36px] h-[36px] mb-2" src="./images/svg/Quote Left.svg" alt="" />
+                  <p>
+                    Salah satu hal terbaik dari Bootcamp Frontend di Eduwork adalah fokus pada proyek-proyek praktis. Saya telah bekerja pada proyek-proyek real-world yang sangat meningkatkan portofolio saya dan membantu saya mendapatkan
+                    pekerjaan sebagai Frontend Developer.
+                  </p>
+                  <div class="mt-[16px] w-full h-fit">
+                    <div class="text-[12px] font-['Raleway'] text-[#737373]">
+                      <h1 class="w-full font-semibold text-[16px] font-['Raleway'] text-[#000000]">Helen Silvia</h1>
+                      <div class="flex items-center gap-2">
+                        <p>Frontend PT. Tokopedia Indonesia</p>
+                        <div class="flex flex-row items-center">
+                          <img loading="lazy" class="w-[14px] float-left h-[14px] mr-[7px]" src="./images/svg/Star.svg" alt="" srcset="" />
+                          <span>4.5</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
+        <!-- CTA Section -->
+        <section class="mt-[50px] flex flex-col gap-5">
+          <div class="flex flex-col lg:flex-row p-5 bg-white rounded-[16px] gap-3" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+            <div class="flex flex-col gap-[10px] w-1/2">
+              <p class="text-[20px] font-[500]">Jangan lewatkan pengalaman mengerjakan project real-case langsung!</p>
+              <p class="text-[14px] text-gray-400">Berikan yang terbaik dan dapatkan kesempatan direkrut oleh perusahaan! Kembangkan portofolio secara gratis.</p>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-row gap-2 items-center">
+                <img src="images/cta-join.png" alt="" class="h-[30px]" />
+                <div class="flex flex-col">
+                  <p class="text-[16px] font-[400]">97 orang telah mendaftar</p>
+                  <p class="text-[16px] font-[600] text-primary">Yuk cari project sekarang!</p>
+                </div>
+              </div>
+              <div class="w-[98%] flex justify-center items-center">
+                <a href="" class="w-full p-[12px] rounded-[8px] bg-primary text-white text-center">Cari Perusahaan</a>
+              </div>
+              <div class="w-[98%] flex">
+                <p class="w-full text-center lg:text-left text-[14px] text-gray-400">Pendaftaran dibuka sampai <span class="text-primary">29 September 2023, 16.59</span></p>
+              </div>
+            </div>
+          </div>
+        </section>
         <!-- FAQ -->
-        <section id="faq" class="mt-[70px] md:mt-[150px] w-full">
+        <section id="faq" class="mt-[70px] md:mt-[50px] w-full">
           <p class="text-[18px] font-semibold text-primary">FAQ</p>
           <h1 class="text-[24px] font-semibold mb-[30px]">Informasi yang sering ditanyakan</h1>
           <div class="columns-1 md:columns-2 gap-[42px]">
