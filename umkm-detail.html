@@ -150,7 +150,7 @@
             <h1 class="text-[32px] md:text-[45px] font-bold w-full md:w-[500px]">Gojek Project: Aplikasi dan Landing Page Website Gopay</h1>
 
             <div class="flex justify-center items-center lg:justify-start lg:items-start">
-              <a href="" class="p-3 bg-none bg-primary text-white w-[258px] rounded-[16px] text-center">Daftar Sekarang</a>
+              <a href="" class="p-3 bg-none bg-primary text-white lg:w-[258px] min-w-[350px] lg:max-w-[260px] rounded-[16px] text-center">Daftar Sekarang</a>
             </div>
           </div>
           <div class="absolute lg:relative pt-[510px] ml-[10px] md:pt-40 pb-24 md:pb-32 z-50">
@@ -162,7 +162,7 @@
     <!-- EndHero -->
     <!-- <img loading="lazy" src="./images/bg-detail-kelas-2.png" alt="bg" class="w-full absolute top-[1408px] -z-30" /> -->
     <!-- Contenet -->
-    <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[50px] flex-col md:flex-row z-[30] gap-[50px]">
+    <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[20px] flex-col md:flex-row z-[30] gap-[20px]">
       <div class="w-full md:w-1/2 z-[70]" id="menuCourse">
         <nav class="menuChange bg-white py-6 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
           <div class="flex justify-between items-center">
@@ -174,18 +174,20 @@
               </svg>
             </button>
           </div>
-          <ul id="filter-cta" class="text-[#8C8C8C] flex flex-col gap-4">
-            <div class="h-[1px] bg-slate-300"></div>
-            <a href="#tentang" class="tentang text-[16px]"> Tentang Projek </a>
-            <a href="#posisi" class="posisi text-[16px]"> Posisi Tersedia </a>
-            <a href="#skill" class="skill text-[16px]"> Skill Dibutuhkan </a>
-            <a href="#detail" class="detail text-[16px]"> Detail Project </a>
+          <ul id="filter-cta" class="text-[#8C8C8C] hidden lg:flex">
+            <div class="flex flex-col gap-4 w-full">
+              <div class="h-[1px] bg-slate-300"></div>
+              <a href="#tentang" class="tentang text-[16px]"> Tentang Projek </a>
+              <a href="#posisi" class="posisi text-[16px]"> Posisi Tersedia </a>
+              <a href="#skill" class="skill text-[16px]"> Skill Dibutuhkan </a>
+              <a href="#detail" class="detail text-[16px]"> Detail Project </a>
 
-            <a href="#portofolio" class="portofolio text-[16px]"> Portofolio </a>
-            <a href="#testimoni" class="testimoni text-[16px]"> Testimoni </a>
-            <a href="#faq" class="faq text-[16px]"> FAQ </a>
+              <a href="#portofolio" class="portofolio text-[16px]"> Portofolio </a>
+              <a href="#testimoni" class="testimoni text-[16px]"> Testimoni </a>
+              <a href="#faq" class="faq text-[16px]"> FAQ </a>
 
-            <button class="bg-primary py-4 rounded-[8px] text-white">Daftar sekarang</button>
+              <button class="bg-primary py-4 rounded-[8px] text-white">Daftar sekarang</button>
+            </div>
           </ul>
         </nav>
       </div>
@@ -832,7 +834,7 @@
           </div>
         </section>
         <!-- FAQ -->
-        <section id="faq" class="mt-[70px] md:mt-[50px] w-full">
+        <section id="faq" class="mt-[70px] md:mt-[50px] w-full h-[720px] lg:h-max">
           <p class="text-[18px] font-semibold text-primary">FAQ</p>
           <h1 class="text-[24px] font-semibold mb-[30px]">Informasi yang sering ditanyakan</h1>
           <div class="columns-1 md:columns-2 gap-[42px]">
@@ -1057,7 +1059,7 @@
           document.getElementById("menuCourse").style.top = "115px";
         } else {
           document.getElementById("navbar").style.top = "-80px";
-          document.getElementById("menuCourse").style.top = "50px";
+          document.getElementById("menuCourse").style.top = "0";
         }
         prevScrollpos = currentScrollPos;
       };

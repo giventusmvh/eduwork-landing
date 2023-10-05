@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body class="bg-[#f6fcff] text-[#404040] font-poppins">
+    <!-- Navabar -->
+    <div class="w-full z-[99]" id="navbar">
+      <nav class="z-50" style="top: 0px; background-color: transparent; box-shadow: none">
+        <div class="w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-4">
+          <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <a href="/" class="w-[154px] h-[31px]">
+              <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
+            </a>
+            <div class="flex gap-3 md:order-2">
+              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
+              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Register</button>
+              <button
+                data-collapse-toggle="navbar-sticky"
+                type="button"
+                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-sticky"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="items-center justify-between w-full md:flex md:w-auto md:order-1 hidden" id="navbar-sticky">
+              <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row gap-[10px] md:gap-[40px] md:mt-0 md:text-sm md:font-semibold md:border-0 md:bg-transparent">
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownNavbar"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Kelas
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownNavbar"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 130.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Regular</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelas</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownMentor"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Mentor
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownMentor"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 180.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownCompany"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Company
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownCompany"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 !mb-5 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 230.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                  </ul>
+                </div>
+                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
+                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
+                  Register
+                </button>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="absolute top-[445px] lg:top-[420px] w-full h-[328.26px] lg:z-[10] z-[10]">
+      <div class="wave"></div>
+    </div>
+    <div class="relative top-0 w-full bg-[url('./images/bg-umkm.png')] h-[500px] bg-cover bg-center">
+      <div class="bg-gradient-to-r from-white via-white/20 to-white/30 w-full h-full absolute"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto m-0 relative top-[-400px] z-[40] mb-[-350px]">
+      <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1016px]">
+        <div class="h-[1500px] flex w-full rounded-[12px]">
+          <!-- Fixed sidebar -->
+          <div class="hidden lg:block bg-gray-600 overflow-y-scroll w-[35%] rounded-l-[30px]">
+            <!-- Sidebar content -->
+            <div class="flex flex-col">
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+              <div class="bg-gray-600 h-[200px]"></div>
+              <div class="bg-gray-800 h-[200px]"></div>
+            </div>
+          </div>
+          <!-- Scroll wrapper -->
+          <div class="flex-1 flex overflow-hidden bg-gray-300 lg:w-[65%] w-full rounded-[30px] lg:rounded-l-[0px] lg:rounded-r-[30px]">
+            <!-- Scrollable container -->
+            <div class="flex-1">
+              <!-- Your content -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+    <!-- Footer section -->
+    <section class="relative w-full h-[1270px] md:h-[1070px] pb-[20px] md:pb-0">
+      <div class="container mx-auto">
+        <div class="absolute w-[80%] mx-auto left-1/2 -translate-x-1/2 h-fit lg:w-fit lg:h-[575px] md:pt-[86px] top-[267px]">
+          <div class="flex flex-col gap-[23px] md:flex-row text-[#ffffff]">
+            <div class="md:w-[237.51px]">
+              <img loading="lazy" class="w-[250px] h-[48.53px] lg:w-fit md:h-fit mx-auto md:mx-0" src="./images/logo/favicon-white.svg" alt="" srcset="" />
+              <p class="text-[16px] md:text-[14px] mt-[37.56px] mb-[18px] text-center md:text-left">When an unknown printer took a galley of type and make a type specimen book.</p>
+              <div class="flex flex-row mb-[60.08px]">
+                <div class="inline-flex gap-[22px] mx-auto md:mx-0">
+                  <img loading="lazy" src="./images/svg/white-instagram.svg" alt="" srcset="" />
+                  <img loading="lazy" src="./images/svg/white-twitter.svg" alt="" srcset="" />
+                  <img loading="lazy" src="./images/svg/white-youtube.svg" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
+
+            <div class="columns-2 flex flex-row md:ml-[80.49px] justify-between">
+              <div class="flex flex-col gap-[41px] w-[159.78px] h-[375px]">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Explore Us</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Kelas</li></a>
+                    <a href=""><li class="mb-[12px]">Our Mentors</li></a>
+                    <a href=""><li class="mb-[12px]">For Corporate</li></a>
+                    <a href=""><li>Community</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Our Services</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Free Event</li></a>
+                    <a href=""><li class="mb-[12px]">Video Course</li></a>
+                    <a href=""><li class="mb-[12px]">Bootcamp</li></a>
+                    <a href=""><li>Private Mentoring</li></a>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col gap-[41px] w-fit md:w-[198px] h-[375px] text-left">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Category</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Mobile Developer</li></a>
+                    <a href=""><li class="mb-[12px]">Website Developer</li></a>
+                    <a href=""><li class="mb-[12px]">UI/UX Designer</li></a>
+                    <a href=""><li>Graphic Designer</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Office</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <li class="mb-[12px]">PT Eduwork.id</li>
+                    <li class="mb-[12px]">Jl. Ring Road Utara No 24</li>
+                    <li class="mb-[12px]">Yogyakarta. Indonesia</li>
+                    <a href=""><li>team@eduwork.id</li></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h1 class="font-[600] text-[18px] mt-[60px] md:mt-0 mb-[10px] text-center md:text-left">Promotions</h1>
+              <ul class="text-[14px] md:text-[12px]">
+                <a href=""><li class="mb-[12px] text-center md:text-left">Submit your email for new updates</li></a>
+                <li class="flex flex-row">
+                  <input class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[55px] border border-white text-[#404040]" type="email" name="" id="" />
+                  <button class="w-[50.09px] rounded-r-[5px] h-[55px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]">
+                    <img loading="lazy" class="w-[28px] h-[28px]" src="./images/svg/mail.svg" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:absolute bottom-0 text-center md:text-left">
+            <p class="text-[#ffffff] text-[14px] mt-[53px] md:mt-0 md:text-[12px]">© EduWork 2020 - 2021 . All rights reserved.</p>
+          </div>
+          <div class="md:absolute md:right-0 md:bottom-0 md:float-right flex md:flex-row md:justify-between md:gap-[50px]">
+            <div class="mx-auto md:mx-0">
+              <p class="text-[#ffffff] text-[14px] mt-[12px] md:mt-0 md:text-[12px]">Privacy and policy</p>
+            </div>
+            <div>
+              <p class="text-[#ffffff] md:flex hidden text-[12px]">Terms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wave-footer xl:min-w-[1340px]"></div>
+      <div class="absolute bottom-0 w-full xl:min-w-[1340px] h-full md:h-[981px] bg-footer -z-50"></div>
+    </section>
+    <!-- End of Footer section -->
+  </body>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="./main.js" type="module"></script>
+  <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    // Event Scroll
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-80px";
+      }
+      prevScrollpos = currentScrollPos;
+    };
+
+    window.addEventListener("scroll", function () {
+      if (window.scrollY >= 100) {
+        document.getElementById("navbar").style.backgroundColor = "#ffffff";
+        document.getElementById("navbar").style.boxShadow = "0 0 10px rgba(0,0,0,0.1)";
+      } else {
+        document.getElementById("navbar").style.backgroundColor = "transparent";
+        document.getElementById("navbar").style.boxShadow = "none";
+      }
+    });
+  </script>
+</html>

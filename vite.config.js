@@ -18,6 +18,7 @@ export default defineConfig({
         list_mentor: resolve(__dirname, "list-mentor.html"),
         detail_mentor: resolve(__dirname, "detail-mentor.html"),
         umkm_detail: resolve(__dirname, "umkm-detail.html"),
+        detail_loker: resolve(__dirname, "detail-loker.html"),
       },
     },
   },
