@@ -13,7 +13,7 @@
   <body class="bg-[#f6fcff] text-[#404040] font-poppins">
     <!-- Navabar -->
     <div class="w-full z-[99]" id="navbar">
-      <nav class="z-50" style="top: 0px; background-color: transparent; box-shadow: none">
+      <nav class="z-50" style="top: 0px; background-color: white; box-shadow: none">
         <div class="w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-4">
           <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="/" class="w-[154px] h-[31px]">
@@ -42,7 +42,7 @@
                   data-dropdown-toggle="dropdownNavbar"
                   class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
                 >
-                  Kelas
+                  Home
                   <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                   </svg>
@@ -67,7 +67,7 @@
                   data-dropdown-toggle="dropdownMentor"
                   class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
                 >
-                  Mentor
+                  Community
                   <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                   </svg>
@@ -92,13 +92,38 @@
                   data-dropdown-toggle="dropdownCompany"
                   class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
                 >
-                  Company
+                  Learning
                   <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                   </svg>
                 </button>
                 <div
                   id="dropdownCompany"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 !mb-5 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 230.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownOpportunity"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Opportunity
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownOpportunity"
                   class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 !mb-5 hidden"
                   style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 230.667px, 0px)"
                   data-popper-placement="bottom"
@@ -130,18 +155,18 @@
     </div>
 
     <!-- Content -->
-    <div class="container mx-auto m-0 relative top-[-400px] z-[40] mb-[-350px]">
+    <div class="container mx-auto relative top-[-400px] z-[40] mb-[-350px] w-full lg:min-w-[1200px]">
       <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1016px]">
-        <div class="h-[1500px] flex w-full rounded-[30px]" style="box-shadow: 5px 6px 7px 0px rgba(0, 0, 0, 0.1)">
+        <div class="h-[1500px] flex w-full rounded-[12px]" style="box-shadow: 5px 6px 7px 0px rgba(0, 0, 0, 0.1)">
           <!-- Fixed sidebar -->
-          <div class="hidden lg:block bg-white overflow-y-scroll w-[35%] rounded-l-[30px]">
+          <div class="hidden lg:block bg-white overflow-y-scroll w-[40%] rounded-l-[12px]">
             <!-- Sidebar content -->
-            <div class="flex flex-col p-[20px]">
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+            <div class="flex flex-col">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -152,11 +177,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -167,11 +192,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -182,11 +207,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -197,11 +222,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -212,11 +237,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -227,11 +252,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -242,11 +267,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -257,11 +282,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -272,11 +297,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -287,11 +312,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -302,11 +327,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -317,11 +342,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -332,11 +357,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 m-2">
-                <div class="flex flex-col">
-                  <div class="flex flex- justify-center items-center gap-3">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
+                <div class="flex flex-col px-[20px] gap-[5px]">
+                  <div class="flex flex- justify-start items-center gap-3">
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col">
+                    <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
                       <p>Jakarta</p>
                     </div>
@@ -350,10 +375,25 @@
             </div>
           </div>
           <!-- Scroll wrapper -->
-          <div class="flex-1 flex overflow-hidden bg-gray-300 lg:w-[65%] w-full rounded-[30px] lg:rounded-l-[0px] lg:rounded-r-[30px]">
+          <div class="flex-1 flex overflow-hidden bg-white lg:w-[60%] w-full rounded-[12px] lg:rounded-l-[0px] lg:rounded-r-[12px]">
             <!-- Scrollable container -->
             <div class="flex-1">
               <!-- Your content -->
+              <div class="h-[200px]">
+                <img src="images/loker/bg-gojek.png" alt="" />
+              </div>
+              <div class="flex flex-row relative top-[-70px] mx-[20px] justify-between items-end">
+                <div class="flex flex-col gap-[0px]">
+                  <div class="h-[100px] bg-white rounded-[16px] max-h-[100px] max-w-[100px] mb-3" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1)">
+                    <img src="images/loker/gjkicon.png" alt="" class="rounded-[16px]" />
+                  </div>
+                  <div><p class="text-[34px] font-[600]">UI/UX Designer</p></div>
+                  <div><p class="text-[16px] font-[500]">Gojek . Jakarta, Indonesia</p></div>
+                </div>
+                <div class="relative top-[-30px]">
+                  <a href="" class="text-white p-3 bg-primary rounded-[100px]">Lamar Sekarang</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
