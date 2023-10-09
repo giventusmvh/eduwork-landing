@@ -14,7 +14,7 @@
     <!-- Navabar -->
     <div class="w-full z-[99]" id="navbar">
       <nav class="z-50" style="top: 0px; background-color: white; box-shadow: none">
-        <div class="w-[90%] lg:w-[1116px] container mx-auto py-2 md:py-4">
+        <div class="w-[90%] lg:w-[1040px] container mx-auto py-2 md:py-4">
           <div class="container flex flex-wrap items-center justify-between mx-auto">
             <a href="/" class="w-[154px] h-[31px]">
               <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
@@ -147,15 +147,347 @@
         </div>
       </nav>
     </div>
+
     <div class="absolute top-[445px] lg:top-[620px] w-full h-[328.26px] lg:z-[10] z-[10]">
       <div class="wave"></div>
     </div>
-    <div class="relative top-0 w-full bg-[url('./images/bg-umkm.png')] h-[500px] lg:h-[760px] bg-cover bg-center">
+    <div class="absolute top-0 w-full bg-[url('./images/bg-umkm.png')] h-[500px] lg:h-[760px] bg-cover bg-center -z-30">
       <div class="bg-gradient-to-r from-white via-white/20 to-white/30 w-full h-full absolute"></div>
     </div>
 
+    <div class="w-[90%] m-auto md:w-1/2 z-[70] lg:hidden mt-[100px] mb-[-200px]" id="menuCourse">
+      <nav class="menuChange bg-white py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
+        <div class="flex justify-between items-center">
+          <h1 class="font-semibold text-[20px] text-[#404040]">Filter Search</h1>
+          <button data-collapse-toggle="filter-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden" aria-controls="filter-cta" aria-expanded="false">
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+            </svg>
+          </button>
+        </div>
+        <ul id="filter-cta" class="text-[#8C8C8C] hidden lg:flex">
+          <div class="flex flex-col gap-4 w-full">
+            <div class="h-[1px] bg-slate-300"></div>
+            <div class="p-3">
+              <label for="input-group-search" class="sr-only">Search</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  id="input-group-search"
+                  class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  placeholder="Pencarian"
+                />
+              </div>
+            </div>
+            <ul class="h-48 px-3 pb-3 overflow-y-auto text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownSearchButton">
+              <p class="text-black text-[16px] ml-2 mt-2">Type Project</p>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-11"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-11" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">All Type</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    checked
+                    id="checkbox-item-12"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-12" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Paid</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-13"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-13" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Unpaid</label>
+                </div>
+              </li>
+              <p class="text-black text-[16px] ml-2 mt-2">Category</p>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-14"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-14" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Web Developer</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-15"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-15" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Data Science</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-16"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-16" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Keuangan</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Mobile Developer</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Designer</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Digital Marketing</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Quality Assurance</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Other</label>
+                </div>
+              </li>
+              <p class="text-black text-[16px] ml-2 mt-2">Project Duration</p>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">All Durations</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1-2 Minggu</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">3-4 Minggu</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">1-3 Bulan</label>
+                </div>
+              </li>
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">3-6 Bulan</label>
+                </div>
+              </li>
+
+              <li>
+                <div class="flex items-center pl-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                  <input
+                    id="checkbox-item-17"
+                    type="checkbox"
+                    value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                  />
+                  <label for="checkbox-item-17" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">>6 Bulan</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <a href="#" class="flex items-center p-3 text-sm font-medium text-white border-t border-gray-200 rounded-lg bg-primary hover:underline mt-3"> Cari Projek </a>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="hidden lg:flex menuChange w-[90%] md:w-full lg:w-[1040px] mt-[90px] mb-[10px]container mx-auto z-50" id="navProf">
+      <ul class="w-full flex text-[#888888] justify-start bg-transparent rounded-[10px] gap-[2px]">
+        <li class="text-[16px] mr-[-20px]">
+          <div class="p-3 w-[420px]">
+            <label for="input-group-search" class="sr-only">Search</label>
+            <div class="relative h-[40px]">
+              <div class="absolute top-[18px] left-0 flex items-center pl-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                </svg>
+              </div>
+              <input type="text" id="input-group-search" class="block w-full h-[55px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white" placeholder="Pencarian" />
+            </div>
+          </div>
+        </li>
+        <li class="skill text-[14px] mr-[-20px]">
+          <div class="p-3">
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-500 h-[55px] bg-white font-[12px] rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center min-w-[270px]" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_4555_12548)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M18.75 9.00023C18.7531 10.4466 18.2885 11.8551 17.4255 13.0157L12 20.2502L6.5745 13.0157C5.93926 12.1575 5.51668 11.1608 5.34148 10.1075C5.16629 9.05422 5.24346 7.97439 5.56667 6.95673C5.88988 5.93906 6.44991 5.01259 7.20075 4.25342C7.95159 3.49424 8.87182 2.92402 9.88585 2.58959C10.8999 2.25516 11.9788 2.16606 13.0339 2.32962C14.0891 2.49317 15.0904 2.90472 15.9556 3.53044C16.8208 4.15616 17.5252 4.97822 18.011 5.92908C18.4968 6.87994 18.75 7.93247 18.75 9.00023ZM21 9.00023C21 11.0102 20.3415 12.8642 19.23 14.3612L13.4055 22.1252L12 24.0002L10.593 22.1252L4.77 14.3612C3.92203 13.2174 3.35756 11.8886 3.12298 10.4842C2.8884 9.07976 2.99039 7.6397 3.42058 6.28235C3.85078 4.92499 4.59689 3.68908 5.59762 2.67616C6.59835 1.66323 7.82514 0.902207 9.17718 0.455608C10.5292 0.00900815 11.9679 -0.110419 13.3751 0.107139C14.7823 0.324697 16.1178 0.873031 17.2718 1.70709C18.4259 2.54114 19.3655 3.63712 20.0137 4.90496C20.6618 6.17281 20.9998 7.57634 21 9.00023ZM12 12.0002C12.7957 12.0002 13.5587 11.6842 14.1213 11.1216C14.6839 10.5589 15 9.79588 15 9.00023C15 8.20458 14.6839 7.44152 14.1213 6.87891C13.5587 6.3163 12.7957 6.00023 12 6.00023C11.2044 6.00023 10.4413 6.3163 9.87868 6.87891C9.31607 7.44152 9 8.20458 9 9.00023C9 9.79588 9.31607 10.5589 9.87868 11.1216C10.4413 11.6842 11.2044 12.0002 12 12.0002Z"
+                    fill="black"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_4555_12548">
+                    <rect width="24" height="24" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              Daerah, Kota atau Kabupaten
+            </button>
+          </div>
+          <!-- Dropdown menu -->
+          <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="portofolio text-[16px] mr-[-10px]">
+          <div class="p-3">
+            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-gray-500 h-[55px] bg-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <g clip-path="url(#clip0_4555_12552)">
+                  <path
+                    d="M13.5003 7.50014C13.5003 7.30123 13.5793 7.11047 13.72 6.96981C13.8607 6.82916 14.0514 6.75014 14.2503 6.75014H23.2503C23.4492 6.75014 23.64 6.82916 23.7807 6.96981C23.9213 7.11047 24.0003 7.30123 24.0003 7.50014C24.0003 7.69906 23.9213 7.88982 23.7807 8.03047C23.64 8.17113 23.4492 8.25014 23.2503 8.25014H14.2503C14.0514 8.25014 13.8607 8.17113 13.72 8.03047C13.5793 7.88982 13.5003 7.69906 13.5003 7.50014ZM23.2503 11.2501H14.2503C14.0514 11.2501 13.8607 11.3292 13.72 11.4698C13.5793 11.6105 13.5003 11.8012 13.5003 12.0001C13.5003 12.1991 13.5793 12.3898 13.72 12.5305C13.8607 12.6711 14.0514 12.7501 14.2503 12.7501H23.2503C23.4492 12.7501 23.64 12.6711 23.7807 12.5305C23.9213 12.3898 24.0003 12.1991 24.0003 12.0001C24.0003 11.8012 23.9213 11.6105 23.7807 11.4698C23.64 11.3292 23.4492 11.2501 23.2503 11.2501ZM23.2503 15.7501H16.5003C16.3014 15.7501 16.1107 15.8292 15.97 15.9698C15.8293 16.1105 15.7503 16.3012 15.7503 16.5001C15.7503 16.6991 15.8293 16.8898 15.97 17.0305C16.1107 17.1711 16.3014 17.2501 16.5003 17.2501H23.2503C23.4492 17.2501 23.64 17.1711 23.7807 17.0305C23.9213 16.8898 24.0003 16.6991 24.0003 16.5001C24.0003 16.3012 23.9213 16.1105 23.7807 15.9698C23.64 15.8292 23.4492 15.7501 23.2503 15.7501ZM14.2269 17.8126C14.2514 17.9081 14.2569 18.0074 14.243 18.1049C14.2291 18.2024 14.1962 18.2963 14.1461 18.3811C14.0959 18.4659 14.0295 18.54 13.9508 18.5991C13.872 18.6582 13.7823 18.7013 13.6869 18.7258C13.6258 18.7422 13.5627 18.7504 13.4994 18.7501C13.3331 18.7502 13.1714 18.695 13.0399 18.5932C12.9084 18.4914 12.8144 18.3487 12.7728 18.1876C12.1953 15.9433 9.92845 14.2501 7.49939 14.2501C5.07033 14.2501 2.80345 15.9423 2.22595 18.1876C2.17623 18.3803 2.05199 18.5454 1.88057 18.6465C1.70915 18.7476 1.50459 18.7764 1.31189 18.7267C1.1192 18.677 0.954146 18.5527 0.853052 18.3813C0.751958 18.2099 0.723101 18.0053 0.772829 17.8126C1.29689 15.7773 2.82033 14.1292 4.75345 13.3126C4.00911 12.7393 3.46288 11.9474 3.19138 11.0479C2.91987 10.1485 2.93671 9.1866 3.23953 8.29719C3.54235 7.40779 4.11596 6.63547 4.87991 6.08855C5.64387 5.54164 6.55985 5.24756 7.49939 5.24756C8.43894 5.24756 9.35492 5.54164 10.1189 6.08855C10.8828 6.63547 11.4564 7.40779 11.7593 8.29719C12.0621 9.1866 12.0789 10.1485 11.8074 11.0479C11.5359 11.9474 10.9897 12.7393 10.2453 13.3126C12.1794 14.1292 13.7028 15.7773 14.2269 17.8126ZM7.50033 12.7501C8.09367 12.7501 8.67369 12.5742 9.16704 12.2446C9.66039 11.9149 10.0449 11.4464 10.272 10.8982C10.499 10.35 10.5584 9.74682 10.4427 9.16487C10.3269 8.58293 10.0412 8.04838 9.62165 7.62882C9.20209 7.20927 8.66754 6.92354 8.0856 6.80779C7.50366 6.69203 6.90046 6.75144 6.35228 6.9785C5.8041 7.20557 5.33556 7.59009 5.00592 8.08343C4.67628 8.57678 4.50033 9.1568 4.50033 9.75014C4.50033 10.5458 4.8164 11.3089 5.37901 11.8715C5.94162 12.4341 6.70468 12.7501 7.50033 12.7501Z"
+                    fill="black"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_4555_12552">
+                    <rect width="24" height="24" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+              Spesialisasi Pekerjaan
+              <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+              </svg>
+            </button>
+          </div>
+          <!-- Dropdown menu -->
+          <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+              </li>
+              <li>
+                <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="p-3">
+            <button class="bg-primary text-[15px] text-white px-[10px] py-[12px] rounded-[16px] w-[100px] h-[55px]">Cari</button>
+          </div>
+        </li>
+      </ul>
+    </nav>
     <!-- Content -->
-    <div class="container mx-auto relative top-[-340px] lg:top-[-540px] z-[40] lg:mb-[-550px] mb-[-330px] w-full lg:min-w-[1200px]">
+    <div class="container mx-auto relative top-[240px] lg:top-[10px] z-[10] lg:z-[40] lg:mb-[170px] mb-[200px] w-full lg:min-w-[1200px]">
       <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1040px]">
         <div class="lg:h-[1685px] h-[1000px] flex w-full rounded-[16px]" style="box-shadow: 5px 6px 7px 0px rgba(0, 0, 0, 0.1)">
           <!-- Fixed sidebar -->
@@ -182,6 +514,7 @@
                         data-drawer-target="drawer-bottom-example"
                         data-drawer-show="drawer-bottom-example"
                         data-drawer-placement="bottom"
+                        data-drawer-backdrop="true"
                         aria-controls="drawer-bottom-example"
                       >
                         View More
@@ -799,8 +1132,10 @@
       var currentScrollPos = window.pageYOffset;
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
+        document.getElementById("navProf").style.top = "95px";
       } else {
-        document.getElementById("navbar").style.top = "-80px";
+        document.getElementById("navbar").style.top = "-100px";
+        document.getElementById("navProf").style.top = "0";
       }
       prevScrollpos = currentScrollPos;
     };
