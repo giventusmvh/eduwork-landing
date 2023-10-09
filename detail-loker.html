@@ -155,7 +155,7 @@
       <div class="bg-gradient-to-r from-white via-white/20 to-white/30 w-full h-full absolute"></div>
     </div>
 
-    <div class="w-[90%] m-auto md:w-1/2 z-[70] lg:hidden mt-[100px] mb-[-200px]" id="menuCourse">
+    <div class="w-[90%] m-auto md:w-1/2 z-[30] lg:hidden mt-[100px] mb-[-200px]" id="menuCourse">
       <nav class="menuChange bg-white py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-[4px]">
         <div class="flex justify-between items-center">
           <h1 class="font-semibold text-[20px] text-[#404040]">Filter Search</h1>
@@ -264,7 +264,7 @@
       </nav>
     </div>
 
-    <nav class="hidden lg:flex menuChange w-[90%] md:w-full lg:w-[1040px] mt-[90px] mb-[10px]container mx-auto z-50" id="navProf">
+    <nav class="hidden lg:flex menuChange w-[90%] md:w-full lg:w-[1040px] mt-[90px] mb-[10px] container mx-auto z-50" id="navProf">
       <ul class="w-full flex text-[#888888] justify-start bg-transparent rounded-[10px] gap-[2px]">
         <li class="text-[16px] mr-[-20px]">
           <div class="p-3 w-[420px]">
@@ -755,15 +755,13 @@
       <!-- BG Top -->
 
       <!-- First Section -->
-      <div class="flex flex-col relative top-[-110px] mx-[20px] mb-[-120px] justify-between items-end">
-        <div class="flex flex-row gap-[20px]">
-          <div class="h-[100px] bg-white rounded-[16px] max-h-[100px] max-w-[100px] mb-3" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1)">
-            <img src="images/loker/gjkicon.png" alt="" class="rounded-[16px]" />
-          </div>
-          <div class="flex flex-col relative top-[35px]">
-            <div><p class="text-[28px] font-[600]">UI/UX Designer</p></div>
-            <div><p class="text-[16px] font-[500]">Gojek . Jakarta, Indonesia</p></div>
-          </div>
+      <div class="flex flex-row relative top-[-110px] justify-around mx-auto mb-[-120px]">
+        <div class="h-[100px] bg-white rounded-[16px] max-h-[100px] max-w-[100px] mb-3 relative" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1)">
+          <img src="images/loker/gjkicon.png" alt="" class="rounded-[16px]" />
+        </div>
+        <div class="flex flex-col relative top-[35px]">
+          <div><p class="text-[28px] font-[600]">UI/UX Designer</p></div>
+          <div><p class="text-[16px] font-[500]">Gojek . Jakarta, Indonesia</p></div>
         </div>
       </div>
       <!-- First Section -->
@@ -1002,9 +1000,11 @@
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
         document.getElementById("navProf").style.top = "95px";
+        document.getElementById("menuCourse").style.top = "65px";
       } else {
         document.getElementById("navbar").style.top = "-100px";
-        document.getElementById("navProf").style.top = "0";
+        document.getElementById("navProf").style.top = "20px";
+        document.getElementById("menuCourse").style.top = "0";
       }
       prevScrollpos = currentScrollPos;
     };
