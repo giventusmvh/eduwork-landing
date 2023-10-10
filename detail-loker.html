@@ -381,8 +381,9 @@
             <div class="flex flex-col">
               <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
+                  <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
-                    class="flex flex- justify-start items-center gap-3"
+                    class="flex lg:hidden justify-start items-center gap-3"
                     data-drawer-target="drawer-bottom-example"
                     data-drawer-show="drawer-bottom-example"
                     data-drawer-placement="bottom"
@@ -395,6 +396,17 @@
                       <p>Jakarta</p>
                     </div>
                   </div>
+                  <!-- END div untuk MOBILE Large View agar drawer bisa diklik -->
+
+                  <!-- div untuk WEB Large View agar drawer tidak bisa diklik -->
+                  <div class="hidden lg:flex justify-start items-center gap-3">
+                    <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
+                    <div class="flex flex-col gap-[5px]">
+                      <p class="text-[20px] font-[600]">Digital Marketing</p>
+                      <p>Jakarta</p>
+                    </div>
+                  </div>
+                  <!-- END div untuk WEB Large View agar drawer tidak bisa diklik -->
                   <div class="flex flex-row gap-3 mb-3">
                     <a href="" class="px-3 py-[4px] bg-primary text-white rounded-[30px] text-[12px]">Kontrak</a>
                     <a href="" class="px-3 py-[4px] bg-white text-primary border border-primary rounded-[30px] text-[12px]">Remote</a>
@@ -757,7 +769,7 @@
     <!-- drawer component -->
     <div
       id="drawer-bottom-example"
-      class="lg:hidden fixed rounded-t-[16px] bottom-0 left-0 right-0 z-40 w-full overflow-y-scroll max-h-screen transition-transform bg-white translate-y-full"
+      class="lg:hidden fixed rounded-t-[16px] bottom-0 left-0 right-0 z-40 w-full overflow-y-scroll max-h-screen transition-transform bg-white translate-none"
       tabindex="-1"
       aria-labelledby="drawer-bottom-label"
     >
