@@ -12,7 +12,7 @@
   </head>
   <body class="bg-[#f6fcff] text-[#404040] font-poppins">
     <!-- Navabar -->
-    <div class="w-full z-[99]" id="navbar">
+    <div class="w-full z-[30] lg:z-[99]" id="navbar">
       <nav class="z-50" style="top: 0px; background-color: white; box-shadow: none">
         <div class="w-[90%] lg:w-[1040px] container mx-auto py-2 md:py-4">
           <div class="container flex flex-wrap items-center justify-between mx-auto">
@@ -155,7 +155,8 @@
       <div class="bg-gradient-to-r from-white via-white/20 to-white/30 w-full h-full absolute"></div>
     </div>
 
-    <div class="w-[90%] m-auto md:w-1/2 z-[30] lg:hidden mt-[100px] mb-[-200px]" id="menuCourse">
+    <!-- FILTER UNTUK MOBILE VIEW -->
+    <div class="w-[90%] m-auto md:w-1/2 z-[30] lg:hidden mt-[70px] mb-[-220px]" id="menuCourse">
       <nav class="menuChange bg-white py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-[4px]">
         <div class="flex justify-between items-center">
           <h1 class="font-semibold text-[20px] text-[#404040]">Filter Search</h1>
@@ -263,9 +264,11 @@
         </ul>
       </nav>
     </div>
+    <!--END FILTER UNTUK MOBILE VIEW -->
 
+    <!-- FILTER UNTUK WEB VIEW -->
     <nav class="hidden lg:flex menuChange w-[90%] md:w-full lg:w-[1040px] mt-[90px] mb-[10px] container mx-auto z-50" id="navProf">
-      <ul class="w-full flex text-[#888888] justify-start bg-transparent rounded-[10px] gap-[2px]">
+      <ul class="w-full flex text-[#888888] justify-start bg-white rounded-[100px] gap-[2px]">
         <li class="text-[16px] mr-[-20px]">
           <div class="p-3 w-[420px]">
             <label for="input-group-search" class="sr-only">Search</label>
@@ -275,7 +278,7 @@
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
               </div>
-              <input type="text" id="input-group-search" class="block w-full h-[55px] p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white" placeholder="Pencarian" />
+              <input type="text" id="input-group-search" class="block w-full h-[55px] p-2 pl-10 text-sm text-gray-900 border rounded-[100px] border-gray-300 bg-white" placeholder="Pencarian" />
             </div>
           </div>
         </li>
@@ -302,29 +305,38 @@
               <input
                 type="text"
                 id="input-group-search"
-                class="block w-full p-2 h-[55px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block w-full p-2 h-[55px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-[100px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Daerah, Kota atau Kabupaten"
               />
             </div>
           </div>
         </li>
-        <li class="portofolio text-[16px] mr-[-10px]">
+        <li class="portofolio text-[16px] mr-[-20px]">
           <div class="p-3">
-            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown2" class="text-gray-500 h-[55px] bg-white font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <g clip-path="url(#clip0_4555_12552)">
-                  <path
-                    d="M13.5003 7.50014C13.5003 7.30123 13.5793 7.11047 13.72 6.96981C13.8607 6.82916 14.0514 6.75014 14.2503 6.75014H23.2503C23.4492 6.75014 23.64 6.82916 23.7807 6.96981C23.9213 7.11047 24.0003 7.30123 24.0003 7.50014C24.0003 7.69906 23.9213 7.88982 23.7807 8.03047C23.64 8.17113 23.4492 8.25014 23.2503 8.25014H14.2503C14.0514 8.25014 13.8607 8.17113 13.72 8.03047C13.5793 7.88982 13.5003 7.69906 13.5003 7.50014ZM23.2503 11.2501H14.2503C14.0514 11.2501 13.8607 11.3292 13.72 11.4698C13.5793 11.6105 13.5003 11.8012 13.5003 12.0001C13.5003 12.1991 13.5793 12.3898 13.72 12.5305C13.8607 12.6711 14.0514 12.7501 14.2503 12.7501H23.2503C23.4492 12.7501 23.64 12.6711 23.7807 12.5305C23.9213 12.3898 24.0003 12.1991 24.0003 12.0001C24.0003 11.8012 23.9213 11.6105 23.7807 11.4698C23.64 11.3292 23.4492 11.2501 23.2503 11.2501ZM23.2503 15.7501H16.5003C16.3014 15.7501 16.1107 15.8292 15.97 15.9698C15.8293 16.1105 15.7503 16.3012 15.7503 16.5001C15.7503 16.6991 15.8293 16.8898 15.97 17.0305C16.1107 17.1711 16.3014 17.2501 16.5003 17.2501H23.2503C23.4492 17.2501 23.64 17.1711 23.7807 17.0305C23.9213 16.8898 24.0003 16.6991 24.0003 16.5001C24.0003 16.3012 23.9213 16.1105 23.7807 15.9698C23.64 15.8292 23.4492 15.7501 23.2503 15.7501ZM14.2269 17.8126C14.2514 17.9081 14.2569 18.0074 14.243 18.1049C14.2291 18.2024 14.1962 18.2963 14.1461 18.3811C14.0959 18.4659 14.0295 18.54 13.9508 18.5991C13.872 18.6582 13.7823 18.7013 13.6869 18.7258C13.6258 18.7422 13.5627 18.7504 13.4994 18.7501C13.3331 18.7502 13.1714 18.695 13.0399 18.5932C12.9084 18.4914 12.8144 18.3487 12.7728 18.1876C12.1953 15.9433 9.92845 14.2501 7.49939 14.2501C5.07033 14.2501 2.80345 15.9423 2.22595 18.1876C2.17623 18.3803 2.05199 18.5454 1.88057 18.6465C1.70915 18.7476 1.50459 18.7764 1.31189 18.7267C1.1192 18.677 0.954146 18.5527 0.853052 18.3813C0.751958 18.2099 0.723101 18.0053 0.772829 17.8126C1.29689 15.7773 2.82033 14.1292 4.75345 13.3126C4.00911 12.7393 3.46288 11.9474 3.19138 11.0479C2.91987 10.1485 2.93671 9.1866 3.23953 8.29719C3.54235 7.40779 4.11596 6.63547 4.87991 6.08855C5.64387 5.54164 6.55985 5.24756 7.49939 5.24756C8.43894 5.24756 9.35492 5.54164 10.1189 6.08855C10.8828 6.63547 11.4564 7.40779 11.7593 8.29719C12.0621 9.1866 12.0789 10.1485 11.8074 11.0479C11.5359 11.9474 10.9897 12.7393 10.2453 13.3126C12.1794 14.1292 13.7028 15.7773 14.2269 17.8126ZM7.50033 12.7501C8.09367 12.7501 8.67369 12.5742 9.16704 12.2446C9.66039 11.9149 10.0449 11.4464 10.272 10.8982C10.499 10.35 10.5584 9.74682 10.4427 9.16487C10.3269 8.58293 10.0412 8.04838 9.62165 7.62882C9.20209 7.20927 8.66754 6.92354 8.0856 6.80779C7.50366 6.69203 6.90046 6.75144 6.35228 6.9785C5.8041 7.20557 5.33556 7.59009 5.00592 8.08343C4.67628 8.57678 4.50033 9.1568 4.50033 9.75014C4.50033 10.5458 4.8164 11.3089 5.37901 11.8715C5.94162 12.4341 6.70468 12.7501 7.50033 12.7501Z"
-                    fill="black"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_4555_12552">
-                    <rect width="24" height="24" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-              Spesialisasi Pekerjaan
+            <button
+              id="dropdownDefaultButton"
+              data-dropdown-toggle="dropdown2"
+              class="text-gray-500 border border-gray-300 h-[55px] bg-white font-medium rounded-[100px] text-sm px-2 py-2.5 text-center inline-flex items-center w-[230px]"
+              type="button"
+            >
+              <div class="mr-[2px]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <g clip-path="url(#clip0_4555_12552)">
+                    <path
+                      d="M13.5003 7.50014C13.5003 7.30123 13.5793 7.11047 13.72 6.96981C13.8607 6.82916 14.0514 6.75014 14.2503 6.75014H23.2503C23.4492 6.75014 23.64 6.82916 23.7807 6.96981C23.9213 7.11047 24.0003 7.30123 24.0003 7.50014C24.0003 7.69906 23.9213 7.88982 23.7807 8.03047C23.64 8.17113 23.4492 8.25014 23.2503 8.25014H14.2503C14.0514 8.25014 13.8607 8.17113 13.72 8.03047C13.5793 7.88982 13.5003 7.69906 13.5003 7.50014ZM23.2503 11.2501H14.2503C14.0514 11.2501 13.8607 11.3292 13.72 11.4698C13.5793 11.6105 13.5003 11.8012 13.5003 12.0001C13.5003 12.1991 13.5793 12.3898 13.72 12.5305C13.8607 12.6711 14.0514 12.7501 14.2503 12.7501H23.2503C23.4492 12.7501 23.64 12.6711 23.7807 12.5305C23.9213 12.3898 24.0003 12.1991 24.0003 12.0001C24.0003 11.8012 23.9213 11.6105 23.7807 11.4698C23.64 11.3292 23.4492 11.2501 23.2503 11.2501ZM23.2503 15.7501H16.5003C16.3014 15.7501 16.1107 15.8292 15.97 15.9698C15.8293 16.1105 15.7503 16.3012 15.7503 16.5001C15.7503 16.6991 15.8293 16.8898 15.97 17.0305C16.1107 17.1711 16.3014 17.2501 16.5003 17.2501H23.2503C23.4492 17.2501 23.64 17.1711 23.7807 17.0305C23.9213 16.8898 24.0003 16.6991 24.0003 16.5001C24.0003 16.3012 23.9213 16.1105 23.7807 15.9698C23.64 15.8292 23.4492 15.7501 23.2503 15.7501ZM14.2269 17.8126C14.2514 17.9081 14.2569 18.0074 14.243 18.1049C14.2291 18.2024 14.1962 18.2963 14.1461 18.3811C14.0959 18.4659 14.0295 18.54 13.9508 18.5991C13.872 18.6582 13.7823 18.7013 13.6869 18.7258C13.6258 18.7422 13.5627 18.7504 13.4994 18.7501C13.3331 18.7502 13.1714 18.695 13.0399 18.5932C12.9084 18.4914 12.8144 18.3487 12.7728 18.1876C12.1953 15.9433 9.92845 14.2501 7.49939 14.2501C5.07033 14.2501 2.80345 15.9423 2.22595 18.1876C2.17623 18.3803 2.05199 18.5454 1.88057 18.6465C1.70915 18.7476 1.50459 18.7764 1.31189 18.7267C1.1192 18.677 0.954146 18.5527 0.853052 18.3813C0.751958 18.2099 0.723101 18.0053 0.772829 17.8126C1.29689 15.7773 2.82033 14.1292 4.75345 13.3126C4.00911 12.7393 3.46288 11.9474 3.19138 11.0479C2.91987 10.1485 2.93671 9.1866 3.23953 8.29719C3.54235 7.40779 4.11596 6.63547 4.87991 6.08855C5.64387 5.54164 6.55985 5.24756 7.49939 5.24756C8.43894 5.24756 9.35492 5.54164 10.1189 6.08855C10.8828 6.63547 11.4564 7.40779 11.7593 8.29719C12.0621 9.1866 12.0789 10.1485 11.8074 11.0479C11.5359 11.9474 10.9897 12.7393 10.2453 13.3126C12.1794 14.1292 13.7028 15.7773 14.2269 17.8126ZM7.50033 12.7501C8.09367 12.7501 8.67369 12.5742 9.16704 12.2446C9.66039 11.9149 10.0449 11.4464 10.272 10.8982C10.499 10.35 10.5584 9.74682 10.4427 9.16487C10.3269 8.58293 10.0412 8.04838 9.62165 7.62882C9.20209 7.20927 8.66754 6.92354 8.0856 6.80779C7.50366 6.69203 6.90046 6.75144 6.35228 6.9785C5.8041 7.20557 5.33556 7.59009 5.00592 8.08343C4.67628 8.57678 4.50033 9.1568 4.50033 9.75014C4.50033 10.5458 4.8164 11.3089 5.37901 11.8715C5.94162 12.4341 6.70468 12.7501 7.50033 12.7501Z"
+                      fill="gray"
+                    />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_4555_12552">
+                      <rect width="24" height="24" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+
+              <div class="mx-[3px]">Spesialisasi Pekerjaan</div>
+
               <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
               </svg>
@@ -350,11 +362,14 @@
         </li>
         <li>
           <div class="p-3">
-            <button class="bg-primary text-[15px] text-white px-[10px] py-[12px] rounded-[16px] w-[100px] h-[55px]">Cari</button>
+            <button class="bg-primary text-[15px] text-white px-[10px] py-[12px] rounded-[100px] w-[100px] h-[55px]">Cari</button>
           </div>
         </li>
       </ul>
     </nav>
+
+    <!-- END FILTER UNTUK WEB VIEW -->
+
     <!-- Content -->
     <div class="container mx-auto relative top-[240px] lg:top-[10px] z-[10] lg:z-[40] lg:mb-[170px] mb-[200px] w-full lg:min-w-[1200px]">
       <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1040px]">
@@ -365,7 +380,14 @@
             <div class="flex flex-col">
               <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
-                  <div class="flex flex- justify-start items-center gap-3">
+                  <div
+                    class="flex flex- justify-start items-center gap-3"
+                    data-drawer-target="drawer-bottom-example"
+                    data-drawer-show="drawer-bottom-example"
+                    data-drawer-placement="bottom"
+                    data-drawer-backdrop="false"
+                    aria-controls="drawer-bottom-example"
+                  >
                     <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
                     <div class="flex flex-col gap-[5px]">
                       <p class="text-[20px] font-[600]">Digital Marketing</p>
@@ -376,19 +398,6 @@
                     <a href="" class="px-3 py-[4px] bg-primary text-white rounded-[30px] text-[12px]">Kontrak</a>
                     <a href="" class="px-3 py-[4px] bg-white text-primary border border-primary rounded-[30px] text-[12px]">Remote</a>
                     <!-- drawer init and toggle -->
-                    <div class="lg:hidden flex text-center">
-                      <button
-                        class="px-3 py-[4px] bg-primary text-white rounded-[30px] text-[12px]"
-                        type="button"
-                        data-drawer-target="drawer-bottom-example"
-                        data-drawer-show="drawer-bottom-example"
-                        data-drawer-placement="bottom"
-                        data-drawer-backdrop="true"
-                        aria-controls="drawer-bottom-example"
-                      >
-                        View More
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -745,7 +754,12 @@
       </div>
     </div>
     <!-- drawer component -->
-    <div id="drawer-bottom-example" class="fixed rounded-t-[16px] bottom-0 left-0 right-0 z-40 w-full overflow-y-scroll max-h-[550px] transition-transform bg-white" tabindex="-1" aria-labelledby="drawer-bottom-label">
+    <div
+      id="drawer-bottom-example"
+      class="lg:hidden fixed rounded-t-[16px] bottom-0 left-0 right-0 z-40 w-full overflow-y-scroll max-h-screen transition-transform bg-white translate-y-full"
+      tabindex="-1"
+      aria-labelledby="drawer-bottom-label"
+    >
       <!-- Your content -->
 
       <!-- BG Top -->
@@ -759,7 +773,7 @@
         <div class="h-[100px] bg-white rounded-[16px] max-h-[100px] max-w-[100px] mb-3 relative" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1)">
           <img src="images/loker/gjkicon.png" alt="" class="rounded-[16px]" />
         </div>
-        <div class="flex flex-col relative top-[35px]">
+        <div class="flex flex-col relative top-[45px] right-[20px]">
           <div><p class="text-[28px] font-[600]">UI/UX Designer</p></div>
           <div><p class="text-[16px] font-[500]">Gojek . Jakarta, Indonesia</p></div>
         </div>
@@ -889,8 +903,18 @@
         </div>
       </section>
       <!-- Sixth Section -->
-      <div class="sticky bottom-0 flex flex-col p-[12px] gap-3 mb-3 justify-center items-center text-center bg-primary">
-        <a href="" class="w-full bg-primary text-white rounded-[30px] text-[22px]">Lamar Sekarang</a>
+      <div class="sticky bottom-0 flex flex-row">
+        <div class="w-[100%] flex justify-center items-center text-center bg-primary">
+          <a href="" class="w-full bg-primary text-white rounded-[30px] text-[22px] justify-center items-center">Lamar Sekarang</a>
+        </div>
+        <div class="w-[20%]">
+          <button type="button" data-drawer-hide="drawer-bottom-example" aria-controls="drawer-bottom-example" class="text-white w-full bg-red-600 text-sm h-[50px] inline-flex items-center justify-center">
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+            </svg>
+            <span class="sr-only">Close menu</span>
+          </button>
+        </div>
       </div>
     </div>
     <!-- End Content -->
@@ -991,6 +1015,7 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <script src="./main.js" type="module"></script>
   <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+  <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     // Event Scroll
