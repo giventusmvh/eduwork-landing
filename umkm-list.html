@@ -305,7 +305,9 @@
       <p class="text-primary lg:text-[30px] text-[25px] font-[600]">Cari Project yang Kamu Butuhkan</p>
       <p class="text-slate-500 lg:text-[16px] font-[400] lg:w-[650px]">Setelah jadi alumni, kamu bisa terus beraktivitas bersama Eduwork melalui kegiatan-kegiatan di bawah.</p>
     </div>
-    <div class="w-[90%] m-auto md:w-1/2 z-[70] lg:hidden mt-[100px]" id="menuCourse">
+
+    <!-- Filter MOBILE View -->
+    <div class="w-full m-auto md:w-1/2 z-[70] lg:hidden mt-[100px]" id="menuCourse">
       <nav class="menuChange bg-white py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
         <div class="flex justify-between items-center">
           <h1 class="font-semibold text-[20px] text-[#404040]">Filter Search</h1>
@@ -534,8 +536,11 @@
         </ul>
       </nav>
     </div>
+    <!-- END  Filter MOBILE View -->
+
     <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[75px] flex-col md:flex-row lg:mt-[95px] mt-0">
-      <div class="hidden w-1/4 sticky top-6 gap-8 md:flex flex-col z-30">
+      <!-- Filter WEB View -->
+      <div class="menuChange hidden w-1/4 sticky top-6 gap-8 md:flex flex-col z-30" id="menuCourse2">
         <div class="flex flex-col gap-1 text-[14px]">
           <h1 class="mb-3 text-[16px] font-medium text-black">Pencarian</h1>
           <div class="flex items-center gap-3">
@@ -623,6 +628,7 @@
           <a href="" class="p-3 bg-primary rounded-[16px] text-white w-[95%]">Cari Project</a>
         </div>
       </div>
+      <!-- END FILTER WEB VIEW -->
       <!-- List Kelas -->
       <div class="w-[340px] lg:w-full flex flex-col z-30">
         <div class="flex flex-row justify-between mb-3">
@@ -1186,9 +1192,11 @@
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
         document.getElementById("menuCourse").style.top = "65px";
+        document.getElementById("menuCourse2").style.top = "95px";
       } else {
         document.getElementById("navbar").style.top = "-80px";
         document.getElementById("menuCourse").style.top = "0";
+        document.getElementById("menuCourse2").style.top = "20px";
       }
       prevScrollpos = currentScrollPos;
     };

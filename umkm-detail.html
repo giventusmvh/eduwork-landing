@@ -162,9 +162,9 @@
     <!-- EndHero -->
     <!-- <img loading="lazy" src="./images/bg-detail-kelas-2.png" alt="bg" class="w-full absolute top-[1408px] -z-30" /> -->
     <!-- Contenet -->
-    <div class="w-[90%] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[20px] flex-col md:flex-row z-[30] gap-[20px]">
+    <div class="w-full md:w-full lg:w-[1016px] container mx-auto flex items-start py-[20px] flex-col md:flex-row z-[30] gap-[20px]">
       <div class="w-full md:w-1/2 z-[70]" id="menuCourse">
-        <nav class="menuChange bg-white py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
+        <nav class="menuChange bg-white lg:py-[20px] py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
           <div class="flex justify-between items-center">
             <h1 class="font-semibold text-[20px] text-[#404040]">Project Detail</h1>
             <button data-collapse-toggle="filter-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden" aria-controls="filter-cta" aria-expanded="false">
@@ -1108,9 +1108,9 @@
 
         if (prevScrollpos > currentScrollPos) {
           document.getElementById("navbar").style.top = "0";
-          document.getElementById("menuCourse").style.top = "65px";
+          document.getElementById("menuCourse").style.top = "95px";
         } else {
-          document.getElementById("navbar").style.top = "-80px";
+          document.getElementById("navbar").style.top = "-90px";
           document.getElementById("menuCourse").style.top = "0";
         }
         prevScrollpos = currentScrollPos;
