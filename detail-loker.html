@@ -157,18 +157,18 @@
     </div>
 
     <!-- FILTER UNTUK MOBILE VIEW -->
-    <div class="w-full m-auto md:w-1/2 z-[29] lg:hidden mt-[70px] mb-[-220px]" id="menuCourse">
-      <nav class="menuChange bg-white py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-[4px]">
-        <div class="flex justify-between items-center">
-          <h1 class="font-semibold text-[20px] text-[#404040]">Filter Search</h1>
-          <button data-collapse-toggle="filter-cta" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden" aria-controls="filter-cta" aria-expanded="false">
+    <div class="w-full m-auto md:w-1/2 z-[29] lg:hidden mt-[55px] mb-[-240px]" id="menuCourse">
+      <nav class="menuChange bg-primary pt-2 shadow-xl text-white flex flex-col gap-4">
+        <div class="flex justify-center items-center pb-2" data-collapse-toggle="filter-cta" aria-controls="filter-cta" aria-expanded="false">
+          <h1 class="font-semibold text-[20px] text-white">Filter Search</h1>
+          <button type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden">
             <span class="sr-only">Open main menu</span>
             <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              <path fill-rule="evenodd" fill="white" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
             </svg>
           </button>
         </div>
-        <ul id="filter-cta" class="text-[#8C8C8C] hidden lg:flex">
+        <ul id="filter-cta" class="bg-white text-white hidden lg:flex mt-[-12px]">
           <div class="flex flex-col gap-[4px] w-full">
             <div class="h-[1px] bg-slate-300"></div>
             <div class="p-3 mb-[-20px]">
@@ -182,7 +182,7 @@
                 <input
                   type="text"
                   id="input-group-search"
-                  class="block w-full p-2 pl-10 text-sm h-[55px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  class="block w-full p-2 pl-10 text-sm h-[45px] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Cari Lowongan"
                 />
               </div>
@@ -210,7 +210,7 @@
                 <input
                   type="text"
                   id="input-group-search"
-                  class="block w-full p-2 h-[55px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  class="block w-full p-2 h-[45px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Daerah, Kota atau Kabupaten"
                 />
               </div>
@@ -219,7 +219,7 @@
               <button
                 id="dropdownDefaultButton"
                 data-dropdown-toggle="dropdown"
-                class="text-gray-500 h-[55px] w-full border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between"
+                class="text-gray-500 h-[45px] w-full border border-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between"
                 type="button"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -279,7 +279,7 @@
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
               </div>
-              <input type="text" id="input-group-search" class="block w-full h-[55px] p-2 pl-10 text-sm text-gray-900 border rounded-[100px] border-gray-300 bg-white" placeholder="Pencarian" />
+              <input type="text" id="input-group-search" class="block w-full h-[45px] p-2 pl-10 text-sm text-gray-900 border rounded-[100px] border-gray-300 bg-white" placeholder="Pencarian" />
             </div>
           </div>
         </li>
@@ -306,7 +306,7 @@
               <input
                 type="text"
                 id="input-group-search"
-                class="block w-full p-2 h-[55px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-[100px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="block w-full p-2 h-[45px] pl-10 text-sm text-gray-900 border border-gray-300 rounded-[100px] bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Daerah, Kota atau Kabupaten"
               />
             </div>
@@ -317,7 +317,7 @@
             <button
               id="dropdownDefaultButton"
               data-dropdown-toggle="dropdown2"
-              class="text-gray-500 border border-gray-300 h-[55px] bg-white font-medium rounded-[100px] text-sm px-2 py-2.5 text-center inline-flex items-center w-[230px]"
+              class="text-gray-500 border border-gray-300 h-[45px] bg-white font-medium rounded-[100px] text-sm px-2 py-2.5 text-center inline-flex items-center w-[230px]"
               type="button"
             >
               <div class="mr-[2px]">
@@ -363,7 +363,7 @@
         </li>
         <li>
           <div class="p-3">
-            <button class="bg-primary text-[15px] text-white px-[10px] py-[12px] rounded-[100px] w-[100px] h-[55px]">Cari</button>
+            <button class="bg-primary text-[15px] text-white px-[10px] py-[12px] rounded-[100px] w-[100px] h-[45px]">Cari</button>
           </div>
         </li>
       </ul>
@@ -374,9 +374,9 @@
     <!-- Content -->
     <div class="container mx-auto relative top-[240px] lg:top-[10px] z-[10] lg:z-[40] lg:mb-[170px] mb-[200px] w-full lg:min-w-[1200px]">
       <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1040px]">
-        <div class="lg:h-[1685px] h-[1000px] flex w-full rounded-[16px]" style="box-shadow: 5px 6px 7px 0px rgba(0, 0, 0, 0.1)">
+        <div class="lg:h-fit h-fit flex w-full rounded-[16px]" style="box-shadow: 5px 6px 7px 0px rgba(0, 0, 0, 0.1)">
           <!-- Fixed sidebar -->
-          <div class="block bg-white overflow-y-scroll lg:w-[40%] w-full rounded-l-[16px] lg:rounded-r-none rounded-r-[16px]">
+          <div class="block bg-white lg:w-[40%] w-full rounded-l-[16px] lg:rounded-r-none rounded-r-[16px]">
             <!-- Sidebar content -->
             <div class="flex flex-col">
               <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
@@ -564,50 +564,11 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
-                <div class="flex flex-col px-[20px] gap-[5px]">
-                  <div class="flex flex- justify-start items-center gap-3">
-                    <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col gap-[5px]">
-                      <p class="text-[20px] font-[600]">Digital Marketing</p>
-                      <p>Jakarta</p>
-                    </div>
-                  </div>
-                  <div class="flex flex-row gap-3 mb-3">
-                    <a href="" class="px-3 py-[4px] bg-primary text-white rounded-[30px] text-[12px]">Kontrak</a>
-                    <a href="" class="px-3 py-[4px] bg-white text-primary border border-primary rounded-[30px] text-[12px]">Remote</a>
-                  </div>
-                </div>
-              </div>
-              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
-                <div class="flex flex-col px-[20px] gap-[5px]">
-                  <div class="flex flex- justify-start items-center gap-3">
-                    <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col gap-[5px]">
-                      <p class="text-[20px] font-[600]">Digital Marketing</p>
-                      <p>Jakarta</p>
-                    </div>
-                  </div>
-                  <div class="flex flex-row gap-3 mb-3">
-                    <a href="" class="px-3 py-[4px] bg-primary text-white rounded-[30px] text-[12px]">Kontrak</a>
-                    <a href="" class="px-3 py-[4px] bg-white text-primary border border-primary rounded-[30px] text-[12px]">Remote</a>
-                  </div>
-                </div>
-              </div>
-              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
-                <div class="flex flex-col px-[20px] gap-[5px]">
-                  <div class="flex flex- justify-start items-center gap-3">
-                    <img src="images/loker/logoLoker.png" alt="logo" class="w-[75px]" />
-                    <div class="flex flex-col gap-[5px]">
-                      <p class="text-[20px] font-[600]">Digital Marketing</p>
-                      <p>Jakarta</p>
-                    </div>
-                  </div>
-                  <div class="flex flex-row gap-3 mb-3">
-                    <a href="" class="px-3 py-[4px] bg-primary text-white rounded-[30px] text-[12px]">Kontrak</a>
-                    <a href="" class="px-3 py-[4px] bg-white text-primary border border-primary rounded-[30px] text-[12px]">Remote</a>
-                  </div>
-                </div>
+
+              <!-- Pagination -->
+              <div class="flex flex-row justify-center items-center gap-3 mt-[20px] lg:mb-0 mb-[20px]">
+                <a href="" class="px-[12px] py-[9px] text-gray-600 border border-gray-400 rounded-[8px]">« Previous</a>
+                <a href="" class="px-[12px] py-[9px] text-primary border border-primary rounded-[8px]">Next »</a>
               </div>
             </div>
           </div>
@@ -761,20 +722,27 @@
                 </div>
               </section>
               <!-- Sixth Section -->
+              <!-- Seventh Section -->
+
+              <a href="" class="text-white ] mt-[20px] mx-[20px] bg-primary py-[10px] rounded-[16px] flex justify-center items-center text-center mb-2">Lamar Sekarang</a>
+
+              <!-- Seventh Section -->
             </div>
           </div>
         </div>
       </div>
     </div>
     <!-- drawer component -->
-    <div
-      id="drawer-bottom-example"
-      class="lg:hidden fixed rounded-t-[16px] bottom-0 left-0 right-0 z-40 w-full overflow-y-scroll max-h-screen transition-transform bg-white translate-none"
-      tabindex="-1"
-      aria-labelledby="drawer-bottom-label"
-    >
+    <div id="drawer-bottom-example" class="lg:hidden fixed bottom-0 left-0 right-0 z-40 w-full overflow-y-scroll max-h-screen transition-transform bg-white translate-none" tabindex="-1" aria-labelledby="drawer-bottom-label">
       <!-- Your content -->
-
+      <div class="w-[25px] fixed top-2 right-2.5 rounded-full">
+        <button type="button" data-drawer-hide="drawer-bottom-example" aria-controls="drawer-bottom-example" class="relative right-0 rounded-full text-white bg-red-600 text-sm h-[25px] w-[25px] inline-flex items-center justify-center">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+          </svg>
+          <span class="sr-only">Close menu</span>
+        </button>
+      </div>
       <!-- BG Top -->
       <div class="h-[200px] w-full">
         <img src="images/loker/bg-gojek.png" alt="" class="" />
@@ -808,7 +776,7 @@
                 />
               </svg>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col-reverse">
               <p class="text-[12px] font-[600]">Kontrak</p>
               <p class="mt-[-5px] text-[10px] font-[400]">Jenis Pekerjaan</p>
             </div>
@@ -822,7 +790,7 @@
                 />
               </svg>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col-reverse">
               <p class="text-[12px] font-[600]">1-2 Tahun</p>
               <p class="mt-[-5px] text-[10px] font-[400]">Pengalaman</p>
             </div>
@@ -840,7 +808,7 @@
                 />
               </svg>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col-reverse">
               <p class="text-[12px] font-[600]">Rp.5000.000</p>
               <p class="mt-[-5px] text-[10px] font-[400]">Gaji</p>
             </div>
@@ -917,16 +885,8 @@
       </section>
       <!-- Sixth Section -->
       <div class="sticky bottom-0 flex flex-row">
-        <div class="w-[100%] flex justify-center items-center text-center bg-primary">
+        <div class="w-[100%] h-[50px] flex justify-center items-center text-center bg-primary">
           <a href="" class="w-full bg-primary text-white rounded-[30px] text-[22px] justify-center items-center">Lamar Sekarang</a>
-        </div>
-        <div class="w-[20%]">
-          <button type="button" data-drawer-hide="drawer-bottom-example" aria-controls="drawer-bottom-example" class="text-white w-full bg-red-600 text-sm h-[50px] inline-flex items-center justify-center">
-            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-            </svg>
-            <span class="sr-only">Close menu</span>
-          </button>
         </div>
       </div>
     </div>
@@ -998,8 +958,8 @@
               <ul class="text-[14px] md:text-[12px]">
                 <a href=""><li class="mb-[12px] text-center md:text-left">Submit your email for new updates</li></a>
                 <li class="flex flex-row">
-                  <input class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[55px] border border-white text-[#404040]" type="email" name="" id="" />
-                  <button class="w-[50.09px] rounded-r-[5px] h-[55px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]">
+                  <input class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[45px] border border-white text-[#404040]" type="email" name="" id="" />
+                  <button class="w-[50.09px] rounded-r-[5px] h-[45px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]">
                     <img loading="lazy" class="w-[28px] h-[28px]" src="./images/svg/mail.svg" />
                   </button>
                 </li>
@@ -1039,7 +999,7 @@
       if (prevScrollpos > currentScrollPos) {
         document.getElementById("navbar").style.top = "0";
         document.getElementById("navProf").style.top = "95px";
-        document.getElementById("menuCourse").style.top = "65px";
+        document.getElementById("menuCourse").style.top = "55px";
       } else {
         document.getElementById("navbar").style.top = "-100px";
         document.getElementById("navProf").style.top = "20px";
