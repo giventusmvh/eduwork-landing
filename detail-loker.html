@@ -12,142 +12,220 @@
     <link rel="stylesheet" href="./main.css" />
   </head>
   <body class="bg-[#f6fcff] text-[#404040] font-poppins">
-    <!-- Navabar -->
-    <div class="w-full z-[30] lg:z-[99]" id="navbar">
-      <nav class="z-50" style="top: 0px; background-color: white; box-shadow: none">
-        <div class="w-[90%] lg:w-[1040px] container mx-auto py-2 md:py-4">
-          <div class="container flex flex-wrap items-center justify-between mx-auto">
-            <a href="/" class="w-[154px] h-[31px]">
-              <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
-            </a>
-            <div class="flex gap-3 md:order-2">
-              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
-              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Register</button>
-              <button
-                data-collapse-toggle="navbar-sticky"
-                type="button"
-                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                aria-controls="navbar-sticky"
-                aria-expanded="false"
-              >
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
-                </svg>
+    <nav class="z-[50] bg-white" id="navbar">
+      <div class="w-[90%] md:max-w-[1024px] lg:max-w-[1016px] mx-auto py-4 md:py-4">
+        <div class="flex flex-wrap items-center justify-between mx-auto">
+          <a class="flex items-center" href="/">
+            <img loading="lazy" class="h-6 sm:h-7" src="./images/logo/favicon.png" alt="Eduwork Logo" />
+          </a>
+          <div class="flex gap-3 lg:order-2">
+            <button
+              type="button"
+              class="text-[#187CFF] font-[500] hover:text-white bg-[#F6FCFF] text-[14px] py-[9.5px] px-[20px] rounded-full border border-[#187CFF] hidden lg:block hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm text-center mr-3 md:mr-0"
+            >
+              Sign In
+            </button>
+            <button
+              type="button"
+              class="text-white font-[500] bg-[#187CFF] text-[14px] py-[9.5px] px-[20px] rounded-full hidden lg:block hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 text-sm text-center mr-3 md:mr-0"
+            >
+              Register
+            </button>
+            <button
+              data-collapse-toggle="navbar-sticky"
+              type="button"
+              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              aria-controls="navbar-sticky"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1 hidden" id="navbar-sticky">
+            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 lg:flex-row gap-[10px] lg:gap-[40px] lg:mt-0 lg:text-sm lg:font-semibold lg:border-0 lg:bg-white">
+              <button id="dropdownNavbarLink" class="flex items-center justify-between font-[500] w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-white lg:border-0 lg:p-0 lg:w-auto">Home</button>
+
+              <li>
+                <div
+                  x-data="{
+                           open: false,
+                           toggle() {
+                                 if (this.open) {
+                                    return this.close()
+                                 }
+               
+                                 this.$refs.button.focus()
+               
+                                 this.open = true
+                           },
+                           close(focusAfter) {
+                                 if (! this.open) return
+               
+                                 this.open = false
+               
+                                 focusAfter &amp;&amp; focusAfter.focus()
+                           }
+                        }"
+                  x-on:keydown.escape.prevent.stop="close($refs.button)"
+                  x-on:focusin.window="! $refs.panel.contains($event.target) &amp;&amp; close()"
+                  x-id="['dropdown-button']"
+                  class="relative text-sm font-semibold"
+                >
+                  <button
+                    x-ref="button"
+                    x-on:click="toggle()"
+                    :aria-expanded="open"
+                    :aria-controls="$id('dropdown-button')"
+                    type="button"
+                    class="text-base font-[400] lg:text-sm lg:font-[500] flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-white lg:border-0 lg:p-0 lg:w-auto"
+                    aria-expanded="false"
+                    aria-controls="dropdown-button-1"
+                  >
+                    Community
+                    <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel"
+                    x-show="open"
+                    x-transition.origin.top.left=""
+                    x-on:click.outside="close($refs.button)"
+                    :id="$id('dropdown-button')"
+                    style="display: none"
+                    class="relative lg:absolute left-0 mt-[25px] w-full lg:w-40 rounded-md bg-white shadow-none lg:shadow-s2"
+                    id="dropdown-button-1"
+                  >
+                    <a href="#" class="flex text-base font-[400] lg:text-sm lg:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Regular</a>
+                    <a href="#" class="flex text-base font-[400] lg:text-sm lg:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Kelas</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div
+                  x-data="{
+                           open: false,
+                           toggle() {
+                                 if (this.open) {
+                                    return this.close()
+                                 }
+               
+                                 this.$refs.button.focus()
+               
+                                 this.open = true
+                           },
+                           close(focusAfter) {
+                                 if (! this.open) return
+               
+                                 this.open = false
+               
+                                 focusAfter &amp;&amp; focusAfter.focus()
+                           }
+                        }"
+                  x-on:keydown.escape.prevent.stop="close($refs.button)"
+                  x-on:focusin.window="! $refs.panel.contains($event.target) &amp;&amp; close()"
+                  x-id="['dropdown-button']"
+                  class="relative text-sm font-semibold"
+                >
+                  <button
+                    x-ref="button"
+                    x-on:click="toggle()"
+                    :aria-expanded="open"
+                    :aria-controls="$id('dropdown-button')"
+                    type="button"
+                    class="text-base font-[400] lg:text-sm lg:font-[500] flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-white lg:border-0 lg:p-0 lg:w-auto"
+                    aria-expanded="false"
+                    aria-controls="dropdown-button-2"
+                  >
+                    Learning
+                    <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel"
+                    x-show="open"
+                    x-transition.origin.top.left=""
+                    x-on:click.outside="close($refs.button)"
+                    :id="$id('dropdown-button')"
+                    style="display: none"
+                    class="relative lg:absolute left-0 mt-[25px] w-full lg:w-40 rounded-md bg-white shadow-none lg:shadow-s2"
+                    id="dropdown-button-2"
+                  >
+                    <a href="#" class="flex text-base font-[400] lg:text-sm lg:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Regular</a>
+                    <a href="#" class="flex text-base font-[400] lg:text-sm lg:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Kelas</a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div
+                  x-data="{
+                           open: false,
+                           toggle() {
+                                 if (this.open) {
+                                    return this.close()
+                                 }
+               
+                                 this.$refs.button.focus()
+               
+                                 this.open = true
+                           },
+                           close(focusAfter) {
+                                 if (! this.open) return
+               
+                                 this.open = false
+               
+                                 focusAfter &amp;&amp; focusAfter.focus()
+                           }
+                        }"
+                  x-on:keydown.escape.prevent.stop="close($refs.button)"
+                  x-on:focusin.window="! $refs.panel.contains($event.target) &amp;&amp; close()"
+                  x-id="['dropdown-button']"
+                  class="relative text-sm font-semibold"
+                >
+                  <button
+                    x-ref="button"
+                    x-on:click="toggle()"
+                    :aria-expanded="open"
+                    :aria-controls="$id('dropdown-button')"
+                    type="button"
+                    class="text-base font-[400] text-primary lg:text-sm lg:font-[500] flex items-center justify-between w-full py-2 pl-3 pr-4 rounded hover:bg-gray-100 lg:hover:bg-white lg:border-0 lg:p-0 lg:w-auto"
+                    aria-expanded="false"
+                    aria-controls="dropdown-button-3"
+                  >
+                    Opportunity
+                    <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </button>
+                  <div
+                    x-ref="panel"
+                    x-show="open"
+                    x-transition.origin.top.left=""
+                    x-on:click.outside="close($refs.button)"
+                    :id="$id('dropdown-button')"
+                    style="display: none"
+                    class="relative lg:absolute left-0 mt-[25px] w-full lg:w-40 rounded-md bg-white shadow-none lg:shadow-s2"
+                    id="dropdown-button-3"
+                  >
+                    <a href="#" class="flex text-base font-[400] lg:text-sm lg:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Regular</a>
+                    <a href="#" class="flex text-base font-[400] lg:text-sm lg:font-[500] gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left hover:bg-gray-50 disabled:text-gray-500">Kelas</a>
+                  </div>
+                </div>
+              </li>
+
+              <button type="button" class="text-white rounded-full block lg:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center mr-3 lg:mr-0">Sign In</button>
+              <button type="button" class="text-white rounded-full block lg:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-5 py-2.5 text-center mr-3 lg:mr-0">
+                Register
               </button>
-            </div>
-            <div class="items-center justify-between w-full md:flex md:w-auto md:order-1 hidden" id="navbar-sticky">
-              <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row gap-[10px] md:gap-[40px] md:mt-0 md:text-sm md:font-semibold md:border-0 md:bg-transparent">
-                <button
-                  id="dropdownNavbarLink"
-                  data-dropdown-toggle="dropdownNavbar"
-                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
-                >
-                  Home
-                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                  </svg>
-                </button>
-                <div
-                  id="dropdownNavbar"
-                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
-                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 130.667px, 0px)"
-                  data-popper-placement="bottom"
-                >
-                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Regular</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelas</a>
-                    </li>
-                  </ul>
-                </div>
-                <button
-                  id="dropdownNavbarLink"
-                  data-dropdown-toggle="dropdownMentor"
-                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
-                >
-                  Community
-                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                  </svg>
-                </button>
-                <div
-                  id="dropdownMentor"
-                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
-                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 180.667px, 0px)"
-                  data-popper-placement="bottom"
-                >
-                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
-                    </li>
-                  </ul>
-                </div>
-                <button
-                  id="dropdownNavbarLink"
-                  data-dropdown-toggle="dropdownCompany"
-                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
-                >
-                  Learning
-                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                  </svg>
-                </button>
-                <div
-                  id="dropdownCompany"
-                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 !mb-5 hidden"
-                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 230.667px, 0px)"
-                  data-popper-placement="bottom"
-                >
-                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
-                    </li>
-                  </ul>
-                </div>
-                <button
-                  id="dropdownNavbarLink"
-                  data-dropdown-toggle="dropdownOpportunity"
-                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
-                >
-                  Opportunity
-                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
-                  </svg>
-                </button>
-                <div
-                  id="dropdownOpportunity"
-                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 !mb-5 hidden"
-                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 230.667px, 0px)"
-                  data-popper-placement="bottom"
-                >
-                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
-                    </li>
-                    <li>
-                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
-                    </li>
-                  </ul>
-                </div>
-                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
-                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
-                  Register
-                </button>
-              </ul>
-            </div>
+            </ul>
           </div>
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
 
     <div class="absolute top-[445px] lg:top-[620px] w-full h-[328.26px] lg:z-[10] z-[10]">
       <div class="wave"></div>
@@ -157,7 +235,7 @@
     </div>
 
     <!-- FILTER UNTUK MOBILE VIEW -->
-    <div class="w-full m-auto md:w-1/2 z-[29] lg:hidden mt-[55px] mb-[-240px]" id="menuCourse">
+    <div class="w-full m-auto md:w-[94%] z-[29] lg:hidden mt-[70px] md:mt-[90px] mb-[-240px] md:mb-[-280px]" id="menuCourse">
       <nav class="menuChange bg-primary pt-2 shadow-xl text-white flex flex-col gap-4">
         <div class="flex justify-center items-center pb-2" data-collapse-toggle="filter-cta" aria-controls="filter-cta" aria-expanded="false">
           <h1 class="font-semibold text-[20px] text-white">Filter Search</h1>
@@ -234,7 +312,7 @@
     <!--END FILTER UNTUK MOBILE VIEW -->
 
     <!-- FILTER UNTUK WEB VIEW -->
-    <nav class="hidden lg:flex menuChange w-[90%] md:w-full lg:w-[1040px] mt-[90px] mb-[10px] container mx-auto z-[50]" id="navProf">
+    <nav class="hidden lg:flex menuChange w-[90%] md:w-full lg:w-[1040px] mt-[90px] mb-[10px] container mx-auto z-[49]" id="navProf">
       <ul class="w-full flex text-[#888888] justify-start bg-white rounded-[100px] gap-[2px]">
         <li class="text-[16px] mr-[-20px]">
           <div class="p-3 w-[320px]">
@@ -386,14 +464,14 @@
     <!-- END FILTER UNTUK WEB VIEW -->
 
     <!-- Content -->
-    <div class="container mx-auto relative top-[240px] lg:top-[10px] z-[10] lg:z-[40] lg:mb-[170px] mb-[200px] w-full lg:min-w-[1200px]">
+    <div class="container mx-auto relative top-[240px] md:top-[290px] lg:top-[10px] z-[10] lg:z-[40] lg:mb-[170px] mb-[200px] w-full lg:min-w-[1200px]">
       <div class="flex md:flex-row w-full md:w-full mx-auto h-fit lg:w-[1040px]">
         <div class="lg:h-fit h-fit flex w-full rounded-[16px]" style="box-shadow: 5px 6px 7px 0px rgba(0, 0, 0, 0.1)">
           <!-- Fixed sidebar -->
           <div class="block bg-white lg:w-[40%] w-full lg:rounded-r-none lg:rounded-l-[16px]">
             <!-- Sidebar content -->
             <div class="flex flex-col">
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -463,7 +541,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -533,7 +611,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -603,7 +681,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -673,7 +751,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -743,7 +821,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -813,7 +891,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -883,7 +961,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -953,7 +1031,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -1023,7 +1101,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -1093,7 +1171,7 @@
                   </div>
                 </div>
               </div>
-              <div class="bg-transparent h-max border-b border-gray-300 my-2 py-[5px] w-full">
+              <div class="bg-white h-max border-b border-gray-300 my-2 py-[5px] w-full">
                 <div class="flex flex-col px-[20px] gap-[5px]">
                   <!-- div untuk MOBILE Large View agar drawer bisa diklik -->
                   <div
@@ -1334,7 +1412,7 @@
       </div>
     </div>
     <!-- drawer component -->
-    <div id="drawer-bottom-example" class="lg:hidden fixed bottom-0 left-0 right-0 z-40 w-full overflow-y-scroll max-h-screen transition-transform bg-white translate-none" tabindex="-1" aria-labelledby="drawer-bottom-label">
+    <div id="drawer-bottom-example" class="lg:hidden fixed bottom-0 left-0 right-0 z-[99] w-full overflow-y-scroll max-h-screen transition-transform bg-white translate-none" tabindex="-1" aria-labelledby="drawer-bottom-label">
       <!-- Your content -->
       <div class="w-[25px] fixed top-2 right-2.5 rounded-full">
         <button type="button" data-drawer-hide="drawer-bottom-example" aria-controls="drawer-bottom-example" class="relative right-0 rounded-full text-white bg-red-600 text-sm h-[25px] w-[25px] inline-flex items-center justify-center">
@@ -1349,24 +1427,24 @@
           type="button"
           data-drawer-hide="drawer-bottom-example"
           aria-controls="drawer-bottom-example"
-          class="relative right-0 rounded-full text-white bg-transparent border border-black text-sm h-[25px] w-[25px] inline-flex items-center justify-center"
+          class="relative right-0 rounded-full text-white bg-white border border-black text-sm h-[25px] w-[25px] inline-flex items-center justify-center"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: black"><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
           <span class="sr-only">Close menu</span>
         </button>
       </div>
       <!-- BG Top -->
-      <div class="h-[200px] w-full">
-        <img src="images/loker/bg-gojek.png" alt="" class="" />
+      <div class="h-[200px] w-screen">
+        <img src="images/loker/bg-gojek.png" alt="" class="md:w-full" />
       </div>
       <!-- BG Top -->
 
       <!-- First Section -->
-      <div class="flex flex-row relative top-[-110px] justify-around mx-auto mb-[-120px]">
+      <div class="flex flex-row relative top-[-110px] md:top-[20px] justify-around md:justify-start md:ml-[20px] mx-auto mb-[-120px] md:mb-[40px]">
         <div class="h-[100px] bg-white rounded-[16px] max-h-[100px] max-w-[100px] mb-3 relative" style="box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.1)">
           <img src="images/loker/gjkicon.png" alt="" class="rounded-[16px]" />
         </div>
-        <div class="flex flex-col relative top-[45px] right-[20px]">
+        <div class="flex flex-col relative top-[45px] right-[20px] md:right-[-20px]">
           <div><p class="text-[28px] font-[600]">UI/UX Designer</p></div>
           <div><p class="text-[16px] font-[500]">Gojek . Jakarta, Indonesia</p></div>
         </div>
@@ -1374,7 +1452,7 @@
       <!-- First Section -->
       <!-- Second Section -->
       <div class="bg-white px-[6px] py-[14px] mt-[20px] mx-[20px] rounded-[8px]" style="box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.14)">
-        <div class="flex flex-row justify-between gap-[4px]">
+        <div class="flex flex-row justify-between md:justify-around gap-[4px]">
           <div class="flex flex-row justify-center items-center gap-[4px]">
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
@@ -1570,7 +1648,7 @@
               <ul class="text-[14px] md:text-[12px]">
                 <a href=""><li class="mb-[12px] text-center md:text-left">Submit your email for new updates</li></a>
                 <li class="flex flex-row">
-                  <input class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[190.01px] h-[45px] border border-white text-[#404040]" type="email" name="" id="" />
+                  <input class="rounded-l-[5px] bg-[#f6fcff] w-full md:w-[120.01px] lg:w-[190.01px] h-[45px] border border-white text-[#404040]" type="email" name="" id="" />
                   <button class="w-[50.09px] rounded-r-[5px] h-[45px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]">
                     <img loading="lazy" class="w-[28px] h-[28px]" src="./images/svg/mail.svg" />
                   </button>
@@ -1625,7 +1703,7 @@
         document.getElementById("navbar").style.backgroundColor = "#ffffff";
         document.getElementById("navbar").style.boxShadow = "0 0 10px rgba(0,0,0,0.1)";
       } else {
-        document.getElementById("navbar").style.backgroundColor = "transparent";
+        document.getElementById("navbar").style.backgroundColor = "#ffffff";
         document.getElementById("navbar").style.boxShadow = "none";
       }
     });

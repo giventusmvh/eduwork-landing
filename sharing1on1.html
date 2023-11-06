@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+    <title>EduWork - Platform Mentoring & Penyaluran Kerja</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+      .swiper-pagination {
+        position: relative !important;
+        margin-top: 2em;
+      }
+      .swiper-pagination-bullet {
+        width: 13px;
+        height: 13px;
+      }
+    </style>
+  </head>
+  <body class="bg-[#f6fcff] text-[#404040] font-poppins">
+    <!-- Navabar -->
+    <div class="w-full z-[99]" id="navbar">
+      <nav class="z-50" style="top: 0px; background-color: transparent; box-shadow: none">
+        <div class="w-[90%] lg:w-[1016px] container mx-auto py-2 md:py-4">
+          <div class="container flex flex-wrap items-center justify-between mx-auto">
+            <a href="/" class="w-[154px] h-[31px]">
+              <img loading="lazy" class="" src="./images/logo/favicon.png" alt="Eduwork Logo" />
+            </a>
+            <div class="flex gap-3 md:order-2">
+              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
+              <button type="button" class="text-white hidden md:block bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Register</button>
+              <button
+                data-collapse-toggle="navbar-sticky"
+                type="button"
+                class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                aria-controls="navbar-sticky"
+                aria-expanded="false"
+              >
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="items-center justify-between w-full md:flex md:w-auto md:order-1 hidden" id="navbar-sticky">
+              <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row gap-[10px] md:gap-[40px] md:mt-0 md:text-sm md:font-semibold md:border-0 md:bg-transparent">
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownNavbar"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Kelas
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownNavbar"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 130.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Regular</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Kelas</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownMentor"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Mentor
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownMentor"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 180.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mentor</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  id="dropdownNavbarLink"
+                  data-dropdown-toggle="dropdownCompany"
+                  class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 md:w-auto md:dark:hover:bg-transparent"
+                >
+                  Company
+                  <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </button>
+                <div
+                  id="dropdownCompany"
+                  class="z-10 font-normal bg-white border-1 border-gray-300 divide-y divide-gray-100 rounded shadow w-[90%] md:w-44 !mb-5 hidden"
+                  style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate3d(195.333px, 230.667px, 0px)"
+                  data-popper-placement="bottom"
+                >
+                  <ul class="py-1 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Partner</a>
+                    </li>
+                  </ul>
+                </div>
+                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">Login</button>
+                <button type="button" class="text-white block md:hidden bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0">
+                  Register
+                </button>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- End Navbar -->
+    <!-- Hero -->
+    <div class="relative w-full h-[170px] lg:mb-0 md:mb-0 mb-0">
+      <div class="container mx-auto mt-[-40px]">
+        <div class="flex md:flex-row w-[95%] md:w-full mx-auto h-fit lg:w-[1016px]">
+          <div class="relative w-[90%] lg:w-[1016px] container mx-auto pt-32 pb-24 md:pb-32 flex flex-col gap-[30px] z-10">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-arrow-left"></i>
+              <p class="text-[20px] font-[500]">Permintaan Mentoring</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- EndHero -->
+
+    <!-- <img loading="lazy" src="./images/bg-detail-kelas-2.png" alt="bg" class="w-full absolute top-[1408px] -z-30" /> -->
+    <!-- Contenet -->
+    <div class="w-[full] md:w-full lg:w-[1016px] container mx-auto flex items-start py-[20px] flex-col md:flex-row z-[30] gap-[20px]">
+      <div class="w-[95%] mx-auto md:w-[23%] z-[70]" id="menuCourse">
+        <nav class="menuChange bg-white lg:py-[20px] py-2 px-5 shadow-xl text-[#8C8C8C] rounded-[10px] flex flex-col gap-4">
+          <div class="flex justify-between items-center" data-collapse-toggle="filter-cta" aria-controls="filter-cta" aria-expanded="false">
+            <h1 class="font-semibold text-[20px] text-[#404040]">Filters</h1>
+            <button type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg lg:hidden">
+              <span class="sr-only">Open main menu</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: black"><path d="M4 6h16v2H4zm4 5h12v2H8zm5 5h7v2h-7z"></path></svg>
+            </button>
+          </div>
+          <ul id="filter-cta" class="text-[#8C8C8C] hidden md:flex">
+            <div class="flex flex-col gap-4 w-full">
+              <div class="h-[1px] bg-slate-300"></div>
+              <p class="text-black">Price</p>
+              <div class="flex flex-row justify-between">
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Min</button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="36" viewBox="0 0 26 36" fill="none">
+                  <path d="M20.5807 18H5.41406" stroke="#187CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2">Max</button>
+              </div>
+              <div class="h-[1px] bg-slate-300"></div>
+              <p class="text-black">Class</p>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Web Developer</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Software Engineer</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Data Science</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Mobile Developer</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">UI/UX Designer</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Digital Marketing</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Quality Assurance</label>
+              </div>
+              <div class="h-[1px] bg-slate-300"></div>
+              <p class="text-black">Topic</p>
+
+              <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white" data-inactive-classes="text-gray-500" class="mt-[-20px]">
+                <h2 id="accordion-flush-heading-1">
+                  <button
+                    type="button"
+                    class="flex items-center justify-between w-full py-5 font-normal text-[16px] text-left text-black mb-[-20px]"
+                    data-accordion-target="#accordion-flush-body-1"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-1"
+                  >
+                    <span>Web Developer</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                    </svg>
+                  </button>
+                </h2>
+                <div id="accordion-flush-body-1" class="hidden mt-[-10px]" aria-labelledby="accordion-flush-heading-1">
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Introduction to Python</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">HTML CSS</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">JavaScript</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Laravel</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">APIs</label>
+                  </div>
+                </div>
+                <h2 id="accordion-flush-heading-2">
+                  <button
+                    type="button"
+                    class="flex items-center justify-between w-full py-5 font-normal text-[16px] text-left text-black mb-[-20px]"
+                    data-accordion-target="#accordion-flush-body-2"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-2"
+                  >
+                    <span>Software Engineer</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                    </svg>
+                  </button>
+                </h2>
+                <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Introduction to Python</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">HTML CSS</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">JavaScript</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Laravel</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">APIs</label>
+                  </div>
+                </div>
+                <h2 id="accordion-flush-heading-3">
+                  <button
+                    type="button"
+                    class="flex items-center justify-between w-full py-5 font-normal text-[16px] text-left text-black mb-[-20px]"
+                    data-accordion-target="#accordion-flush-body-3"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-3"
+                  >
+                    <span>Mobile Developer</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                    </svg>
+                  </button>
+                </h2>
+                <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Python</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">HTML CSS</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">JavaScript</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Laravel</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">APIs</label>
+                  </div>
+                </div>
+                <h2 id="accordion-flush-heading-4">
+                  <button
+                    type="button"
+                    class="flex items-center justify-between w-full py-5 font-normal text-[16px] text-left text-black mb-[-20px]"
+                    data-accordion-target="#accordion-flush-body-4"
+                    aria-expanded="true"
+                    aria-controls="accordion-flush-body-4"
+                  >
+                    <span>UI/UX Designer</span>
+                    <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5" />
+                    </svg>
+                  </button>
+                </h2>
+                <div id="accordion-flush-body-4" class="hidden" aria-labelledby="accordion-flush-heading-4">
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Python</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">HTML CSS</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">JavaScript</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Laravel</label>
+                  </div>
+                  <div class="flex items-center my-[10px]">
+                    <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                    <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">APIs</label>
+                  </div>
+                </div>
+              </div>
+              <div class="h-[1px] bg-slate-300"></div>
+              <p class="text-black">Skill</p>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Laravel</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Python</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">SQL</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Figma</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">CSS</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">React Js</label>
+              </div>
+              <div class="flex items-center">
+                <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500" />
+                <label for="default-checkbox" class="ml-2 text-sm font-normal text-gray-900">Maze</label>
+              </div>
+              <div class="h-[1px] bg-slate-300"></div>
+              <button class="bg-blue-600 text-white py-[12px] rounded-[9px]">Terapkan</button>
+            </div>
+          </ul>
+        </nav>
+      </div>
+      <div class="w-[90%] mx-auto md:w-[754px]">
+        <div class="relative">
+          <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+          </div>
+          <input type="search" placeholder="Cari bedasarkan profesi" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-full bg-gray-50 focus:ring-blue-500 focus:border-blue-500" />
+        </div>
+
+        <!-- Section -->
+        <section class="mt-[40px] w-[100%] flex flex-col gap-5 p-[12px] rounded-[20px] bg-white" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+          <div class="flex lg:flex-row flex-col gap-3">
+            <div class="w-full flex lg:flex-row flex-col gap-3">
+              <div class="h-[144px] w-[144px] rounded-[20px]" style="background: url('./images/sharing1on1/pp.jpeg'); background-size: cover; background-repeat: no-repeat; background-position: center"></div>
+              <div class="flex flex-col">
+                <div class="flex flex-row items-center justify-between gap-[30px]">
+                  <div class="flex flex-col">
+                    <p class="text-[18px] font-[500]">Natasha Wilona</p>
+                    <p class="text-[14px]">Software Engineer</p>
+                  </div>
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-green-500 rounded-full font-[500] h-[18px] text-green-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <circle cx="4" cy="4" r="4" fill="#1CB30E" />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Online</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                          d="M3.89552 3.04396C6.16246 0.777015 9.83792 0.777015 12.1049 3.04396C14.3718 5.31089 14.3718 8.98636 12.1049 11.2533L11.3135 12.0359C10.7303 12.6083 9.97352 13.3443 9.04292 14.244C8.46146 14.8062 7.53892 14.8062 6.95752 14.2438L4.6301 11.9799C4.33759 11.6927 4.09274 11.4505 3.89552 11.2533C1.62858 8.98636 1.62858 5.31089 3.89552 3.04396ZM11.3977 3.75106C9.52132 1.87464 6.47904 1.87464 4.60262 3.75106C2.7262 5.62748 2.7262 8.66976 4.60262 10.5462L5.594 11.5245C6.13994 12.0588 6.82626 12.7257 7.65272 13.525C7.84652 13.7124 8.15399 13.7125 8.34786 13.5251L10.6111 11.3241C10.9237 11.0172 11.186 10.7579 11.3977 10.5462C13.2741 8.66976 13.2741 5.62748 11.3977 3.75106ZM8.00019 5.33105C9.10532 5.33105 10.0012 6.22695 10.0012 7.3321C10.0012 8.43723 9.10532 9.3331 8.00019 9.3331C6.89506 9.3331 5.99914 8.43723 5.99914 7.3321C5.99914 6.22695 6.89506 5.33105 8.00019 5.33105ZM8.00019 6.33105C7.44732 6.33105 6.99912 6.77923 6.99912 7.3321C6.99912 7.88496 7.44732 8.3331 8.00019 8.3331C8.55306 8.3331 9.00119 7.88496 9.00119 7.3321C9.00119 6.77923 8.55306 6.33105 8.00019 6.33105Z"
+                          fill="#187CFF"
+                        />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Surabaya</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row items-center mt-[10px]">
+                  <div class="flex flex-row items-center">
+                    <p class="mr-[3px]">4.4</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M7.83198 3C7.77131 3 7.62198 3.01667 7.54264 3.17533L6.32531 5.60933C6.13264 5.994 5.76131 6.26133 5.33198 6.32267L2.60664 6.71533C2.42664 6.74133 2.36531 6.87467 2.34664 6.93067C2.32998 6.98467 2.30331 7.122 2.42731 7.24067L4.39798 9.134C4.71198 9.436 4.85464 9.87133 4.77998 10.2973L4.31598 12.9707C4.28731 13.138 4.39198 13.2353 4.43864 13.2687C4.48798 13.306 4.61998 13.38 4.78331 13.2947L7.21998 12.0313C7.60398 11.8333 8.06131 11.8333 8.44398 12.0313L10.88 13.294C11.044 13.3787 11.176 13.3047 11.226 13.2687C11.2726 13.2353 11.3773 13.138 11.3486 12.9707L10.8833 10.2973C10.8086 9.87133 10.9513 9.436 11.2653 9.134L13.236 7.24067C13.3606 7.122 13.334 6.984 13.3166 6.93067C13.2986 6.87467 13.2373 6.74133 13.0573 6.71533L10.332 6.32267C9.90331 6.26133 9.53198 5.994 9.33931 5.60867L8.12064 3.17533C8.04198 3.01667 7.89264 3 7.83198 3ZM4.62998 14.3333C4.35464 14.3333 4.08131 14.2467 3.84731 14.076C3.44331 13.78 3.24531 13.2913 3.33131 12.7993L3.79531 10.126C3.81264 10.0267 3.77864 9.926 3.70531 9.85533L1.73464 7.962C1.37198 7.61467 1.24198 7.10133 1.39531 6.62467C1.54998 6.14267 1.95931 5.798 2.46398 5.726L5.18931 5.33333C5.29464 5.31867 5.38531 5.254 5.43064 5.162L6.64864 2.72733C6.87331 2.27867 7.32664 2 7.83198 2C8.33731 2 8.79064 2.27867 9.01531 2.72733L10.234 5.16133C10.28 5.254 10.37 5.31867 10.4746 5.33333L13.2 5.726C13.7046 5.798 14.114 6.14267 14.2686 6.62467C14.422 7.10133 14.2913 7.61467 13.9286 7.962L11.958 9.85533C11.8846 9.926 11.8513 10.0267 11.8686 10.1253L12.3333 12.7993C12.4186 13.292 12.2206 13.7807 11.816 14.076C11.406 14.3767 10.872 14.4173 10.4193 14.1813L7.98398 12.9193C7.88864 12.87 7.77464 12.87 7.67931 12.9193L5.24398 14.182C5.04931 14.2833 4.83931 14.3333 4.62998 14.3333Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex gap-2 justify-self-end ml-[60px]">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/python.png" alt="" class="max-w-[14px] rounded-full" />
+                      Python
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/laravel.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      Laravel
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/sql.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      SQL
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row mt-[20px]">
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Class: Software Engineer</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Topic: Introduction to Python</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col text-end">
+              <p class="font-semibold text-[24px]">Rp.115.000</p>
+              <p>/jam</p>
+              <button class="bg-blue-500 text-white rounded-[8px] py-[6px] px-[10px] lg:w-[200px] lg:mt-[40px]">Ambil</button>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold">Topik yang ingin dikonsultasikan :</p>
+            <p class="font-[300]">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex, quam fugit aliquid inventore at id eaque provident hic aut temporibus maxime dicta beatae repellat fugiat numquam quas asperiores quae neque minus eius
+              consequatur esse in iusto? Quia, tenetur alias?
+            </p>
+          </div>
+        </section>
+        <!-- End Section -->
+        <!-- Section -->
+        <section class="mt-[40px] w-[100%] flex flex-col gap-5 p-[12px] rounded-[20px] bg-white" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+          <div class="flex lg:flex-row flex-col gap-3">
+            <div class="w-full flex lg:flex-row flex-col gap-3">
+              <div class="h-[144px] w-[144px] rounded-[20px]" style="background: url('./images/sharing1on1/pp2.jpeg'); background-size: cover; background-repeat: no-repeat; background-position: center"></div>
+              <div class="flex flex-col">
+                <div class="flex flex-row items-center justify-between gap-[30px]">
+                  <div class="flex flex-col">
+                    <p class="text-[18px] font-[500]">Natasha Wilona</p>
+                    <p class="text-[14px]">Software Engineer</p>
+                  </div>
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-green-500 rounded-full font-[500] h-[18px] text-green-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <circle cx="4" cy="4" r="4" fill="#1CB30E" />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Online</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                          d="M3.89552 3.04396C6.16246 0.777015 9.83792 0.777015 12.1049 3.04396C14.3718 5.31089 14.3718 8.98636 12.1049 11.2533L11.3135 12.0359C10.7303 12.6083 9.97352 13.3443 9.04292 14.244C8.46146 14.8062 7.53892 14.8062 6.95752 14.2438L4.6301 11.9799C4.33759 11.6927 4.09274 11.4505 3.89552 11.2533C1.62858 8.98636 1.62858 5.31089 3.89552 3.04396ZM11.3977 3.75106C9.52132 1.87464 6.47904 1.87464 4.60262 3.75106C2.7262 5.62748 2.7262 8.66976 4.60262 10.5462L5.594 11.5245C6.13994 12.0588 6.82626 12.7257 7.65272 13.525C7.84652 13.7124 8.15399 13.7125 8.34786 13.5251L10.6111 11.3241C10.9237 11.0172 11.186 10.7579 11.3977 10.5462C13.2741 8.66976 13.2741 5.62748 11.3977 3.75106ZM8.00019 5.33105C9.10532 5.33105 10.0012 6.22695 10.0012 7.3321C10.0012 8.43723 9.10532 9.3331 8.00019 9.3331C6.89506 9.3331 5.99914 8.43723 5.99914 7.3321C5.99914 6.22695 6.89506 5.33105 8.00019 5.33105ZM8.00019 6.33105C7.44732 6.33105 6.99912 6.77923 6.99912 7.3321C6.99912 7.88496 7.44732 8.3331 8.00019 8.3331C8.55306 8.3331 9.00119 7.88496 9.00119 7.3321C9.00119 6.77923 8.55306 6.33105 8.00019 6.33105Z"
+                          fill="#187CFF"
+                        />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Surabaya</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row items-center mt-[10px]">
+                  <div class="flex flex-row items-center">
+                    <p class="mr-[3px]">4.4</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M7.83198 3C7.77131 3 7.62198 3.01667 7.54264 3.17533L6.32531 5.60933C6.13264 5.994 5.76131 6.26133 5.33198 6.32267L2.60664 6.71533C2.42664 6.74133 2.36531 6.87467 2.34664 6.93067C2.32998 6.98467 2.30331 7.122 2.42731 7.24067L4.39798 9.134C4.71198 9.436 4.85464 9.87133 4.77998 10.2973L4.31598 12.9707C4.28731 13.138 4.39198 13.2353 4.43864 13.2687C4.48798 13.306 4.61998 13.38 4.78331 13.2947L7.21998 12.0313C7.60398 11.8333 8.06131 11.8333 8.44398 12.0313L10.88 13.294C11.044 13.3787 11.176 13.3047 11.226 13.2687C11.2726 13.2353 11.3773 13.138 11.3486 12.9707L10.8833 10.2973C10.8086 9.87133 10.9513 9.436 11.2653 9.134L13.236 7.24067C13.3606 7.122 13.334 6.984 13.3166 6.93067C13.2986 6.87467 13.2373 6.74133 13.0573 6.71533L10.332 6.32267C9.90331 6.26133 9.53198 5.994 9.33931 5.60867L8.12064 3.17533C8.04198 3.01667 7.89264 3 7.83198 3ZM4.62998 14.3333C4.35464 14.3333 4.08131 14.2467 3.84731 14.076C3.44331 13.78 3.24531 13.2913 3.33131 12.7993L3.79531 10.126C3.81264 10.0267 3.77864 9.926 3.70531 9.85533L1.73464 7.962C1.37198 7.61467 1.24198 7.10133 1.39531 6.62467C1.54998 6.14267 1.95931 5.798 2.46398 5.726L5.18931 5.33333C5.29464 5.31867 5.38531 5.254 5.43064 5.162L6.64864 2.72733C6.87331 2.27867 7.32664 2 7.83198 2C8.33731 2 8.79064 2.27867 9.01531 2.72733L10.234 5.16133C10.28 5.254 10.37 5.31867 10.4746 5.33333L13.2 5.726C13.7046 5.798 14.114 6.14267 14.2686 6.62467C14.422 7.10133 14.2913 7.61467 13.9286 7.962L11.958 9.85533C11.8846 9.926 11.8513 10.0267 11.8686 10.1253L12.3333 12.7993C12.4186 13.292 12.2206 13.7807 11.816 14.076C11.406 14.3767 10.872 14.4173 10.4193 14.1813L7.98398 12.9193C7.88864 12.87 7.77464 12.87 7.67931 12.9193L5.24398 14.182C5.04931 14.2833 4.83931 14.3333 4.62998 14.3333Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex gap-2 justify-self-end ml-[60px]">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/python.png" alt="" class="max-w-[14px] rounded-full" />
+                      Python
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/laravel.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      Laravel
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/sql.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      SQL
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row mt-[20px]">
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Class: Software Engineer</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Topic: Introduction to Python</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col text-end">
+              <p class="font-semibold text-[24px]">Rp.115.000</p>
+              <p>/jam</p>
+              <button class="bg-blue-500 text-white rounded-[8px] py-[6px] px-[10px] lg:w-[200px] lg:mt-[40px]">Ambil</button>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold">Topik yang ingin dikonsultasikan :</p>
+            <p class="font-[300]">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex, quam fugit aliquid inventore at id eaque provident hic aut temporibus maxime dicta beatae repellat fugiat numquam quas asperiores quae neque minus eius
+              consequatur esse in iusto? Quia, tenetur alias?
+            </p>
+          </div>
+        </section>
+        <!-- End Section -->
+        <!-- Section -->
+        <section class="mt-[40px] w-[100%] flex flex-col gap-5 p-[12px] rounded-[20px] bg-white" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+          <div class="flex lg:flex-row flex-col gap-3">
+            <div class="w-full flex lg:flex-row flex-col gap-3">
+              <div class="h-[144px] w-[144px] rounded-[20px]" style="background: url('./images/sharing1on1/pp3.jpeg'); background-size: cover; background-repeat: no-repeat; background-position: center"></div>
+              <div class="flex flex-col">
+                <div class="flex flex-row items-center justify-between gap-[30px]">
+                  <div class="flex flex-col">
+                    <p class="text-[18px] font-[500]">Natasha Wilona</p>
+                    <p class="text-[14px]">Software Engineer</p>
+                  </div>
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-green-500 rounded-full font-[500] h-[18px] text-green-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <circle cx="4" cy="4" r="4" fill="#1CB30E" />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Online</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                          d="M3.89552 3.04396C6.16246 0.777015 9.83792 0.777015 12.1049 3.04396C14.3718 5.31089 14.3718 8.98636 12.1049 11.2533L11.3135 12.0359C10.7303 12.6083 9.97352 13.3443 9.04292 14.244C8.46146 14.8062 7.53892 14.8062 6.95752 14.2438L4.6301 11.9799C4.33759 11.6927 4.09274 11.4505 3.89552 11.2533C1.62858 8.98636 1.62858 5.31089 3.89552 3.04396ZM11.3977 3.75106C9.52132 1.87464 6.47904 1.87464 4.60262 3.75106C2.7262 5.62748 2.7262 8.66976 4.60262 10.5462L5.594 11.5245C6.13994 12.0588 6.82626 12.7257 7.65272 13.525C7.84652 13.7124 8.15399 13.7125 8.34786 13.5251L10.6111 11.3241C10.9237 11.0172 11.186 10.7579 11.3977 10.5462C13.2741 8.66976 13.2741 5.62748 11.3977 3.75106ZM8.00019 5.33105C9.10532 5.33105 10.0012 6.22695 10.0012 7.3321C10.0012 8.43723 9.10532 9.3331 8.00019 9.3331C6.89506 9.3331 5.99914 8.43723 5.99914 7.3321C5.99914 6.22695 6.89506 5.33105 8.00019 5.33105ZM8.00019 6.33105C7.44732 6.33105 6.99912 6.77923 6.99912 7.3321C6.99912 7.88496 7.44732 8.3331 8.00019 8.3331C8.55306 8.3331 9.00119 7.88496 9.00119 7.3321C9.00119 6.77923 8.55306 6.33105 8.00019 6.33105Z"
+                          fill="#187CFF"
+                        />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Surabaya</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row items-center mt-[10px]">
+                  <div class="flex flex-row items-center">
+                    <p class="mr-[3px]">4.4</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M7.83198 3C7.77131 3 7.62198 3.01667 7.54264 3.17533L6.32531 5.60933C6.13264 5.994 5.76131 6.26133 5.33198 6.32267L2.60664 6.71533C2.42664 6.74133 2.36531 6.87467 2.34664 6.93067C2.32998 6.98467 2.30331 7.122 2.42731 7.24067L4.39798 9.134C4.71198 9.436 4.85464 9.87133 4.77998 10.2973L4.31598 12.9707C4.28731 13.138 4.39198 13.2353 4.43864 13.2687C4.48798 13.306 4.61998 13.38 4.78331 13.2947L7.21998 12.0313C7.60398 11.8333 8.06131 11.8333 8.44398 12.0313L10.88 13.294C11.044 13.3787 11.176 13.3047 11.226 13.2687C11.2726 13.2353 11.3773 13.138 11.3486 12.9707L10.8833 10.2973C10.8086 9.87133 10.9513 9.436 11.2653 9.134L13.236 7.24067C13.3606 7.122 13.334 6.984 13.3166 6.93067C13.2986 6.87467 13.2373 6.74133 13.0573 6.71533L10.332 6.32267C9.90331 6.26133 9.53198 5.994 9.33931 5.60867L8.12064 3.17533C8.04198 3.01667 7.89264 3 7.83198 3ZM4.62998 14.3333C4.35464 14.3333 4.08131 14.2467 3.84731 14.076C3.44331 13.78 3.24531 13.2913 3.33131 12.7993L3.79531 10.126C3.81264 10.0267 3.77864 9.926 3.70531 9.85533L1.73464 7.962C1.37198 7.61467 1.24198 7.10133 1.39531 6.62467C1.54998 6.14267 1.95931 5.798 2.46398 5.726L5.18931 5.33333C5.29464 5.31867 5.38531 5.254 5.43064 5.162L6.64864 2.72733C6.87331 2.27867 7.32664 2 7.83198 2C8.33731 2 8.79064 2.27867 9.01531 2.72733L10.234 5.16133C10.28 5.254 10.37 5.31867 10.4746 5.33333L13.2 5.726C13.7046 5.798 14.114 6.14267 14.2686 6.62467C14.422 7.10133 14.2913 7.61467 13.9286 7.962L11.958 9.85533C11.8846 9.926 11.8513 10.0267 11.8686 10.1253L12.3333 12.7993C12.4186 13.292 12.2206 13.7807 11.816 14.076C11.406 14.3767 10.872 14.4173 10.4193 14.1813L7.98398 12.9193C7.88864 12.87 7.77464 12.87 7.67931 12.9193L5.24398 14.182C5.04931 14.2833 4.83931 14.3333 4.62998 14.3333Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex gap-2 justify-self-end ml-[60px]">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/python.png" alt="" class="max-w-[14px] rounded-full" />
+                      Python
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/laravel.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      Laravel
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/sql.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      SQL
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row mt-[20px]">
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Class: Software Engineer</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Topic: Introduction to Python</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col text-end">
+              <p class="font-semibold text-[24px]">Rp.115.000</p>
+              <p>/jam</p>
+              <button class="bg-blue-500 text-white rounded-[8px] py-[6px] px-[10px] lg:w-[200px] lg:mt-[40px]">Ambil</button>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold">Topik yang ingin dikonsultasikan :</p>
+            <p class="font-[300]">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex, quam fugit aliquid inventore at id eaque provident hic aut temporibus maxime dicta beatae repellat fugiat numquam quas asperiores quae neque minus eius
+              consequatur esse in iusto? Quia, tenetur alias?
+            </p>
+          </div>
+        </section>
+        <!-- End Section -->
+        <!-- Section -->
+        <section class="mt-[40px] w-[100%] flex flex-col gap-5 p-[12px] rounded-[20px] bg-white" style="box-shadow: 4px 4px 24px 0px rgba(24, 124, 255, 0.12)">
+          <div class="flex lg:flex-row flex-col gap-3">
+            <div class="w-full flex lg:flex-row flex-col gap-3">
+              <div class="h-[144px] w-[144px] rounded-[20px]" style="background: url('./images/sharing1on1/pp4.jpeg'); background-size: cover; background-repeat: no-repeat; background-position: center"></div>
+              <div class="flex flex-col">
+                <div class="flex flex-row items-center justify-between gap-[30px]">
+                  <div class="flex flex-col">
+                    <p class="text-[18px] font-[500]">Natasha Wilona</p>
+                    <p class="text-[14px]">Software Engineer</p>
+                  </div>
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-green-500 rounded-full font-[500] h-[18px] text-green-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+                        <circle cx="4" cy="4" r="4" fill="#1CB30E" />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Online</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path
+                          d="M3.89552 3.04396C6.16246 0.777015 9.83792 0.777015 12.1049 3.04396C14.3718 5.31089 14.3718 8.98636 12.1049 11.2533L11.3135 12.0359C10.7303 12.6083 9.97352 13.3443 9.04292 14.244C8.46146 14.8062 7.53892 14.8062 6.95752 14.2438L4.6301 11.9799C4.33759 11.6927 4.09274 11.4505 3.89552 11.2533C1.62858 8.98636 1.62858 5.31089 3.89552 3.04396ZM11.3977 3.75106C9.52132 1.87464 6.47904 1.87464 4.60262 3.75106C2.7262 5.62748 2.7262 8.66976 4.60262 10.5462L5.594 11.5245C6.13994 12.0588 6.82626 12.7257 7.65272 13.525C7.84652 13.7124 8.15399 13.7125 8.34786 13.5251L10.6111 11.3241C10.9237 11.0172 11.186 10.7579 11.3977 10.5462C13.2741 8.66976 13.2741 5.62748 11.3977 3.75106ZM8.00019 5.33105C9.10532 5.33105 10.0012 6.22695 10.0012 7.3321C10.0012 8.43723 9.10532 9.3331 8.00019 9.3331C6.89506 9.3331 5.99914 8.43723 5.99914 7.3321C5.99914 6.22695 6.89506 5.33105 8.00019 5.33105ZM8.00019 6.33105C7.44732 6.33105 6.99912 6.77923 6.99912 7.3321C6.99912 7.88496 7.44732 8.3331 8.00019 8.3331C8.55306 8.3331 9.00119 7.88496 9.00119 7.3321C9.00119 6.77923 8.55306 6.33105 8.00019 6.33105Z"
+                          fill="#187CFF"
+                        />
+                      </svg>
+                      <p class="mt-[2px] text-[9px]">Surabaya</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row items-center mt-[10px]">
+                  <div class="flex flex-row items-center">
+                    <p class="mr-[3px]">4.4</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M11.9446 9.54797C11.7719 9.7153 11.6926 9.9573 11.7319 10.1946L12.3246 13.4746C12.3746 13.7526 12.2573 14.034 12.0246 14.1946C11.7966 14.3613 11.4933 14.3813 11.2446 14.248L8.29195 12.708C8.18928 12.6533 8.07528 12.624 7.95862 12.6206H7.77795C7.71528 12.63 7.65395 12.65 7.59795 12.6806L4.64462 14.228C4.49862 14.3013 4.33328 14.3273 4.17128 14.3013C3.77662 14.2266 3.51328 13.8506 3.57795 13.454L4.17128 10.174C4.21062 9.93464 4.13128 9.6913 3.95862 9.5213L1.55128 7.18797C1.34995 6.99263 1.27995 6.6993 1.37195 6.43464C1.46128 6.17064 1.68928 5.97797 1.96462 5.93464L5.27795 5.45397C5.52995 5.42797 5.75128 5.27464 5.86462 5.04797L7.32462 2.05464C7.35928 1.98797 7.40395 1.92664 7.45795 1.87464L7.51795 1.82797C7.54928 1.7933 7.58528 1.76464 7.62528 1.7413L7.69795 1.71464L7.81128 1.66797H8.09195C8.34262 1.69397 8.56328 1.84397 8.67862 2.06797L10.1579 5.04797C10.2646 5.26597 10.4719 5.4173 10.7113 5.45397L14.0246 5.93464C14.3046 5.97464 14.5386 6.16797 14.6313 6.43464C14.7186 6.70197 14.6433 6.9953 14.4379 7.18797L11.9446 9.54797Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M7.83198 3C7.77131 3 7.62198 3.01667 7.54264 3.17533L6.32531 5.60933C6.13264 5.994 5.76131 6.26133 5.33198 6.32267L2.60664 6.71533C2.42664 6.74133 2.36531 6.87467 2.34664 6.93067C2.32998 6.98467 2.30331 7.122 2.42731 7.24067L4.39798 9.134C4.71198 9.436 4.85464 9.87133 4.77998 10.2973L4.31598 12.9707C4.28731 13.138 4.39198 13.2353 4.43864 13.2687C4.48798 13.306 4.61998 13.38 4.78331 13.2947L7.21998 12.0313C7.60398 11.8333 8.06131 11.8333 8.44398 12.0313L10.88 13.294C11.044 13.3787 11.176 13.3047 11.226 13.2687C11.2726 13.2353 11.3773 13.138 11.3486 12.9707L10.8833 10.2973C10.8086 9.87133 10.9513 9.436 11.2653 9.134L13.236 7.24067C13.3606 7.122 13.334 6.984 13.3166 6.93067C13.2986 6.87467 13.2373 6.74133 13.0573 6.71533L10.332 6.32267C9.90331 6.26133 9.53198 5.994 9.33931 5.60867L8.12064 3.17533C8.04198 3.01667 7.89264 3 7.83198 3ZM4.62998 14.3333C4.35464 14.3333 4.08131 14.2467 3.84731 14.076C3.44331 13.78 3.24531 13.2913 3.33131 12.7993L3.79531 10.126C3.81264 10.0267 3.77864 9.926 3.70531 9.85533L1.73464 7.962C1.37198 7.61467 1.24198 7.10133 1.39531 6.62467C1.54998 6.14267 1.95931 5.798 2.46398 5.726L5.18931 5.33333C5.29464 5.31867 5.38531 5.254 5.43064 5.162L6.64864 2.72733C6.87331 2.27867 7.32664 2 7.83198 2C8.33731 2 8.79064 2.27867 9.01531 2.72733L10.234 5.16133C10.28 5.254 10.37 5.31867 10.4746 5.33333L13.2 5.726C13.7046 5.798 14.114 6.14267 14.2686 6.62467C14.422 7.10133 14.2913 7.61467 13.9286 7.962L11.958 9.85533C11.8846 9.926 11.8513 10.0267 11.8686 10.1253L12.3333 12.7993C12.4186 13.292 12.2206 13.7807 11.816 14.076C11.406 14.3767 10.872 14.4173 10.4193 14.1813L7.98398 12.9193C7.88864 12.87 7.77464 12.87 7.67931 12.9193L5.24398 14.182C5.04931 14.2833 4.83931 14.3333 4.62998 14.3333Z"
+                        fill="#FBBC04"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex gap-2 justify-self-end ml-[60px]">
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/python.png" alt="" class="max-w-[14px] rounded-full" />
+                      Python
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/laravel.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      Laravel
+                    </div>
+                    <div class="bg-[#EBEEFE] text-primary rounded-[44px] font-[500] text-[9px] p-[5px] flex flex-row justify-center items-center gap-2">
+                      <img src="images/icon/sql.jpeg" alt="" class="max-w-[14px] rounded-full" />
+                      SQL
+                    </div>
+                  </div>
+                </div>
+                <div class="flex flex-row mt-[20px]">
+                  <div class="flex flex-row gap-3">
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Class: Software Engineer</p>
+                    </div>
+                    <div class="bg-none border border-blue-500 rounded-full font-[500] h-[18px] text-blue-500 text-[12px] py-[12px] px-[5px] flex flex-row justify-center items-center gap-1">
+                      <p class="mt-[2px]">Topic: Introduction to Python</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col text-end">
+              <p class="font-semibold text-[24px]">Rp.115.000</p>
+              <p>/jam</p>
+              <button class="bg-blue-500 text-white rounded-[8px] py-[6px] px-[10px] lg:w-[200px] lg:mt-[40px]">Ambil</button>
+            </div>
+          </div>
+          <div>
+            <p class="font-semibold">Topik yang ingin dikonsultasikan :</p>
+            <p class="font-[300]">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae ex, quam fugit aliquid inventore at id eaque provident hic aut temporibus maxime dicta beatae repellat fugiat numquam quas asperiores quae neque minus eius
+              consequatur esse in iusto? Quia, tenetur alias?
+            </p>
+          </div>
+        </section>
+        <!-- End Section -->
+
+        <!-- Pagination -->
+        <div class="relative mt-[30px]">
+          <div class="flex flex-row justify-between">
+            <div class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-[#EDF3FF] rounded-lg">
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+              </svg>
+            </div>
+            <div class="flex flex-row justify-center gap-3">
+              <div class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-[#EDF3FF] rounded-lg">1</div>
+              <div class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-[#EDF3FF] rounded-lg">2</div>
+              <div class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-[#EDF3FF] rounded-lg">3</div>
+              <div class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-[#EDF3FF] rounded-lg">...</div>
+              <div class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-[#EDF3FF] rounded-lg">50</div>
+            </div>
+            <div class="flex items-center justify-center px-4 h-10 ml-0 leading-tight text-gray-500 bg-[#EDF3FF] rounded-lg">
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <!-- End Pagination -->
+      </div>
+    </div>
+    <!-- Contenet -->
+
+    <!-- Footer section -->
+    <section class="relative w-full h-[1270px] md:h-[900px] pb-[20px] md:pb-0 -z-30">
+      <div class="container mx-auto">
+        <div class="absolute w-[80%] mx-auto left-1/2 -translate-x-1/2 h-fit lg:w-fit lg:h-[575px] md:pt-[86px] top-[267px]">
+          <div class="flex flex-col gap-[23px] md:flex-row text-[#ffffff]">
+            <div class="md:w-[237.51px]">
+              <img loading="lazy" class="w-[250px] h-[48.53px] lg:w-fit md:h-fit mx-auto md:mx-0" src="./images/logo/favicon-white.svg" alt="" srcset="" />
+              <p class="text-[16px] md:text-[14px] mt-[37.56px] mb-[18px] text-center md:text-left">When an unknown printer took a galley of type and make a type specimen book.</p>
+              <div class="flex flex-row mb-[60.08px]">
+                <div class="inline-flex gap-[22px] mx-auto md:mx-0">
+                  <img loading="lazy" src="./images/svg/white-instagram.svg" alt="" srcset="" />
+                  <img loading="lazy" src="./images/svg/white-twitter.svg" alt="" srcset="" />
+                  <img loading="lazy" src="./images/svg/white-youtube.svg" alt="" srcset="" />
+                </div>
+              </div>
+            </div>
+
+            <div class="columns-2 flex flex-row md:ml-[80.49px] justify-between">
+              <div class="flex flex-col gap-[41px] w-[159.78px] h-[375px]">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Explore Us</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Kelas</li></a>
+                    <a href=""><li class="mb-[12px]">Our Mentors</li></a>
+                    <a href=""><li class="mb-[12px]">For Corporate</li></a>
+                    <a href=""><li>Community</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Our Services</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Free Event</li></a>
+                    <a href=""><li class="mb-[12px]">Video Course</li></a>
+                    <a href=""><li class="mb-[12px]">Bootcamp</li></a>
+                    <a href=""><li>Private Mentoring</li></a>
+                  </ul>
+                </div>
+              </div>
+              <div class="flex flex-col gap-[41px] w-fit md:w-[198px] h-[375px] text-left">
+                <div class="h-fit">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Category</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <a href=""><li class="mb-[12px]">Mobile Developer</li></a>
+                    <a href=""><li class="mb-[12px]">Website Developer</li></a>
+                    <a href=""><li class="mb-[12px]">UI/UX Designer</li></a>
+                    <a href=""><li>Graphic Designer</li></a>
+                  </ul>
+                </div>
+
+                <div class="h-[167px]">
+                  <h1 class="font-[600] text-[18px] mb-[20px]">Office</h1>
+                  <ul class="text-[14px] md:text-[12px]">
+                    <li class="mb-[12px]">PT Eduwork.id</li>
+                    <li class="mb-[12px]">Jl. Ring Road Utara No 24</li>
+                    <li class="mb-[12px]">Yogyakarta. Indonesia</li>
+                    <a href=""><li>team@eduwork.id</li></a>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h1 class="font-[600] text-[18px] mt-[60px] md:mt-0 mb-[10px] text-center md:text-left">Promotions</h1>
+              <ul class="text-[14px] md:text-[12px]">
+                <a href=""><li class="mb-[12px] text-center md:text-left">Submit your email for new updates</li></a>
+                <li class="flex flex-row">
+                  <input class="rounded-l-[5px] bg-[#f6fcff] w-full lg:w-[190.01px] md:w-[120.01px] h-[55px] border border-white text-[#404040]" type="email" name="" id="" />
+                  <button class="w-[50.09px] rounded-r-[5px] h-[55px] mb-5 md:mb-0 bg-[#a1b0c7] border border-white px-[13px]">
+                    <img loading="lazy" class="w-[28px] h-[28px]" src="./images/svg/mail.svg" />
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="md:absolute bottom-0 text-center md:text-left">
+            <p class="text-[#ffffff] text-[14px] mt-[53px] md:mt-0 md:text-[12px]">© EduWork 2020 - 2021 . All rights reserved.</p>
+          </div>
+          <div class="md:absolute md:right-0 md:bottom-0 md:float-right flex md:flex-row md:justify-between md:gap-[50px]">
+            <div class="mx-auto md:mx-0">
+              <p class="text-[#ffffff] text-[14px] mt-[12px] md:mt-0 md:text-[12px]">Privacy and policy</p>
+            </div>
+            <div>
+              <p class="text-[#ffffff] md:flex hidden text-[12px]">Terms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="wave-footer xl:min-w-[1340px]"></div>
+      <div class="absolute bottom-0 w-full xl:min-w-[1340px] h-full md:h-[981px] bg-footer -z-50"></div>
+    </section>
+    <!-- End of Footer section -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
+    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script>
+      // Event Scroll
+      var prevScrollpos = window.pageYOffset;
+      const sections = document.querySelectorAll("section");
+      const navLi = document.querySelectorAll(".menuChange ul a");
+
+      window.onscroll = function () {
+        var currentScrollPos = window.pageYOffset;
+
+        var current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 60) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLi.forEach((li) => {
+          li.classList.remove("activeMenu");
+          if (li.classList.contains(current)) {
+            li.classList.add("activeMenu");
+          }
+        });
+
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("navbar").style.top = "0";
+          document.getElementById("menuCourse").style.top = "65px";
+        } else {
+          document.getElementById("navbar").style.top = "-90px";
+          document.getElementById("menuCourse").style.top = "0";
+        }
+        prevScrollpos = currentScrollPos;
+      };
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY >= 100) {
+          document.getElementById("navbar").style.backgroundColor = "#ffffff";
+          document.getElementById("navbar").style.boxShadow = "0 0 10px rgba(0,0,0,0.1)";
+        } else {
+          document.getElementById("navbar").style.backgroundColor = "transparent";
+          document.getElementById("navbar").style.boxShadow = "none";
+        }
+      });
+
+      let ok = document.querySelectorAll(".acc");
+
+      ok.forEach((e) => {
+        e.addEventListener("click", () => {
+          removeClass();
+          e.classList.toggle("active");
+        });
+      });
+
+      function removeClass() {
+        ok.forEach((e) => {
+          e.classList.remove("active");
+        });
+      }
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "slide",
+        direction: "horizontal",
+        centerdSlides: true,
+        loop: true,
+        slideToClickedSlide: true,
+        autoplay: {
+          delay: 5000,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 2,
+          },
+          520: {
+            slidesPerView: 2,
+          },
+          720: {
+            slidesPerView: 4,
+          },
+        },
+        grabCursor: true,
+        slidesPerGroup: 1,
+        navigation: {
+          nextEl: ".swiper-Button-next",
+          prevEl: ".swiper-Button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+
+      var player;
+
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player("player", {
+          videoId: "kgMkDnQmV_Q", // Replace with the actual YouTube video ID
+          playerVars: {
+            autoplay: 0, // Set to 1 for autoplay
+            controls: 1, // Set to 0 to hide controls
+            showinfo: 1, // Set to 1 to show video title and uploader info
+            rel: 0, // Set to 0 to disable related videos after playback
+          },
+        });
+      }
+    </script>
+  </body>
+</html>
