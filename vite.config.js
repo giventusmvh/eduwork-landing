@@ -20,6 +20,7 @@ export default defineConfig({
         umkm_detail: resolve(__dirname, "umkm-detail.html"),
         detail_loker: resolve(__dirname, "detail-loker.html"),
         sharing1on1: resolve(__dirname, "sharing1on1.html"),
+        lp_b2b: resolve(__dirname, "LP-b2b.html"),
       },
     },
   },
