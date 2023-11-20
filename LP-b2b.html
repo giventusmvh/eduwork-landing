@@ -23,6 +23,132 @@
         min-height: 0px;
         /* background: linear-gradient(to left top, #031A9A, #8B53FF); */
       }
+      .slider2 {
+        display: flex;
+        padding: 0 35px;
+        align-items: center;
+        justify-content: center;
+        min-height: 0px;
+        /* background: linear-gradient(to left top, #031A9A, #8B53FF); */
+      }
+
+      .wrapper {
+        max-width: 950px;
+        width: 100%;
+        position: relative;
+      }
+      .wrapper i {
+        top: 50%;
+        height: 50px;
+        width: 50px;
+        cursor: pointer;
+        font-size: 1.25rem;
+        position: absolute;
+        text-align: center;
+        line-height: 50px;
+        background: #fff;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+        transform: translateY(-50%);
+        transition: transform 0.1s linear;
+      }
+      .wrapper i:active {
+        transform: translateY(-50%) scale(0.85);
+      }
+      .wrapper i:first-child {
+        left: -52px;
+      }
+      .wrapper i:last-child {
+        right: -52px;
+      }
+      .wrapper .carousel {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: calc((100% / 3) - 12px);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        /* border-radius: 8px; */
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+      }
+      .carousel::-webkit-scrollbar {
+        display: none;
+      }
+      .carousel.no-transition {
+        scroll-behavior: auto;
+      }
+      .carousel.dragging {
+        scroll-snap-type: none;
+        scroll-behavior: auto;
+      }
+      .carousel.dragging .card {
+        cursor: grab;
+        user-select: none;
+      }
+      .carousel :where(.card, .img) {
+        display: flex;
+        /* justify-content: center;
+  align-items: center; */
+      }
+      .carousel .card {
+        scroll-snap-align: start;
+        height: 342px;
+
+        list-style: none;
+        /* background: url(images/profile-ahmad.png); */
+        cursor: pointer;
+        padding-bottom: 15px;
+        flex-direction: column;
+        border-radius: 20px;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .carousel .card .img {
+        background: none;
+        height: 148px;
+        width: 148px;
+        /* border-radius: 50%; */
+      }
+      .card .img img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid #fff;
+      }
+      .carousel .card h2 {
+        font-weight: 500;
+        font-size: 1.56rem;
+        margin: 30px 0 5px;
+        color: white;
+      }
+      .carousel .card span {
+        color: white;
+        font-size: 1.31rem;
+      }
+      @media screen and (max-width: 900px) {
+        .wrapper .carousel {
+          grid-auto-columns: calc((100% / 2) - 50px);
+        }
+      }
+      @media screen and (max-width: 600px) {
+        .wrapper .carousel {
+          grid-auto-columns: calc((100%));
+        }
+        .wrapper {
+          max-width: 350px;
+          width: 100%;
+          position: relative;
+        }
+
+        .wrapper i:first-child {
+          left: -32px;
+        }
+        .wrapper i:last-child {
+          right: -32px;
+        }
+      }
     </style>
   </head>
 
@@ -860,15 +986,13 @@
     <div class="container mx-auto px-auto mt-[40px]">
       <section class="w-[95%] mx-auto lg:w-[1016px] h-fit mb-[65px]">
         <h4 class="text-center text-[#187cff] text-[17px] lg:text-[20px] font-medium">Pricing</h4>
-        <h4 class="px-1 md:px-[20%] text-[20px] lg:text-[24px] font-semibold text-center lg:leading-[36px] mt-[14.7px] mb-[40.3px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h4>
-        <div class="grid grid-rows-1 items-center md:justify-center md:grid-cols-2 lg:grid-cols-4 w-full h-fit gap-[30px] lg:gap-[20px]">
+        <h4 class="px-1 md:px-[20%] text-[20px] lg:text-[24px] font-semibold text-center lg:leading-[36px] mt-[14.7px] mb-[40.3px]">Join Sekarang dan Dapatkan Semua Benefitnya</h4>
+        <div class="grid grid-rows-1 items-center md:justify-center w-full h-fit gap-[30px] lg:gap-[20px]">
           <div class="w-full lg:w-[238.36px] h-full bg-white rounded-[10px] px-[30px] pb-[33px] lg:pb-[29px] shadow-card">
             <div class="flex flex-col md:flex-row md:gap-[19px]">
-              <div class="mx-auto md:mx-0 w-[56px] h-fit md:w-[48px] md:h-[45px] mt-[33px] md:mt-[17px] mb-[15px] md:mb-[26px] bg-[#187cff] py-[6.7px] px-[9px] bg-opacity-20 rounded-[5px]">
-                <img loading="lazy" class="w-full" src="./images/icon/Writer female.svg" alt="" />
-              </div>
-              <div class="md:flex items-center">
-                <p class="text-center md:text-left font-normal text-[14px] leading-[18px]">Basic Plan</p>
+              <div class="md:flex items-center flex-col mt-[30px] mb-[30px]">
+                <p class="text-center md:text-left font-normal text-[18px] leading-[18px] ml-[-20px]">Unlimited</p>
+                <p class="text-center md:text-left font-normal text-[12px] leading-[18px] text-blue-400">12 months access</p>
               </div>
             </div>
             <p class="text-center md:text-left font-normal text-[14px] text-[#828282] leading-[15.6px] md:w-[165px]">Subscription</p>
@@ -877,7 +1001,7 @@
             <a href="https://api.whatsapp.com/send?phone=628879996667"><button class="w-full mt-[38px] py-[10px] bg-[#187cff] text-white text-[14px] md:text-[12px] btn-shade-kat rounded-[5px]">Daftar Sekarang</button></a>
           </div>
 
-          <div class="w-full lg:w-[238.36px] h-full bg-white rounded-[10px] px-[30px] pb-[33px] lg:pb-[29px] shadow-card">
+          <!-- <div class="w-full lg:w-[238.36px] h-full bg-white rounded-[10px] px-[30px] pb-[33px] lg:pb-[29px] shadow-card">
             <div class="flex flex-col md:flex-row md:gap-[19px]">
               <div class="mx-auto md:mx-0 w-[56px] h-fit md:w-[60px] md:h-[45px] mt-[33px] md:mt-[17px] mb-[15px] md:mb-[26px] bg-[#187cff] py-[6.7px] px-[9px] bg-opacity-20 rounded-[5px]">
                 <img loading="lazy" class="w-full h-full" src="./images/b2b/logoupscale.png" alt="" />
@@ -920,7 +1044,7 @@
             <h1 class="text-center md:text-left font-[600] text-[20px] leading-[30px] mb-[12px]">2 juta/bulan</h1>
             <p class="text-center md:text-left font-normal text-[14px] text-[#828282] leading-[15.6px] md:w-[165px]">Tools lengkap untuk E-Commerce Anda.</p>
             <a href="https://api.whatsapp.com/send?phone=628879996667"><button class="w-full mt-[38px] py-[10px] bg-[#187cff] text-white text-[14px] md:text-[12px] btn-shade-kat rounded-[5px]">Daftar Sekarang</button></a>
-          </div>
+          </div> -->
         </div>
       </section>
     </div>
@@ -930,24 +1054,24 @@
     <div class="container mx-auto">
       <section class="relative w-full h-[900px] mb-[80px] max-w-screen-[1340px]">
         <div class="lg:relative flex flex-col lg:left-[185px] lg:top-[200px] bg-primary w-[95%] mx-auto rounded-2xl justify-center items-center lg:justify-start lg:items-start lg:bg-transparent">
-          <img src="images/testi.jpg" alt="" class="w-[300px] h-[300px] mt-5 mb-6 rounded-xl drop-shadow-xl lg:hidden" />
-          <h1 class="relative text-white z-49 text-2xl lg:text-3xl font-bold mb-[35px] lg:z-49">Alumni Success Story</h1>
-          <p class="text-white z-49 text-3xl lg:text-4xl font-semibold max-w-[355px] mb-[35px] text-center lg:text-start">Dapat kerja dengan gaji 2 digit dari koneksi dengan perusahaan asal korea</p>
-          <p class="text-white z-49 text-md font-light max-w-[350px]">Fadil Mahmud</p>
-          <p class="text-white z-49 text-md font-light max-w-[350px]">Product Designer | Samsung Group</p>
-          <a href="" class="text-primary z-49 text-md font-normal mt-[35px] px-6 py-2 bg-white rounded-lg mb-[35px]">Simak Kisahnya</a>
+          <img src="./images/b2b/cakap.jpg" alt="" class="w-[300px] h-[300px] mt-5 mb-6 rounded-xl drop-shadow-xl lg:hidden" />
+          <h1 class="relative text-white z-49 text-2xl lg:text-3xl font-bold mb-[35px] lg:z-49">Partner Success Story</h1>
+          <p class="text-white z-49 text-[13px] lg:text-4xl font-semibold max-w-[355px] mb-[35px] text-center lg:text-start">
+            Dari awal hanya memiliki 1 resource menjadi lebih dari 20 resource. Kami membantu Cakap untuk mendapatkan talent berkualitas dan setup dedicated office di Yogyakarta
+          </p>
+          <p class="text-white z-49 text-md font-light max-w-[350px] mb-[30px]">Cakap Innovation Hub</p>
         </div>
 
         <!-- <div class=""></div> -->
 
-        <div class="relative lg:left-[0px] z-0 h-[900px] lg:bg-[url('./images/testimonial.svg')] lg:bg-no-repeat lg:bg-cover lg:bottom-[480px] lg:right-0">
+        <div class="relative lg:left-[0px] z-0 h-[900px] lg:bg-[url('./images/b2b/cakap.jpg')] lg:bg-no-repeat lg:bg-cover lg:bottom-[578px] lg:right-0">
           <div class="relative lg:w-full z-2 hidden lg:flex lg:h-[900px] lg:bottom-[000px]" style="background: linear-gradient(90deg, rgba(24, 124, 255, 1) 29%, rgba(0, 0, 0, 0) 63%, rgba(24, 124, 255, 1) 100%)"></div>
           <div class="absolute hidden lg:block bottom-[400px] left-[250px]">
-            <h1 class="relative text-white z-49 text-2xl lg:text-3xl font-bold mb-[35px] lg:z-49">Alumni Success Story</h1>
-            <p class="text-white z-49 text-3xl lg:text-4xl font-semibold max-w-[440px] mb-[35px] text-center lg:text-start">Dapat kerja dengan gaji 2 digit dari koneksi dengan perusahaan asal korea</p>
-            <p class="text-white z-49 text-md font-light max-w-[350px]">Fadil Mahmud</p>
-            <p class="text-white z-49 text-md font-light max-w-[350px] mb-[50px]">Product Designer | Samsung Group</p>
-            <a href="" class="text-primary z-49 text-md font-normal mt-[35px] px-6 py-2 bg-white rounded-lg mb-[35px]">Simak Kisahnya</a>
+            <h1 class="relative text-white z-49 text-2xl lg:text-3xl font-bold mb-[35px] lg:z-49">Partner Success Story</h1>
+            <p class="text-white z-49 text-3xl lg:text-[20px] font-semibold max-w-[440px] mb-[35px] text-center lg:text-start">
+              Dari awal hanya memiliki 1 resource menjadi lebih dari 20 resource. Kami membantu Cakap untuk mendapatkan talent berkualitas dan setup dedicated office di Yogyakarta
+            </p>
+            <p class="text-white z-49 text-md font-light max-w-[350px]">Cakap Innovation Hub</p>
           </div>
 
           <!-- <div class="flex z-20 md:flex-row w-[90%] md:w-full mx-auto h-fit lg:w-[1016px]">
@@ -957,42 +1081,43 @@
       </section>
     </div>
 
-    <div class="container mx-auto">
+    <div class="invisible md:visible container mx-auto">
       <div class="slider3 relative lg:bottom-[320px] bottom-[170px]">
         <div class="wrapper">
-          <i id="left" class="fa-solid fa-angle-left"></i>
           <ul class="carousel">
-            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/fadil.png')">
+            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/b2b/kurakura.jpg')">
               <div class="img"></div>
 
-              <p class="text-lg font-bold text-start text-white ml-6">Ahmad</p>
-              <p class="text-sm font-light text-start text-white ml-6 mb-4">UI/UX Designer</p>
-              <p class="text-base text-start text-white ml-6 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, obcaecati?</p>
-              <p class="text-base text-start font-bold text-white ml-6">Simak Kisahnya</p>
+              <p class="text-lg font-bold text-start text-white ml-6">Kura Kura Resort</p>
+
+              <p class="text-base text-start text-white text-[12px] ml-6 mb-4">
+                Konsultan kami telah menyediakan lebih dari 450+ tenaga kerja hanya dalam 2 periode kerja (4 bulan penyaluran) untuk salah satu perusahaan wisata berkelas Internasional, Kura-Kura Resort.
+              </p>
             </li>
-            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/nadia.png')">
+            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/b2b/BarrelHouse.jpg')">
               <!-- <div class="img"><img src="images/profile-lian.png" alt="img" draggable="false" /></div> -->
               <div class="img"></div>
-              <p class="text-lg font-bold text-start text-white ml-6">Ahmad</p>
-              <p class="text-sm font-light text-start text-white ml-6 mb-4">UI/UX Designer</p>
-              <p class="text-base text-start text-white ml-6 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, obcaecati?</p>
-              <p class="text-base text-start font-bold text-white ml-6">Simak Kisahnya</p>
+              <p class="text-lg font-bold text-start text-white ml-6">BarrelHouse Brewing.co</p>
+
+              <p class="text-base text-start text-white text-[12px] ml-6 mb-4">
+                Kami bekerjasama dengan SAP, Odoo, Greatdayhr, Rippling (USA Industrial base only) dan berbagai software management HR demi mempermudah serta menjawab segala kebutuhan klien kami.
+              </p>
             </li>
-            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/eka.png')">
+            <li class="card" style="background-image: linear-gradient(to bottom, rgb(255, 255, 255, 0), rgb(0, 0, 0)), url('images/b2b/Krafthaus.jpg')">
               <div class="img"></div>
               <!-- <div class="img"><img src="images/profile-nikita.png" alt="img" draggable="false" /></div> -->
-              <p class="text-lg font-bold text-start text-white ml-6">Ahmad</p>
-              <p class="text-sm font-light text-start text-white ml-6 mb-4">UI/UX Designer</p>
-              <p class="text-base text-start text-white ml-6 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, obcaecati?</p>
-              <p class="text-base text-start font-bold text-white ml-6">Simak Kisahnya</p>
+              <p class="text-lg font-bold text-start text-white ml-6">Krafthaus</p>
+
+              <p class="text-base text-start text-white text-[12px] ml-6 mb-4">
+                Arief Widyananda, member dari eksklusif network kami di Krafthaus. Semula hanya 3 orang team, kini jumlah team lebih dari 50 orang. Dan dipercaya juga untuk mengelola Paperlust.co.
+              </p>
             </li>
           </ul>
-          <i id="right" class="fa-solid fa-angle-right"></i>
         </div>
       </div>
     </div>
 
-    <div class="flex relative w-full z-10 mt-[50px] lg:mt-[-220px]">
+    <div class="flex relative w-full z-10 mt-[-660px] lg:mt-[-220px]">
       <div
         class="flex flex-row container mx-auto w-[90%] rounded-[20px] lg:w-[1016px] text-left gap-[30px] text-white px-[22px] py-[34px]"
         style="background-image: linear-gradient(90deg, rgba(0, 103, 255, 1) 0%, rgba(255, 255, 255, 0.7814775568430498) 100%), url('images/bg-halaman-mentor.png')"
@@ -1011,7 +1136,7 @@
           <p>*Syarat ketentuan berlaku</p>
           <a
             href="https://api.whatsapp.com/send?phone=628879996667"
-            class="relative z-20 md:ml-0 lg:pl-[47px] lg:pr-[46px] lg:py-[11px] text-center w-full md:w-fit rounded-[15px] lg:text-base md:text-[14px] bg-[#187cff] text-[#f6fcff] mr-[22px] p-3 mt-7"
+            class="flex md:hidden relative z-20 md:ml-0 lg:pl-[47px] lg:pr-[46px] lg:py-[11px] text-center w-full md:w-fit rounded-[15px] lg:text-base md:text-[14px] bg-[#187cff] text-[#f6fcff] mr-[22px] p-3 mt-7"
             >Daftar Sekarang</a
           >
         </div>
